@@ -41,60 +41,6 @@
       "file": "articles/疲労回復リセットプログラム.html"
     },
     {
-      "id": 5,
-      "title": "Claude Code × GitHub Actionsで自動化する方法",
-      "genre": "AI・技術",
-      "date": "2026-05-01",
-      "summary": "Claude APIをGitHub Actionsと組み合わせてコードレビューを自動化する実装パターンを紹介する。",
-      "tags": ["Claude", "GitHub Actions", "自動化"],
-      "readTime": 6
-    },
-    {
-      "id": 6,
-      "title": "ローカルLLMをMacで動かすためのセットアップガイド",
-      "genre": "AI・技術",
-      "date": "2026-04-25",
-      "summary": "OllamaとLM Studioを使ったオフラインLLM環境の構築手順。M2 MacBook Proでの動作確認済み設定を共有する。",
-      "tags": ["LLM", "Ollama", "ローカルAI"],
-      "readTime": 7
-    },
-    {
-      "id": 7,
-      "title": "変形性膝関節症に対する運動療法エビデンス",
-      "genre": "理学療法",
-      "date": "2026-05-02",
-      "summary": "大腿四頭筋強化と有酸素運動の組み合わせが疼痛軽減に有効であることをRCTデータをもとに整理した。",
-      "tags": ["膝関節", "運動療法", "エビデンス"],
-      "readTime": 5
-    },
-    {
-      "id": 8,
-      "title": "SPPBによる高齢者身体機能評価の実践ガイド",
-      "genre": "理学療法",
-      "date": "2026-04-20",
-      "summary": "Short Physical Performance Batteryの採点基準・カットオフ値・臨床的意義を現場目線で整理した評価実践録。",
-      "tags": ["SPPB", "高齢者", "評価"],
-      "readTime": 4
-    },
-    {
-      "id": 9,
-      "title": "noteで月5万円を目指すコンテンツ戦略",
-      "genre": "副業・ビジネス",
-      "date": "2026-04-30",
-      "summary": "知識をnoteに変換して販売するまでの設計図。ジャンル選定・タイトル設計・価格設定の3つの軸を解説する。",
-      "tags": ["note", "コンテンツ販売", "マネタイズ"],
-      "readTime": 5
-    },
-    {
-      "id": 10,
-      "title": "影響力の武器2.0——説得の名著を現代にアップデート",
-      "genre": "副業・ビジネス",
-      "date": "2026-04-15",
-      "summary": "返報性・希少性・権威性の原理を現代のSNS・コンテンツビジネスに適用する具体的な使い方を整理した。",
-      "tags": ["影響力", "説得", "心理学"],
-      "readTime": 6
-    },
-    {
       "id": 11,
       "title": "散歩・ウォーキングの効果",
       "genre": "ライフスタイル",
