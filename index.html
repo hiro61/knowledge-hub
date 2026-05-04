@@ -115,16 +115,32 @@
 
     <!-- TAB BAR -->
     <nav class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[430px] z-20 bg-white/90 dark:bg-stone-900/90 backdrop-blur-sm border-t border-stone-200 dark:border-stone-700 flex">
-      <button data-tab="new"    class="tab-btn flex-1 py-3 pb-5 flex flex-col items-center gap-0.5 text-xs font-medium transition-colors select-none">
-        <span class="text-lg leading-none">📋</span><span>新着</span>
+      <button data-tab="new"    class="tab-btn flex-1 py-3 pb-5 flex flex-col items-center gap-1 text-xs font-medium transition-colors select-none">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><line x1="9" y1="6" x2="20" y2="6"/><line x1="9" y1="12" x2="20" y2="12"/><line x1="9" y1="18" x2="20" y2="18"/><circle cx="4" cy="6" r="1" fill="currentColor" stroke="none"/><circle cx="4" cy="12" r="1" fill="currentColor" stroke="none"/><circle cx="4" cy="18" r="1" fill="currentColor" stroke="none"/></svg>
+        <span>新着</span>
       </button>
-      <button data-tab="genre"  class="tab-btn flex-1 py-3 pb-5 flex flex-col items-center gap-0.5 text-xs font-medium transition-colors select-none">
-        <span class="text-lg leading-none">📂</span><span>ジャンル</span>
+      <button data-tab="genre"  class="tab-btn flex-1 py-3 pb-5 flex flex-col items-center gap-1 text-xs font-medium transition-colors select-none">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+        <span>ジャンル</span>
       </button>
-      <button data-tab="search" class="tab-btn flex-1 py-3 pb-5 flex flex-col items-center gap-0.5 text-xs font-medium transition-colors select-none">
-        <span class="text-lg leading-none">🔍</span><span>検索</span>
+      <button data-tab="search" class="tab-btn flex-1 py-3 pb-5 flex flex-col items-center gap-1 text-xs font-medium transition-colors select-none">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/></svg>
+        <span>検索</span>
       </button>
     </nav>
+
+    <!-- ARTICLE VIEWER -->
+    <div id="articleViewer" class="hidden fixed inset-0 z-30 flex justify-center">
+      <div class="w-full max-w-[430px] flex flex-col bg-white dark:bg-stone-900">
+        <div class="flex items-center px-3 py-3 border-b border-stone-200 dark:border-stone-700 bg-white/90 dark:bg-stone-900/90 backdrop-blur-sm shrink-0">
+          <button onclick="closeArticle()" class="flex items-center gap-1.5 text-sm font-medium text-stone-600 dark:text-stone-300 active:opacity-50 transition-opacity px-1 py-1">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+            <span>戻る</span>
+          </button>
+        </div>
+        <iframe id="articleFrame" src="" class="flex-1 w-full border-0"></iframe>
+      </div>
+    </div>
 
   </div>
 
@@ -202,6 +218,16 @@
       });
     }
 
+    function openArticle(article) {
+      document.getElementById('articleFrame').src = article.file;
+      document.getElementById('articleViewer').classList.remove('hidden');
+    }
+
+    function closeArticle() {
+      document.getElementById('articleViewer').classList.add('hidden');
+      document.getElementById('articleFrame').src = '';
+    }
+
     function escHtml(str) {
       return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
     }
@@ -213,11 +239,9 @@
         .join('');
       const hasFile = !!article.file;
 
-      const outer = document.createElement(hasFile ? 'a' : 'div');
+      const outer = document.createElement('div');
       if (hasFile) {
-        outer.href = article.file;
-        outer.target = '_blank';
-        outer.rel = 'noopener noreferrer';
+        outer.addEventListener('click', () => openArticle(article));
       }
       outer.className = [
         'float-up block',
