@@ -60,5 +60,15 @@
       "readTime": 4,
       "file": "articles/dopamine_chudoku_taisaku.html"
     },
+    {
+      "id": 14,
+      "title": "スキンケア動画の文字起こし",
+      "genre": "健康",
+      "date": "2026-05-04",
+      "summary": "保湿・日焼け止め・クレンジングの優先度整理から食事・睡眠との関係まで、科学的根拠のある11項目のスキンケア実践ガイド。",
+      "tags": ["スキンケア", "保湿", "日焼け止め"],
+      "readTime": 7,
+      "file": "articles/skincare_video_transcription_6.html"
+    }
   ]
 }
