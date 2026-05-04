@@ -79,6 +79,16 @@
       "tags": ["コミュニケーション", "傾聴", "信頼"],
       "readTime": 5,
       "file": "articles/active_listening_trust_building.html"
+    },
+    {
+      "id": 20,
+      "title": "時間不足感を整える実践ガイド",
+      "genre": "ライフスタイル",
+      "date": "2026-05-04",
+      "summary": "忙しさそのものより、時間の捉え方を整えるほうが余白を取り戻しやすい。時間認知の歪みと「時間飢餓」「時間汚染」の2パターンを解消する具体策を解説。",
+      "tags": ["時間管理", "ストレス", "習慣"],
+      "readTime": 4,
+      "file": "articles/time_scarcity_reset.html"
     }
   ]
 }

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>時間不足感を整える実践ガイド</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --accent: #8B3A3A;
+      --accent-soft: #b05a5a;
+      --bg: #ffffff;
+      --bg-sub: #F4F4F4;
+      --text: #1a1a1a;
+      --text-soft: #555555;
+      --rule: #d8d8d8;
+      --max-w: 720px;
+      --font-ja: "Hiragino Mincho ProN","Yu Mincho","游明朝","Noto Serif JP",Georgia,serif;
+      --font-go: "Hiragino Kaku Gothic ProN","Yu Gothic","游ゴシック","Noto Sans JP",sans-serif;
+    }
+
+    html { font-size: 16px; }
+    body { background:var(--bg); color:var(--text); font-family:var(--font-ja); line-height:1.75; -webkit-text-size-adjust:100%; padding:60px 24px 100px; }
+    main { max-width:var(--max-w); margin:0 auto; }
+
+    .doc-header { padding-bottom:36px; border-bottom:2px solid var(--text); margin-bottom:56px; }
+    .doc-meta { font-family:var(--font-go); font-size:0.72rem; letter-spacing:0.18em; color:var(--accent); text-transform:uppercase; margin-bottom:16px; }
+    h1 { font-family:var(--font-go); font-size:clamp(2.2rem,7vw,3.4rem); font-weight:900; letter-spacing:-0.03em; line-height:1.15; margin-bottom:12px; }
+    .doc-subtitle { font-family:var(--font-go); font-size:1.05rem; color:var(--text-soft); font-weight:400; letter-spacing:0.02em; }
+
+    .section-label { display:inline-block; background:var(--accent); color:#fff; font-family:var(--font-go); font-size:0.65rem; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; padding:3px 10px 2px; margin-bottom:18px; }
+    .section-label.soft { background:var(--bg-sub); color:var(--accent); border:1px solid var(--accent); }
+
+    section { margin-bottom:56px; }
+    article { margin-bottom:40px; }
+
+    h2 { font-family:var(--font-go); font-size:clamp(1.5rem,5vw,2rem); font-weight:900; letter-spacing:-0.02em; line-height:1.25; margin-bottom:20px; display:flex; align-items:baseline; gap:12px; }
+    h2 .num { font-size:0.85em; color:var(--accent); font-weight:900; flex-shrink:0; }
+    h3 { font-family:var(--font-go); font-size:1.05rem; font-weight:700; letter-spacing:0.01em; margin-bottom:10px; margin-top:24px; padding-left:14px; border-left:3px solid var(--accent); }
+
+    p { font-size:0.97rem; line-height:1.85; margin-bottom:14px; }
+    ul, ol { padding-left:1.4em; margin-bottom:14px; }
+    li { font-size:0.95rem; line-height:1.8; margin-bottom:5px; }
+    li::marker { color:var(--accent); }
+    strong, b { font-weight:700; }
+    .hi { color:var(--accent); font-weight:700; }
+
+    hr { border:none; border-top:1px solid var(--rule); margin:48px 0; }
+    .hr-thick { border:none; border-top:2px solid var(--text); margin:48px 0; }
+
+    .key-box { background:var(--bg-sub); border-left:4px solid var(--accent); padding:18px 22px; margin:24px 0; border-radius:0 2px 2px 0; }
+    .key-box p { margin-bottom:6px; font-size:0.95rem; }
+    .key-box p:last-child { margin-bottom:0; }
+    .key-box .kbox-label { font-family:var(--font-go); font-size:0.65rem; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:var(--accent); margin-bottom:8px; display:block; }
+
+    .resource-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:20px; }
+    .resource-card { background:var(--bg-sub); padding:16px 18px; border-top:2px solid var(--rule); }
+    .resource-card .rc-title { font-family:var(--font-go); font-size:0.72rem; font-weight:700; letter-spacing:0.15em; color:var(--accent); text-transform:uppercase; margin-bottom:8px; display:block; }
+    .resource-card ul { padding-left:1.2em; margin:0; }
+    .resource-card li { font-size:0.85rem; line-height:1.7; margin-bottom:3px; }
+
+    .oeq-list { display:flex; flex-wrap:wrap; gap:8px; margin:16px 0; padding:0; list-style:none; }
+    .oeq-list li { background:var(--bg-sub); font-family:var(--font-go); font-size:0.82rem; padding:5px 14px; border:1px solid var(--rule); margin:0; }
+
+    .thinking-frame { display:flex; gap:16px; margin:20px 0; }
+    .thinking-frame .tf-col { flex:1; background:var(--bg-sub); padding:16px 18px; border-top:3px solid var(--text); }
+    .thinking-frame .tf-col h4 { font-family:var(--font-go); font-size:0.78rem; font-weight:700; letter-spacing:0.12em; margin-bottom:8px; }
+    .thinking-frame .tf-col p { font-size:0.85rem; margin:0; color:var(--text-soft); }
+
+    .recap-box { background:var(--bg-sub); border:1px solid var(--rule); padding:24px 26px; margin-top:12px; }
+    .recap-box p { margin-bottom:8px; line-height:1.75; }
+    .recap-box p:last-child { margin-bottom:0; }
+
+    @media print {
+      body { padding:0; font-size:10pt; }
+      main { max-width:100%; }
+      h1 { font-size:22pt; }
+      h2 { font-size:14pt; }
+      h3 { font-size:11pt; }
+      p, li { font-size:10pt; line-height:1.7; }
+      section, article, .key-box, .resource-card, .recap-box { page-break-inside:avoid; }
+      @page { size:A4 portrait; margin:20mm 18mm 22mm; }
+    }
+
+    @media screen and (max-width:640px) {
+      body { padding:36px 16px 72px; }
+      h1 { font-size:2rem; }
+      h2 { font-size:1.35rem; }
+      .resource-grid { grid-template-columns:1fr; }
+      .thinking-frame { flex-direction:column; }
+      .recap-box { padding:20px 18px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header class="doc-header">
+      <div class="doc-meta">TIME PERCEPTION GUIDE</div>
+      <h1>時間不足感を整える実践ガイド</h1>
+      <p class="doc-subtitle">忙しさそのものより、時間の捉え方を整えるほうが余白を取り戻しやすい。</p>
+    </header>
+
+    <section>
+      <span class="section-label">Overview</span>
+      <article>
+        <h2><span class="num">01</span>時間がない感覚の正体を見直す</h2>
+        <p>時間が足りないと感じる背景には、予定の多さだけでなく、<span class="hi">時間認知の歪み</span>があります。実際には使える時間が残っていても、常に不足しているように感じると、行動の質も満足感も下がりやすくなります。</p>
+        <div class="key-box">
+          <span class="kbox-label">結論</span>
+          <p>出発点は「本当に時間がないのか」ではなく、「時間の見え方が歪んでいないか」を疑うことです。</p>
+          <p><strong>必要な理由:</strong> 認知の歪みが強いほど、使える余白まで見失いやすくなります。</p>
+          <p><strong>実践例:</strong> 焦りを感じた瞬間に、現実の予定量と、自分の焦りの強さを分けて確認します。</p>
+        </div>
+      </article>
+    </section>
+
+    <section>
+      <span class="section-label soft">Distortion Patterns</span>
+      <article>
+        <h2><span class="num">02</span>時間認知を歪める2つの要因</h2>
+        <div class="thinking-frame">
+          <div class="tf-col">
+            <h4>時間飢饉</h4>
+            <p>やるべきことや欲求が競合し続け、常に足りないと感じる状態。目標同士がぶつかるほど、圧迫感は強くなります。</p>
+          </div>
+          <div class="tf-col">
+            <h4>時間汚染</h4>
+            <p>時間が細切れになり、不純物が混ざるように集中が崩れる状態。マルチタスクはその典型です。</p>
+          </div>
+        </div>
+
+        <h3>時間飢饉は目標の競合から強まる</h3>
+        <p>やりたいことが多いこと自体よりも、互いにぶつかる目標が多いことが圧迫感を生みます。人生の目的に沿わないものを減らし、行動を一本化すると、やるべきことの整理がしやすくなります。</p>
+
+        <h3>時間汚染は細切れの行動で進む</h3>
+        <p>動画を見ながら返信をするような行動は、休息と作業の両方を浅くします。分断された時間は脳へのストレスになり、リラックス効率も落とします。</p>
+        <div class="key-box">
+          <span class="kbox-label">補足</span>
+          <p>1日30分のゆっくりした読書でストレスが大きく下がるというデータもあり、まとまった単位の時間が回復に役立つことが示唆されます。</p>
+        </div>
+      </article>
+    </section>
+
+    <section>
+      <span class="section-label">Practice</span>
+      <article>
+        <h2><span class="num">03</span>時間飢饉を減らす具体策</h2>
+
+        <div class="resource-grid">
+          <div class="resource-card">
+            <span class="rc-title">呼吸で整える</span>
+            <ul>
+              <li>11秒の深呼吸を10回行う</li>
+              <li>所要時間は2〜3分で十分</li>
+              <li>活力が欲しいときは吸う時間を長めにする</li>
+              <li>落ち着きたいときは吐く時間を長めにする</li>
+            </ul>
+          </div>
+          <div class="resource-card">
+            <span class="rc-title">焦りを再解釈する</span>
+            <ul>
+              <li>焦りに別の意味を与える</li>
+              <li>悪い感情ではなく準備の合図とみなす</li>
+              <li>競合する目標は統合できないか考える</li>
+              <li>呼吸と組み合わせると使いやすい</li>
+            </ul>
+          </div>
+          <div class="resource-card">
+            <span class="rc-title">親切を時間戦略にする</span>
+            <ul>
+              <li>1日15分ほど他人に親切にする</li>
+              <li>自分に残された時間が多い感覚を育てやすい</li>
+              <li>結果として生産効率も上がりやすい</li>
+            </ul>
+          </div>
+          <div class="resource-card">
+            <span class="rc-title">遠すぎる未来を縮める</span>
+            <ul>
+              <li>長期目標は1日単位に分解する</li>
+              <li>年数ではなく積み上げ日数で見る</li>
+              <li>「10年」より「3560日」で捉える</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3>畏怖の感覚で時間の見え方を戻す</h3>
+        <p>宇宙や広大な自然、人知を超えたスケールに触れると、自分の焦りが相対化されやすくなります。時間不足の感覚を和らげる補助線として使えます。</p>
+
+        <h3>充実感は長時間よりまとまりで決まる</h3>
+        <p>満足感は、長く頑張った時間からではなく、短くてもまとまって集中できた時間から生まれやすい傾向があります。細切れに削るより、塊で守る発想が有効です。</p>
+      </article>
+    </section>
+
+    <section>
+      <span class="section-label soft">Checklist</span>
+      <article>
+        <h2><span class="num">04</span>日常で使う実践ポイント</h2>
+        <ul class="oeq-list">
+          <li>時間がないと感じたら認知を疑う</li>
+          <li>競合する目標を減らす</li>
+          <li>マルチタスクを減らす</li>
+          <li>呼吸とリフレーミングをセットで使う</li>
+          <li>1日単位で前進を確認する</li>
+          <li>畏怖を感じる対象に触れる</li>
+        </ul>
+
+        <h3>まとめ</h3>
+        <div class="recap-box">
+          <p>時間不足の問題は、単なるスケジュール管理だけでは片づきません。まずは「足りない現実」ではなく、「足りないように感じている状態」を整えることが重要です。</p>
+          <p>目標の競合を減らし、時間を細切れにせず、短い呼吸や再解釈で焦りを扱えるようになると、同じ1日でも使える余白の見え方が変わってきます。</p>
+        </div>
+      </article>
+    </section>
+  </main>
+</body>
+</html>
