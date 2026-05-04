@@ -5,9 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>ドーパミンに振り回されない生活設計</title>
   <style>
-
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
 :root {
   --accent: #8B3A3A;
   --accent-soft: #b05a5a;
@@ -20,139 +18,160 @@
   --font-ja: "Hiragino Mincho ProN","Yu Mincho","游明朝","Noto Serif JP",Georgia,serif;
   --font-go: "Hiragino Kaku Gothic ProN","Yu Gothic","游ゴシック","Noto Sans JP",sans-serif;
 }
-
 html { font-size: 16px; }
 body { background:var(--bg); color:var(--text); font-family:var(--font-ja); line-height:1.75; -webkit-text-size-adjust:100%; padding:60px 24px 100px; }
 main { max-width:var(--max-w); margin:0 auto; }
-
 .doc-header { padding-bottom:36px; border-bottom:2px solid var(--text); margin-bottom:56px; }
 .doc-meta { font-family:var(--font-go); font-size:0.72rem; letter-spacing:0.18em; color:var(--accent); text-transform:uppercase; margin-bottom:16px; }
 h1 { font-family:var(--font-go); font-size:clamp(2.2rem,7vw,3.4rem); font-weight:900; letter-spacing:-0.03em; line-height:1.15; margin-bottom:12px; }
 .doc-subtitle { font-family:var(--font-go); font-size:1.05rem; color:var(--text-soft); font-weight:400; letter-spacing:0.02em; }
-
 .section-label { display:inline-block; background:var(--accent); color:#fff; font-family:var(--font-go); font-size:0.65rem; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; padding:3px 10px 2px; margin-bottom:18px; }
 .section-label.soft { background:var(--bg-sub); color:var(--accent); border:1px solid var(--accent); }
-
 section { margin-bottom:56px; }
 article { margin-bottom:40px; }
-
 h2 { font-family:var(--font-go); font-size:clamp(1.5rem,5vw,2rem); font-weight:900; letter-spacing:-0.02em; line-height:1.25; margin-bottom:20px; display:flex; align-items:baseline; gap:12px; }
 h2 .num { font-size:0.85em; color:var(--accent); font-weight:900; flex-shrink:0; }
 h3 { font-family:var(--font-go); font-size:1.05rem; font-weight:700; letter-spacing:0.01em; margin-bottom:10px; margin-top:24px; padding-left:14px; border-left:3px solid var(--accent); }
-
 p { font-size:0.97rem; line-height:1.85; margin-bottom:14px; }
 ul, ol { padding-left:1.4em; margin-bottom:14px; }
 li { font-size:0.95rem; line-height:1.8; margin-bottom:5px; }
 li::marker { color:var(--accent); }
 strong, b { font-weight:700; }
-.hi { color:var(--accent); font-weight:700; }
-
 hr { border:none; border-top:1px solid var(--rule); margin:48px 0; }
-.hr-thick { border:none; border-top:2px solid var(--text); margin:48px 0; }
-
 .key-box { background:var(--bg-sub); border-left:4px solid var(--accent); padding:18px 22px; margin:24px 0; border-radius:0 2px 2px 0; }
+.key-box p { margin-bottom:8px; }
+.key-box p:last-child { margin-bottom:0; }
 .kbox-label { font-family:var(--font-go); font-size:0.78rem; font-weight:700; letter-spacing:0.12em; color:var(--accent); text-transform:uppercase; margin-bottom:10px; }
 .lead { font-size:1.02rem; color:var(--text-soft); }
+.bridge { color: var(--text-soft); }
 .source-note { font-family:var(--font-go); font-size:0.86rem; color:var(--text-soft); border-top:1px solid var(--rule); padding-top:10px; margin-top:14px; }
 .recap-box { background:var(--bg-sub); padding:20px 22px; border:1px solid var(--rule); }
-.recap-box p:last-child, .key-box p:last-child { margin-bottom:0; }
+.recap-box p:last-child { margin-bottom:0; }
 @page { size: A4 portrait; margin: 16mm; }
 @media (max-width: 640px) {
   body { padding:40px 18px 72px; }
   .doc-header { margin-bottom:40px; padding-bottom:28px; }
   section { margin-bottom:42px; }
 }
-
-  </style>
+</style>
 </head>
 <body>
   <main>
     <header class="doc-header">
       <div class="doc-meta">FOCUS RESET</div>
       <h1>ドーパミンに振り回されない生活設計</h1>
-      <p class="doc-subtitle">静かな集中力を取り戻すには、刺激を減らすだけでなく健全な報酬へ置き換える必要がある。</p>
+      <p class="doc-subtitle">集中力が落ちる背景には、意志の弱さよりもスマホ、食事、睡眠、報酬設計の崩れがある。ドーパミンを敵視するのではなく、刺激の質を整え、静かな集中力へ戻す実践を整理する。</p>
     </header>
-
     <section>
       <span class="section-label">Essentials</span>
       <article>
-<h2><span class="num">01</span>最初に刺激の入口を減らす</h2>
+<h2><span class="num">01</span>刺激の入口を先に断つ</h2>
+<p class="lead">集中力の崩れは、意志の弱さよりも、常に新しい刺激へ引っ張られる環境から始まりやすい。</p>
 <div class="key-box">
-<div class="kbox-label">Key Point</div>
-<p><strong>結論:</strong> ドーパミン対策は意志力より先に、スマホとマルチタスクの入口を減らすところから始める。</p>
-<p><strong>必要な理由:</strong> 見えるだけで注意を奪う刺激を残したままでは、脳が常に新しい報酬を探し続けてしまう。</p>
+  <div class="kbox-label">Key Point</div>
+  <p><strong>結論:</strong> 最初にやるべきことは、スマホとマルチタスクを生活の中心から外すこと。</p>
+  <p><strong>必要な理由:</strong> 脳は一度に一つのことにしか深く集中できず、通知や視界に入る端末だけでも報酬期待が立ち上がってしまう。</p>
+  <p><strong>キーポイント:</strong> シングルタスクは単なる作業術ではなく、ドーパミンの無駄な立ち上がりを減らして前頭前野の制御を守る土台になる。スマホを見ない時間を作るほど、達成感や爽快感を一つの行動から受け取りやすくなる。</p>
 </div>
+<p class="bridge">まずは頑張り方を変えるより、刺激が入り込む経路を減らすほうが立て直しやすい。</p>
 <h3>実践例</h3>
-<ul><li>作業中のスマホは電源オフにして机から外す。</li><li>SNSは毎週や寝る前の利用禁止時間を決める。</li><li>動画を見ながら返信するような同時進行をやめ、シングルタスクへ戻す。</li></ul>
-<p class="source-note">出典: スタンフォード大学クリフォード・ナス教授、テキサス大学エイドリアン・ウォード博士、2週間ネット遮断の話。</p>
+<ul><li>作業中のスマホは電源オフにして机の上から外す。</li><li>動画を流しながら返信するような同時進行をやめ、作業を一つずつ完了させる。</li><li>寝る前や起床直後は、最初の数分をスマホなしで過ごす。</li></ul>
+<p class="source-note">出典: スタンフォード大学のクリフォード・ナス教授、ロンドン大学の三本松博士、テキサス大学のエイドリアン・ウォード博士の話。</p>
 </article>
 <hr>
 <article>
-<h2><span class="num">02</span>食事と睡眠で報酬系を静かに戻す</h2>
+<h2><span class="num">02</span>食事の刺激を下げて欲求を静かにする</h2>
+<p class="lead">口から入る刺激が強いほど、食欲だけでなく集中力や気分の安定も崩れやすくなる。</p>
 <div class="key-box">
-<div class="kbox-label">Key Point</div>
-<p><strong>結論:</strong> ジャンクフードと睡眠不足は、ドーパミン暴走を強める二大要因として扱うべきである。</p>
-<p><strong>必要な理由:</strong> 高刺激食は快楽の閾値を上げ、睡眠不足は前頭前野の制御力を下げるため、衝動に負けやすくなる。</p>
+  <div class="kbox-label">Key Point</div>
+  <p><strong>結論:</strong> ジャンクフードと甘い飲み物を減らし、空腹に少し慣れるだけでも報酬系は落ち着きやすい。</p>
+  <p><strong>必要な理由:</strong> 高刺激な食事は快楽への耐性を上げ、満腹でももっと欲しくなる流れを作りやすい。</p>
+  <p><strong>キーポイント:</strong> 断食の価値は我慢そのものではなく、食べる回数を減らして報酬の立ち上がりを整理できる点にある。味覚や満足感の基準が戻ると、薄味や素朴な食事でも十分に満たされやすくなる。</p>
 </div>
+<p class="bridge">極端に変えるより、まずは日常の中で刺激の強い食品を減らすところから始めると続けやすい。</p>
 <h3>実践例</h3>
-<ul><li>甘い飲み物を止め、低刺激な食事へ寄せる。</li><li>12〜16時間の断食が合うなら、空腹に慣れて食欲刺激の回数を減らす。</li><li>最優先のデトックスとして毎日8時間睡眠を確保し、寝室からスマホを離す。</li></ul>
-<p class="source-note">出典: ノラ・ボルコフ博士、ジョン・レイティ教授、マシュー・ウォーカー博士、ウプサラ大学の研究。</p>
+<ul><li>甘い飲み物を止め、まず水や無糖の飲み物へ置き換える。</li><li>12〜16時間の断食が合うなら、無理のない時間幅から試す。</li><li>人工甘味料やジャンクフードを習慣にせず、薄味の食事へ戻す日を作る。</li></ul>
+<p class="source-note">出典: ノラ・ボルコフ博士、ジョン・レイティ教授、マーク・マットソン博士の話。</p>
 </article>
 <hr>
 <article>
-<h2><span class="num">03</span>健全な覚醒を運動と自然で作る</h2>
+<h2><span class="num">03</span>睡眠と運動で報酬系を作り直す</h2>
+<p class="lead">削るべき刺激を減らすだけでは不十分で、脳が健全な快感を受け取れる状態へ戻す必要がある。</p>
 <div class="key-box">
-<div class="kbox-label">Key Point</div>
-<p><strong>結論:</strong> 強い刺激を我慢するだけでは続かないため、運動や自然で報酬系を上書きする必要がある。</p>
-<p><strong>必要な理由:</strong> 定期的な運動は受容体機能や日常の幸福感を回復し、自然や冷水は緩やかな覚醒を作りやすい。</p>
+  <div class="kbox-label">Key Point</div>
+  <p><strong>結論:</strong> 睡眠不足を解消し、定期的な運動を入れることが、最も強い再建策になる。</p>
+  <p><strong>必要な理由:</strong> 睡眠不足は衝動を抑える前頭前野を弱らせ、運動不足は小さな喜びを感じる回路を鈍らせやすい。</p>
+  <p><strong>キーポイント:</strong> 運動は単なる健康習慣ではなく、壊れた報酬系を健全な形で動かし直す手段になる。十分な睡眠で制御力を戻し、運動で爽快感や達成感を取り戻す流れが、スマホや過食への依存を弱めていく。</p>
 </div>
+<p class="bridge">強いトレーニングを急ぐ必要はなく、まずは回復と軽い運動を切らさないことが先になる。</p>
 <h3>実践例</h3>
-<ul><li>軽い散歩から始めて、定期的な運動を切らさない。</li><li>朝シャワーの最後に短時間だけ冷水を入れ、無理なく刺激を作る。</li><li>週2時間を目安に自然へ触れ、20分散歩でもよいので外に出る。</li></ul>
-<p class="source-note">出典: スタンフォード大学の運動研究、チェコのカレル大学、ブラットマン博士、エクセター大学の研究。</p>
+<ul><li>毎日8時間睡眠を最優先のデトックスとして扱う。</li><li>寝室や枕元からスマホを離し、目覚ましを別にする。</li><li>軽い散歩から始め、短時間でも運動を習慣化する。</li></ul>
+<p class="source-note">出典: マシュー・ウォーカー博士、ウプサラ大学の研究、ジョン・レイティ教授、UCLAの研究。</p>
 </article>
 <hr>
 <article>
-<h2><span class="num">04</span>衝動は観察して先延ばしする</h2>
+<h2><span class="num">04</span>衝動は観察して少し遅らせる</h2>
+<p class="lead">欲求を消そうとするほど反動が出やすいので、距離を作って扱うほうが現実的である。</p>
 <div class="key-box">
-<div class="kbox-label">Key Point</div>
-<p><strong>結論:</strong> 欲求をゼロにするより、観察して遅らせる練習のほうが自己コントロールを育てやすい。</p>
-<p><strong>必要な理由:</strong> マインドフルネス、報酬遅延、退屈の受容は、欲求との距離を作り前頭前野を使い直す訓練になる。</p>
+  <div class="kbox-label">Key Point</div>
+  <p><strong>結論:</strong> マインドフルネスと報酬遅延を組み合わせると、衝動に飲まれにくくなる。</p>
+  <p><strong>必要な理由:</strong> 自分の欲求を言語化して観察できると、その場の快楽ではなく長期目標へ意識を戻しやすい。</p>
+  <p><strong>キーポイント:</strong> ラベル付けや短い待機時間は小さく見えても、反射で行動する癖を断つ訓練になる。欲求に気づき、少し待てる回数が増えるほど、自己コントロール感は回復しやすい。</p>
 </div>
+<p class="bridge">重要なのは完璧に抑えることではなく、衝動と行動の間に数分でも隙間を作ること。</p>
 <h3>実践例</h3>
-<ul><li>食べたい、見たい衝動が来たら、まず15分だけ遅らせる。</li><li>5〜10分の瞑想やボディスキャンを毎日入れる。</li><li>電車や待ち時間を退屈の訓練にして、すぐスマホで埋めない。</li></ul>
-<p class="source-note">出典: イェール大学ジャドソン・ブルーアー教授、ノースウェスタン大学バークマン教授、退屈と創造性の研究。</p>
+<ul><li>食べたい、見たい衝動が来たら、まず15分だけ遅らせる。</li><li>5〜10分の瞑想やボディスキャンを毎日入れる。</li><li>欲求を感じたら「今ポテチを食べたいと思っている」と言葉にして観察する。</li></ul>
+<p class="source-note">出典: イェール大学のジャドソン・ブルーアー教授、ノースウェスタン大学バークマン教授の話。</p>
 </article>
 <hr>
 <article>
-<h2><span class="num">05</span>満足感は人間関係と価値観から作る</h2>
+<h2><span class="num">05</span>退屈と小さな挑戦で刺激の質を変える</h2>
+<p class="lead">強い快楽を抜くだけでは空白が残るため、代わりに回復的な刺激を入れる必要がある。</p>
 <div class="key-box">
-<div class="kbox-label">Key Point</div>
-<p><strong>結論:</strong> 短い快楽より、有意義な人間関係と自己成長を軸にしたほうが依存は弱まりやすい。</p>
-<p><strong>必要な理由:</strong> 感謝、他者貢献、リアルな交流は、SNS的な手軽な刺激では埋まらない満足感を作る。</p>
+  <div class="kbox-label">Key Point</div>
+  <p><strong>結論:</strong> 退屈を受け入れ、自然や小さな挑戦へ意識を向けると、脳は静かに立ち直りやすい。</p>
+  <p><strong>必要な理由:</strong> 常に埋められた時間では創造性や目標感覚が育ちにくく、自発的な刺激の幅も狭くなりやすい。</p>
+  <p><strong>キーポイント:</strong> 退屈は空白ではなく、思考や創造性が戻るための余白になる。さらに、少し怖い行動や自然の中での時間は、スマホにはない達成感や回復感を与え、健全な報酬へ置き換える役割を持つ。</p>
 </div>
+<p class="bridge">何かを足す前に、まずは埋めすぎた時間を少し空け、そこへ良い刺激を差し込むのがコツ。</p>
 <h3>実践例</h3>
-<ul><li>寝る前に感謝できることを3つ書く。</li><li>SNS上の交流だけで終えず、会う約束や食事の時間を増やす。</li><li>自分が何を大事にして生きたいかを言語化し、快楽ではなく意味で予定を組む。</li></ul>
-<p class="source-note">出典: カリフォルニア大学デイビス校、ノースウェスタン大学、ハーバード成人発達研究、フレデリクソン教授の話。</p>
+<ul><li>電車や待ち時間の一部をスマホなしで過ごす。</li><li>毎日20分でも自然の中を歩く時間を作る。</li><li>外国語で注文するなど、少し怖い挑戦を自分から一つ入れる。</li></ul>
+<p class="source-note">出典: サンディ・マン博士、ブラットマン博士、ミシガン大学、エクセター大学、冷水や挑戦に関する記述。</p>
 </article>
 <hr>
 <article>
-<h2><span class="num">06</span>ご褒美は計画的に扱う</h2>
+<h2><span class="num">06</span>人とのつながりと価値観で満足感を戻す</h2>
+<p class="lead">依存を弱めるには、単に誘惑を断つだけでなく、何に満たされたいのかを作り直す必要がある。</p>
 <div class="key-box">
-<div class="kbox-label">Key Point</div>
-<p><strong>結論:</strong> 完全禁止ではなく、ルール付きのご褒美に変えると反動を減らしやすい。</p>
-<p><strong>必要な理由:</strong> すべてを断つ方法は失敗時の反動が大きく、かえって依存を強めることがある。</p>
+  <div class="kbox-label">Key Point</div>
+  <p><strong>結論:</strong> 感謝、リアルな人間関係、自己成長と他者貢献が、短期快楽に偏った満足感を修正する。</p>
+  <p><strong>必要な理由:</strong> SNSのようなファストなつながりでは心の安定が続きにくく、意味のある関係や価値観のほうが持続的な満足へつながりやすい。</p>
+  <p><strong>キーポイント:</strong> ドーパミン中毒の背景には、空虚さを即時報酬で埋める流れがある。感謝や他者貢献、自分にとって大事な価値観を言葉にすることは、欲求の向かう先を外側の刺激から内側の意味へ戻す作業になる。</p>
 </div>
+<p class="bridge">派手な変化より、身近な人との関わり方や夜の短い振り返りから始めるほうが定着しやすい。</p>
 <h3>実践例</h3>
-<ul><li>お菓子やSNSは週1回や特定時間だけなど、事前ルールを決めて使う。</li><li>衝動的に破った時は自己嫌悪ではなく、ルールの設計を見直す。</li><li>目的なく同じ画面を見続けるパンディングが増えたら、一度完全停止期間を入れる。</li></ul>
-<p class="source-note">出典: トロント大学、アラン・マーラット博士、パンディングとドーパミン依存の整理。</p>
+<ul><li>寝る前に感謝できることを3つ書く。</li><li>週末は会いたい人と直接会う時間を先に予定へ入れる。</li><li>自分が大切にしたい価値観を言葉にし、予定やお金の使い方を見直す。</li></ul>
+<p class="source-note">出典: カリフォルニア大学デイビス校、ノースウェスタン大学、ハーバード成人発達研究、バーバラ・フレデリクソン教授の話。</p>
+</article>
+<hr>
+<article>
+<h2><span class="num">07</span>ご褒美は計画して再発を防ぐ</h2>
+<p class="lead">完全禁止は一時的には効いても、反動が大きいと長続きしにくい。</p>
+<div class="key-box">
+  <div class="kbox-label">Key Point</div>
+  <p><strong>結論:</strong> ドーパミン対策は禁欲競争ではなく、自分でご褒美を設計できる状態を目指す。</p>
+  <p><strong>必要な理由:</strong> 衝動的な解禁は依存を深めやすい一方、計画された余白はコントロール感を残しやすい。</p>
+  <p><strong>キーポイント:</strong> 重要なのは刺激をゼロにすることではなく、いつ、どの程度、何のために使うかを自分で決め直すこと。パンディングのような目的のない反復行動が増えた時は、刺激との距離を一度強めに取る判断も必要になる。</p>
+</div>
+<p class="bridge">我慢に失敗したかどうかより、次のルールをどう整え直すかへ視点を戻すと崩れにくい。</p>
+<h3>実践例</h3>
+<ul><li>お菓子やSNSは週1回、または特定時間だけなど事前ルールを決める。</li><li>衝動的に使った日は自己嫌悪より先に、何が引き金だったかを記録する。</li><li>目的なく同じ画面を見続ける状態が増えたら、一時的に完全停止期間を設ける。</li></ul>
+<p class="source-note">出典: トロント大学、アラン・マーラット博士、パンディングとドーパミン中毒の整理。</p>
 </article>
     </section>
-
     <section>
       <span class="section-label soft">まとめ</span>
-      <div class="recap-box">
-        <ul><li>ドーパミン対策は、刺激を全部消すことではなく、刺激の質とタイミングを自分で握り直すこと。</li><li>スマホ、食事、睡眠、運動、人間関係を同時に整えるほど、静かな集中力は戻りやすい。</li><li>意志力だけで耐えるより、環境設計と計画的なご褒美で再発しにくい仕組みを作るほうが現実的。</li></ul>
-      </div>
+      <div class="recap-box"><ul><li>ドーパミン対策は、刺激を全部断つことではなく、刺激の入口と受け取り方を自分で握り直すこと。</li><li>スマホ、食事、睡眠、運動、人間関係をまとめて整えるほど、静かな集中力は戻りやすい。</li><li>完璧な禁欲より、観察、遅延、計画的なご褒美の設計のほうが長く続きやすい。</li></ul></div>
     </section>
   </main>
 </body>
