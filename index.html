@@ -127,6 +127,10 @@
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="16.5" y1="16.5" x2="22" y2="22"/></svg>
         <span>検索</span>
       </button>
+      <button data-tab="favorites" class="tab-btn flex-1 py-3 pb-5 flex flex-col items-center gap-1 text-xs font-medium transition-colors select-none">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20.5 5.52 17V5.75h12.96V17L12 20.5Z"/><path d="M9 10.5h6"/></svg>
+        <span>お気に入り</span>
+      </button>
     </nav>
 
     <!-- ARTICLE VIEWER -->
@@ -182,6 +186,9 @@
 
     let allArticles = [];
     let currentTab = 'new';
+    let currentSearchQuery = '';
+
+    const FAVORITES_KEY = 'kh_favorites';
 
     const contentArea = document.getElementById('contentArea');
     const tabBtns     = document.querySelectorAll('.tab-btn');
@@ -223,10 +230,7 @@
           if (tab === currentTab) return;
           currentTab = tab;
           setActiveTab(tab);
-          contentArea.scrollTop = 0;
-          if (tab === 'new')    renderNew(allArticles);
-          if (tab === 'genre')  renderGenre(allArticles);
-          if (tab === 'search') renderSearch(allArticles, '');
+          renderCurrentTab();
         });
       });
     }
@@ -255,12 +259,76 @@
       return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
     }
 
+    function getArticleId(article) {
+      return article.file || `${article.title}::${article.date}`;
+    }
+
+    function getFavoriteIds() {
+      try {
+        const parsed = JSON.parse(localStorage.getItem(FAVORITES_KEY) || '[]');
+        return new Set(Array.isArray(parsed) ? parsed : []);
+      } catch {
+        return new Set();
+      }
+    }
+
+    function isFavorite(article) {
+      return getFavoriteIds().has(getArticleId(article));
+    }
+
+    function setFavoriteButtonState(button, active) {
+      button.setAttribute('aria-pressed', active ? 'true' : 'false');
+      button.setAttribute('aria-label', active ? 'お気に入り解除' : 'お気に入り登録');
+      button.classList.toggle('text-amber-500', active);
+      button.classList.toggle('dark:text-amber-300', active);
+      button.classList.toggle('bg-amber-50', active);
+      button.classList.toggle('dark:bg-amber-500/10', active);
+      button.classList.toggle('border-amber-200', active);
+      button.classList.toggle('dark:border-amber-400/30', active);
+      button.classList.toggle('text-stone-400', !active);
+      button.classList.toggle('dark:text-stone-500', !active);
+      button.classList.toggle('bg-white/80', !active);
+      button.classList.toggle('dark:bg-stone-800/80', !active);
+      button.classList.toggle('border-stone-200', !active);
+      button.classList.toggle('dark:border-stone-600', !active);
+      button.innerHTML = `
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="${active ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 20.5 5.52 17V5.75h12.96V17L12 20.5Z"/>
+          <path d="M9 10.5h6"/>
+        </svg>`;
+    }
+
+    function toggleFavorite(article, button) {
+      const favorites = getFavoriteIds();
+      const id = getArticleId(article);
+      const nextActive = !favorites.has(id);
+      if (nextActive) favorites.add(id);
+      else favorites.delete(id);
+      localStorage.setItem(FAVORITES_KEY, JSON.stringify([...favorites]));
+      setFavoriteButtonState(button, nextActive);
+      if (currentTab === 'favorites') renderCurrentTab();
+    }
+
+    function getFavoriteArticles() {
+      const favorites = getFavoriteIds();
+      return allArticles.filter(article => favorites.has(getArticleId(article)));
+    }
+
+    function renderCurrentTab() {
+      contentArea.scrollTop = 0;
+      if (currentTab === 'new') renderNew(allArticles);
+      if (currentTab === 'genre') renderGenre(allArticles);
+      if (currentTab === 'search') renderSearch(allArticles, currentSearchQuery);
+      if (currentTab === 'favorites') renderFavorites(getFavoriteArticles());
+    }
+
     function createCard(article, index) {
       const gc = GENRE_COLOR[article.genre] ?? 'bg-stone-50 text-stone-600 border-stone-200';
       const tagsHTML = article.tags
         .map(t => `<span class="text-[10px] px-2 py-0.5 rounded-full bg-stone-100 dark:bg-stone-700 text-stone-500 dark:text-stone-400">#${escHtml(t)}</span>`)
         .join('');
       const hasFile = !!article.file;
+      const favorite = isFavorite(article);
 
       const outer = document.createElement('div');
       if (hasFile) {
@@ -279,8 +347,16 @@
 
       outer.innerHTML = `
         <div class="flex items-start justify-between gap-2 mb-2">
-          <p class="text-sm font-semibold leading-snug flex-1 text-stone-900 dark:text-stone-100">${escHtml(article.title)}</p>
-          <span class="text-[10px] px-2 py-0.5 rounded-full border shrink-0 ${gc}">${escHtml(article.genre)}</span>
+          <div class="flex-1 min-w-0">
+            <div class="flex items-start gap-2">
+              <p class="text-sm font-semibold leading-snug flex-1 text-stone-900 dark:text-stone-100">${escHtml(article.title)}</p>
+              <button class="favorite-btn inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border transition-colors"
+                type="button"></button>
+            </div>
+            <div class="mt-2">
+              <span class="text-[10px] px-2 py-0.5 rounded-full border shrink-0 ${gc}">${escHtml(article.genre)}</span>
+            </div>
+          </div>
         </div>
         <p class="text-xs text-stone-500 dark:text-stone-400 leading-relaxed mb-3">${escHtml(article.summary)}</p>
         <div class="flex items-end justify-between gap-2">
@@ -291,6 +367,15 @@
           </div>
         </div>
       `;
+
+      const favoriteBtn = outer.querySelector('.favorite-btn');
+      setFavoriteButtonState(favoriteBtn, favorite);
+      favoriteBtn.addEventListener('click', event => {
+        event.preventDefault();
+        event.stopPropagation();
+        toggleFavorite(article, favoriteBtn);
+      });
+
       return outer;
     }
 
@@ -302,6 +387,31 @@
       info.style.animationDelay = '0ms';
       info.textContent = `全 ${articles.length} 件 — 最新順`;
       contentArea.appendChild(info);
+      articles.forEach((a, i) => contentArea.appendChild(createCard(a, i + 1)));
+    }
+
+    /* ---- お気に入りタブ ---- */
+    function renderFavorites(articles) {
+      contentArea.innerHTML = '';
+      const info = document.createElement('p');
+      info.className = 'float-up text-[11px] text-stone-400 mb-3 px-1';
+      info.style.animationDelay = '0ms';
+      info.textContent = articles.length ? `お気に入り ${articles.length} 件` : 'お気に入り 0 件';
+      contentArea.appendChild(info);
+
+      if (!articles.length) {
+        const empty = document.createElement('div');
+        empty.className = 'float-up text-center text-stone-400 text-sm mt-14';
+        empty.style.animationDelay = '40ms';
+        empty.innerHTML = `
+          <p class="text-2xl mb-2">☆</p>
+          <p>お気に入りに追加した記事がまだありません。</p>
+          <p class="text-xs mt-1 text-stone-300">各記事の右上アイコンから保存できます。</p>
+        `;
+        contentArea.appendChild(empty);
+        return;
+      }
+
       articles.forEach((a, i) => contentArea.appendChild(createCard(a, i + 1)));
     }
 
@@ -359,6 +469,7 @@
 
     /* ---- 検索タブ ---- */
     function renderSearch(articles, query) {
+      currentSearchQuery = query;
       contentArea.innerHTML = '';
       const box = document.createElement('div');
       box.className = 'float-up mb-4';
@@ -374,6 +485,7 @@
       contentArea.appendChild(results);
 
       const run = (q) => {
+        currentSearchQuery = q;
         results.innerHTML = '';
         const lower = q.toLowerCase();
         const filtered = !q ? articles : articles.filter(a =>
