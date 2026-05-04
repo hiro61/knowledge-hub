@@ -10,26 +10,27 @@
   </script>
   <style>
     @keyframes floatUp {
-      from { opacity: 0; transform: translateY(16px); }
+      from { opacity: 0; transform: translateY(12px); }
       to   { opacity: 1; transform: translateY(0); }
     }
-    .float-up { animation: floatUp 0.4s ease forwards; opacity: 0; }
+    .float-up { animation: floatUp 0.35s ease forwards; opacity: 0; }
 
     .no-scrollbar::-webkit-scrollbar { display: none; }
     .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
     * { -webkit-tap-highlight-color: transparent; }
+
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; }
   </style>
   <script>
+    /* ライトモードがデフォルト。localStorage に 'true' がある場合のみダークモード */
     (function () {
-      const saved = localStorage.getItem('darkMode');
-      if (saved === 'true' || (saved === null && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      if (localStorage.getItem('darkMode') === 'true') {
         document.documentElement.classList.add('dark');
       }
     })();
   </script>
   <script>
-    // パスワード認証（SHA-256ハッシュのみ保存）
     const PASS_HASH = 'd502cfbb7ece80155d7348b6f76b96b176415eaa08bc85c2ffe96cc42b5a5ff5';
     const SESSION_KEY = 'kh_auth';
 
@@ -47,7 +48,6 @@
       const input = document.getElementById('passInput').value;
       const errEl = document.getElementById('passError');
       if (!input) return;
-
       const hash = await sha256(input);
       if (hash === PASS_HASH) {
         sessionStorage.setItem(SESSION_KEY, '1');
@@ -61,9 +61,7 @@
     };
 
     document.addEventListener('DOMContentLoaded', () => {
-      if (sessionStorage.getItem(SESSION_KEY) === '1') {
-        showApp();
-      }
+      if (sessionStorage.getItem(SESSION_KEY) === '1') showApp();
       document.getElementById('passInput')?.addEventListener('keydown', e => {
         if (e.key === 'Enter') window.submitPassword();
       });
@@ -71,157 +69,103 @@
   </script>
 </head>
 
-<body class="
-  bg-gradient-to-br from-slate-900 via-slate-800 to-purple-900
-  dark:from-slate-950 dark:via-slate-900 dark:to-purple-950
-  min-h-screen flex justify-center
-  text-slate-100 font-sans
-">
+<body class="bg-[#f7f6f3] dark:bg-stone-950 min-h-screen flex justify-center text-stone-900 dark:text-stone-100">
 
   <!-- パスワードゲート -->
-  <div id="authOverlay" class="
-    fixed inset-0 z-50 flex items-center justify-center px-6
-    bg-gradient-to-br from-slate-950 via-slate-900 to-purple-950
-  ">
-    <div class="w-full max-w-[340px] float-up" style="animation-delay:0ms">
-      <div class="backdrop-blur-md bg-white/10 border border-white/20 rounded-3xl p-8 text-center">
-        <p class="text-4xl mb-4">☕</p>
-        <h1 class="text-lg font-bold text-slate-100 mb-1">Knowledge Hub</h1>
-        <p class="text-xs text-slate-400 mb-6">パスワードを入力してください</p>
+  <div id="authOverlay" class="fixed inset-0 z-50 flex items-center justify-center px-6 bg-[#f7f6f3] dark:bg-stone-950">
+    <div class="w-full max-w-[320px] float-up">
+      <div class="bg-white dark:bg-stone-900 border border-stone-200 dark:border-stone-700 rounded-2xl p-8 text-center shadow-sm">
+        <p class="text-3xl mb-4">☕</p>
+        <h1 class="text-base font-semibold text-stone-900 dark:text-stone-100 mb-1">Knowledge Hub</h1>
+        <p class="text-xs text-stone-400 mb-6">パスワードを入力してください</p>
         <input id="passInput" type="password" placeholder="パスワード"
           autocomplete="current-password"
-          class="
-            w-full px-4 py-3 rounded-2xl text-sm text-center
-            backdrop-blur-sm bg-white/10 border border-white/20
-            text-slate-100 placeholder:text-slate-500
-            outline-none focus:border-purple-400/60 transition-colors mb-3
-          "
+          class="w-full px-4 py-2.5 rounded-lg text-sm text-center bg-stone-50 dark:bg-stone-800 border border-stone-200 dark:border-stone-600 text-stone-900 dark:text-stone-100 placeholder:text-stone-300 dark:placeholder:text-stone-500 outline-none focus:border-stone-400 dark:focus:border-stone-400 transition-colors mb-3"
         >
-        <p id="passError" class="hidden text-xs text-rose-400 mb-3">パスワードが違います</p>
+        <p id="passError" class="hidden text-xs text-red-400 mb-3">パスワードが違います</p>
         <button onclick="submitPassword()"
-          class="
-            w-full py-3 rounded-2xl text-sm font-bold
-            bg-purple-600/70 hover:bg-purple-500/80 border border-purple-400/30
-            text-white transition-all active:scale-95
-          "
-        >入る</button>
+          class="w-full py-2.5 rounded-lg text-sm font-medium bg-stone-900 dark:bg-stone-100 hover:bg-stone-700 dark:hover:bg-stone-300 text-white dark:text-stone-900 transition-colors">
+          入る
+        </button>
       </div>
     </div>
   </div>
 
-  <div id="app" class="hidden w-full max-w-[430px] flex flex-col min-h-screen relative">
+  <div id="app" class="hidden w-full max-w-[430px] flex flex-col min-h-screen">
 
     <!-- HEADER -->
-    <header class="
-      sticky top-0 z-20
-      backdrop-blur-md bg-white/10 border-b border-white/20
-      px-4 py-3 flex items-center justify-between
-      safe-area-top
-    ">
+    <header class="sticky top-0 z-20 bg-white/90 dark:bg-stone-900/90 backdrop-blur-sm border-b border-stone-200 dark:border-stone-700 px-4 py-3 flex items-center justify-between">
       <div>
-        <h1 class="text-base font-bold tracking-tight leading-tight">Knowledge Hub</h1>
-        <p class="text-[10px] text-slate-400 leading-none mt-0.5">ナレッジ共有</p>
+        <h1 class="text-sm font-semibold text-stone-900 dark:text-stone-100 leading-tight">Knowledge Hub</h1>
+        <p class="text-[10px] text-stone-400 leading-none mt-0.5">ナレッジ共有</p>
       </div>
       <button id="darkToggle"
-        class="w-9 h-9 rounded-xl backdrop-blur-sm bg-white/10 border border-white/20
-               flex items-center justify-center text-base transition-all active:scale-90 select-none"
+        class="w-8 h-8 rounded-lg bg-stone-100 dark:bg-stone-800 border border-stone-200 dark:border-stone-700 flex items-center justify-center text-sm transition-colors select-none"
         aria-label="ダークモード切替">
         <span id="darkIcon">🌙</span>
       </button>
     </header>
 
     <!-- CONTENT AREA -->
-    <main id="contentArea" class="
-      flex-1 overflow-y-auto no-scrollbar
-      px-4 py-4 pb-28
-    ">
-      <!-- JS renders here -->
+    <main id="contentArea" class="flex-1 overflow-y-auto no-scrollbar px-4 py-4 pb-24">
       <div class="flex items-center justify-center h-40">
-        <p class="text-slate-400 text-sm">読み込み中...</p>
+        <p class="text-stone-400 text-sm">読み込み中...</p>
       </div>
     </main>
 
     <!-- TAB BAR -->
-    <nav class="
-      fixed bottom-0 left-1/2 -translate-x-1/2
-      w-full max-w-[430px] z-20
-      backdrop-blur-md bg-black/40 border-t border-white/15
-      flex
-    ">
-      <button data-tab="new"
-        class="tab-btn flex-1 py-3 pb-5 flex flex-col items-center gap-0.5 text-xs font-medium transition-colors select-none">
-        <span class="text-xl leading-none">✨</span>
-        <span>新着</span>
+    <nav class="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[430px] z-20 bg-white/90 dark:bg-stone-900/90 backdrop-blur-sm border-t border-stone-200 dark:border-stone-700 flex">
+      <button data-tab="new"    class="tab-btn flex-1 py-3 pb-5 flex flex-col items-center gap-0.5 text-xs font-medium transition-colors select-none">
+        <span class="text-lg leading-none">📋</span><span>新着</span>
       </button>
-      <button data-tab="genre"
-        class="tab-btn flex-1 py-3 pb-5 flex flex-col items-center gap-0.5 text-xs font-medium transition-colors select-none">
-        <span class="text-xl leading-none">📂</span>
-        <span>ジャンル</span>
+      <button data-tab="genre"  class="tab-btn flex-1 py-3 pb-5 flex flex-col items-center gap-0.5 text-xs font-medium transition-colors select-none">
+        <span class="text-lg leading-none">📂</span><span>ジャンル</span>
       </button>
-      <button data-tab="search"
-        class="tab-btn flex-1 py-3 pb-5 flex flex-col items-center gap-0.5 text-xs font-medium transition-colors select-none">
-        <span class="text-xl leading-none">🔍</span>
-        <span>検索</span>
+      <button data-tab="search" class="tab-btn flex-1 py-3 pb-5 flex flex-col items-center gap-0.5 text-xs font-medium transition-colors select-none">
+        <span class="text-lg leading-none">🔍</span><span>検索</span>
       </button>
     </nav>
 
   </div>
 
   <script>
-    // ---- 定数 ----
     const GENRE_COLOR = {
-      '健康':           'bg-emerald-500/20 text-emerald-300 border-emerald-500/30',
-      'AI・技術':       'bg-sky-500/20 text-sky-300 border-sky-500/30',
-      '理学療法':       'bg-violet-500/20 text-violet-300 border-violet-500/30',
-      '副業・ビジネス': 'bg-amber-500/20 text-amber-300 border-amber-500/30',
-      'ライフスタイル': 'bg-rose-500/20 text-rose-300 border-rose-500/30',
+      '健康':           'bg-emerald-50 text-emerald-700 border-emerald-200 dark:bg-emerald-900/30 dark:text-emerald-400 dark:border-emerald-700',
+      'AI・技術':       'bg-sky-50 text-sky-700 border-sky-200 dark:bg-sky-900/30 dark:text-sky-400 dark:border-sky-700',
+      '理学療法':       'bg-violet-50 text-violet-700 border-violet-200 dark:bg-violet-900/30 dark:text-violet-400 dark:border-violet-700',
+      '副業・ビジネス': 'bg-amber-50 text-amber-700 border-amber-200 dark:bg-amber-900/30 dark:text-amber-400 dark:border-amber-700',
+      'ライフスタイル': 'bg-rose-50 text-rose-700 border-rose-200 dark:bg-rose-900/30 dark:text-rose-400 dark:border-rose-700',
     };
 
     const GENRE_ICON = {
-      '健康':           '💪',
-      'AI・技術':       '🤖',
-      '理学療法':       '🏥',
-      '副業・ビジネス': '💼',
-      'ライフスタイル': '🌿',
+      '健康': '💪', 'AI・技術': '🤖', '理学療法': '🏥', '副業・ビジネス': '💼', 'ライフスタイル': '🌿',
     };
 
-    // ---- 状態 ----
     let allArticles = [];
     let currentTab = 'new';
 
-    // ---- DOM ----
     const contentArea = document.getElementById('contentArea');
-    const darkToggle  = document.getElementById('darkToggle');
-    const darkIcon    = document.getElementById('darkIcon');
     const tabBtns     = document.querySelectorAll('.tab-btn');
 
-    // ---- 起動 ----
     document.addEventListener('DOMContentLoaded', async () => {
       try {
         const res = await fetch('./data.json');
-        if (!res.ok) throw new Error('fetch failed');
+        if (!res.ok) throw new Error();
         const data = await res.json();
         allArticles = data.articles.sort((a, b) => b.date.localeCompare(a.date));
-      } catch (e) {
-        contentArea.innerHTML = `
-          <div class="text-center text-slate-400 text-sm mt-16">
-            <p class="text-3xl mb-3">⚠️</p>
-            <p>データの読み込みに失敗しました。</p>
-            <p class="text-xs mt-1 text-slate-500">ローカルサーバー経由でアクセスしてください。</p>
-          </div>`;
+      } catch {
+        contentArea.innerHTML = `<div class="text-center text-stone-400 text-sm mt-16"><p class="text-3xl mb-3">⚠️</p><p>データの読み込みに失敗しました。</p><p class="text-xs mt-1 text-stone-300">ローカルサーバー経由でアクセスしてください。</p></div>`;
         return;
       }
-
       initDarkMode();
       initTabs();
       renderNew(allArticles);
       setActiveTab('new');
     });
 
-    // ---- ダークモード ----
     function initDarkMode() {
       updateDarkIcon();
-      darkToggle.addEventListener('click', () => {
+      document.getElementById('darkToggle').addEventListener('click', () => {
         const isDark = document.documentElement.classList.toggle('dark');
         localStorage.setItem('darkMode', isDark);
         updateDarkIcon();
@@ -229,10 +173,10 @@
     }
 
     function updateDarkIcon() {
-      darkIcon.textContent = document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
+      document.getElementById('darkIcon').textContent =
+        document.documentElement.classList.contains('dark') ? '☀️' : '🌙';
     }
 
-    // ---- タブ ----
     function initTabs() {
       tabBtns.forEach(btn => {
         btn.addEventListener('click', () => {
@@ -241,7 +185,6 @@
           currentTab = tab;
           setActiveTab(tab);
           contentArea.scrollTop = 0;
-
           if (tab === 'new')    renderNew(allArticles);
           if (tab === 'genre')  renderGenre(allArticles);
           if (tab === 'search') renderSearch(allArticles, '');
@@ -252,92 +195,102 @@
     function setActiveTab(tab) {
       tabBtns.forEach(btn => {
         const active = btn.dataset.tab === tab;
-        btn.classList.toggle('text-white',     active);
-        btn.classList.toggle('text-slate-400', !active);
+        btn.classList.toggle('text-stone-900',  active);
+        btn.classList.toggle('dark:text-stone-100', active);
+        btn.classList.toggle('text-stone-400',  !active);
+        btn.classList.toggle('dark:text-stone-500', !active);
       });
-    }
-
-    // ---- カード生成 ----
-    function createCard(article, index) {
-      const gc = GENRE_COLOR[article.genre] ?? 'bg-slate-500/20 text-slate-300 border-slate-500/30';
-      const tagsHTML = article.tags
-        .map(t => `<span class="text-[11px] px-2 py-0.5 rounded-full bg-white/10 text-slate-300">#${t}</span>`)
-        .join('');
-
-      const card = document.createElement('div');
-      card.className = 'float-up backdrop-blur-md bg-white/10 border border-white/20 rounded-2xl p-4 mb-3 transition-transform active:scale-[0.98]';
-      card.style.animationDelay = `${index * 60}ms`;
-
-      card.innerHTML = `
-        <div class="flex items-start justify-between gap-2 mb-2">
-          <h2 class="text-sm font-bold leading-snug flex-1 text-slate-100">${escHtml(article.title)}</h2>
-          <span class="text-[11px] px-2 py-0.5 rounded-full border shrink-0 ${gc}">${escHtml(article.genre)}</span>
-        </div>
-        <p class="text-xs text-slate-300 leading-relaxed mb-3">${escHtml(article.summary)}</p>
-        <div class="flex items-end justify-between gap-2">
-          <div class="flex flex-wrap gap-1">${tagsHTML}</div>
-          <span class="text-[11px] text-slate-400 shrink-0 whitespace-nowrap">📖 ${article.readTime}分 · ${article.date}</span>
-        </div>
-      `;
-      return card;
     }
 
     function escHtml(str) {
-      return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+      return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
     }
 
-    // ---- 新着タブ ----
+    function createCard(article, index) {
+      const gc = GENRE_COLOR[article.genre] ?? 'bg-stone-50 text-stone-600 border-stone-200';
+      const tagsHTML = article.tags
+        .map(t => `<span class="text-[10px] px-2 py-0.5 rounded-full bg-stone-100 dark:bg-stone-700 text-stone-500 dark:text-stone-400">#${escHtml(t)}</span>`)
+        .join('');
+      const hasFile = !!article.file;
+
+      const outer = document.createElement(hasFile ? 'a' : 'div');
+      if (hasFile) {
+        outer.href = article.file;
+        outer.target = '_blank';
+        outer.rel = 'noopener noreferrer';
+      }
+      outer.className = [
+        'float-up block',
+        'bg-white dark:bg-stone-800',
+        'border border-stone-200 dark:border-stone-700',
+        'rounded-xl p-4 mb-3',
+        hasFile
+          ? 'hover:border-stone-300 dark:hover:border-stone-600 hover:shadow-sm cursor-pointer transition-all active:scale-[0.99]'
+          : 'cursor-default',
+      ].join(' ');
+      outer.style.animationDelay = `${index * 55}ms`;
+
+      outer.innerHTML = `
+        <div class="flex items-start justify-between gap-2 mb-2">
+          <p class="text-sm font-semibold leading-snug flex-1 text-stone-900 dark:text-stone-100">${escHtml(article.title)}</p>
+          <span class="text-[10px] px-2 py-0.5 rounded-full border shrink-0 ${gc}">${escHtml(article.genre)}</span>
+        </div>
+        <p class="text-xs text-stone-500 dark:text-stone-400 leading-relaxed mb-3">${escHtml(article.summary)}</p>
+        <div class="flex items-end justify-between gap-2">
+          <div class="flex flex-wrap gap-1">${tagsHTML}</div>
+          <div class="flex items-center gap-2 shrink-0">
+            <span class="text-[10px] text-stone-400 whitespace-nowrap">${article.readTime}分 · ${article.date}</span>
+            ${hasFile ? `<span class="text-[10px] text-stone-400 font-medium">読む →</span>` : ''}
+          </div>
+        </div>
+      `;
+      return outer;
+    }
+
+    /* ---- 新着タブ ---- */
     function renderNew(articles) {
       contentArea.innerHTML = '';
-
-      const header = document.createElement('p');
-      header.className = 'float-up text-[11px] text-slate-400 mb-3 px-1';
-      header.style.animationDelay = '0ms';
-      header.textContent = `全 ${articles.length} 件 — 最新順`;
-      contentArea.appendChild(header);
-
+      const info = document.createElement('p');
+      info.className = 'float-up text-[11px] text-stone-400 mb-3 px-1';
+      info.style.animationDelay = '0ms';
+      info.textContent = `全 ${articles.length} 件 — 最新順`;
+      contentArea.appendChild(info);
       articles.forEach((a, i) => contentArea.appendChild(createCard(a, i + 1)));
     }
 
-    // ---- ジャンルタブ ----
+    /* ---- ジャンルタブ ---- */
     function renderGenre(articles) {
       contentArea.innerHTML = '';
-
       const genreMap = {};
-      articles.forEach(a => {
-        if (!genreMap[a.genre]) genreMap[a.genre] = [];
-        genreMap[a.genre].push(a);
-      });
+      articles.forEach(a => { if (!genreMap[a.genre]) genreMap[a.genre] = []; genreMap[a.genre].push(a); });
 
       Object.entries(genreMap).forEach(([genre, items], gi) => {
-        const gc = GENRE_COLOR[genre] ?? 'bg-slate-500/20 text-slate-300 border-slate-500/30';
+        const gc = GENRE_COLOR[genre] ?? 'bg-stone-50 text-stone-600 border-stone-200';
         const icon = GENRE_ICON[genre] ?? '📄';
-
         const wrapper = document.createElement('div');
-        wrapper.className = 'float-up mb-3';
-        wrapper.style.animationDelay = `${gi * 80}ms`;
+        wrapper.className = 'float-up mb-2';
+        wrapper.style.animationDelay = `${gi * 70}ms`;
 
-        const header = document.createElement('button');
-        header.className = 'w-full flex items-center justify-between px-4 py-3.5 backdrop-blur-md bg-white/10 border border-white/20 rounded-2xl text-sm font-bold transition-all active:scale-[0.98]';
-        header.innerHTML = `
+        const btn = document.createElement('button');
+        btn.className = 'w-full flex items-center justify-between px-4 py-3 bg-white dark:bg-stone-800 border border-stone-200 dark:border-stone-700 rounded-xl text-sm font-medium transition-all hover:border-stone-300 dark:hover:border-stone-600 active:scale-[0.99]';
+        btn.innerHTML = `
           <span class="flex items-center gap-2">
-            <span class="text-base">${icon}</span>
-            <span>${escHtml(genre)}</span>
-            <span class="text-[11px] px-2 py-0.5 rounded-full border ${gc}">${items.length}件</span>
+            <span>${icon}</span>
+            <span class="text-stone-900 dark:text-stone-100">${escHtml(genre)}</span>
+            <span class="text-[10px] px-2 py-0.5 rounded-full border ${gc}">${items.length}件</span>
           </span>
-          <span class="accordion-icon text-slate-400 text-xs transition-transform duration-300">▼</span>
+          <span class="accordion-icon text-stone-400 text-xs transition-transform duration-200">▼</span>
         `;
 
         const body = document.createElement('div');
-        body.className = 'hidden mt-2';
-
+        body.className = 'hidden pt-2 pl-2';
         items.forEach((a, i) => body.appendChild(createCard(a, i)));
 
         let open = false;
-        header.addEventListener('click', () => {
+        btn.addEventListener('click', () => {
           open = !open;
           body.classList.toggle('hidden', !open);
-          header.querySelector('.accordion-icon').style.transform = open ? 'rotate(180deg)' : 'rotate(0deg)';
+          btn.querySelector('.accordion-icon').style.transform = open ? 'rotate(180deg)' : 'rotate(0deg)';
           if (open) {
             body.querySelectorAll('.float-up').forEach(el => {
               el.style.animationName = 'none';
@@ -347,40 +300,30 @@
           }
         });
 
-        wrapper.appendChild(header);
+        wrapper.appendChild(btn);
         wrapper.appendChild(body);
         contentArea.appendChild(wrapper);
       });
     }
 
-    // ---- 検索タブ ----
+    /* ---- 検索タブ ---- */
     function renderSearch(articles, query) {
       contentArea.innerHTML = '';
-
-      const searchBox = document.createElement('div');
-      searchBox.className = 'float-up mb-4';
-      searchBox.style.animationDelay = '0ms';
-      searchBox.innerHTML = `
-        <input id="searchInput" type="search"
-          placeholder="タイトル・タグ・要約で検索..."
-          value="${escHtml(query)}"
-          autocomplete="off" autocorrect="off" spellcheck="false"
-          class="
-            w-full px-4 py-3 rounded-2xl text-sm
-            backdrop-blur-md bg-white/10 border border-white/20
-            text-slate-100 placeholder:text-slate-400
-            outline-none focus:border-purple-400/60 transition-colors
-          "
-        >
+      const box = document.createElement('div');
+      box.className = 'float-up mb-4';
+      box.innerHTML = `
+        <input id="searchInput" type="search" placeholder="タイトル・タグ・要約で検索..."
+          value="${escHtml(query)}" autocomplete="off" autocorrect="off" spellcheck="false"
+          class="w-full px-4 py-2.5 rounded-xl text-sm bg-white dark:bg-stone-800 border border-stone-200 dark:border-stone-700 text-stone-900 dark:text-stone-100 placeholder:text-stone-300 dark:placeholder:text-stone-500 outline-none focus:border-stone-400 dark:focus:border-stone-500 transition-colors">
       `;
-      contentArea.appendChild(searchBox);
+      contentArea.appendChild(box);
 
-      const resultsArea = document.createElement('div');
-      resultsArea.id = 'searchResults';
-      contentArea.appendChild(resultsArea);
+      const results = document.createElement('div');
+      results.id = 'searchResults';
+      contentArea.appendChild(results);
 
-      const runFilter = (q) => {
-        resultsArea.innerHTML = '';
+      const run = (q) => {
+        results.innerHTML = '';
         const lower = q.toLowerCase();
         const filtered = !q ? articles : articles.filter(a =>
           a.title.toLowerCase().includes(lower) ||
@@ -388,31 +331,20 @@
           a.tags.some(t => t.toLowerCase().includes(lower)) ||
           a.genre.toLowerCase().includes(lower)
         );
-
-        if (filtered.length === 0) {
-          resultsArea.innerHTML = `
-            <div class="text-center text-slate-400 text-sm mt-10">
-              <p class="text-3xl mb-2">🔍</p>
-              <p>「${escHtml(q)}」に一致する記事が見つかりません</p>
-            </div>`;
+        if (!filtered.length) {
+          results.innerHTML = `<div class="text-center text-stone-400 text-sm mt-10"><p class="text-2xl mb-2">🔍</p><p>「${escHtml(q)}」に一致する記事がありません</p></div>`;
           return;
         }
-
         const info = document.createElement('p');
-        info.className = 'text-[11px] text-slate-400 mb-3 px-1';
+        info.className = 'text-[11px] text-stone-400 mb-3 px-1';
         info.textContent = q ? `${filtered.length} 件ヒット` : `全 ${filtered.length} 件`;
-        resultsArea.appendChild(info);
-
-        filtered.forEach((a, i) => resultsArea.appendChild(createCard(a, i)));
+        results.appendChild(info);
+        filtered.forEach((a, i) => results.appendChild(createCard(a, i)));
       };
 
-      runFilter(query);
-
-      document.getElementById('searchInput').addEventListener('input', e => runFilter(e.target.value));
-
-      if (!query) {
-        setTimeout(() => document.getElementById('searchInput')?.focus(), 100);
-      }
+      run(query);
+      document.getElementById('searchInput').addEventListener('input', e => run(e.target.value));
+      if (!query) setTimeout(() => document.getElementById('searchInput')?.focus(), 100);
     }
   </script>
 

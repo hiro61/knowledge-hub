@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>工夫の神 — 2024/06/02</title>
+<style>
+  /* ─── Reset & Base ─── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --accent:      #8B3A3A;
+    --accent-soft: #b05a5a;
+    --bg:          #ffffff;
+    --bg-sub:      #F4F4F4;
+    --text:        #1a1a1a;
+    --text-soft:   #555555;
+    --rule:        #d8d8d8;
+    --max-w:       720px;
+    --font-ja:     "Hiragino Mincho ProN", "Yu Mincho", "游明朝", "Noto Serif JP", Georgia, serif;
+    --font-go:     "Hiragino Kaku Gothic ProN", "Yu Gothic", "游ゴシック", "Noto Sans JP", sans-serif;
+  }
+
+  html { font-size: 16px; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-ja);
+    line-height: 1.75;
+    -webkit-text-size-adjust: 100%;
+    padding: 60px 24px 100px;
+  }
+
+  /* ─── Container ─── */
+  main {
+    max-width: var(--max-w);
+    margin: 0 auto;
+  }
+
+  /* ─── Header ─── */
+  .doc-header {
+    padding-bottom: 36px;
+    border-bottom: 2px solid var(--text);
+    margin-bottom: 56px;
+  }
+
+  .doc-meta {
+    font-family: var(--font-go);
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  h1 {
+    font-family: var(--font-go);
+    font-size: clamp(2.2rem, 7vw, 3.4rem);
+    font-weight: 900;
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+    color: var(--text);
+    margin-bottom: 12px;
+  }
+
+  .doc-subtitle {
+    font-family: var(--font-go);
+    font-size: 1.05rem;
+    color: var(--text-soft);
+    font-weight: 400;
+    letter-spacing: 0.02em;
+  }
+
+  /* ─── Section label ─── */
+  .section-label {
+    display: inline-block;
+    background: var(--accent);
+    color: #fff;
+    font-family: var(--font-go);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 3px 10px 2px;
+    margin-bottom: 18px;
+  }
+
+  .section-label.soft {
+    background: var(--bg-sub);
+    color: var(--accent);
+    border: 1px solid var(--accent);
+  }
+
+  /* ─── Section & Article ─── */
+  section {
+    margin-bottom: 56px;
+  }
+
+  article {
+    margin-bottom: 40px;
+  }
+
+  /* ─── Headings ─── */
+  h2 {
+    font-family: var(--font-go);
+    font-size: clamp(1.5rem, 5vw, 2rem);
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    line-height: 1.25;
+    color: var(--text);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+  }
+
+  h2 .num {
+    font-size: 0.85em;
+    color: var(--accent);
+    font-weight: 900;
+    flex-shrink: 0;
+  }
+
+  h3 {
+    font-family: var(--font-go);
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    color: var(--text);
+    margin-bottom: 10px;
+    margin-top: 24px;
+    padding-left: 14px;
+    border-left: 3px solid var(--accent);
+  }
+
+  /* ─── Body text ─── */
+  p {
+    font-size: 0.97rem;
+    line-height: 1.85;
+    margin-bottom: 14px;
+    color: var(--text);
+  }
+
+  /* ─── Key box (要点ボックス) ─── */
+  .key-box {
+    background: var(--bg-sub);
+    border-left: 4px solid var(--accent);
+    padding: 18px 22px;
+    margin: 24px 0;
+    border-radius: 0 2px 2px 0;
+  }
+
+  .key-box p {
+    margin-bottom: 6px;
+    font-size: 0.95rem;
+  }
+
+  .key-box p:last-child { margin-bottom: 0; }
+
+  .key-box .kbox-label {
+    font-family: var(--font-go);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  /* ─── Lists ─── */
+  ul, ol {
+    padding-left: 1.4em;
+    margin-bottom: 14px;
+  }
+
+  li {
+    font-size: 0.95rem;
+    line-height: 1.8;
+    margin-bottom: 5px;
+    color: var(--text);
+  }
+
+  li::marker {
+    color: var(--accent);
+  }
+
+  /* ─── Highlight ─── */
+  strong, b {
+    font-weight: 700;
+    color: var(--text);
+  }
+
+  .hi {
+    color: var(--accent);
+    font-weight: 700;
+  }
+
+  /* ─── Rule ─── */
+  hr {
+    border: none;
+    border-top: 1px solid var(--rule);
+    margin: 48px 0;
+  }
+
+  .hr-thick {
+    border: none;
+    border-top: 2px solid var(--text);
+    margin: 48px 0;
+  }
+
+  /* ─── Resource grid ─── */
+  .resource-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 20px;
+  }
+
+  .resource-card {
+    background: var(--bg-sub);
+    padding: 16px 18px;
+    border-top: 2px solid var(--rule);
+  }
+
+  .resource-card .rc-title {
+    font-family: var(--font-go);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  .resource-card ul {
+    padding-left: 1.2em;
+    margin: 0;
+  }
+
+  .resource-card li {
+    font-size: 0.85rem;
+    line-height: 1.7;
+    margin-bottom: 3px;
+  }
+
+  /* ─── OEQ list ─── */
+  .oeq-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 16px 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .oeq-list li {
+    background: var(--bg-sub);
+    font-family: var(--font-go);
+    font-size: 0.82rem;
+    padding: 5px 14px;
+    border: 1px solid var(--rule);
+    margin: 0;
+    color: var(--text);
+  }
+
+  /* ─── Thinking frame ─── */
+  .thinking-frame {
+    display: flex;
+    gap: 16px;
+    margin: 20px 0;
+  }
+
+  .thinking-frame .tf-col {
+    flex: 1;
+    background: var(--bg-sub);
+    padding: 16px 18px;
+    border-top: 3px solid var(--text);
+  }
+
+  .thinking-frame .tf-col h4 {
+    font-family: var(--font-go);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: var(--text);
+    margin-bottom: 8px;
+  }
+
+  .thinking-frame .tf-col p {
+    font-size: 0.85rem;
+    margin: 0;
+    color: var(--text-soft);
+  }
+
+  /* ─── Summary footer ─── */
+  .summary-box {
+    background: var(--text);
+    color: #fff;
+    padding: 32px 36px;
+    margin-top: 56px;
+  }
+
+  .summary-box .sb-label {
+    font-family: var(--font-go);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: #bbb;
+    margin-bottom: 16px;
+    display: block;
+  }
+
+  .summary-box p {
+    color: #e8e8e8;
+    font-size: 0.95rem;
+    line-height: 1.85;
+    margin-bottom: 10px;
+  }
+
+  .summary-box p:last-child { margin-bottom: 0; }
+
+  /* ─── Print ─── */
+  @media print {
+    body {
+      padding: 0;
+      font-size: 10pt;
+    }
+
+    main {
+      max-width: 100%;
+    }
+
+    h1 { font-size: 22pt; }
+    h2 { font-size: 14pt; }
+    h3 { font-size: 11pt; }
+    p, li { font-size: 10pt; line-height: 1.7; }
+
+    section { page-break-inside: avoid; }
+    article { page-break-inside: avoid; }
+    .key-box { page-break-inside: avoid; }
+    .resource-card { page-break-inside: avoid; }
+    .summary-box { page-break-inside: avoid; }
+
+    @page {
+      size: A4 portrait;
+      margin: 20mm 18mm 22mm;
+    }
+  }
+
+  /* ─── Mobile ─── */
+  @media screen and (max-width: 640px) {
+    body { padding: 36px 16px 72px; }
+
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.35rem; }
+
+    .resource-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .thinking-frame {
+      flex-direction: column;
+    }
+
+    .summary-box {
+      padding: 24px 20px;
+    }
+  }
+</style>
+</head>
+<body>
+<main>
+
+  <!-- ══ Document Header ══ -->
+  <header class="doc-header">
+    <p class="doc-meta">2024 / 06 / 02 &nbsp;—&nbsp; Personal Note</p>
+    <h1>工夫の神</h1>
+    <p class="doc-subtitle">アイデアは意味が無く、工夫が大事</p>
+  </header>
+
+  <!-- ══ ① アイデアvs工夫 ══ -->
+  <section>
+    <div class="section-label">POINT 01</div>
+    <article>
+      <h2><span class="num">①</span>アイデアではなく「工夫」が重要</h2>
+
+      <div class="key-box">
+        <span class="kbox-label">Core Insight</span>
+        <p><strong>工夫は運に依存しない戦略</strong>の一つ。アイデアは運に左右される。</p>
+        <p>ゼロイチを考えると、答えがない問題のアイデアを出すのは難しい。<br>
+        だが<strong>工夫は、答えのない人生や物事すべての問題解決に有用。</strong></p>
+      </div>
+
+      <p>人生が苦しいのは自分のせいではないが、<strong>自分の人生を変化させられるのは自分だけ</strong>。その変化に必要なのは、運に依存せず、<em>自分の工夫で楽しみながら変化させること</em>。</p>
+      <p>D は工夫と試行錯誤の回数がずば抜けている。</p>
+
+      <h3>読み返す財産のつくり方</h3>
+      <ul>
+        <li>他人の 0→1 を工夫して <strong>1 を 100 にするノート</strong>を作る——1 を 2 にする練習として</li>
+        <li>1 を 100 に変えた話を探す：本、ドキュメンタリー、人の話</li>
+      </ul>
+    </article>
+  </section>
+
+  <hr>
+
+  <!-- ══ ② OEQ ══ -->
+  <section>
+    <div class="section-label">POINT 02</div>
+    <article>
+      <h2><span class="num">②</span>工夫のコツとオープンエンドクエスチョン</h2>
+
+      <div class="key-box">
+        <span class="kbox-label">Insight</span>
+        <p><strong>工夫は「問いを立てる」ところから始まる。</strong></p>
+        <p>疑問を適切に定義することで、答えの半分以上を得ることができる。<br>
+        普通の問いからは、普通の答えしか生まれない。</p>
+      </div>
+
+      <h3>オープンエンドクエスチョン（OEQ）の型</h3>
+      <p>工夫が上手い人は <strong>5W1H</strong> を軸とした開かれた問いを使う。</p>
+
+      <ul class="oeq-list">
+        <li>どんな</li>
+        <li>だれが</li>
+        <li>何が</li>
+        <li>いつ</li>
+        <li>どこで</li>
+        <li>なぜ</li>
+        <li>だろうか</li>
+        <li>もしそうなら</li>
+        <li>何人</li>
+      </ul>
+
+      <p style="font-family: var(--font-go); font-size: 0.8rem; color: var(--accent); font-weight: 700; letter-spacing: 0.1em;">⚠️ 答えを求めないことが重要</p>
+
+      <h3>OEQ アレンジ例</h3>
+      <ul>
+        <li>〇〇にはどんなメリットがある？</li>
+        <li>〇〇な人はどんな特徴があるだろうか？</li>
+        <li>〇〇な人はどのような傾向があり、何年後の〇〇はどんな感じか？</li>
+      </ul>
+
+      <div class="key-box">
+        <span class="kbox-label">Example</span>
+        <p>「運動習慣ができない」<br>
+        → <strong>どんな運動なら、何が一番続けられているか？</strong></p>
+        <p style="font-size: 0.85rem; color: var(--text-soft);">OEQ は過去・現在・未来をすべて内包している。トレーニングは 10 分で OEQ を実践する。</p>
+      </div>
+    </article>
+  </section>
+
+  <hr>
+
+  <!-- ══ ③ 分解と発散 ══ -->
+  <section>
+    <div class="section-label">POINT 03</div>
+    <article>
+      <h2><span class="num">③</span>上手に工夫するためのコツ — 分解と発散</h2>
+
+      <div class="thinking-frame">
+        <div class="tf-col">
+          <h4>分解思考</h4>
+          <p>分解して原因を究明する。深掘り。<br>
+          環境：<strong>無音・明るめ</strong></p>
+        </div>
+        <div class="tf-col">
+          <h4>発散思考</h4>
+          <p>様々な角度からアイデアを同時展開。上手に注意をそらす。<br>
+          環境：<strong>薄暗く・ヘビメタ</strong></p>
+        </div>
+      </div>
+
+      <p>2 つを行ったり来たり、<strong>両方を使いこなすことが重要</strong>。自分が今どちらのモードにいるかを理解する。</p>
+
+      <h3>科学者思考で考える（仮説と検証を試しまくる）</h3>
+      <ul>
+        <li>なぜ〇〇が〇〇なのか、その〇〇がどのように結びつくのか</li>
+        <li>失敗したら「なぜダメなのか」の因果関係を仮説として立て、検証する</li>
+        <li><span class="hi">拡張バイアスに注意</span>——「〇〇がやっているから正しいに違いない」はよくない</li>
+      </ul>
+
+      <div class="key-box">
+        <span class="kbox-label">Mindset</span>
+        <p>本やDラボをただ鵜呑みにするのではなく、<strong>「自分だったらこう使おう」という仮説と検証を回す</strong>。絶対的な何かは存在しない。</p>
+      </div>
+
+      <h3>アイデアと工夫の違い</h3>
+      <ul>
+        <li><strong>アイデア（結果を求める）：</strong>「これやろう → ダメ → これやろう → ダメ」と振り回される</li>
+        <li><strong>仮説と検証：</strong>「なぜダメだったんだろう」で一歩上へ。成功に近づく</li>
+        <li>仮説と検証だと<strong>自分のアイデアを疑うことができる</strong>——固執がなくなる</li>
+      </ul>
+
+      <div class="key-box">
+        <span class="kbox-label">Example — 転職</span>
+        <p>「自分はこういう性格だから、こういう仕事が合っているかな？ 検証してみよう」<br>
+        → ダメだった → 何が上手くいかなかったか、何が苦手だったか<br>
+        → 「ということはこういう仕事がいいのでは？」 仮説 → 次 → 検証</p>
+      </div>
+    </article>
+  </section>
+
+  <hr>
+
+  <!-- ══ ④ 困っている人 ══ -->
+  <section>
+    <div class="section-label">POINT 04</div>
+    <article>
+      <h2><span class="num">④</span>困っている人を想像する</h2>
+      <p style="font-family: var(--font-go); font-size: 0.78rem; color: var(--text-soft); margin-bottom: 16px;">参照：ペンシルベニア大学 2011 — Adam Grant</p>
+
+      <div class="key-box">
+        <span class="kbox-label">Research</span>
+        <p><strong>社会的動機は他者視点を促し、創造性を向上させる。</strong><br>
+        工夫が思いつかない時は、視点を変えることが重要。</p>
+      </div>
+
+      <h3>視点を遠ざけるアプローチ</h3>
+      <p>新しいアイデアを考えるとき、身近な存在から徐々に離していく：</p>
+      <ul>
+        <li>昔の自分</li>
+        <li>第三者</li>
+        <li>尊敬する人</li>
+        <li>アニメのキャラ</li>
+      </ul>
+      <p>「もし困っている自分が〇〇で悩んでいたら」「もしDだったらどう対策するか」</p>
+    </article>
+  </section>
+
+  <hr>
+
+  <!-- ══ ⑤ 4つのポイント ══ -->
+  <section>
+    <div class="section-label">FRAMEWORK</div>
+    <article>
+      <h2><span class="num">⑤</span>4 つのポイントで工夫を考える</h2>
+      <p>どこから改善したいか分からない時の羅針盤。出てきた答えを <strong>IF-THEN プラン</strong>で実施する。</p>
+
+      <div class="resource-grid">
+
+        <!-- リソース -->
+        <div class="resource-card">
+          <span class="rc-title">Resource — リソースの工夫</span>
+          <ul>
+            <li><strong>時間増加：</strong>決まった時間の中で大事なことに使う</li>
+            <li><strong>スキルアップ：</strong>専門性を高め続ける</li>
+            <li><strong>ホワイトタイム：</strong>疲れた時のリフレッシュ・睡眠の質</li>
+            <li><strong>スリープハック：</strong>アイデア出しは寝る</li>
+          </ul>
+        </div>
+
+        <!-- 障壁 -->
+        <div class="resource-card">
+          <span class="rc-title">Barrier — 障壁の工夫</span>
+          <ul>
+            <li><strong>時間泥棒の把握と対策：</strong>タイマーを使い無駄を改善</li>
+            <li><strong>感情的損失：</strong>自分をコントロールする能力</li>
+            <li><strong>理不尽への対処：</strong>された理不尽にどう工夫するか</li>
+            <li><strong>決断力の工夫：</strong>困難な決断を減らす IF-THEN</li>
+          </ul>
+        </div>
+
+        <!-- 人間関係 -->
+        <div class="resource-card">
+          <span class="rc-title">Relationships — 人間関係の工夫</span>
+          <ul>
+            <li>人間関係を円滑にする戦略</li>
+            <li>神経症的な人への対策</li>
+            <li>客観視の確認——誰にフィードバックを求めるか</li>
+            <li><strong>弱い繋がり</strong>から新しいアイデアを得る（強い繋がりは新しい視点を得にくい）</li>
+          </ul>
+        </div>
+
+        <!-- 挑戦 -->
+        <div class="resource-card">
+          <span class="rc-title">Challenge — 挑戦への工夫</span>
+          <ul>
+            <li>新しいことへの関わり（立候補など）</li>
+            <li>新しい仕事へのリソース（時間）配分</li>
+            <li><strong>目の前のことに囚われて挑戦の時間を無駄にしていないか</strong></li>
+            <li>挑戦の定義を持つ</li>
+            <li>無気力への対策——やる気が起きない時の工夫</li>
+          </ul>
+        </div>
+
+      </div>
+    </article>
+  </section>
+
+  <!-- ══ Summary ══ -->
+  <div class="summary-box">
+    <span class="sb-label">Summary</span>
+    <p><strong>工夫はゼロイチのアイデアではなく、1 を 2 にする繰り返しの実践。</strong></p>
+    <p>問いを立て → 仮説を作り → 検証する。この「科学者思考」の回転数こそが、運に依存しない唯一の変化の原動力。</p>
+    <p>分解と発散を使い分け、他者視点を借り、4 つのフレームで障壁を越える——工夫は技術であり、誰でも鍛えられる。</p>
+  </div>
+
+</main>
+</body>
+</html>
