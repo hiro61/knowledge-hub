@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>歩く習慣が脳と気分を整える理由</title>
+  <style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --accent: #8B3A3A;
+  --accent-soft: #b05a5a;
+  --bg: #ffffff;
+  --bg-sub: #F4F4F4;
+  --text: #1a1a1a;
+  --text-soft: #555555;
+  --rule: #d8d8d8;
+  --max-w: 720px;
+  --font-ja: "Hiragino Mincho ProN","Yu Mincho","游明朝","Noto Serif JP",Georgia,serif;
+  --font-go: "Hiragino Kaku Gothic ProN","Yu Gothic","游ゴシック","Noto Sans JP",sans-serif;
+}
+
+html { font-size: 16px; }
+body { background:var(--bg); color:var(--text); font-family:var(--font-ja); line-height:1.75; -webkit-text-size-adjust:100%; padding:60px 24px 100px; }
+main { max-width:var(--max-w); margin:0 auto; }
+
+.doc-header { padding-bottom:36px; border-bottom:2px solid var(--text); margin-bottom:56px; }
+.doc-meta { font-family:var(--font-go); font-size:0.72rem; letter-spacing:0.18em; color:var(--accent); text-transform:uppercase; margin-bottom:16px; }
+h1 { font-family:var(--font-go); font-size:clamp(2.2rem,7vw,3.4rem); font-weight:900; letter-spacing:-0.03em; line-height:1.15; margin-bottom:12px; }
+.doc-subtitle { font-family:var(--font-go); font-size:1.05rem; color:var(--text-soft); font-weight:400; letter-spacing:0.02em; }
+
+.section-label { display:inline-block; background:var(--accent); color:#fff; font-family:var(--font-go); font-size:0.65rem; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; padding:3px 10px 2px; margin-bottom:18px; }
+.section-label.soft { background:var(--bg-sub); color:var(--accent); border:1px solid var(--accent); }
+
+section { margin-bottom:56px; }
+article { margin-bottom:40px; }
+
+h2 { font-family:var(--font-go); font-size:clamp(1.5rem,5vw,2rem); font-weight:900; letter-spacing:-0.02em; line-height:1.25; margin-bottom:20px; display:flex; align-items:baseline; gap:12px; }
+h2 .num { font-size:0.85em; color:var(--accent); font-weight:900; flex-shrink:0; }
+h3 { font-family:var(--font-go); font-size:1.05rem; font-weight:700; letter-spacing:0.01em; margin-bottom:10px; margin-top:24px; padding-left:14px; border-left:3px solid var(--accent); }
+
+p { font-size:0.97rem; line-height:1.85; margin-bottom:14px; }
+ul, ol { padding-left:1.4em; margin-bottom:14px; }
+li { font-size:0.95rem; line-height:1.8; margin-bottom:5px; }
+li::marker { color:var(--accent); }
+strong, b { font-weight:700; }
+.hi { color:var(--accent); font-weight:700; }
+
+hr { border:none; border-top:1px solid var(--rule); margin:48px 0; }
+.hr-thick { border:none; border-top:2px solid var(--text); margin:48px 0; }
+
+.key-box { background:var(--bg-sub); border-left:4px solid var(--accent); padding:18px 22px; margin:24px 0; border-radius:0 2px 2px 0; }
+.key-box p { margin-bottom:6px; font-size:0.95rem; }
+.key-box p:last-child { margin-bottom:0; }
+.key-box .kbox-label { font-family:var(--font-go); font-size:0.65rem; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:var(--accent); margin-bottom:8px; display:block; }
+
+.resource-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:20px; }
+.resource-card { background:var(--bg-sub); padding:16px 18px; border-top:2px solid var(--rule); }
+.resource-card .rc-title { font-family:var(--font-go); font-size:0.72rem; font-weight:700; letter-spacing:0.15em; color:var(--accent); text-transform:uppercase; margin-bottom:8px; display:block; }
+.resource-card ul { padding-left:1.2em; margin:0; }
+.resource-card li { font-size:0.85rem; line-height:1.7; margin-bottom:3px; }
+
+.oeq-list { display:flex; flex-wrap:wrap; gap:8px; margin:16px 0; padding:0; list-style:none; }
+.oeq-list li { background:var(--bg-sub); font-family:var(--font-go); font-size:0.82rem; padding:5px 14px; border:1px solid var(--rule); margin:0; }
+
+.thinking-frame { display:flex; gap:16px; margin:20px 0; }
+.thinking-frame .tf-col { flex:1; background:var(--bg-sub); padding:16px 18px; border-top:3px solid var(--text); }
+.thinking-frame .tf-col h4 { font-family:var(--font-go); font-size:0.78rem; font-weight:700; letter-spacing:0.12em; margin-bottom:8px; }
+.thinking-frame .tf-col p { font-size:0.85rem; margin:0; color:var(--text-soft); }
+
+.summary-box { background:var(--text); color:#fff; padding:32px 36px; margin-top:56px; }
+.summary-box .sb-label { font-family:var(--font-go); font-size:0.65rem; font-weight:700; letter-spacing:0.25em; text-transform:uppercase; color:#bbb; margin-bottom:16px; display:block; }
+.summary-box p { color:#e8e8e8; font-size:0.95rem; line-height:1.85; margin-bottom:10px; }
+.summary-box p:last-child { margin-bottom:0; }
+
+@media print {
+  body { padding:0; font-size:10pt; }
+  main { max-width:100%; }
+  h1 { font-size:22pt; } h2 { font-size:14pt; } h3 { font-size:11pt; }
+  p, li { font-size:10pt; line-height:1.7; }
+  section, article, .key-box, .resource-card, .summary-box { page-break-inside:avoid; }
+  @page { size:A4 portrait; margin:20mm 18mm 22mm; }
+}
+
+@media screen and (max-width:640px) {
+  body { padding:36px 16px 72px; }
+  h1 { font-size:2rem; } h2 { font-size:1.35rem; }
+  .resource-grid { grid-template-columns:1fr; }
+  .thinking-frame { flex-direction:column; }
+  .summary-box { padding:24px 20px; }
+}
+  </style>
+</head>
+<body>
+  <main>
+    <header class="doc-header">
+      <div class="doc-meta">Walking Notes</div>
+      <h1>歩く習慣が脳と気分を整える理由</h1>
+      <p class="doc-subtitle">強度より継続を優先しながら、認知機能・気分・睡眠をまとめて底上げするための散歩メモ。</p>
+    </header>
+
+    <section>
+      <span class="section-label">Overview</span>
+      <article>
+        <h2><span class="num">01</span>まず押さえる実践の軸</h2>
+        <div class="key-box">
+          <span class="kbox-label">結論</span>
+          <p>散歩は「きつさ」よりも「続けやすさ」を優先する方が効果につながりやすい。</p>
+          <p>週4日、30分から1時間を目安にしつつ、1日の歩数は3500歩から1万歩の範囲で積み上げる形が土台になる。</p>
+        </div>
+        <p>散歩だけに限定せず、ガーデニング、掃除、軽い筋トレのような日常活動も運動として扱うと継続しやすい。週2回のヨガや柔軟運動を加えると、体のこわばりを減らしやすい。</p>
+      </article>
+    </section>
+
+    <section>
+      <span class="section-label soft">Benefits</span>
+      <article>
+        <h2><span class="num">02</span>認知機能と脳血管を守る</h2>
+        <div class="key-box">
+          <span class="kbox-label">必要な理由</span>
+          <p>有酸素運動は心臓と肺を鍛え、安静時血圧を下げやすくし、脳や全身の血管負担を軽くする。</p>
+          <p>血管ネットワークの形成を後押しするため、長期的には認知機能の維持にもつながる。</p>
+        </div>
+        <p>元メモでは、65歳から90歳の1500名を対象としたフィンランドの調査として、週2回運動していた人は認知症リスクが低かったという話が引用されている。脳卒中やアルツハイマー病の人でも、有酸素運動によって認知テスト成績の改善がみられたと整理されている。</p>
+      </article>
+
+      <article>
+        <h2><span class="num">03</span>ストレスと落ち込みを軽くする</h2>
+        <div class="key-box">
+          <span class="kbox-label">結論</span>
+          <p>散歩はコルチゾールの影響を抑え、BDNFの増加を通じて、気分の落ち込みや不安に対する防御力を高めやすい。</p>
+        </div>
+        <p>1日20分から50分の屋外ウォーキングが、うつ状態の予防に役立つという内容が含まれていた。日常で気分が整うだけでなく、小さなことにも前向きな反応が出やすくなる点がこのメモの中心にある。</p>
+      </article>
+
+      <article>
+        <h2><span class="num">04</span>睡眠と意欲も同時に整える</h2>
+        <div class="thinking-frame">
+          <div class="tf-col">
+            <h4>睡眠</h4>
+            <p>血流やリンパの流れが改善し、筋肉がゆるみやすくなるため、身体的な休息感が出やすい。</p>
+          </div>
+          <div class="tf-col">
+            <h4>意欲</h4>
+            <p>ドーパミンの自然減少を抑える方向に働き、体を動かした後にやる気が戻りやすい。</p>
+          </div>
+        </div>
+        <p>散歩によって気分を安定させる材料が増え、活動的な欲求も引き出しやすくなる。元メモでは、パーキンソン病予防や創造性の向上にもつながる可能性が挙げられている。</p>
+      </article>
+    </section>
+
+    <section>
+      <span class="section-label">Practice</span>
+      <article>
+        <h2><span class="num">05</span>続けるための組み立て方</h2>
+        <ul>
+          <li>週4日を基本にして、1回30分から始める。</li>
+          <li>天気や予定で外に出られない日は、掃除や軽い筋トレで代用する。</li>
+          <li>週2回はヨガや柔軟運動を入れて、歩くだけで固まりやすい部位をほぐす。</li>
+          <li>アイデア出しや気分転換が目的の日は、屋外を選ぶ。</li>
+        </ul>
+      </article>
+
+      <article>
+        <h2><span class="num">06</span>まとめ</h2>
+        <p>散歩は派手な運動ではないが、認知機能、気分、睡眠、意欲に幅広く効く土台の習慣として整理できる。歩数や時間の目安を持ちつつ、完璧さより継続を優先すると、このメモの意図に合った使い方になる。</p>
+      </article>
+    </section>
+  </main>
+</body>
+</html>

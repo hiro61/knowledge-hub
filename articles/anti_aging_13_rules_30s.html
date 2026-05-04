@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>30代からの老化を遅らせる13の実践</title>
+  <style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --accent: #8B3A3A;
+  --accent-soft: #b05a5a;
+  --bg: #ffffff;
+  --bg-sub: #F4F4F4;
+  --text: #1a1a1a;
+  --text-soft: #555555;
+  --rule: #d8d8d8;
+  --max-w: 720px;
+  --font-ja: "Hiragino Mincho ProN","Yu Mincho","游明朝","Noto Serif JP",Georgia,serif;
+  --font-go: "Hiragino Kaku Gothic ProN","Yu Gothic","游ゴシック","Noto Sans JP",sans-serif;
+}
+
+html { font-size: 16px; }
+body { background:var(--bg); color:var(--text); font-family:var(--font-ja); line-height:1.75; -webkit-text-size-adjust:100%; padding:60px 24px 100px; }
+main { max-width:var(--max-w); margin:0 auto; }
+
+.doc-header { padding-bottom:36px; border-bottom:2px solid var(--text); margin-bottom:56px; }
+.doc-meta { font-family:var(--font-go); font-size:0.72rem; letter-spacing:0.18em; color:var(--accent); text-transform:uppercase; margin-bottom:16px; }
+h1 { font-family:var(--font-go); font-size:clamp(2.2rem,7vw,3.4rem); font-weight:900; letter-spacing:-0.03em; line-height:1.15; margin-bottom:12px; }
+.doc-subtitle { font-family:var(--font-go); font-size:1.05rem; color:var(--text-soft); font-weight:400; letter-spacing:0.02em; }
+
+.section-label { display:inline-block; background:var(--accent); color:#fff; font-family:var(--font-go); font-size:0.65rem; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; padding:3px 10px 2px; margin-bottom:18px; }
+.section-label.soft { background:var(--bg-sub); color:var(--accent); border:1px solid var(--accent); }
+
+section { margin-bottom:56px; }
+article { margin-bottom:40px; }
+
+h2 { font-family:var(--font-go); font-size:clamp(1.5rem,5vw,2rem); font-weight:900; letter-spacing:-0.02em; line-height:1.25; margin-bottom:20px; display:flex; align-items:baseline; gap:12px; }
+h2 .num { font-size:0.85em; color:var(--accent); font-weight:900; flex-shrink:0; }
+h3 { font-family:var(--font-go); font-size:1.05rem; font-weight:700; letter-spacing:0.01em; margin-bottom:10px; margin-top:24px; padding-left:14px; border-left:3px solid var(--accent); }
+
+p { font-size:0.97rem; line-height:1.85; margin-bottom:14px; }
+ul, ol { padding-left:1.4em; margin-bottom:14px; }
+li { font-size:0.95rem; line-height:1.8; margin-bottom:5px; }
+li::marker { color:var(--accent); }
+strong, b { font-weight:700; }
+.hi { color:var(--accent); font-weight:700; }
+
+hr { border:none; border-top:1px solid var(--rule); margin:48px 0; }
+.hr-thick { border:none; border-top:2px solid var(--text); margin:48px 0; }
+
+.key-box { background:var(--bg-sub); border-left:4px solid var(--accent); padding:18px 22px; margin:24px 0; border-radius:0 2px 2px 0; }
+.key-box p { margin-bottom:6px; font-size:0.95rem; }
+.key-box p:last-child { margin-bottom:0; }
+.key-box .kbox-label { font-family:var(--font-go); font-size:0.65rem; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:var(--accent); margin-bottom:8px; display:block; }
+
+.resource-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:20px; }
+.resource-card { background:var(--bg-sub); padding:16px 18px; border-top:2px solid var(--rule); }
+.resource-card .rc-title { font-family:var(--font-go); font-size:0.72rem; font-weight:700; letter-spacing:0.15em; color:var(--accent); text-transform:uppercase; margin-bottom:8px; display:block; }
+.resource-card ul { padding-left:1.2em; margin:0; }
+.resource-card li { font-size:0.85rem; line-height:1.7; margin-bottom:3px; }
+
+.oeq-list { display:flex; flex-wrap:wrap; gap:8px; margin:16px 0; padding:0; list-style:none; }
+.oeq-list li { background:var(--bg-sub); font-family:var(--font-go); font-size:0.82rem; padding:5px 14px; border:1px solid var(--rule); margin:0; }
+
+.thinking-frame { display:flex; gap:16px; margin:20px 0; }
+.thinking-frame .tf-col { flex:1; background:var(--bg-sub); padding:16px 18px; border-top:3px solid var(--text); }
+.thinking-frame .tf-col h4 { font-family:var(--font-go); font-size:0.78rem; font-weight:700; letter-spacing:0.12em; margin-bottom:8px; }
+.thinking-frame .tf-col p { font-size:0.85rem; margin:0; color:var(--text-soft); }
+
+.summary-box { background:var(--text); color:#fff; padding:32px 36px; margin-top:56px; }
+.summary-box .sb-label { font-family:var(--font-go); font-size:0.65rem; font-weight:700; letter-spacing:0.25em; text-transform:uppercase; color:#bbb; margin-bottom:16px; display:block; }
+.summary-box p { color:#e8e8e8; font-size:0.95rem; line-height:1.85; margin-bottom:10px; }
+.summary-box p:last-child { margin-bottom:0; }
+
+@media print {
+  body { padding:0; font-size:10pt; }
+  main { max-width:100%; }
+  h1 { font-size:22pt; } h2 { font-size:14pt; } h3 { font-size:11pt; }
+  p, li { font-size:10pt; line-height:1.7; }
+  section, article, .key-box, .resource-card, .summary-box { page-break-inside:avoid; }
+  @page { size:A4 portrait; margin:20mm 18mm 22mm; }
+}
+
+@media screen and (max-width:640px) {
+  body { padding:36px 16px 72px; }
+  h1 { font-size:2rem; } h2 { font-size:1.35rem; }
+  .resource-grid { grid-template-columns:1fr; }
+  .thinking-frame { flex-direction:column; }
+  .summary-box { padding:24px 20px; }
+}
+  </style>
+</head>
+<body>
+  <main>
+    <header class="doc-header">
+      <div class="doc-meta">Anti Aging</div>
+      <h1>30代からの老化を遅らせる13の実践</h1>
+      <p class="doc-subtitle">食事・運動・調理・ストレス対策を一つの生活設計として見直すための要点整理。</p>
+    </header>
+
+    <section>
+      <span class="section-label">Principle</span>
+      <article>
+        <h2><span class="num">01</span>老化対策の土台は「食べ方」と「質」</h2>
+        <div class="key-box">
+          <span class="kbox-label">結論</span>
+          <p>満腹まで食べないこと、砂糖を減らすこと、高加工食品を避けることが最初の分岐点になる。</p>
+        </div>
+        <p>元メモでは、カロリー制限が最も強いアンチエイジング戦略として扱われている。満腹まで食べる習慣は必要量を超えやすく、糖分や高加工食品の多用は炎症、栄養吸収の低下、がんや肌老化のリスク上昇につながるという整理だった。</p>
+        <ul>
+          <li>腹八分を基準にする。</li>
+          <li>甘い物は日常化せず、摂るならフルーツを優先する。</li>
+          <li>加工肉、ファストフード、揚げ物の頻度を下げる。</li>
+        </ul>
+      </article>
+
+      <article>
+        <h2><span class="num">02</span>野菜と食物繊維を主役にする</h2>
+        <div class="key-box">
+          <span class="kbox-label">必要な理由</span>
+          <p>食物繊維はダイエットだけでなく、心疾患、脳卒中、糖尿病、大腸がんのリスク低下にも関わる。</p>
+          <p>食事全体の黄金比としては「野菜5、タンパク質3、脂質とフルーツ1」が中心に置かれていた。</p>
+        </div>
+        <p>皿の半分を野菜で埋める発想がこのメモの中心にある。野菜量の目安として拳5個分以上、できれば10個分を目指す方針で、玉ねぎ、きゅうり、りんご、いちごなどフィセチンを含む食材も補助線として挙げられている。</p>
+      </article>
+    </section>
+
+    <section>
+      <span class="section-label soft">Body</span>
+      <article>
+        <h2><span class="num">03</span>筋肉と代謝は30代以降の守りになる</h2>
+        <p>30歳を過ぎると筋肉量は10年ごとに減りやすくなるため、週2回から4回の筋トレが推奨されていた。自重トレーニングでも十分で、美容や脳機能の面でも投資効率が高いという立て付けである。</p>
+        <div class="thinking-frame">
+          <div class="tf-col">
+            <h4>筋トレ</h4>
+            <p>肌の弾力やコラーゲン生成の面でも有利とされる。</p>
+          </div>
+          <div class="tf-col">
+            <h4>HIIT</h4>
+            <p>短時間で食欲抑制や代謝改善の補助になる。</p>
+          </div>
+        </div>
+        <p>元メモでは、短時間の高強度運動が食欲ホルモンに作用し、5分から10分でもアンチエイジング効果が期待できるとまとめられていた。</p>
+      </article>
+
+      <article>
+        <h2><span class="num">04</span>調理法と炎症対策も見落とさない</h2>
+        <div class="key-box">
+          <span class="kbox-label">実践例</span>
+          <p>AGEsを増やしやすい高温調理を減らし、100度以下の低温調理を取り入れる。</p>
+          <p>オメガ3、ビタミンB6、マグネシウムを意識して、ストレス耐性を落とさない。</p>
+        </div>
+        <p>焦げや高脂肪肉を減らすことは、体内の炎症負荷を抑えるという意味を持つ。補足では、マグネシウム不足が糖代謝の悪循環を作り、不眠や脳機能低下にもつながる可能性が示されていた。</p>
+      </article>
+    </section>
+
+    <section>
+      <span class="section-label">Checklist</span>
+      <article>
+        <h2><span class="num">05</span>13ルールを日常に落とす順番</h2>
+        <ol>
+          <li>食べ過ぎ、砂糖、高加工食品の3つを先に減らす。</li>
+          <li>野菜量と食物繊維を増やし、皿の配分を整える。</li>
+          <li>週2回以上の筋トレと短時間HIITを固定する。</li>
+          <li>低温調理と栄養補助で炎症とストレス負荷を下げる。</li>
+        </ol>
+      </article>
+
+      <article>
+        <h2><span class="num">06</span>まとめ</h2>
+        <p>このノートは、老化防止を単発の美容法ではなく、食事、運動、調理、ストレス管理の総合設計として扱っている。全部を完璧に守るより、効果の大きい行動を先に固定する方が継続しやすいというメッセージが一貫している。</p>
+      </article>
+    </section>
+  </main>
+</body>
+</html>

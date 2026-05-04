@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HIITを短時間で効かせるための整理</title>
+  <style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --accent: #8B3A3A;
+  --accent-soft: #b05a5a;
+  --bg: #ffffff;
+  --bg-sub: #F4F4F4;
+  --text: #1a1a1a;
+  --text-soft: #555555;
+  --rule: #d8d8d8;
+  --max-w: 720px;
+  --font-ja: "Hiragino Mincho ProN","Yu Mincho","游明朝","Noto Serif JP",Georgia,serif;
+  --font-go: "Hiragino Kaku Gothic ProN","Yu Gothic","游ゴシック","Noto Sans JP",sans-serif;
+}
+
+html { font-size: 16px; }
+body { background:var(--bg); color:var(--text); font-family:var(--font-ja); line-height:1.75; -webkit-text-size-adjust:100%; padding:60px 24px 100px; }
+main { max-width:var(--max-w); margin:0 auto; }
+
+.doc-header { padding-bottom:36px; border-bottom:2px solid var(--text); margin-bottom:56px; }
+.doc-meta { font-family:var(--font-go); font-size:0.72rem; letter-spacing:0.18em; color:var(--accent); text-transform:uppercase; margin-bottom:16px; }
+h1 { font-family:var(--font-go); font-size:clamp(2.2rem,7vw,3.4rem); font-weight:900; letter-spacing:-0.03em; line-height:1.15; margin-bottom:12px; }
+.doc-subtitle { font-family:var(--font-go); font-size:1.05rem; color:var(--text-soft); font-weight:400; letter-spacing:0.02em; }
+
+.section-label { display:inline-block; background:var(--accent); color:#fff; font-family:var(--font-go); font-size:0.65rem; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; padding:3px 10px 2px; margin-bottom:18px; }
+.section-label.soft { background:var(--bg-sub); color:var(--accent); border:1px solid var(--accent); }
+
+section { margin-bottom:56px; }
+article { margin-bottom:40px; }
+
+h2 { font-family:var(--font-go); font-size:clamp(1.5rem,5vw,2rem); font-weight:900; letter-spacing:-0.02em; line-height:1.25; margin-bottom:20px; display:flex; align-items:baseline; gap:12px; }
+h2 .num { font-size:0.85em; color:var(--accent); font-weight:900; flex-shrink:0; }
+h3 { font-family:var(--font-go); font-size:1.05rem; font-weight:700; letter-spacing:0.01em; margin-bottom:10px; margin-top:24px; padding-left:14px; border-left:3px solid var(--accent); }
+
+p { font-size:0.97rem; line-height:1.85; margin-bottom:14px; }
+ul, ol { padding-left:1.4em; margin-bottom:14px; }
+li { font-size:0.95rem; line-height:1.8; margin-bottom:5px; }
+li::marker { color:var(--accent); }
+strong, b { font-weight:700; }
+.hi { color:var(--accent); font-weight:700; }
+
+hr { border:none; border-top:1px solid var(--rule); margin:48px 0; }
+.hr-thick { border:none; border-top:2px solid var(--text); margin:48px 0; }
+
+.key-box { background:var(--bg-sub); border-left:4px solid var(--accent); padding:18px 22px; margin:24px 0; border-radius:0 2px 2px 0; }
+.key-box p { margin-bottom:6px; font-size:0.95rem; }
+.key-box p:last-child { margin-bottom:0; }
+.key-box .kbox-label { font-family:var(--font-go); font-size:0.65rem; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:var(--accent); margin-bottom:8px; display:block; }
+
+.resource-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:20px; }
+.resource-card { background:var(--bg-sub); padding:16px 18px; border-top:2px solid var(--rule); }
+.resource-card .rc-title { font-family:var(--font-go); font-size:0.72rem; font-weight:700; letter-spacing:0.15em; color:var(--accent); text-transform:uppercase; margin-bottom:8px; display:block; }
+.resource-card ul { padding-left:1.2em; margin:0; }
+.resource-card li { font-size:0.85rem; line-height:1.7; margin-bottom:3px; }
+
+.oeq-list { display:flex; flex-wrap:wrap; gap:8px; margin:16px 0; padding:0; list-style:none; }
+.oeq-list li { background:var(--bg-sub); font-family:var(--font-go); font-size:0.82rem; padding:5px 14px; border:1px solid var(--rule); margin:0; }
+
+.thinking-frame { display:flex; gap:16px; margin:20px 0; }
+.thinking-frame .tf-col { flex:1; background:var(--bg-sub); padding:16px 18px; border-top:3px solid var(--text); }
+.thinking-frame .tf-col h4 { font-family:var(--font-go); font-size:0.78rem; font-weight:700; letter-spacing:0.12em; margin-bottom:8px; }
+.thinking-frame .tf-col p { font-size:0.85rem; margin:0; color:var(--text-soft); }
+
+.summary-box { background:var(--text); color:#fff; padding:32px 36px; margin-top:56px; }
+.summary-box .sb-label { font-family:var(--font-go); font-size:0.65rem; font-weight:700; letter-spacing:0.25em; text-transform:uppercase; color:#bbb; margin-bottom:16px; display:block; }
+.summary-box p { color:#e8e8e8; font-size:0.95rem; line-height:1.85; margin-bottom:10px; }
+.summary-box p:last-child { margin-bottom:0; }
+
+@media print {
+  body { padding:0; font-size:10pt; }
+  main { max-width:100%; }
+  h1 { font-size:22pt; } h2 { font-size:14pt; } h3 { font-size:11pt; }
+  p, li { font-size:10pt; line-height:1.7; }
+  section, article, .key-box, .resource-card, .summary-box { page-break-inside:avoid; }
+  @page { size:A4 portrait; margin:20mm 18mm 22mm; }
+}
+
+@media screen and (max-width:640px) {
+  body { padding:36px 16px 72px; }
+  h1 { font-size:2rem; } h2 { font-size:1.35rem; }
+  .resource-grid { grid-template-columns:1fr; }
+  .thinking-frame { flex-direction:column; }
+  .summary-box { padding:24px 20px; }
+}
+  </style>
+</head>
+<body>
+  <main>
+    <header class="doc-header">
+      <div class="doc-meta">HIIT Guide</div>
+      <h1>HIITを短時間で効かせるための整理</h1>
+      <p class="doc-subtitle">心肺機能、脂肪燃焼、脳機能をまとめて伸ばしたい人向けに、負荷と頻度の要点を再構成したHTML版。</p>
+    </header>
+
+    <section>
+      <span class="section-label">Basics</span>
+      <article>
+        <h2><span class="num">01</span>HIITは「高強度を短く反復する」運動</h2>
+        <div class="key-box">
+          <span class="kbox-label">結論</span>
+          <p>HIITは短い休憩を挟みながら、息が切れるほどの高強度運動を繰り返す方法で、最大心拍数の90%前後が目安になる。</p>
+        </div>
+        <p>20秒全力、10秒休憩を8回繰り返すタバタ式が代表例として挙げられていた。休憩中も完全停止ではなく、軽く歩くなど不完全回復にすると切り替えやすい。</p>
+      </article>
+
+      <article>
+        <h2><span class="num">02</span>頻度は週2回から3回で十分</h2>
+        <p>元ノートでは、毎日ではなく週2回から3回、多くても4回に抑え、間に休息日を入れる構成が推奨されていた。最短4分から、一般的には15分前後でも時間対効果が高いという立て付けである。</p>
+      </article>
+    </section>
+
+    <section>
+      <span class="section-label soft">Effects</span>
+      <article>
+        <h2><span class="num">03</span>心肺機能と糖代謝の改善が大きい</h2>
+        <div class="thinking-frame">
+          <div class="tf-col">
+            <h4>心肺機能</h4>
+            <p>一般的な有酸素運動より効率よくVO2maxを上げやすいという研究整理が紹介されていた。</p>
+          </div>
+          <div class="tf-col">
+            <h4>糖代謝</h4>
+            <p>インスリン分泌の負担軽減や糖尿病予防につながる可能性が高いとされている。</p>
+          </div>
+        </div>
+        <p>このメモでは、日本人の主要な健康リスクである心疾患と糖代謝異常の両方にHIITが効きやすい点が強調されていた。</p>
+      </article>
+
+      <article>
+        <h2><span class="num">04</span>脂肪燃焼だけでなく脳にも効く</h2>
+        <p>HIITは内臓脂肪の減少、食欲抑制、抗炎症、冷え性改善、集中力向上まで広い効果を持つ形で整理されている。特に脳血流や記憶力の改善に関する研究が多く引用され、高齢者でも効果が出るという点が特徴として扱われていた。</p>
+        <ul>
+          <li>空腹感の抑制で食事コントロールがしやすくなる。</li>
+          <li>慢性炎症の軽減が、美容や関節痛軽減にもつながる。</li>
+          <li>朝に行うと集中力やパフォーマンスの立ち上がりを作りやすい。</li>
+        </ul>
+      </article>
+    </section>
+
+    <section>
+      <span class="section-label">Practice</span>
+      <article>
+        <h2><span class="num">05</span>安全に始めるときの目安</h2>
+        <div class="key-box">
+          <span class="kbox-label">実践例</span>
+          <p>運動習慣がない場合は、最初から全力を求めず、低負荷から始めて徐々に心拍数を上げる。</p>
+          <p>心臓や循環器系に不安がある場合は医師に相談してから行う。</p>
+        </div>
+        <p>ノート全体を通して、高負荷ほど効果は大きいが、継続できない強度は逆効果という前提がある。まずは短時間で終わる形を固定し、オーバートレーニングを避けることが優先になる。</p>
+      </article>
+
+      <article>
+        <h2><span class="num">06</span>まとめ</h2>
+        <p>HIITは「短時間でも体と脳の両方に大きな刺激を入れられる」ことが強みで、時間がない人ほど相性が良い。頻度を抑えつつ、心拍数をきちんと上げる設計にすると、このメモの狙いを実践に移しやすい。</p>
+      </article>
+    </section>
+  </main>
+</body>
+</html>

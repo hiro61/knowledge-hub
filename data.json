@@ -1,26 +1,6 @@
 {
   "articles": [
     {
-      "id": 1,
-      "title": "30代からの急な老化を防ぐ13のルール",
-      "genre": "健康",
-      "date": "2026-04-29",
-      "summary": "満腹まで食べない・砂糖を減らす・高加工食品を避けるなど、科学的根拠に基づく13項目のアンチエイジング実践ガイド。",
-      "tags": ["老化防止", "食事", "運動"],
-      "readTime": 5,
-      "file": "articles/anti_aging_13_rules.html"
-    },
-    {
-      "id": 2,
-      "title": "HIITの科学的メリット完全解説",
-      "genre": "健康",
-      "date": "2026-04-28",
-      "summary": "週2回20分のHIITで最大酸素摂取量が向上。有酸素と無酸素を組み合わせた効率的なトレーニング設計を解説する。",
-      "tags": ["HIIT", "トレーニング", "有酸素"],
-      "readTime": 4,
-      "file": "articles/hiit_benefits.html"
-    },
-    {
       "id": 3,
       "title": "疲労回復3日間リセットプログラム",
       "genre": "健康",
@@ -29,26 +9,6 @@
       "tags": ["疲労回復", "睡眠", "ルーティン"],
       "readTime": 5,
       "file": "articles/fatigue_reset_3days.html"
-    },
-    {
-      "id": 4,
-      "title": "疲労回復リセットプログラム",
-      "genre": "健康",
-      "date": "2026-04-05",
-      "summary": "慢性疲労を根本からリセットする総合的なプログラム。睡眠の質改善から栄養補給まで体系的に解説する実践的ガイド。",
-      "tags": ["疲労回復", "健康管理", "睡眠"],
-      "readTime": 6,
-      "file": "articles/疲労回復リセットプログラム.html"
-    },
-    {
-      "id": 11,
-      "title": "散歩・ウォーキングの効果",
-      "genre": "ライフスタイル",
-      "date": "2026-05-03",
-      "summary": "週4日30〜60分のウォーキングで認知症リスク50%低下。BDNFの増加・気分安定・創造性向上など7つの効果を脳科学的に解説する。",
-      "tags": ["散歩", "脳科学", "習慣"],
-      "readTime": 3,
-      "file": "articles/sanpo_koka.html"
     },
     {
       "id": 12,
@@ -69,6 +29,46 @@
       "tags": ["スキンケア", "保湿", "日焼け止め"],
       "readTime": 7,
       "file": "articles/skincare_video_transcription_7.html"
+    },
+    {
+      "id": 15,
+      "title": "睡眠の質を立て直す2週間ガイド",
+      "genre": "ライフスタイル",
+      "date": "2026-05-04",
+      "summary": "夜更かしの背景把握から環境調整・就寝ルーティン・日中の設計まで、自己コントロール・環境・習慣の3軸で睡眠を整え直す実践メモ。",
+      "tags": ["睡眠", "習慣", "ルーティン"],
+      "readTime": 5,
+      "file": "articles/sleep_quality_reset_guide.html"
+    },
+    {
+      "id": 16,
+      "title": "HIITを短時間で効かせるための整理",
+      "genre": "健康",
+      "date": "2026-05-04",
+      "summary": "心肺機能・脂肪燃焼・脳機能への効果を整理し、週2〜3回の適切な負荷と頻度でHIITを安全に続ける設計を解説。",
+      "tags": ["HIIT", "トレーニング", "有酸素"],
+      "readTime": 4,
+      "file": "articles/hiit_short_intense_training.html"
+    },
+    {
+      "id": 17,
+      "title": "30代からの老化を遅らせる13の実践",
+      "genre": "健康",
+      "date": "2026-05-04",
+      "summary": "食事・運動・調理法・ストレス管理を一つの生活設計として統合した、30代からのアンチエイジング実践ガイド。",
+      "tags": ["老化防止", "食事", "運動"],
+      "readTime": 5,
+      "file": "articles/anti_aging_13_rules_30s.html"
+    },
+    {
+      "id": 18,
+      "title": "歩く習慣が脳と気分を整える理由",
+      "genre": "ライフスタイル",
+      "date": "2026-05-04",
+      "summary": "週4日30〜60分の散歩で認知機能・気分・睡眠・食欲を底上げする神経科学的メカニズムと継続の設計を解説。",
+      "tags": ["散歩", "脳科学", "習慣"],
+      "readTime": 4,
+      "file": "articles/walking_brain_mood_benefits.html"
     }
   ]
 }
