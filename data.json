@@ -60,15 +60,5 @@
       "readTime": 4,
       "file": "articles/dopamine_chudoku_taisaku.html"
     },
-    {
-      "id": 13,
-      "title": "工夫の神——アイデアより工夫が大事",
-      "genre": "ライフスタイル",
-      "date": "2024-06-02",
-      "summary": "アイデアは意味が無く、工夫こそが価値を生む。実践的な思考フレームワークと行動変容のヒントをまとめた思考録。",
-      "tags": ["思考法", "工夫", "アイデア"],
-      "readTime": 3,
-      "file": "articles/工夫の紙.html"
-    }
   ]
 }
