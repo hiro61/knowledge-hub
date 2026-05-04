@@ -15,20 +15,6 @@
       "file": "articles/fatigue_reset_3days.html"
     },
     {
-      "id": 12,
-      "title": "ドーパミン中毒対策——集中力を取り戻す",
-      "genre": "ライフスタイル",
-      "date": "2026-04-22",
-      "summary": "スマホ・SNS・過食などの即時報酬を一時的に断つことで前頭前野の制御機能を回復させる実践方法を紹介する。",
-      "tags": [
-        "ドーパミン",
-        "集中力",
-        "デトックス"
-      ],
-      "readTime": 4,
-      "file": "articles/dopamine_chudoku_taisaku.html"
-    },
-    {
       "id": 14,
       "title": "2026スキンケア",
       "genre": "健康",
@@ -57,32 +43,18 @@
       "file": "articles/sleep_quality_reset_guide.html"
     },
     {
-      "id": 16,
-      "title": "HIITを短時間で効かせるための整理",
+      "id": 17,
+      "title": "30代からの老化を遅らせる13の実践",
       "genre": "健康",
       "date": "2026-05-04",
-      "summary": "心肺機能・脂肪燃焼・脳機能への効果を整理し、週2〜3回の適切な負荷と頻度でHIITを安全に続ける設計を解説。",
+      "summary": "食事・運動・調理法・ストレス管理を一つの生活設計として統合した、30代からのアンチエイジング実践ガイド。",
       "tags": [
-        "HIIT",
-        "トレーニング",
-        "有酸素"
+        "老化防止",
+        "食事",
+        "運動"
       ],
-      "readTime": 4,
-      "file": "articles/hiit_short_intense_training.html"
-    },
-    {
-      "id": 18,
-      "title": "歩く習慣が脳と気分を整える理由",
-      "genre": "ライフスタイル",
-      "date": "2026-05-04",
-      "summary": "週4日30〜60分の散歩で認知機能・気分・睡眠・食欲を底上げする神経科学的メカニズムと継続の設計を解説。",
-      "tags": [
-        "散歩",
-        "脳科学",
-        "習慣"
-      ],
-      "readTime": 4,
-      "file": "articles/walking_brain_mood_benefits.html"
+      "readTime": 5,
+      "file": "articles/anti_aging_13_rules_30s.html"
     },
     {
       "id": 19,
@@ -135,6 +107,62 @@
       "tags": [],
       "readTime": 2,
       "file": "articles/critical_thinking.html"
+    },
+    {
+      "id": 23,
+      "title": "HIITを短時間で最大化する実践ガイド",
+      "genre": "健康",
+      "date": "2026-05-04",
+      "summary": "時間がない人でも、心肺機能と代謝を効率よく底上げしやすい運動設計を整理。",
+      "tags": [
+        "HIIT",
+        "トレーニング",
+        "有酸素"
+      ],
+      "readTime": 2,
+      "file": "articles/hiit_total_benefits.html"
+    },
+    {
+      "id": 24,
+      "title": "散歩を脳と気分の土台にする方法",
+      "genre": "ライフスタイル",
+      "date": "2026-05-04",
+      "summary": "強い運動より先に、続けやすい歩行習慣で認知機能とメンタルを整える。",
+      "tags": [
+        "散歩",
+        "脳科学",
+        "習慣"
+      ],
+      "readTime": 2,
+      "file": "articles/walking_daily_benefits.html"
+    },
+    {
+      "id": 25,
+      "title": "30代からの老化を遅らせる13の基本",
+      "genre": "健康",
+      "date": "2026-05-04",
+      "summary": "急な老け込みを防ぐには、食事・運動・炎症管理を生活の中で同時に整える。",
+      "tags": [
+        "老化防止",
+        "食事",
+        "運動"
+      ],
+      "readTime": 3,
+      "file": "articles/anti_aging_13_rules_practical.html"
+    },
+    {
+      "id": 26,
+      "title": "ドーパミンに振り回されない生活設計",
+      "genre": "ライフスタイル",
+      "date": "2026-05-04",
+      "summary": "静かな集中力を取り戻すには、刺激を減らすだけでなく健全な報酬へ置き換える必要がある。",
+      "tags": [
+        "ドーパミン",
+        "集中力",
+        "デトックス"
+      ],
+      "readTime": 3,
+      "file": "articles/dopamine_detox_reset_guide.html"
     }
   ]
 }
