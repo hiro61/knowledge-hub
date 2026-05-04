@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>コンフォートゾーンを抜けて成長を作る</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --accent: #8B3A3A;
+      --accent-soft: #b05a5a;
+      --bg: #ffffff;
+      --bg-sub: #F4F4F4;
+      --text: #1a1a1a;
+      --text-soft: #555555;
+      --rule: #d8d8d8;
+      --max-w: 720px;
+      --font-ja: "Hiragino Mincho ProN","Yu Mincho","游明朝","Noto Serif JP",Georgia,serif;
+      --font-go: "Hiragino Kaku Gothic ProN","Yu Gothic","游ゴシック","Noto Sans JP",sans-serif;
+    }
+
+    html { font-size: 16px; }
+    body { background:var(--bg); color:var(--text); font-family:var(--font-ja); line-height:1.75; -webkit-text-size-adjust:100%; padding:60px 24px 100px; }
+    main { max-width:var(--max-w); margin:0 auto; }
+
+    .doc-header { padding-bottom:36px; border-bottom:2px solid var(--text); margin-bottom:56px; }
+    .doc-meta { font-family:var(--font-go); font-size:0.72rem; letter-spacing:0.18em; color:var(--accent); text-transform:uppercase; margin-bottom:16px; }
+    h1 { font-family:var(--font-go); font-size:clamp(2.2rem,7vw,3.4rem); font-weight:900; letter-spacing:-0.03em; line-height:1.15; margin-bottom:12px; }
+    .doc-subtitle { font-family:var(--font-go); font-size:1.05rem; color:var(--text-soft); font-weight:400; letter-spacing:0.02em; }
+
+    .section-label { display:inline-block; background:var(--accent); color:#fff; font-family:var(--font-go); font-size:0.65rem; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; padding:3px 10px 2px; margin-bottom:18px; }
+    .section-label.soft { background:var(--bg-sub); color:var(--accent); border:1px solid var(--accent); }
+
+    section { margin-bottom:56px; }
+    article { margin-bottom:40px; }
+
+    h2 { font-family:var(--font-go); font-size:clamp(1.5rem,5vw,2rem); font-weight:900; letter-spacing:-0.02em; line-height:1.25; margin-bottom:20px; display:flex; align-items:baseline; gap:12px; }
+    h2 .num { font-size:0.85em; color:var(--accent); font-weight:900; flex-shrink:0; }
+    h3 { font-family:var(--font-go); font-size:1.05rem; font-weight:700; letter-spacing:0.01em; margin-bottom:10px; margin-top:24px; padding-left:14px; border-left:3px solid var(--accent); }
+
+    p { font-size:0.97rem; line-height:1.85; margin-bottom:14px; }
+    ul, ol { padding-left:1.4em; margin-bottom:14px; }
+    li { font-size:0.95rem; line-height:1.8; margin-bottom:5px; }
+    li::marker { color:var(--accent); }
+    strong, b { font-weight:700; }
+    .hi { color:var(--accent); font-weight:700; }
+
+    hr { border:none; border-top:1px solid var(--rule); margin:48px 0; }
+    .hr-thick { border:none; border-top:2px solid var(--text); margin:48px 0; }
+
+    .key-box { background:var(--bg-sub); border-left:4px solid var(--accent); padding:18px 22px; margin:24px 0; border-radius:0 2px 2px 0; }
+    .kbox-label { display:block; font-family:var(--font-go); font-size:0.78rem; font-weight:700; letter-spacing:0.12em; color:var(--accent); margin-bottom:10px; }
+    .source-note { font-family:var(--font-go); font-size:0.85rem; color:var(--text-soft); }
+    .recap-box { background:var(--bg-sub); border:1px solid var(--rule); padding:22px 24px; }
+
+    @media (max-width: 640px) {
+      body { padding:40px 18px 72px; }
+      .doc-header { margin-bottom:40px; padding-bottom:28px; }
+      section { margin-bottom:44px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header class="doc-header">
+      <div class="doc-meta">2024-06-14 NOTE REBUILD</div>
+      <h1>コンフォートゾーンを抜けて成長を作る</h1>
+      <p class="doc-subtitle">怖さを避けるのではなく、怖さの先にある学習と成長を見据えて行動を選ぶための整理。</p>
+    </header>
+
+    <section>
+      <span class="section-label">Core Idea</span>
+      <article>
+        <h2><span class="num">01</span>変化を避けるほど恐怖は強くなる</h2>
+        <div class="key-box">
+          <span class="kbox-label">結論</span>
+          <p>居心地の良い状態に長く留まるほど、変化そのものへの抵抗は強くなる。現状が不満でも、予測できる環境のほうが楽なので動けなくなりやすい。</p>
+        </div>
+        <h3>必要な理由</h3>
+        <p>問題は「心地良さ」そのものではなく、そこに留まり続けることで変化への耐性が下がることにある。変化に対応できない状態は、将来の選択肢を狭める。</p>
+        <h3>実践例</h3>
+        <ul>
+          <li>今の生活や仕事で「不満はあるが予測できるから続けていること」を書き出す。</li>
+          <li>安心感と停滞感が同時にある領域を、自分の現在のコンフォートゾーンとして確認する。</li>
+        </ul>
+      </article>
+
+      <article>
+        <h2><span class="num">02</span>逃避ではなく成長のために外へ出る</h2>
+        <div class="key-box">
+          <span class="kbox-label">結論</span>
+          <p>コンフォートゾーンを抜ける目的は、現実から逃げることではなく、自分の成長につながる挑戦を選ぶことにある。</p>
+        </div>
+        <h3>必要な理由</h3>
+        <p>嫌なことから離れるだけでは、恐怖の意味づけができず、行動が続かない。怖いが価値があるものを選ぶことで、恐怖は成長の方向を示すサインになる。</p>
+        <h3>実践例</h3>
+        <ul>
+          <li>「やりたくないこと」ではなく「やってみたいが怖くて避けていること」を候補にする。</li>
+          <li>無意味な負荷ではなく、自分にとって価値のある怖さだけを見極める。</li>
+        </ul>
+      </article>
+    </section>
+
+    <hr class="hr-thick">
+
+    <section>
+      <span class="section-label">Four Zones</span>
+      <article>
+        <h2><span class="num">03</span>4つのゾーンで成長の流れを理解する</h2>
+        <div class="key-box">
+          <span class="kbox-label">結論</span>
+          <p>恐怖は終点ではない。コンフォートゾーン、恐怖ゾーン、学習ゾーン、成長ゾーンを往復しながら、人は少しずつ成長していく。</p>
+        </div>
+        <h3>必要な理由</h3>
+        <p>恐怖だけを見ると行動は止まりやすいが、その先に学習と達成感があると理解できれば、今の不安を一時的な通過点として扱いやすくなる。</p>
+        <h3>4つのゾーン</h3>
+        <ul>
+          <li><strong>コンフォートゾーン</strong>: 自分でコントロールでき、安心できる状態。</li>
+          <li><strong>恐怖ゾーン</strong>: 何が起きるか分からず、不安やストレスが出やすい状態。</li>
+          <li><strong>学習ゾーン</strong>: 新しいスキルや感覚をつかみ始め、少しずつ見通しが立つ状態。</li>
+          <li><strong>成長ゾーン</strong>: 学びが結果につながり、達成感や自分の変化を実感できる状態。</li>
+        </ul>
+        <p class="source-note">出典メモ: フュー・アルバートの4ゾーン整理として記録されていた内容を再構成。</p>
+      </article>
+
+      <article>
+        <h2><span class="num">04</span>恐怖の先にある景色を先に見る</h2>
+        <div class="key-box">
+          <span class="kbox-label">結論</span>
+          <p>人は怖いだけでは動けない。恐怖の先に何が得られるかが見えると、不安は扱いやすくなる。</p>
+        </div>
+        <h3>必要な理由</h3>
+        <p>未知のままだと恐怖は膨らむが、「学べること」「できるようになること」が見えると、恐怖は単なる障害ではなく通過点に変わる。自転車の練習のように、最初は怖くても先の成功イメージがあると継続しやすい。</p>
+        <h3>実践例</h3>
+        <ol>
+          <li>過去に怖かったが、結果的にできるようになった経験を思い出す。</li>
+          <li>今回の挑戦でも、その先で得られる変化を具体的に言語化する。</li>
+          <li>再び安心領域に戻っても、また次の挑戦に進む前提で考える。</li>
+        </ol>
+      </article>
+    </section>
+
+    <hr class="hr-thick">
+
+    <section>
+      <span class="section-label">Action Design</span>
+      <article>
+        <h2><span class="num">05</span>挑戦候補は多めに洗い出す</h2>
+        <div class="key-box">
+          <span class="kbox-label">結論</span>
+          <p>恐怖ゾーンに入るべき対象は、少数の思いつきで決めない。数を出してから選ぶほうが、本当に価値のある挑戦を見つけやすい。</p>
+        </div>
+        <h3>必要な理由</h3>
+        <p>最初に出てくる候補だけだと、単なる気分や現実逃避が混ざりやすい。数を重ねると、自分が本当に尻込みしているテーマが見えやすくなる。</p>
+        <h3>実践例</h3>
+        <ul>
+          <li>「やってみたいが怖くてできないこと」を最低5個、できれば30個以上書き出す。</li>
+          <li>今やっていることの少し先にある挑戦を中心に選ぶ。</li>
+          <li>途中で止まっても、その日のうちに続きから書き足す。</li>
+        </ul>
+      </article>
+
+      <article>
+        <h2><span class="num">06</span>身体の反応を価値ある恐怖のサインとして使う</h2>
+        <div class="key-box">
+          <span class="kbox-label">結論</span>
+          <p>心臓が速くなる、足がすくむ、逃げたくなるといった反応は、避けるべきサインではなく、成長につながる方向かどうかを確かめる材料になる。</p>
+        </div>
+        <h3>必要な理由</h3>
+        <p>恐怖を感じるたびに退くと、進歩のきっかけそのものを失う。自分の身体反応を把握しておけば、価値のある恐怖と無意味な消耗を切り分けやすい。</p>
+        <h3>実践例</h3>
+        <ul>
+          <li>恐怖を感じたときに出やすい身体反応を5つ書く。</li>
+          <li>その反応が出た場面で、「この先に成長があるか」を同時に確認する。</li>
+          <li>怖いが、やらないと後悔しそうなテーマを優先する。</li>
+        </ul>
+      </article>
+    </section>
+
+    <hr class="hr-thick">
+
+    <section>
+      <span class="section-label soft">Follow Through</span>
+      <article>
+        <h2><span class="num">07</span>学習ゾーンでは損失も明確にする</h2>
+        <div class="key-box">
+          <span class="kbox-label">結論</span>
+          <p>正しい恐怖を見つけたら、次は「やらない損」を考える。挑戦しないことの機会損失を見える化すると、継続の理由が強くなる。</p>
+        </div>
+        <h3>必要な理由</h3>
+        <p>学習ゾーンは結果がすぐに出ないため、飽きや失速が起こりやすい。そこで「やめる理由」よりも「避けるデメリット」を言語化しておく必要がある。</p>
+        <h3>実践例</h3>
+        <ul>
+          <li>挑戦しないことで失う機会を5つ以上書き出す。</li>
+          <li>結果が遅くても、学習そのものを中断しない前提で計画する。</li>
+          <li>回数や成果が伸びない時期も、継続を優先して判断する。</li>
+        </ul>
+      </article>
+
+      <article>
+        <h2><span class="num">08</span>成長後の変化まで先に描く</h2>
+        <div class="key-box">
+          <span class="kbox-label">結論</span>
+          <p>恐怖と学習の長い期間を越えるには、その先で自分がどう変わるかを具体的にイメージしておくことが重要になる。</p>
+        </div>
+        <h3>必要な理由</h3>
+        <p>成長ゾーンで得られる報酬や人間関係の変化、自分の実感が見えるほど、途中の退屈や不安に耐えやすくなる。</p>
+        <h3>実践例</h3>
+        <ul>
+          <li>人としての変化、報酬、地位、周囲との関係の変化を分けて書く。</li>
+          <li>「達成したら何が増えるか」を一文ずつ具体化する。</li>
+        </ul>
+      </article>
+
+      <article>
+        <h2><span class="num">09</span>準備度を見て行動を変える</h2>
+        <div class="key-box">
+          <span class="kbox-label">結論</span>
+          <p>変化への準備は一律ではない。自分がどの段階にいるかを見極め、その段階に合った行動に落とし込むほうが前に進みやすい。</p>
+        </div>
+        <h3>必要な理由</h3>
+        <p>準備ができていない時期に実行だけを求めても続かない。逆に、実行段階では進捗の見える化や維持の工夫が必要になる。</p>
+        <h3>段階別の視点</h3>
+        <ul>
+          <li><strong>予期前段階</strong>: まず改善できる生活項目を見つける。</li>
+          <li><strong>予期段階</strong>: 変わるメリットと変わらないリスクを並べる。</li>
+          <li><strong>準備段階</strong>: 実際の行動や使う道具を具体化する。</li>
+          <li><strong>実行段階</strong>: 数値や進捗でモチベーションを保つ。</li>
+          <li><strong>維持状態</strong>: 同じ結果をより少ない負荷で再現する。</li>
+        </ul>
+        <p class="source-note">行動設計メモ: WOOPの法則と If Then ルールを組み合わせる前提で整理されていた。</p>
+      </article>
+    </section>
+
+    <section>
+      <span class="section-label soft">まとめ</span>
+      <div class="recap-box">
+        <p>恐怖がない状態は楽だが、成長も起こりにくい。大事なのは、価値のある恐怖を見つけ、学習の停滞期を越えた先にある変化まで見据えて行動を設計すること。怖さは避ける対象ではなく、進む方向を示す目印として使える。</p>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

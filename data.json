@@ -89,6 +89,16 @@
       "tags": ["時間管理", "ストレス", "習慣"],
       "readTime": 4,
       "file": "articles/time_scarcity_reset.html"
+    },
+    {
+      "id": 21,
+      "title": "コンフォートゾーンを抜けて成長を作る",
+      "genre": "ライフスタイル",
+      "date": "2026-05-04",
+      "summary": "怖さを避けるのではなく、怖さの先にある学習と成長を見据えて行動を選ぶための整理。4つのゾーンの仕組みと、挑戦を設計・継続するための実践ガイド。",
+      "tags": ["成長", "挑戦", "行動設計"],
+      "readTime": 5,
+      "file": "articles/comfort_zone_growth.html"
     }
   ]
 }
