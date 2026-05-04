@@ -154,7 +154,30 @@
     };
 
     const GENRE_ICON = {
-      '健康': '💪', 'AI・技術': '🤖', '理学療法': '🏥', '副業・ビジネス': '💼', 'ライフスタイル': '🌿',
+      '健康': `
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 21s-6.5-4.35-9-8.17C1 9.72 2.7 6 6.64 6c2.17 0 3.4 1.18 4.14 2.4C11.52 7.18 12.75 6 14.92 6 18.86 6 20.56 9.72 18.5 12.83 16 16.65 12 21 12 21Z"/>
+        </svg>`,
+      'AI・技術': `
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="7" y="7" width="10" height="10" rx="2"/>
+          <path d="M9 1v3M15 1v3M9 20v3M15 20v3M20 9h3M20 15h3M1 9h3M1 15h3"/>
+        </svg>`,
+      '理学療法': `
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M12 4v16M4 12h16"/>
+          <rect x="6" y="6" width="12" height="12" rx="2"/>
+        </svg>`,
+      '副業・ビジネス': `
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M3 8h18v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8Z"/>
+          <path d="M8 8V6a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+        </svg>`,
+      'ライフスタイル': `
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M6 20c6 0 12-5 12-14-6 0-12 5-12 14Z"/>
+          <path d="M8.5 15.5c2-1.7 4-3 7-4.5"/>
+        </svg>`,
     };
 
     let allArticles = [];
@@ -290,7 +313,11 @@
 
       Object.entries(genreMap).forEach(([genre, items], gi) => {
         const gc = GENRE_COLOR[genre] ?? 'bg-stone-50 text-stone-600 border-stone-200';
-        const icon = GENRE_ICON[genre] ?? '📄';
+        const icon = GENRE_ICON[genre] ?? `
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M8 3h6l5 5v13H8a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z"/>
+            <path d="M14 3v5h5"/>
+          </svg>`;
         const wrapper = document.createElement('div');
         wrapper.className = 'float-up mb-2';
         wrapper.style.animationDelay = `${gi * 70}ms`;
@@ -299,7 +326,7 @@
         btn.className = 'w-full flex items-center justify-between px-4 py-3 bg-white dark:bg-stone-800 border border-stone-200 dark:border-stone-700 rounded-xl text-sm font-medium transition-all hover:border-stone-300 dark:hover:border-stone-600 active:scale-[0.99]';
         btn.innerHTML = `
           <span class="flex items-center gap-2">
-            <span>${icon}</span>
+            <span class="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-stone-100 text-stone-600 dark:bg-stone-700/70 dark:text-stone-200">${icon}</span>
             <span class="text-stone-900 dark:text-stone-100">${escHtml(genre)}</span>
             <span class="text-[10px] px-2 py-0.5 rounded-full border ${gc}">${items.length}件</span>
           </span>
