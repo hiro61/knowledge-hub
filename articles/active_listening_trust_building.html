@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>信頼をつくる聞く力の鍛え方</title>
+  <style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --accent: #8B3A3A;
+  --accent-soft: #b05a5a;
+  --bg: #ffffff;
+  --bg-sub: #F4F4F4;
+  --text: #1a1a1a;
+  --text-soft: #555555;
+  --rule: #d8d8d8;
+  --max-w: 720px;
+  --font-ja: "Hiragino Mincho ProN","Yu Mincho","游明朝","Noto Serif JP",Georgia,serif;
+  --font-go: "Hiragino Kaku Gothic ProN","Yu Gothic","游ゴシック","Noto Sans JP",sans-serif;
+}
+
+html { font-size: 16px; }
+body { background:var(--bg); color:var(--text); font-family:var(--font-ja); line-height:1.75; -webkit-text-size-adjust:100%; padding:60px 24px 100px; }
+main { max-width:var(--max-w); margin:0 auto; }
+
+.doc-header { padding-bottom:36px; border-bottom:2px solid var(--text); margin-bottom:56px; }
+.doc-meta { font-family:var(--font-go); font-size:0.72rem; letter-spacing:0.18em; color:var(--accent); text-transform:uppercase; margin-bottom:16px; }
+h1 { font-family:var(--font-go); font-size:clamp(2.2rem,7vw,3.4rem); font-weight:900; letter-spacing:-0.03em; line-height:1.15; margin-bottom:12px; }
+.doc-subtitle { font-family:var(--font-go); font-size:1.05rem; color:var(--text-soft); font-weight:400; letter-spacing:0.02em; }
+
+.section-label { display:inline-block; background:var(--accent); color:#fff; font-family:var(--font-go); font-size:0.65rem; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; padding:3px 10px 2px; margin-bottom:18px; }
+.section-label.soft { background:var(--bg-sub); color:var(--accent); border:1px solid var(--accent); }
+
+section { margin-bottom:56px; }
+article { margin-bottom:40px; }
+
+h2 { font-family:var(--font-go); font-size:clamp(1.5rem,5vw,2rem); font-weight:900; letter-spacing:-0.02em; line-height:1.25; margin-bottom:20px; display:flex; align-items:baseline; gap:12px; }
+h2 .num { font-size:0.85em; color:var(--accent); font-weight:900; flex-shrink:0; }
+h3 { font-family:var(--font-go); font-size:1.05rem; font-weight:700; letter-spacing:0.01em; margin-bottom:10px; margin-top:24px; padding-left:14px; border-left:3px solid var(--accent); }
+
+p { font-size:0.97rem; line-height:1.85; margin-bottom:14px; }
+ul, ol { padding-left:1.4em; margin-bottom:14px; }
+li { font-size:0.95rem; line-height:1.8; margin-bottom:5px; }
+li::marker { color:var(--accent); }
+strong, b { font-weight:700; }
+.hi { color:var(--accent); font-weight:700; }
+
+hr { border:none; border-top:1px solid var(--rule); margin:48px 0; }
+.hr-thick { border:none; border-top:2px solid var(--text); margin:48px 0; }
+
+.key-box { background:var(--bg-sub); border-left:4px solid var(--accent); padding:18px 22px; margin:24px 0; border-radius:0 2px 2px 0; }
+.key-box p { margin-bottom:6px; font-size:0.95rem; }
+.key-box p:last-child { margin-bottom:0; }
+.key-box .kbox-label { font-family:var(--font-go); font-size:0.65rem; font-weight:700; letter-spacing:0.18em; text-transform:uppercase; color:var(--accent); margin-bottom:8px; display:block; }
+
+.resource-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:20px; }
+.resource-card { background:var(--bg-sub); padding:16px 18px; border-top:2px solid var(--rule); }
+.resource-card .rc-title { font-family:var(--font-go); font-size:0.72rem; font-weight:700; letter-spacing:0.15em; color:var(--accent); text-transform:uppercase; margin-bottom:8px; display:block; }
+.resource-card ul { padding-left:1.2em; margin:0; }
+.resource-card li { font-size:0.85rem; line-height:1.7; margin-bottom:3px; }
+
+.oeq-list { display:flex; flex-wrap:wrap; gap:8px; margin:16px 0; padding:0; list-style:none; }
+.oeq-list li { background:var(--bg-sub); font-family:var(--font-go); font-size:0.82rem; padding:5px 14px; border:1px solid var(--rule); margin:0; }
+
+.thinking-frame { display:flex; gap:16px; margin:20px 0; }
+.thinking-frame .tf-col { flex:1; background:var(--bg-sub); padding:16px 18px; border-top:3px solid var(--text); }
+.thinking-frame .tf-col h4 { font-family:var(--font-go); font-size:0.78rem; font-weight:700; letter-spacing:0.12em; margin-bottom:8px; }
+.thinking-frame .tf-col p { font-size:0.85rem; margin:0; color:var(--text-soft); }
+
+.recap-box { background:var(--bg-sub); border:1px solid var(--rule); padding:24px 26px; margin-top:20px; }
+.recap-box p { margin-bottom:8px; font-size:0.93rem; line-height:1.75; }
+.recap-box p:last-child { margin-bottom:0; }
+
+@media print {
+  body { padding:0; font-size:10pt; }
+  main { max-width:100%; }
+  h1 { font-size:22pt; }
+  h2 { font-size:14pt; }
+  h3 { font-size:11pt; }
+  p, li { font-size:10pt; line-height:1.7; }
+  section, article, .key-box, .resource-card, .recap-box { page-break-inside:avoid; }
+  @page { size:A4 portrait; margin:20mm 18mm 22mm; }
+}
+
+@media screen and (max-width:640px) {
+  body { padding:36px 16px 72px; }
+  h1 { font-size:2rem; }
+  h2 { font-size:1.35rem; }
+  .resource-grid { grid-template-columns:1fr; }
+  .thinking-frame { flex-direction:column; }
+}
+  </style>
+</head>
+<body>
+  <main>
+    <header class="doc-header">
+      <div class="doc-meta">Listening Skill</div>
+      <h1>信頼をつくる聞く力の鍛え方</h1>
+      <p class="doc-subtitle">相手の本心を無理に読み切るより、理解しようとする聞き方を磨くほうが、長く信頼される関係につながる。</p>
+    </header>
+
+    <section>
+      <span class="section-label">Core</span>
+
+      <article>
+        <h2><span class="num">01</span>聞く力は信頼をつくる技術である</h2>
+        <div class="key-box">
+          <span class="kbox-label">結論</span>
+          <p>人の心を一方的に読み解こうとするより、相手の本心を理解し、それを伝わる形で返すほうが信頼関係は育ちやすい。</p>
+          <p>魅力は「温かみ」と「有能さ」の両立で決まり、傾聴はその両方を示せる。</p>
+        </div>
+        <p>相手は、自分を理解してくれる相手の話をはじめて本気で聞く。だからこそ、聞く力は観察力だけでなく、関係を深めるための実践技術として扱う価値がある。</p>
+        <ul class="oeq-list">
+          <li>温かみ</li>
+          <li>有能さ</li>
+          <li>信頼構築</li>
+          <li>相手理解</li>
+        </ul>
+      </article>
+
+      <article>
+        <h2><span class="num">02</span>アクティブリスニングは相手中心に切り替える訓練になる</h2>
+        <p>アクティブリスニングは、意識のベクトルを「自分がどう見えるか」から「相手が何を感じているか」へ移す方法である。対面だけでなく、LINEやDMのようなテキストコミュニケーションにも応用しやすい。</p>
+        <div class="thinking-frame">
+          <div class="tf-col">
+            <h4>観察</h4>
+            <p>言葉だけでなく、感情の動きや反応の変化を拾う。</p>
+          </div>
+          <div class="tf-col">
+            <h4>信頼</h4>
+            <p>理解しようとする姿勢そのものが、相手に安心感を与える。</p>
+          </div>
+        </div>
+        <p>強力な技術ではあるが、理解しただけでは身につかない。即時反応が求められる会話や配信のような場で継続的に試し、振り返る必要がある。</p>
+      </article>
+    </section>
+
+    <section>
+      <span class="section-label soft">Principles</span>
+
+      <article>
+        <h2><span class="num">03</span>全体の意味を聴く</h2>
+        <div class="key-box">
+          <span class="kbox-label">必要な理由</span>
+          <p>話の内容だけではなく、感情と非言語情報を同時に読むことで、会話の本質を取り違えにくくなる。</p>
+        </div>
+        <p>相手を理解するには、言葉の意味と感情の動きの両方を追う必要がある。特に印象はピークと最後で決まりやすいため、感情が強く動いた瞬間を見逃さないことが重要になる。</p>
+        <h3>実践例</h3>
+        <ol>
+          <li>相手の感情が大きく動いた場面を覚える。</li>
+          <li>会話の終わりに、その話題へもう一度触れる。</li>
+          <li>次回の会話は、その印象的だった話題から始める。</li>
+        </ol>
+      </article>
+
+      <article>
+        <h2><span class="num">04</span>感情に応える</h2>
+        <p>傾聴では、正しさよりも反応の質が問われる。悲しみに必要なのは慰めかもしれず、怒りに必要なのは正論ではなく共感かもしれない。相手がいま何を求めているかを考えながら返すことが土台になる。</p>
+        <div class="resource-grid">
+          <div class="resource-card">
+            <span class="rc-title">Response</span>
+            <ul>
+              <li>「そうだったんだ」</li>
+              <li>「大変だったね」</li>
+              <li>「自分にできることある？」</li>
+            </ul>
+          </div>
+          <div class="resource-card">
+            <span class="rc-title">Avoid</span>
+            <ul>
+              <li>すぐに正論で返す</li>
+              <li>気持ちを飛ばして助言する</li>
+              <li>自分の話へすり替える</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <article>
+        <h2><span class="num">05</span>キューを分けて観察する</h2>
+        <p>声のトーン、表情、姿勢、話すスピードなど、会話には多くのキューがある。ただし一度に全部を追うと疲れやすく、精度も下がる。一定期間はひとつに絞って観察し、少しずつ増やす方が続きやすい。</p>
+        <ul>
+          <li>今週は表情だけを見る</li>
+          <li>次は声のトーンだけ意識する</li>
+          <li>慣れてきたら複数の要素を重ねる</li>
+        </ul>
+      </article>
+    </section>
+
+    <section>
+      <span class="section-label">Skills</span>
+
+      <article>
+        <h2><span class="num">06</span>3つの基礎スキルを先に固める</h2>
+        <p>アクティブリスニングは、細かなテクニックの前に基礎動作を整えると使いやすくなる。特にボディランゲージ、フォロー、リフレクティングの3つは会話全体の空気を変えやすい。</p>
+        <div class="resource-grid">
+          <div class="resource-card">
+            <span class="rc-title">Body Language</span>
+            <ul>
+              <li>姿勢を開く</li>
+              <li>アイコンタクトを保つ</li>
+              <li>共感を行動で見せる</li>
+            </ul>
+          </div>
+          <div class="resource-card">
+            <span class="rc-title">Follow</span>
+            <ul>
+              <li>相づちで流れを支える</li>
+              <li>沈黙を急いで埋めない</li>
+              <li>相手の負担を減らす</li>
+            </ul>
+          </div>
+        </div>
+        <div class="key-box">
+          <span class="kbox-label">リフレクティング</span>
+          <p>相手の言葉をただ繰り返すのではなく、本質や感情を返す。</p>
+          <p>例: 「それは大変だったね」「それで〇〇もつらくなってきたんだね」</p>
+        </div>
+      </article>
+
+      <article>
+        <h2><span class="num">07</span>7つのテクニックは一つずつ練習する</h2>
+        <p>傾聴は一度に全部使おうとすると崩れやすい。一定期間はひとつずつ練習し、慣れてから会話ごとに何個使えたかを振り返るほうが定着しやすい。</p>
+        <ol>
+          <li><strong>パラフレーズ</strong>: 相手の言葉を自分の表現で言い換える。</li>
+          <li><strong>感情の言語化</strong>: モヤモヤした感情を言葉にして返す。</li>
+          <li><strong>フォローアップクエスチョン</strong>: 情報が足りない部分を丁寧に掘る。</li>
+          <li><strong>要約</strong>: 思考と感情を整理して返す。</li>
+          <li><strong>明確化</strong>: 曖昧な点を言い直して確認する。</li>
+          <li><strong>促し</strong>: 相手が話しやすくなる仮定や補助線を置く。</li>
+          <li><strong>バランシング</strong>: 最後のほうで別の視点をそっと示す。</li>
+        </ol>
+        <h3>使いどころの目安</h3>
+        <p>序盤はパラフレーズや感情の言語化で安心感を作り、中盤で質問や要約を使い、終盤で明確化やバランシングを加えると流れが整いやすい。</p>
+      </article>
+    </section>
+
+    <section>
+      <span class="section-label soft">Training</span>
+
+      <article>
+        <h2><span class="num">08</span>日常会話で試せる3つの練習法</h2>
+        <p>聞く力は本番の中で少しずつ精度を上げるほうが伸びやすい。親しい相手との会話から始め、使えた技術と使えなかった場面を振り返る。</p>
+        <h3>1. リスニングワーク</h3>
+        <ul>
+          <li>仲良くなりたい人をひとり選ぶ。</li>
+          <li>会話中は相手の立場に立つことだけに集中する。</li>
+          <li>終了後に、自分の思い込みが混ざっていなかったか確認する。</li>
+        </ul>
+        <h3>2. 500年前ワーク</h3>
+        <ul>
+          <li>相手が知らない前提で説明することで、視点の違いへの配慮を鍛える。</li>
+          <li>聞き手は「500年前の人物」として質問し、相手の説明の工夫を受け取る。</li>
+        </ul>
+        <h3>3. スモールリワード</h3>
+        <p>「なるほど」「続けてください」「もっと教えてください」のような短い反応で、相手が話し続けやすい流れを作る。5分ほど振り返り、どこで使えたかを整理すると次に活かしやすい。</p>
+      </article>
+
+      <article>
+        <h2><span class="num">09</span>まとめ</h2>
+        <div class="recap-box">
+          <p>聞く力は、相手の本音を当てる技術ではなく、理解しようとする態度を積み重ねる技術である。</p>
+          <p>全体の意味を聴き、感情に応え、キューを丁寧に拾うことができれば、自分語りを増やさなくても会話は深くなる。</p>
+          <p>大切なのは、毎回完璧にこなすことではなく、会話ごとに一つずつ試して振り返ることだ。</p>
+        </div>
+      </article>
+    </section>
+  </main>
+</body>
+</html>

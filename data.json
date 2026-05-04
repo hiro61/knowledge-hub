@@ -69,6 +69,16 @@
       "tags": ["散歩", "脳科学", "習慣"],
       "readTime": 4,
       "file": "articles/walking_brain_mood_benefits.html"
+    },
+    {
+      "id": 19,
+      "title": "信頼をつくる聞く力の鍛え方",
+      "genre": "ライフスタイル",
+      "date": "2026-05-04",
+      "summary": "相手の本心を無理に読むより、理解しようとする聞き方を磨くほうが信頼関係は育つ。アクティブリスニングの3つの基礎と7つのテクニックを実践形式で解説。",
+      "tags": ["コミュニケーション", "傾聴", "信頼"],
+      "readTime": 5,
+      "file": "articles/active_listening_trust_building.html"
     }
   ]
 }
