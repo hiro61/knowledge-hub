@@ -1,0 +1,541 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>副業戦略と価値提供の基本</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --hero-bg-from: #f5f3ef;
+      --hero-bg-to: #ffffff;
+      --accent: #2c2418;
+      --accent-sub: #7a6a52;
+      --bg-sub: #f5f3ef;
+      --bg: #ffffff;
+      --bg-card: #ffffff;
+      --text: #1a1a1a;
+      --text-soft: #555555;
+      --rule: #e0e0e0;
+      --max-w: 740px;
+      --font-ja: "Hiragino Mincho ProN","Yu Mincho","游明朝","Noto Serif JP",Georgia,serif;
+      --font-go: "Hiragino Kaku Gothic ProN","Yu Gothic","游ゴシック","Noto Sans JP",sans-serif;
+      --radius: 12px;
+      --shadow: 0 2px 12px rgba(0,0,0,0.08);
+    }
+
+    html { font-size: 16px; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-ja);
+      line-height: 1.75;
+      -webkit-text-size-adjust: 100%;
+      padding: 0 0 100px;
+    }
+    main { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
+
+    .hero {
+      text-align: center;
+      padding: 80px 24px 64px;
+      background: linear-gradient(135deg, var(--hero-bg-from) 0%, var(--hero-bg-to) 100%);
+      border-bottom: 1px solid var(--rule);
+      margin-bottom: 64px;
+    }
+    .hero-tag {
+      display: inline-block;
+      font-family: var(--font-go);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent-sub);
+      background: var(--bg-sub);
+      border: 1px solid var(--rule);
+      border-radius: 999px;
+      padding: 4px 14px;
+      margin-bottom: 24px;
+    }
+    .hero h1 {
+      font-family: var(--font-go);
+      font-size: clamp(2rem, 6vw, 3rem);
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+    .hero-desc {
+      font-family: var(--font-go);
+      font-size: 1rem;
+      color: var(--text-soft);
+      line-height: 1.7;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    .toc {
+      background: var(--bg-sub);
+      border-radius: var(--radius);
+      padding: 28px 32px;
+      margin-bottom: 48px;
+    }
+    .toc-title {
+      font-family: var(--font-go);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent-sub);
+      margin-bottom: 14px;
+    }
+    .toc ol { padding-left: 1.4em; }
+    .toc li {
+      font-family: var(--font-go);
+      font-size: 0.9rem;
+      line-height: 1.7;
+      margin-bottom: 6px;
+      color: var(--text-soft);
+    }
+    .toc a {
+      color: var(--text);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+    .toc a:hover { border-bottom-color: var(--accent); }
+
+    section {
+      margin-bottom: 72px;
+      padding-left: 24px;
+      border-left: 3px solid var(--accent);
+    }
+    .section-label {
+      display: inline-block;
+      font-family: var(--font-go);
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--accent-sub);
+      margin-bottom: 10px;
+    }
+    h2 {
+      font-family: var(--font-go);
+      font-size: clamp(1.4rem, 4vw, 1.9rem);
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      line-height: 1.25;
+      margin-bottom: 16px;
+      color: var(--text);
+    }
+    .intro-text {
+      font-size: 0.97rem;
+      color: var(--text-soft);
+      line-height: 1.8;
+      margin-bottom: 28px;
+      font-style: italic;
+    }
+    h3 {
+      font-family: var(--font-go);
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      margin-bottom: 10px;
+      margin-top: 28px;
+      color: var(--text);
+    }
+    p { font-size: 0.97rem; line-height: 1.8; margin-bottom: 14px; }
+    ul, ol { padding-left: 1.5em; margin-bottom: 16px; }
+    li { font-size: 0.95rem; line-height: 1.8; margin-bottom: 6px; }
+    li::marker { color: var(--accent-sub); }
+    strong { font-weight: 700; }
+    hr { border: none; border-top: 1px solid var(--rule); margin: 56px 0; }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin: 18px 0 8px;
+    }
+    .card {
+      background: var(--bg-card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--rule);
+      padding: 24px;
+    }
+    .card h3 { margin-top: 0; }
+
+    .highlight-box {
+      background: var(--bg-sub);
+      border: 1px solid var(--rule);
+      border-radius: var(--radius);
+      padding: 20px 22px;
+      margin: 18px 0 22px;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      margin: 18px 0 10px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--rule);
+    }
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+    }
+    .data-table th,
+    .data-table td {
+      padding: 14px 16px;
+      vertical-align: top;
+      border-bottom: 1px solid var(--rule);
+      text-align: left;
+      font-size: 0.94rem;
+      line-height: 1.7;
+    }
+    .data-table th {
+      background: var(--accent);
+      color: #fff;
+      font-family: var(--font-go);
+      font-weight: 700;
+    }
+    .data-table tr:last-child td { border-bottom: none; }
+
+    .timeline {
+      position: relative;
+      margin: 20px 0 8px;
+      padding-left: 8px;
+    }
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 13px;
+      top: 4px;
+      bottom: 4px;
+      width: 1px;
+      background: var(--rule);
+    }
+    .tl-item {
+      position: relative;
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+    .tl-marker {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      margin-top: 9px;
+      margin-left: 4px;
+      position: relative;
+      z-index: 1;
+    }
+    .tl-content {
+      background: #fff;
+      border: 1px solid var(--rule);
+      border-radius: var(--radius);
+      padding: 18px 20px;
+      box-shadow: var(--shadow);
+    }
+    .tl-phase {
+      display: inline-block;
+      font-family: var(--font-go);
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent-sub);
+      margin-bottom: 8px;
+    }
+    .tl-content h4 {
+      font-family: var(--font-go);
+      font-size: 1rem;
+      margin-bottom: 8px;
+    }
+    .tl-content p { margin-bottom: 0; }
+
+    .work-card {
+      background: #fff;
+      border: 1px solid var(--rule);
+      border-radius: var(--radius);
+      padding: 22px 24px;
+      box-shadow: var(--shadow);
+      margin-top: 20px;
+    }
+    .work-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-go);
+      font-size: 0.88rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+
+    .summary-box {
+      background: var(--bg-sub);
+      border: 1px solid var(--rule);
+      border-radius: var(--radius);
+      padding: 26px 28px;
+      margin-top: 14px;
+    }
+
+    @media (max-width: 720px) {
+      main { padding: 0 18px; }
+      .hero { padding: 64px 18px 52px; margin-bottom: 48px; }
+      .toc { padding: 22px 22px; }
+      section { padding-left: 18px; margin-bottom: 56px; }
+      .card-grid { grid-template-columns: 1fr; }
+      .data-table th, .data-table td { min-width: 180px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <span class="hero-tag">Business Strategy</span>
+    <h1>副業戦略と価値提供の基本</h1>
+    <p class="hero-desc">講義メモの要点を、これから副業を育てたい人向けに整理した実践ガイド。難しい用語をできるだけ避けながら、「何を売るか」「どう始めるか」「どう続けるか」を一つの流れでつかめる形にまとめた。</p>
+  </header>
+
+  <main>
+    <nav class="toc">
+      <div class="toc-title">目次</div>
+      <ol>
+        <li><a href="#sec1">副業の目的をお金だけにしない</a></li>
+        <li><a href="#sec2">手間とコストを下げて始める</a></li>
+        <li><a href="#sec3">価値は「知識」より「変化」で決まる</a></li>
+        <li><a href="#sec4">個人が勝ちやすい売り方を選ぶ</a></li>
+        <li><a href="#sec5">30日で試す実践ロードマップ</a></li>
+      </ol>
+    </nav>
+    <hr>
+
+    <section id="sec1">
+      <div class="section-label">Section 01</div>
+      <h2>副業の目的をお金だけにしない</h2>
+      <p class="intro-text">この講義メモで繰り返し出てくるのは、「副業は単なる小遣い稼ぎではなく、自分で稼ぐ力を育てる訓練でもある」という考え方です。まずはここを理解すると、焦って大きく賭ける必要がない理由も見えやすくなります。</p>
+      <p>副業の価値は、月収を増やすことだけではありません。自分で考え、自分で売り、自分でお金に変えられた経験は、会社の給料とは違う種類の自信になります。なぜなら、環境が変わっても再現できる力が少しずつ身につくからです。</p>
+      <div class="card-grid">
+        <div class="card">
+          <h3>収入が増える</h3>
+          <p>まずは生活の余裕が出ます。ただし、講義の主眼は「額」だけではなく、収入源を増やすことによる安定にあります。</p>
+        </div>
+        <div class="card">
+          <h3>再現力が育つ</h3>
+          <p>一度うまくいった方法を言語化できれば、別の商品や別の場面でも応用しやすくなります。</p>
+        </div>
+        <div class="card">
+          <h3>本業依存が下がる</h3>
+          <p>収入源が一つだけだと、働き方や意思決定が守りに寄りやすくなります。副業はその偏りを減らします。</p>
+        </div>
+        <div class="card">
+          <h3>学びが行動に変わる</h3>
+          <p>勉強だけでは変化が起きません。売る経験が入ると、知識が「実務の感覚」に変わります。</p>
+        </div>
+      </div>
+      <div class="highlight-box">
+        <p><strong>ここでの要点:</strong> 副業は「今すぐ人生を変える大勝負」ではなく、「自分の力で稼ぐ筋力を増やす反復練習」と考えると、無理なく続けやすくなります。</p>
+      </div>
+    </section>
+
+    <section id="sec2">
+      <div class="section-label">Section 02</div>
+      <h2>手間とコストを下げて始める</h2>
+      <p class="intro-text">初心者がつまずきやすいのは、売上が出る前にお金や労力をかけすぎることです。講義では、個人が最初に守るべきものとして「手間」と「コスト」が強く意識されています。</p>
+      <p>ここでいうリスクは、単に損をすることだけではありません。忙しすぎて続かない、在庫を抱えて身動きが取れない、準備が重くて試行回数が減る。こうした「止まってしまう状態」も大きなリスクです。</p>
+      <h3>まず選びたいのは、軽く試せるテーマ</h3>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>考え方</th>
+              <th>意味</th>
+              <th>初心者向けの例</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>形のないものを売る</td>
+              <td>在庫や配送がいらないため、固定費を増やしにくい</td>
+              <td>相談、解説資料、講義メモの整理、学習サポート</td>
+            </tr>
+            <tr>
+              <td>既に持っているものを使う</td>
+              <td>新規投資を抑えつつ、小さく検証できる</td>
+              <td>自分の経験、趣味、仕事で得た知見</td>
+            </tr>
+            <tr>
+              <td>無料ツールを活用する</td>
+              <td>集客と発信のコストを抑えられる</td>
+              <td>YouTube、SNS、ブログ、無料配布資料</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>講義で出てくる「ただのものに付加価値をつける」という発想は、安く仕入れる物販だけを指しません。情報、体験、知識、整理の仕方、見せ方なども、十分に付加価値の対象になります。</p>
+      <div class="highlight-box">
+        <p><strong>初心者向けの言い換え:</strong> 何かを売る前に、「自分は先に何を買わされるのか」を確認する癖を持つと失敗しにくくなります。売上前に大きな持ち出しが必要なら、一度立ち止まる価値があります。</p>
+      </div>
+    </section>
+
+    <section id="sec3">
+      <div class="section-label">Section 03</div>
+      <h2>価値は「知識」より「変化」で決まる</h2>
+      <p class="intro-text">マーケティングという言葉は難しく聞こえますが、この講義での核心はかなり実務的です。相手にとって意味のある変化を作れれば、その知識や経験は価値になります。</p>
+      <p>たとえば、同じ情報でも、ただ並べるだけでは売れません。相手の悩みに合わせて整理し、理解しやすくし、行動に移しやすい形にして初めて「役に立つ価値」になります。つまり、価値は知識の量よりも、相手の変化にどれだけ近いかで決まりやすいということです。</p>
+      <div class="card-grid">
+        <div class="card">
+          <h3>情報を整理する</h3>
+          <p>分かりにくい内容を、初心者にも理解できる順番に並べ替えるだけでも価値になります。</p>
+        </div>
+        <div class="card">
+          <h3>経験を翻訳する</h3>
+          <p>自分には当たり前の失敗談や工夫でも、他人には近道になることがあります。</p>
+        </div>
+        <div class="card">
+          <h3>状態を変える</h3>
+          <p>見づらいものを見やすくする、使いにくいものを使いやすくする、といった変換そのものも商品になります。</p>
+        </div>
+        <div class="card">
+          <h3>言葉を変える</h3>
+          <p>同じ中身でも、相手が理解しやすい呼び方に変えると、受け取られ方が大きく変わります。</p>
+        </div>
+      </div>
+      <h3>覚えておきたいシンプルな式</h3>
+      <div class="highlight-box">
+        <p><strong>価値提供 = 相手の困りごと × 自分の知識・経験 × 分かりやすい形への変換</strong></p>
+      </div>
+      <p>ここで大切なのは、相手にとっての「得」を考えることです。時間が浮く、不安が減る、失敗しにくくなる、見栄えが良くなる。こうした変化は、専門家でなくても作れることがあります。</p>
+    </section>
+
+    <section id="sec4">
+      <div class="section-label">Section 04</div>
+      <h2>個人が勝ちやすい売り方を選ぶ</h2>
+      <p class="intro-text">個人は大企業のように予算で勝つのではなく、考え方と切り口で勝つほうが現実的です。そのためには、広すぎる市場よりも、自分が役立てる小さな領域を見つけることが重要になります。</p>
+      <p>講義では、無料ツールの活用、フリーミアム、ニッチ戦略、コピーライティングなどがつながって語られています。共通するのは、「お金をかける前に、相手の反応を確かめられる構造を作る」という点です。</p>
+      <h3>個人向けの売り方の基本</h3>
+      <ul>
+        <li><strong>無料で入口を作る:</strong> SNS、短い動画、サンプル資料などで、まず関心を集める。</li>
+        <li><strong>深い悩みに絞る:</strong> 誰にでも向けた発信より、特定の困りごとに寄せたほうが伝わりやすい。</li>
+        <li><strong>言葉を磨く:</strong> 同じ商品でも、見出しや説明文が弱いと価値が伝わりにくい。</li>
+        <li><strong>自分の城を作る:</strong> 大きな市場で埋もれるより、小さくても一番になれる場所を狙う。</li>
+      </ul>
+      <h3>人の欲求を見るとテーマを決めやすい</h3>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>欲求の軸</th>
+              <th>意味</th>
+              <th>副業テーマの例</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Health</td>
+              <td>健康、美容、疲労、不調の改善</td>
+              <td>睡眠習慣の整理、セルフケア資料、運動の始め方</td>
+            </tr>
+            <tr>
+              <td>Ambition</td>
+              <td>成長、達成、キャリア前進</td>
+              <td>学習設計、継続術、目標管理テンプレート</td>
+            </tr>
+            <tr>
+              <td>Relationship</td>
+              <td>人間関係、伝え方、つながり</td>
+              <td>会話メモ、対話の整理、チーム内共有フォーマット</td>
+            </tr>
+            <tr>
+              <td>Money</td>
+              <td>節約、収入、働き方</td>
+              <td>副業の始め方、家計整理、収益化の手順整理</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="highlight-box">
+        <p><strong>中級者向けの視点:</strong> 「何を売るか」だけでなく、「どんな言葉で切り取ると相手の必要性が立ち上がるか」まで考えると、同じ内容でも反応は変わります。</p>
+      </div>
+    </section>
+
+    <section id="sec5">
+      <div class="section-label">Section 05</div>
+      <h2>30日で試す実践ロードマップ</h2>
+      <p class="intro-text">知識として理解できても、実際に動かないと副業は形になりません。最後は、講義メモ全体の考え方を、初心者が小さく試せる30日プランに落とし込みます。</p>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-marker"></div>
+          <div class="tl-content">
+            <span class="tl-phase">Phase 1</span>
+            <h4>1週目: 売れそうな悩みを1つ選ぶ</h4>
+            <p>自分がすでに答えやすい悩みを3つ書き出し、その中から「過去の自分が実際に困っていたもの」を1つ選ぶ。</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-marker"></div>
+          <div class="tl-content">
+            <span class="tl-phase">Phase 2</span>
+            <h4>2週目: 小さな価値提供に変える</h4>
+            <p>選んだ悩みに対して、チェックリスト、解説メモ、短い動画、相談メニューなど、軽い形の試作品を1つ作る。</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-marker"></div>
+          <div class="tl-content">
+            <span class="tl-phase">Phase 3</span>
+            <h4>3週目: 無料の入口で反応を見る</h4>
+            <p>SNS投稿、サンプル配布、知人への共有などで、どの言い方に反応があるかを確認する。ここでは完璧さより反応の記録が重要。</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-marker"></div>
+          <div class="tl-content">
+            <span class="tl-phase">Phase 4</span>
+            <h4>4週目: 有料化の最小単位を試す</h4>
+            <p>相談30分、資料の拡張版、個別フィードバックなど、時間も負担も重くない形で有料メニューを1つ置いてみる。</p>
+          </div>
+        </div>
+      </div>
+      <div class="work-card">
+        <div class="work-title">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+            <rect x="2" y="2" width="12" height="12" rx="2"></rect>
+            <path d="M5 8l2 2 4-4"></path>
+          </svg>
+          Work
+        </div>
+        <ul>
+          <li>今の自分が説明できるテーマを3つ書く</li>
+          <li>その中で「人の困りごと」に一番近いものを1つ選ぶ</li>
+          <li>30分以内で作れる試作品を1つ決める</li>
+          <li>無料で見せる場と、有料で深める場を分けて考える</li>
+          <li>最初の1か月は、利益額よりも「何に反応があったか」を記録する</li>
+        </ul>
+      </div>
+      <h3>最後に押さえたいこと</h3>
+      <p>副業で強いのは、派手に始める人ではなく、軽く試しながら改善できる人です。手間とコストを抑え、自分の知識や経験を相手の変化に結びつけ、無料の入口から小さく検証していく。この流れを繰り返せば、初心者でも十分に前進できます。</p>
+    </section>
+
+    <hr>
+
+    <section>
+      <div class="section-label">Summary</div>
+      <h2>まとめ</h2>
+      <div class="summary-box">
+        <p>この講義メモの中心にあるのは、「副業は大きく賭けるものではなく、小さく試しながら価値提供を育てるもの」という考え方です。</p>
+        <p>相手の悩みを理解し、自分の知識や経験を分かりやすく変換し、低コストで検証する。この基本を押さえるだけでも、副業の失敗率はかなり下げられます。</p>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

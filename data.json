@@ -163,6 +163,20 @@
       ],
       "readTime": 5,
       "file": "articles/dopamine_detox_reset_guide.html"
+    },
+    {
+      "id": 27,
+      "title": "副業戦略と価値提供の基本",
+      "genre": "副業・ビジネス",
+      "date": "2026-05-07",
+      "summary": "講義メモの要点を、これから副業を育てたい人向けに整理した実践ガイド。難しい用語をできるだけ避けながら、「何を売るか」「どう始めるか」「どう続けるか」を一つの流れでつかめる形にまとめた。",
+      "tags": [
+        "副業",
+        "価値提供",
+        "ビジネス"
+      ],
+      "readTime": 6,
+      "file": "articles/side_business_strategy_value_offer.html"
     }
   ]
 }
