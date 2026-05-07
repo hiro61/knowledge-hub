@@ -177,6 +177,21 @@
       ],
       "readTime": 4,
       "file": "articles/side_business_selection_science.html"
+    },
+    {
+      "id": 29,
+      "title": "副業戦略と価値提供の講義メモ",
+      "genre": "副業・ビジネス",
+      "date": "2026-05-07",
+      "summary": "副業を本業のリスクにせず継続するには、手間とコストを抑えながら、自分の知識や経験に価値を与える設計が欠かせない。本メモはその考え方を、収入源の分散、マーケティング、低リスク運用の観点から整理したものです。",
+      "tags": [
+        "副業",
+        "マーケティング",
+        "価値提供",
+        "戦略"
+      ],
+      "readTime": 3,
+      "file": "articles/side_business_strategy_value_offer_lecture_notes.html"
     }
   ]
 }

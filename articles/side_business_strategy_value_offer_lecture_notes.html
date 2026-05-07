@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>副業戦略と価値提供の講義メモ</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --hero-bg-from: #edf3f8;
+      --hero-bg-to: #ffffff;
+      --accent: #183b66;
+      --accent-sub: #4a6f9d;
+      --bg-sub: #eaf1f7;
+      --bg: #ffffff;
+      --bg-card: #ffffff;
+      --text: #1a1a1a;
+      --text-soft: #555555;
+      --rule: #e0e0e0;
+      --max-w: 740px;
+      --font-ja: "Hiragino Mincho ProN","Yu Mincho","游明朝","Noto Serif JP",Georgia,serif;
+      --font-go: "Hiragino Kaku Gothic ProN","Yu Gothic","游ゴシック","Noto Sans JP",sans-serif;
+      --radius: 12px;
+      --shadow: 0 2px 12px rgba(0,0,0,0.08);
+    }
+
+    html { font-size: 16px; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-ja);
+      line-height: 1.75;
+      -webkit-text-size-adjust: 100%;
+      padding: 0 0 100px;
+    }
+    main { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
+
+    .hero {
+      text-align: center;
+      padding: 80px 24px 64px;
+      background: linear-gradient(135deg, var(--hero-bg-from) 0%, var(--hero-bg-to) 100%);
+      border-bottom: 1px solid var(--rule);
+      margin-bottom: 64px;
+    }
+    .hero-tag {
+      display: inline-block;
+      font-family: var(--font-go);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent-sub);
+      background: var(--bg-sub);
+      border: 1px solid var(--rule);
+      border-radius: 999px;
+      padding: 4px 14px;
+      margin-bottom: 24px;
+    }
+    .hero h1 {
+      font-family: var(--font-go);
+      font-size: clamp(2rem, 6vw, 3rem);
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+      color: var(--text);
+      margin-bottom: 18px;
+    }
+    .hero-desc,
+    .doc-subtitle {
+      font-family: var(--font-go);
+      max-width: 620px;
+      margin: 0 auto;
+      color: var(--text-soft);
+    }
+    .doc-subtitle {
+      font-size: 0.98rem;
+      line-height: 1.85;
+    }
+
+    .toc {
+      background: var(--bg-sub);
+      border-radius: var(--radius);
+      border: 1px solid var(--rule);
+      padding: 24px 24px 20px;
+      margin-bottom: 28px;
+    }
+    .toc-title {
+      font-family: var(--font-go);
+      font-size: 0.86rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--accent-sub);
+      margin-bottom: 12px;
+    }
+    .toc ol {
+      padding-left: 20px;
+      color: var(--text-soft);
+    }
+    .toc li + li { margin-top: 8px; }
+    .toc a {
+      color: var(--text);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+    .toc a:hover { border-bottom-color: var(--accent); }
+
+    hr {
+      border: none;
+      border-top: 1px solid var(--rule);
+      margin: 56px 0;
+    }
+
+    section {
+      margin-bottom: 48px;
+      border-left: 3px solid var(--accent);
+      padding-left: 22px;
+    }
+    .section-label {
+      font-family: var(--font-go);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      color: var(--accent-sub);
+      margin-bottom: 10px;
+    }
+    h2 {
+      font-family: var(--font-go);
+      font-size: 1.8rem;
+      line-height: 1.35;
+      margin-bottom: 14px;
+      color: var(--text);
+    }
+    .intro-text {
+      font-size: 1rem;
+      line-height: 1.85;
+      color: var(--text-soft);
+      margin-bottom: 22px;
+    }
+    p { margin-bottom: 16px; }
+    ul, ol { padding-left: 22px; margin-bottom: 16px; }
+    li { margin-bottom: 8px; }
+    li::marker { color: var(--accent-sub); }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin: 24px 0;
+    }
+    .card,
+    .highlight-box,
+    .quote-block,
+    .work-card,
+    .key-box {
+      background: var(--bg-card);
+      border-radius: var(--radius);
+      border: 1px solid var(--rule);
+      box-shadow: var(--shadow);
+    }
+    .card { padding: 20px; }
+    .card h3 {
+      font-family: var(--font-go);
+      font-size: 1rem;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+    .card p:last-child,
+    .highlight-box p:last-child,
+    .quote-block p:last-child,
+    .work-card ul:last-child { margin-bottom: 0; }
+
+    .highlight-box {
+      background: var(--bg-sub);
+      padding: 20px;
+      border-left: 4px solid var(--accent-sub);
+      margin: 24px 0;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      margin: 24px 0;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      background: var(--bg-card);
+    }
+    .data-table thead tr {
+      background: var(--text);
+      color: #ffffff;
+    }
+    .data-table th,
+    .data-table td {
+      padding: 12px 16px;
+      text-align: left;
+      border-bottom: 1px solid var(--rule);
+      vertical-align: top;
+    }
+
+    .timeline {
+      position: relative;
+      margin: 24px 0;
+      padding-left: 18px;
+    }
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 4px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--rule);
+    }
+    .tl-item {
+      position: relative;
+      padding-left: 28px;
+      margin-bottom: 18px;
+    }
+    .tl-item:last-child { margin-bottom: 0; }
+    .tl-marker {
+      position: absolute;
+      left: -1px;
+      top: 8px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 2px solid var(--bg);
+      box-shadow: 0 0 0 2px var(--rule);
+    }
+    .tl-content {
+      background: var(--bg-card);
+      border: 1px solid var(--rule);
+      border-radius: var(--radius);
+      padding: 16px 18px;
+      box-shadow: var(--shadow);
+    }
+    .tl-phase {
+      display: inline-block;
+      font-family: var(--font-go);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: var(--accent-sub);
+      background: var(--bg-sub);
+      border-radius: 999px;
+      padding: 4px 10px;
+      margin-bottom: 10px;
+    }
+    .tl-content h4 {
+      font-family: var(--font-go);
+      font-size: 0.98rem;
+      margin-bottom: 8px;
+    }
+    .tl-content p {
+      font-size: 0.92rem;
+      line-height: 1.75;
+      color: var(--text-soft);
+      margin-bottom: 0;
+    }
+
+    .quote-block {
+      padding: 22px;
+      margin: 24px 0;
+    }
+    .quote-block p {
+      font-size: 1rem;
+      line-height: 1.9;
+      color: var(--text);
+      font-style: italic;
+    }
+    .quote-block footer {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .quote-name {
+      font-family: var(--font-go);
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--text);
+      background: var(--rule);
+      border-radius: 999px;
+      padding: 5px 10px;
+    }
+    .quote-org {
+      font-family: var(--font-go);
+      font-size: 0.8rem;
+      color: var(--text-soft);
+    }
+
+    .work-card {
+      padding: 20px;
+      margin: 24px 0;
+    }
+    .work-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-go);
+      font-size: 0.94rem;
+      font-weight: 700;
+      margin-bottom: 14px;
+      color: var(--text);
+    }
+
+    .key-box {
+      background: var(--text);
+      color: #ffffff;
+      padding: 22px;
+      margin: 24px 0;
+    }
+    .key-box-title {
+      font-family: var(--font-go);
+      font-size: 0.78rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #aaaaaa;
+      margin-bottom: 10px;
+    }
+    .key-box p {
+      color: #e8e8e8;
+      font-size: 0.96rem;
+      line-height: 1.9;
+      margin-bottom: 0;
+    }
+
+    @media (max-width: 720px) {
+      .hero { padding: 56px 20px 44px; }
+      main { padding: 0 18px; }
+      h2 { font-size: 1.5rem; }
+      .card-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <section class="hero">
+    <span class="hero-tag">WORK</span>
+    <h1>副業戦略と価値提供の講義メモ</h1>
+    <p class="doc-subtitle">副業を本業のリスクにせず継続するには、手間とコストを抑えながら、自分の知識や経験に価値を与える設計が欠かせない。本メモはその考え方を、収入源の分散、マーケティング、低リスク運用の観点から整理したものです。</p>
+  </section>
+
+  <main>
+    <nav class="toc">
+      <div class="toc-title">目次</div>
+      <ol>
+        <li><a href="#sec1">結論: 副業は低リスクで複線化する</a></li>
+        <li><a href="#sec2">理由: 個人は制約を強みに変えられる</a></li>
+        <li><a href="#sec3">キーポイント: 売るのはモノより価値設計</a></li>
+        <li><a href="#sec4">実践: 小さく始めて自動化で伸ばす</a></li>
+      </ol>
+    </nav>
+    <hr>
+
+    <section id="sec1">
+      <div class="section-label">SECTION 01</div>
+      <h2>結論: 副業は低リスクで複線化する</h2>
+      <p class="intro-text">この講義メモの中心にあるのは、副業を一発逆転の挑戦ではなく、安定を作るための複線として設計する考え方です。大きく賭けるのではなく、終わりにくい形で継続できる仕組みにすることが、結果として自信と自由度を高めます。</p>
+
+      <div class="key-box">
+        <div class="key-box-title">Core Message</div>
+        <p>副業で本当に重要なのは、収益額そのものよりも「自分の力で再現できる」状態を持つことです。ゼロからもう一度作れる感覚が、会社依存では得られない自信につながります。</p>
+      </div>
+
+      <div class="card-grid">
+        <div class="card">
+          <h3>月収分を自力で作る意味</h3>
+          <p>会社からの報酬とは別に、自分の頭と行動で月収相当を生み出せると、収入以上に「失ってもやり直せる」という感覚が得られます。</p>
+        </div>
+        <div class="card">
+          <h3>複数収入源が安定を作る</h3>
+          <p>本業一本に依存するより、複数の小さな収入源を持つ方が分散投資に近く、精神的な安定を保ちやすくなります。</p>
+        </div>
+        <div class="card">
+          <h3>副業は練習として始める</h3>
+          <p>本業があるうちに試し、伸びたものに比重を移す方がリスクは低く、挑戦を継続しやすくなります。</p>
+        </div>
+      </div>
+
+      <blockquote class="quote-block">
+        <p>本業に人生の全てを投資することこそが最大のリスクであり、現代では複数の収入ラインを持つ発想が安定に近い。</p>
+        <footer>
+          <span class="quote-name">Lecture Note</span>
+          <span class="quote-org">副業戦略と価値提供の講義メモより再構成</span>
+        </footer>
+      </blockquote>
+    </section>
+
+    <section id="sec2">
+      <div class="section-label">SECTION 02</div>
+      <h2>理由: 個人は制約を強みに変えられる</h2>
+      <p class="intro-text">大企業には資金や人員の強みがありますが、個人には制約があるからこそ頭を使う余地があります。このメモでは、時間や資金の少なさを不利ではなく思考の質を高める条件として捉えています。</p>
+
+      <div class="highlight-box">
+        <p>個人が勝つ余地は、資源量ではなく意思決定の速さと工夫の密度にあります。「ない」ことが、発想を鋭くする条件になります。</p>
+      </div>
+
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr><th>観点</th><th>大企業</th><th>個人</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>資源</td><td>資金や人員を使いやすい</td><td>制限がある分、頭を使いやすい</td></tr>
+            <tr><td>リスク感覚</td><td>意思決定者の切迫感が薄いことがある</td><td>自分の生活に直結するため真剣度が高い</td></tr>
+            <tr><td>勝ち筋</td><td>大量投下・規模の優位</td><td>ニッチ化・工夫・実践マーケティング</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>特に重要なのは、マーケティングを専門用語ではなく「売れる価値をどう作るか」という実務で理解することです。個人に必要なのは、理論の暗記よりも、限られた条件で売れる形へ変換する能力です。</p>
+    </section>
+
+    <section id="sec3">
+      <div class="section-label">SECTION 03</div>
+      <h2>キーポイント: 売るのはモノより価値設計</h2>
+      <p class="intro-text">この講義では、元手がかかるビジネスよりも、知識・経験・ストーリー・状態変換のような「付加価値の設計」が繰り返し強調されています。個人が扱うべきなのは、在庫や物流に縛られにくいものです。</p>
+
+      <div class="card-grid">
+        <div class="card">
+          <h3>ただのものに意味を与える</h3>
+          <p>不要品や未評価のものでも、物語や用途を与えることで価値は変わります。転売ではなく、意味づけの設計が本質です。</p>
+        </div>
+        <div class="card">
+          <h3>経験や情報を商品にする</h3>
+          <p>人生経験、ノウハウ、心理学的視点、仕事術など、提供しても減らないものはローリスクで商品化しやすい資産です。</p>
+        </div>
+        <div class="card">
+          <h3>ニーズは見つけるだけではない</h3>
+          <p>顧客の潜在的不満や欲求を言語化し、問題と解決策をセットで提示することで、新しい需要を生み出せます。</p>
+        </div>
+        <div class="card">
+          <h3>状態変換も立派な付加価値</h3>
+          <p>液体を固体にする、使いにくいものを使いやすくするなど、状態を変えるだけでも新しい価値は生まれます。</p>
+        </div>
+      </div>
+
+      <div class="work-card">
+        <div class="work-title">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="2" y="2" width="12" height="12" rx="2"></rect><path d="M5 8l2 2 4-4"></path>
+          </svg>
+          キーポイント整理
+        </div>
+        <ul>
+          <li>在庫・配送・人件費のかかる構造は、個人副業ではリスクになりやすい</li>
+          <li>知識、経験、情報、ストーリー、使い方の提案は低コストで付加価値に変えやすい</li>
+          <li>THRM理論のように、人間の根源的欲求と自分の専門性を掛け合わせると商品設計が明確になる</li>
+          <li>ニッチで1位を取れる領域を作る発想が、弱者の勝ち筋になる</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="sec4">
+      <div class="section-label">SECTION 04</div>
+      <h2>実践: 小さく始めて自動化で伸ばす</h2>
+      <p class="intro-text">実際の運用では、いきなり完成形を目指すよりも、無料ツールや既存プラットフォームを使って小さく試し、反応の出た流れを自動化していくのが現実的です。ここで重要なのは、頑張り続ける仕組みではなく、頑張らなくても回る形へ寄せることです。</p>
+
+      <p>また、実践に入る前にキーポイントを押さえておくと、単なる作業の積み上げではなく、再現しやすい副業モデルに変わります。特にこの講義では、フリーミアム、無料集客、自動化、時間節約を一つの流れとして扱っています。</p>
+
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-marker"></div>
+          <div class="tl-content">
+            <span class="tl-phase">PHASE 1</span>
+            <h4>無料で始められる発信基盤を持つ</h4>
+            <p>YouTube、SNS、既存プラットフォームなど、初期コストの低い場所を使って情報発信や導線作りを始めます。</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-marker"></div>
+          <div class="tl-content">
+            <span class="tl-phase">PHASE 2</span>
+            <h4>自分の知識や経験を商品化する</h4>
+            <p>相談、教材、解説、まとめ、実践ノウハウなど、提供しても減らない価値を中心に形にしていきます。</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-marker"></div>
+          <div class="tl-content">
+            <span class="tl-phase">PHASE 3</span>
+            <h4>オプション設計と自動化で手間を減らす</h4>
+            <p>個別対応を有料化し、導線や配信を自動化することで、本業が忙しくても止まりにくい構造へ寄せます。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="highlight-box">
+        <p>実践例に入る前に重要なのは、「自腹を切らず、続けやすく、反応が見える形から始める」ことです。副業は根性論ではなく、設計で軽くしていく方が長く残ります。</p>
+      </div>
+
+      <div class="work-card">
+        <div class="work-title">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="2" y="2" width="12" height="12" rx="2"></rect><path d="M5 8l2 2 4-4"></path>
+          </svg>
+          実践メモ
+        </div>
+        <ul>
+          <li>本業があるうちに、副業は「実験」として始める</li>
+          <li>無料集客と有料導線をセットで設計する</li>
+          <li>自分の経験、専門性、根源的欲求の交点にあるテーマを選ぶ</li>
+          <li>言葉で売る力を高めるために、コピーライティングを継続的に学ぶ</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
