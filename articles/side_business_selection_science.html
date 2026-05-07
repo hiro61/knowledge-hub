@@ -1,0 +1,518 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>本業を超える副業の選び方</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --hero-bg-from: #edf4f1;
+      --hero-bg-to: #ffffff;
+      --accent: #203631;
+      --accent-sub: #5f7b73;
+      --bg-sub: #eff5f3;
+      --bg: #ffffff;
+      --bg-card: #ffffff;
+      --text: #18211f;
+      --text-soft: #566562;
+      --rule: #dbe4e0;
+      --max-w: 740px;
+      --font-ja: "Hiragino Mincho ProN","Yu Mincho","游明朝","Noto Serif JP",Georgia,serif;
+      --font-go: "Hiragino Kaku Gothic ProN","Yu Gothic","游ゴシック","Noto Sans JP",sans-serif;
+      --radius: 12px;
+      --shadow: 0 2px 12px rgba(0,0,0,0.08);
+    }
+
+    html { font-size: 16px; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-ja);
+      line-height: 1.75;
+      -webkit-text-size-adjust: 100%;
+      padding: 0 0 100px;
+    }
+    main { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
+
+    .hero {
+      text-align: center;
+      padding: 80px 24px 64px;
+      background: linear-gradient(135deg, var(--hero-bg-from) 0%, var(--hero-bg-to) 100%);
+      border-bottom: 1px solid var(--rule);
+      margin-bottom: 64px;
+    }
+    .hero-tag {
+      display: inline-block;
+      font-family: var(--font-go);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent-sub);
+      background: var(--bg-sub);
+      border: 1px solid var(--rule);
+      border-radius: 999px;
+      padding: 4px 14px;
+      margin-bottom: 24px;
+    }
+    .hero h1 {
+      font-family: var(--font-go);
+      font-size: clamp(2rem, 6vw, 3rem);
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+    .hero-desc {
+      font-family: var(--font-go);
+      font-size: 1rem;
+      color: var(--text-soft);
+      line-height: 1.7;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    .toc {
+      background: var(--bg-sub);
+      border-radius: var(--radius);
+      padding: 28px 32px;
+      margin-bottom: 48px;
+    }
+    .toc-title {
+      font-family: var(--font-go);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent-sub);
+      margin-bottom: 14px;
+    }
+    .toc ol { padding-left: 1.4em; }
+    .toc li {
+      font-family: var(--font-go);
+      font-size: 0.9rem;
+      line-height: 1.7;
+      margin-bottom: 6px;
+      color: var(--text-soft);
+    }
+    .toc a {
+      color: var(--text);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+    .toc a:hover { border-bottom-color: var(--accent); }
+
+    section {
+      margin-bottom: 72px;
+      padding-left: 24px;
+      border-left: 3px solid var(--accent);
+    }
+    .section-label {
+      display: inline-block;
+      font-family: var(--font-go);
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--accent-sub);
+      margin-bottom: 10px;
+    }
+    h2 {
+      font-family: var(--font-go);
+      font-size: clamp(1.4rem, 4vw, 1.9rem);
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      line-height: 1.25;
+      margin-bottom: 16px;
+      color: var(--text);
+    }
+    .intro-text {
+      font-size: 0.97rem;
+      color: var(--text-soft);
+      line-height: 1.8;
+      margin-bottom: 28px;
+      font-style: italic;
+    }
+    h3 {
+      font-family: var(--font-go);
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      margin-bottom: 10px;
+      margin-top: 28px;
+      color: var(--text);
+    }
+    p { font-size: 0.97rem; line-height: 1.8; margin-bottom: 14px; }
+    ul, ol { padding-left: 1.5em; margin-bottom: 16px; }
+    li { font-size: 0.95rem; line-height: 1.8; margin-bottom: 6px; }
+    li::marker { color: var(--accent-sub); }
+    strong { font-weight: 700; }
+    hr { border: none; border-top: 1px solid var(--rule); margin: 56px 0; }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin: 18px 0 8px;
+    }
+    .card {
+      background: var(--bg-card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--rule);
+      padding: 24px;
+    }
+    .card h3 { margin-top: 0; }
+
+    .highlight-box {
+      background: var(--bg-sub);
+      border: 1px solid var(--rule);
+      border-radius: var(--radius);
+      padding: 20px 22px;
+      margin: 18px 0 22px;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      margin: 18px 0 10px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--rule);
+    }
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+    }
+    .data-table th,
+    .data-table td {
+      padding: 14px 16px;
+      vertical-align: top;
+      border-bottom: 1px solid var(--rule);
+      text-align: left;
+      font-size: 0.94rem;
+      line-height: 1.7;
+    }
+    .data-table th {
+      background: var(--accent);
+      color: #fff;
+      font-family: var(--font-go);
+      font-weight: 700;
+    }
+    .data-table tr:last-child td { border-bottom: none; }
+
+    .timeline {
+      position: relative;
+      margin: 20px 0 8px;
+      padding-left: 8px;
+    }
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 13px;
+      top: 4px;
+      bottom: 4px;
+      width: 1px;
+      background: var(--rule);
+    }
+    .tl-item {
+      position: relative;
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+    .tl-marker {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      margin-top: 9px;
+      margin-left: 4px;
+      position: relative;
+      z-index: 1;
+    }
+    .tl-content {
+      background: #fff;
+      border: 1px solid var(--rule);
+      border-radius: var(--radius);
+      padding: 18px 20px;
+      box-shadow: var(--shadow);
+    }
+    .tl-phase {
+      display: inline-block;
+      font-family: var(--font-go);
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent-sub);
+      margin-bottom: 8px;
+    }
+    .tl-content h4 {
+      font-family: var(--font-go);
+      font-size: 1rem;
+      margin-bottom: 8px;
+    }
+    .tl-content p { margin-bottom: 0; }
+
+    .summary-box {
+      background: var(--bg-sub);
+      border: 1px solid var(--rule);
+      border-radius: var(--radius);
+      padding: 26px 28px;
+      margin-top: 14px;
+    }
+
+    @media (max-width: 720px) {
+      main { padding: 0 18px; }
+      .hero { padding: 64px 18px 52px; margin-bottom: 48px; }
+      .toc { padding: 22px 22px; }
+      section { padding-left: 18px; margin-bottom: 56px; }
+      .card-grid { grid-template-columns: 1fr; }
+      .data-table th, .data-table td { min-width: 180px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <span class="hero-tag">Side Hustle Science</span>
+    <h1>本業を超える副業の選び方</h1>
+    <p class="hero-desc">副業を収入の足しではなく、自由度・成長・本業への好影響まで含めて見直すための整理。選び方の5条件と、現実に続く候補の絞り方を一つの流れでまとめた。</p>
+  </header>
+
+  <main>
+    <nav class="toc">
+      <div class="toc-title">目次</div>
+      <ol>
+        <li><a href="#sec1">副業は収入より心理的報酬で選ぶ</a></li>
+        <li><a href="#sec2">良い副業を見分ける5つの条件</a></li>
+        <li><a href="#sec3">候補を比較するマトリックスを作る</a></li>
+        <li><a href="#sec4">本業を超える前に見るべき現実条件</a></li>
+        <li><a href="#sec5">小さく試す実践フロー</a></li>
+      </ol>
+    </nav>
+    <hr>
+
+    <section id="sec1">
+      <div class="section-label">Section 01</div>
+      <h2>副業は収入より心理的報酬で選ぶ</h2>
+      <p class="intro-text">この講義の土台にあるのは、副業を単なる小遣い稼ぎとして扱わない姿勢です。実際に続きやすい副業は、お金だけでなく、自由度や成長感、自己効力感まで返してくれるものとして描かれています。</p>
+      <p>調査では、副業をうまくこなす人ほど、週の稼働時間を限定しながら取り組んでいます。平均で週13時間ほどに収めつつ、本業で満たされない感情を副業で補う。その設計があるからこそ、疲弊せず継続しやすくなります。</p>
+      <div class="card-grid">
+        <div class="card">
+          <h3>収入の複線化</h3>
+          <p>お金が増えること自体に意味はありますが、より大きいのは収入源が一つではなくなる安心感です。</p>
+        </div>
+        <div class="card">
+          <h3>コントロール感</h3>
+          <p>時間、方法、テーマを自分で選べる感覚は、本業だけでは得にくい満足感につながります。</p>
+        </div>
+        <div class="card">
+          <h3>成長の実感</h3>
+          <p>新しい経験やスキルの獲得が、そのまま本業のパフォーマンス改善や次の選択肢づくりに効きます。</p>
+        </div>
+        <div class="card">
+          <h3>人生全体の満足度</h3>
+          <p>本業、趣味、副業がそれぞれ別の役割を持つと、生活全体のバランスが整いやすくなります。</p>
+        </div>
+      </div>
+      <div class="highlight-box">
+        <p><strong>結論:</strong> 良い副業は、短期の売上だけでなく「続けたくなる理由」を返してくれます。自由度、成長感、手応えのどれかが弱い副業は、数字が出ても長続きしにくい傾向があります。</p>
+      </div>
+    </section>
+
+    <section id="sec2">
+      <div class="section-label">Section 02</div>
+      <h2>良い副業を見分ける5つの条件</h2>
+      <p class="intro-text">後半の中心は、副業候補を感覚だけで選ばないための評価軸です。講義では、自律性、完結性、フィードバック、意義、スキル多様性の5つが繰り返し強調されています。</p>
+      <p>この5条件は、稼げるかどうかだけを見るものではありません。自分にとって続けやすいか、学びが蓄積するか、本業や人生全体に良い影響を返すかまで含めて点検するための枠組みです。</p>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>条件</th>
+              <th>意味</th>
+              <th>見極める視点</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>自律性</td>
+              <td>働く時間や進め方を自分で決められるか</td>
+              <td>シフトや他者都合に強く縛られないか</td>
+            </tr>
+            <tr>
+              <td>タスクの完結性</td>
+              <td>最初から最後まで自分で管理できるか</td>
+              <td>全体像が見え、達成感を得やすいか</td>
+            </tr>
+            <tr>
+              <td>フィードバック</td>
+              <td>成果への反応が早く返ってくるか</td>
+              <td>顧客の声、数字、反応をすぐ見られるか</td>
+            </tr>
+            <tr>
+              <td>意義</td>
+              <td>他者や社会への貢献を実感できるか</td>
+              <td>誰にどんな変化を与える仕事か説明できるか</td>
+            </tr>
+            <tr>
+              <td>スキルの多様性</td>
+              <td>複数の能力を使い、伸ばせるか</td>
+              <td>単純作業で終わらず成長余地があるか</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>例えば、マニュアル化された低裁量の仕事は自律性が低く、気力を削りやすい。一方で、制作から販売まで自分で持てる副業は完結性が高く、振り返りもしやすくなります。条件を言語化すると、「なんとなく合わない」の正体も見えやすくなります。</p>
+      <div class="highlight-box">
+        <p><strong>キーポイント:</strong> 副業の評価は「稼げそうか」だけで終わらせないことが重要です。5条件のどれが高く、どれが低いかを見ることで、向き不向きと改善余地の両方がはっきりします。</p>
+      </div>
+    </section>
+
+    <section id="sec3">
+      <div class="section-label">Section 03</div>
+      <h2>候補を比較するマトリックスを作る</h2>
+      <p class="intro-text">候補が複数あるときは、直感だけで決めるよりも、同じ物差しで並べたほうが判断しやすくなります。講義では、副業候補のマトリックスを作り、1点から5点で比較する方法が提案されています。</p>
+      <p>まずは興味がある候補を広めに挙げ、その後で5条件を点数化していきます。ここで大切なのは、最初から正確に採点することではなく、自分が何を重視しているかを見える形にすることです。</p>
+      <h3>候補は4タイプに分けると偏りに気づきやすい</h3>
+      <div class="card-grid">
+        <div class="card">
+          <h3>技術系</h3>
+          <p>プログラミング、デザイン、AI活用など、専門スキルで価値を出すタイプです。</p>
+        </div>
+        <div class="card">
+          <h3>サービス系</h3>
+          <p>ライドシェアや配達など、行動や稼働時間をサービスとして提供するタイプです。</p>
+        </div>
+        <div class="card">
+          <h3>創作系</h3>
+          <p>執筆、ハンドメイド、音楽制作など、制作物を通じて価値提供するタイプです。</p>
+        </div>
+        <div class="card">
+          <h3>人材系</h3>
+          <p>家庭教師、ベビーシッター、営業代行など、人との関わりが価値の中心になるタイプです。</p>
+        </div>
+      </div>
+      <h3>比較表の作り方</h3>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>見る項目</th>
+              <th>評価の問い</th>
+              <th>使い方</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>5条件の点数</td>
+              <td>自律性、完結性、フィードバック、意義、多様性は何点か</td>
+              <td>1〜5点で採点し合計点を見る</td>
+            </tr>
+            <tr>
+              <td>動機との一致</td>
+              <td>収入、自由、交流、成長など、始める理由と合っているか</td>
+              <td>二重丸、丸、バツで粗く判定する</td>
+            </tr>
+            <tr>
+              <td>タイプの偏り</td>
+              <td>同じ系統ばかり選んでいないか</td>
+              <td>未経験のタイプも試し候補に入れる</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>この整理を挟むと、「楽して稼げそう」だけで候補を選ぶ危険が減ります。むしろ、自分の本業と違う型に挑戦したほうが、新しいスキルや視点を取り込みやすい場合もあります。</p>
+    </section>
+
+    <section id="sec4">
+      <div class="section-label">Section 04</div>
+      <h2>本業を超える前に見るべき現実条件</h2>
+      <p class="intro-text">評価点が高い候補でも、実行段階で無理があれば続きません。講義では、優先候補をさらに絞るために、実現可能性、時間的負担、収入見込み、本業との相性を確認する流れが示されています。</p>
+      <p>ここでは理想論より、続く条件を見ます。必要な資格や準備に無理はないか、週に何時間なら確保できるか、収益化までの距離は長いのか短いのか。本業に悪影響を出さない範囲で設計できるかが、実際の分岐点になります。</p>
+      <div class="card-grid">
+        <div class="card">
+          <h3>実現可能性</h3>
+          <p>必要スキル、初期費用、資格、準備量を確認し、今の自分で試せる最小単位まで落とします。</p>
+        </div>
+        <div class="card">
+          <h3>時間の負担</h3>
+          <p>先にスケジュールを可視化し、削れる行動を見つけてから副業時間を割り当てます。</p>
+        </div>
+        <div class="card">
+          <h3>収入の見込み</h3>
+          <p>すぐに現金化しやすいか、長期投資型かを見極め、期待の置き方をずらさないようにします。</p>
+        </div>
+        <div class="card">
+          <h3>本業との相性</h3>
+          <p>本業のスキルを活かせるか、切り替えコストが高すぎないか、疲労が増えすぎないかを確認します。</p>
+        </div>
+      </div>
+      <div class="highlight-box">
+        <p><strong>見落としやすい点:</strong> 本業を超える副業は、最初から本業を捨てる発想ではなく、本業と両立しながら持続可能な勝ち筋を見つける発想から始まります。無理なペース設定は、良い候補でも失速の原因になります。</p>
+      </div>
+    </section>
+
+    <section id="sec5">
+      <div class="section-label">Section 05</div>
+      <h2>小さく試す実践フロー</h2>
+      <p class="intro-text">ここまでの評価軸が見えても、最後は動かなければ判断は進みません。講義全体を踏まえると、最初にやるべきことは「候補を一つに決めて、無理のない単位で試す」ことです。</p>
+      <p>いきなり本格運用に入るより、まずは試作品と反応確認の往復を作るほうが安全です。講義の評価軸を現実の行動に落とすなら、次のような順番にすると無理が出にくくなります。</p>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-marker"></div>
+          <div class="tl-content">
+            <span class="tl-phase">Phase 1</span>
+            <h4>候補を3つ出し、5条件で仮採点する</h4>
+            <p>技術系、創作系、人材系など偏りが出ないように候補を並べ、まずは主観で1〜5点を付けます。</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-marker"></div>
+          <div class="tl-content">
+            <span class="tl-phase">Phase 2</span>
+            <h4>最有力候補を最小単位に分解する</h4>
+            <p>相談30分、短い制作物、限定的な代行など、今の生活で試せる最小商品に落とし込みます。</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-marker"></div>
+          <div class="tl-content">
+            <span class="tl-phase">Phase 3</span>
+            <h4>時間を先に確保し、1か月だけ試す</h4>
+            <p>週に何時間使えるかを決め、短期ゴールと長期ゴールを分けて記録しながら回します。</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-marker"></div>
+          <div class="tl-content">
+            <span class="tl-phase">Phase 4</span>
+            <h4>反応を見て、継続か撤退かを決める</h4>
+            <p>売上だけでなく、手応え、疲労、学び、本業への影響も含めて振り返り、次の候補へ移るかを判断します。</p>
+          </div>
+        </div>
+      </div>
+      <div class="highlight-box">
+        <p><strong>実践前の一言:</strong> 副業選びでは、正解を最初から当てることより、低コストで試して判断材料を増やすことのほうが重要です。動機、5条件、現実条件の3つを往復しながら、続く形へ寄せていくのが現実的です。</p>
+      </div>
+    </section>
+
+    <hr>
+
+    <section>
+      <div class="section-label">Summary</div>
+      <h2>まとめ</h2>
+      <div class="summary-box">
+        <p>本業を超える副業は、派手なテーマを選ぶことではなく、続ける理由がある仕事を選ぶことから始まります。</p>
+        <p>自律性、完結性、フィードバック、意義、スキル多様性の5条件で候補を見直し、実現可能性と時間負担まで含めて絞り込めば、失速しにくい選択がしやすくなります。</p>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
