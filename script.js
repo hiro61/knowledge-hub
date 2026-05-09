@@ -1,7 +1,6 @@
 const PASS_HASH = "d502cfbb7ece80155d7348b6f76b96b176415eaa08bc85c2ffe96cc42b5a5ff5";
 const SESSION_KEY = "kh_auth";
 const FAVORITES_KEY = "kh_favorites";
-const THEME_KEY = "kh_theme";
 
 const GENRE_COLORS = {
   "健康": {
@@ -78,15 +77,11 @@ const authOverlay = document.getElementById("authOverlay");
 const appShell = document.getElementById("app");
 const articleViewer = document.getElementById("articleViewer");
 const articleFrame = document.getElementById("articleFrame");
-const themeToggle = document.getElementById("themeToggle");
-const themeToggleIcon = document.getElementById("themeToggleIcon");
 
 document.addEventListener("DOMContentLoaded", async () => {
-  applyTheme(localStorage.getItem(THEME_KEY) || "night");
   initAuthGate();
   initViewer();
   initTabs();
-  initThemeToggle();
 
   if (sessionStorage.getItem(SESSION_KEY) === "1") {
     showApp();
@@ -131,22 +126,6 @@ function initTabs() {
       renderCurrentTab();
     });
   });
-}
-
-function initThemeToggle() {
-  themeToggle.addEventListener("click", () => {
-    const nextTheme = document.body.classList.contains("theme-mist") ? "night" : "mist";
-    applyTheme(nextTheme);
-    localStorage.setItem(THEME_KEY, nextTheme);
-  });
-}
-
-function applyTheme(theme) {
-  const isMist = theme === "mist";
-  document.body.classList.toggle("theme-mist", isMist);
-  themeToggleIcon.innerHTML = isMist
-    ? `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v2.5"></path><path d="M12 18.5V21"></path><path d="M4.93 4.93 6.7 6.7"></path><path d="m17.3 17.3 1.77 1.77"></path><path d="M3 12h2.5"></path><path d="M18.5 12H21"></path><path d="m4.93 19.07 1.77-1.77"></path><path d="m17.3 6.7 1.77-1.77"></path><circle cx="12" cy="12" r="4.5"></circle></svg>`
-    : `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3 7 7 0 0 0 21 12.8Z"></path></svg>`;
 }
 
 async function submitPassword() {
@@ -207,18 +186,6 @@ function renderCurrentTab() {
 }
 
 function renderNewTab(articles) {
-  const genres = new Set(articles.map(article => article.genre));
-  contentArea.appendChild(createHeroPanel({
-    eyebrow: "Archive",
-    description: "静かに積み上げた記事群を、最新順でゆっくり読めるように整えています。",
-    stats: [
-      { value: String(articles.length), label: "Articles" },
-      { value: String(genres.size), label: "Genres" },
-      { value: String(getFavoriteIds().size), label: "Saved" },
-    ],
-    compact: true,
-  }));
-
   if (articles.length) {
     contentArea.appendChild(createFeaturedArticle(articles[0]));
   }

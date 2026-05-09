@@ -24,25 +24,6 @@
   --font-ui: "SF Pro Display", "SF Pro Text", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
 }
 
-body.theme-mist {
-  --page-bg: #8e9eb4;
-  --page-bg-soft: #aeb9ca;
-  --surface-1: rgba(235, 242, 250, 0.26);
-  --surface-2: rgba(205, 216, 230, 0.22);
-  --surface-3: rgba(255, 255, 255, 0.28);
-  --surface-solid: rgba(192, 204, 221, 0.86);
-  --border-1: rgba(255, 255, 255, 0.34);
-  --border-2: rgba(255, 255, 255, 0.18);
-  --text-1: rgba(252, 254, 255, 0.99);
-  --text-2: rgba(241, 246, 252, 0.88);
-  --text-3: rgba(232, 239, 248, 0.7);
-  --shadow-1: 0 18px 40px rgba(61, 76, 102, 0.18);
-  --shadow-2: 0 8px 24px rgba(61, 76, 102, 0.1);
-  --accent: #fcfeff;
-  --accent-strong: #ffffff;
-  color-scheme: light dark;
-}
-
 * {
   box-sizing: border-box;
   -webkit-tap-highlight-color: transparent;
