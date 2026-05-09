@@ -224,9 +224,7 @@ function renderNewTab(articles) {
   }
 
   const section = createSectionShell("Latest notes");
-  articles.forEach((article, index) => {
-    section.appendChild(createArticleCard(article, index + 1));
-  });
+  section.appendChild(createArticleGrid(articles));
   contentArea.appendChild(section);
 }
 
@@ -250,9 +248,7 @@ function renderFavoritesTab(articles) {
       icon: bookmarkIcon(),
     }));
   } else {
-    articles.forEach((article, index) => {
-      section.appendChild(createArticleCard(article, index + 1));
-    });
+    section.appendChild(createArticleGrid(articles));
   }
   contentArea.appendChild(section);
 }
@@ -321,9 +317,7 @@ function renderSearchTab(articles, query) {
       }));
       return;
     }
-    filtered.forEach((article, index) => {
-      results.appendChild(createArticleCard(article, index + 1));
-    });
+    results.appendChild(createArticleGrid(filtered));
   };
 
   const searchInput = shell.querySelector("#searchInput");
@@ -393,6 +387,15 @@ function createSectionShell(label) {
   return section;
 }
 
+function createArticleGrid(articles) {
+  const grid = document.createElement("div");
+  grid.className = "article-grid";
+  articles.forEach((article, index) => {
+    grid.appendChild(createArticleCard(article, index + 1));
+  });
+  return grid;
+}
+
 function createArticleCard(article, index) {
   const element = document.createElement(article.file ? "button" : "section");
   element.className = `article-card reveal${article.file ? "" : " article-card--static"}`;
@@ -460,7 +463,7 @@ function createGenreBlock(genre, items, index) {
   `;
 
   const body = document.createElement("div");
-  body.className = "genre-block__body hidden";
+  body.className = "genre-block__body article-grid hidden";
   items.forEach((article, itemIndex) => {
     body.appendChild(createArticleCard(article, itemIndex + 1));
   });
