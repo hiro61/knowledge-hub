@@ -408,26 +408,18 @@ function createArticleCard(article, index) {
     element.addEventListener("click", () => openArticle(article));
   }
 
-  const tags = Array.isArray(article.tags) ? article.tags : [];
   const favorite = isFavorite(article);
 
   element.innerHTML = `
     <div class="article-card__top">
-      <div>
+      <div class="article-card__body">
         ${buildGenrePill(article.genre)}
         <h3 class="article-card__title">${escapeHtml(article.title)}</h3>
+        <p class="article-card__summary">${escapeHtml(article.summary)}</p>
       </div>
       <button class="favorite-button${favorite ? " is-active" : ""}" type="button" aria-label="${favorite ? "お気に入り解除" : "お気に入り登録"}" aria-pressed="${favorite ? "true" : "false"}">
         ${bookmarkIcon(favorite)}
       </button>
-    </div>
-    <p class="article-card__summary">${escapeHtml(article.summary)}</p>
-    <div class="article-card__footer">
-      <div class="tag-list">${tags.map(tag => `<span class="glass-chip">#${escapeHtml(tag)}</span>`).join("")}</div>
-      <div class="card-meta">
-        <div>${escapeHtml(article.date)}</div>
-        <div>${escapeHtml(String(article.readTime))} min</div>
-      </div>
     </div>
   `;
 
