@@ -38,6 +38,13 @@ const GENRE_COLORS = {
     dot: "#ffb2d2",
     glow: "rgba(212, 106, 154, 0.2)",
   },
+  "人間関係": {
+    bg: "rgba(127, 216, 255, 0.2)",
+    border: "rgba(176, 230, 255, 0.34)",
+    text: "#dcf5ff",
+    dot: "#97e4ff",
+    glow: "rgba(76, 172, 212, 0.2)",
+  },
 };
 
 const GENRE_ICONS = {
@@ -65,7 +72,16 @@ const GENRE_ICONS = {
       <path d="M6 20c6 0 12-5 12-14-6 0-12 5-12 14Z"></path>
       <path d="M8.5 15.5c2-1.7 4-3 7-4.5"></path>
     </svg>`,
+  "人間関係": `
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"></path>
+      <path d="M16 13a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"></path>
+      <path d="M3.5 19c.9-2.3 3-3.5 5.5-3.5S13.6 16.7 14.5 19"></path>
+      <path d="M10.5 19c.7-1.9 2.4-3 4.5-3 2 0 3.7 1.1 4.5 3"></path>
+    </svg>`,
 };
+
+const GENRE_ORDER = ["ライフスタイル", "健康", "副業・ビジネス", "人間関係"];
 
 let allArticles = [];
 let currentTab = "new";
@@ -238,8 +254,8 @@ function renderGenreTab(articles) {
     genreMap.get(article.genre).push(article);
   });
 
-  Array.from(genreMap.entries()).forEach(([genre, items], index) => {
-    container.appendChild(createGenreBlock(genre, items, index));
+  sortGenreEntries(Array.from(genreMap.entries())).forEach(([genre, items], index) => {
+    container.appendChild(createGenreSection(genre, items, index));
   });
 
   contentArea.appendChild(container);
@@ -399,42 +415,47 @@ function createArticleCard(article, index) {
   return element;
 }
 
-function createGenreBlock(genre, items, index) {
-  const block = document.createElement("div");
-  block.className = "genre-block reveal";
+function createGenreSection(genre, items, index) {
+  const block = document.createElement("section");
+  block.className = "genre-section reveal";
   block.style.animationDelay = `${Math.min(index, 6) * 70}ms`;
   const genreTheme = getGenreTheme(genre);
 
-  const toggle = document.createElement("button");
-  toggle.className = "genre-toggle";
-  toggle.type = "button";
-  toggle.setAttribute("aria-expanded", "false");
-  toggle.innerHTML = `
-    <span class="genre-toggle__left">
-      <span class="genre-toggle__icon genre-toggle__icon--accent" style="background:${genreTheme.bg}; border-color:${genreTheme.border}; color:${genreTheme.text};">${GENRE_ICONS[genre] || GENRE_ICONS["ライフスタイル"]}</span>
-      <span class="genre-toggle__text">
-        <span class="genre-toggle__title">${escapeHtml(genre)}</span>
-        <span class="genre-toggle__count" style="color:${genreTheme.text};"><strong>${items.length}</strong> articles</span>
-      </span>
-    </span>
-    <span class="genre-toggle__arrow">⌄</span>
+  const header = document.createElement("div");
+  header.className = "genre-section__header glass-panel";
+  header.innerHTML = `
+    <div class="genre-section__left">
+      <span class="genre-section__icon genre-section__icon--accent" style="background:${genreTheme.bg}; border-color:${genreTheme.border}; color:${genreTheme.text};">${GENRE_ICONS[genre] || GENRE_ICONS["ライフスタイル"]}</span>
+      <div class="genre-section__text">
+        <h3 class="genre-section__title">${escapeHtml(genre)}</h3>
+        <p class="genre-section__count" style="color:${genreTheme.text};"><strong>${items.length}</strong> articles</p>
+      </div>
+    </div>
+    <span class="genre-section__accent" style="background:${genreTheme.glow}; border-color:${genreTheme.border};"></span>
   `;
 
   const body = document.createElement("div");
-  body.className = "genre-block__body article-grid hidden";
+  body.className = "genre-section__body article-grid article-grid--genre";
   items.forEach((article, itemIndex) => {
     body.appendChild(createArticleCard(article, itemIndex + 1));
   });
 
-  toggle.addEventListener("click", () => {
-    const isExpanded = toggle.getAttribute("aria-expanded") === "true";
-    toggle.setAttribute("aria-expanded", String(!isExpanded));
-    body.classList.toggle("hidden", isExpanded);
-  });
-
-  block.appendChild(toggle);
+  block.appendChild(header);
   block.appendChild(body);
   return block;
+}
+
+function sortGenreEntries(entries) {
+  return entries.slice().sort(([genreA], [genreB]) => {
+    const orderA = GENRE_ORDER.indexOf(genreA);
+    const orderB = GENRE_ORDER.indexOf(genreB);
+    const rankA = orderA === -1 ? Number.MAX_SAFE_INTEGER : orderA;
+    const rankB = orderB === -1 ? Number.MAX_SAFE_INTEGER : orderB;
+    if (rankA !== rankB) {
+      return rankA - rankB;
+    }
+    return genreA.localeCompare(genreB, "ja");
+  });
 }
 
 function createEmptyState({ title, text, icon }) {
