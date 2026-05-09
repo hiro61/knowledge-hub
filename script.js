@@ -70,6 +70,7 @@ const GENRE_ICONS = {
 let allArticles = [];
 let currentTab = "new";
 let currentSearchQuery = "";
+let activeArticleFile = "";
 
 const contentArea = document.getElementById("contentArea");
 const tabButtons = Array.from(document.querySelectorAll(".tab-button"));
@@ -110,8 +111,9 @@ function initAuthGate() {
 }
 
 function initViewer() {
-  document.getElementById("closeViewerButton").addEventListener("click", closeArticle);
-  articleViewer.querySelector(".article-viewer__backdrop").addEventListener("click", closeArticle);
+  document.getElementById("closeViewerButton").addEventListener("click", handleViewerBack);
+  window.addEventListener("popstate", syncViewerWithHistory);
+  syncViewerWithHistory();
 }
 
 function initTabs() {
@@ -459,15 +461,50 @@ function renderErrorState() {
 }
 
 function openArticle(article) {
+  if (!article.file) {
+    return;
+  }
+  activeArticleFile = article.file;
   articleFrame.src = article.file;
   articleViewer.classList.remove("hidden");
   articleViewer.setAttribute("aria-hidden", "false");
+  const nextState = { view: "article", article: article.file };
+  if (!isArticleState(window.history.state, article.file)) {
+    window.history.pushState(nextState, "", window.location.href);
+  }
 }
 
 function closeArticle() {
+  activeArticleFile = "";
   articleViewer.classList.add("hidden");
   articleViewer.setAttribute("aria-hidden", "true");
   articleFrame.src = "";
+}
+
+function handleViewerBack() {
+  if (isArticleState(window.history.state)) {
+    window.history.back();
+    return;
+  }
+  closeArticle();
+}
+
+function syncViewerWithHistory() {
+  if (isArticleState(window.history.state)) {
+    const nextFile = window.history.state.article;
+    if (nextFile && activeArticleFile !== nextFile) {
+      activeArticleFile = nextFile;
+      articleFrame.src = nextFile;
+    }
+    articleViewer.classList.remove("hidden");
+    articleViewer.setAttribute("aria-hidden", "false");
+    return;
+  }
+  closeArticle();
+}
+
+function isArticleState(state, file = activeArticleFile) {
+  return Boolean(state && state.view === "article" && state.article === file);
 }
 
 function getArticleId(article) {
