@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>集中が続かない人へ｜仕事と資格勉強の環境と休憩設計</title>
+  <meta name="description" content="集中が続かない、疲れて勉強が進まない人向けに、仕事や資格勉強で使える休憩と環境設計を整理したHTML記事。">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --hero-bg-from: #edf3f8; --hero-bg-to: #ffffff; --accent: #183b66; --accent-sub: #4a6f9d; --bg-sub: #eaf1f7;
+      --bg: #ffffff; --bg-card: #ffffff; --text: #1a1a1a; --text-soft: #555555; --rule: #e0e0e0; --max-w: 760px;
+      --font-ja: "Hiragino Mincho ProN","Yu Mincho","游明朝","Noto Serif JP",Georgia,serif;
+      --font-go: "Hiragino Kaku Gothic ProN","Yu Gothic","游ゴシック","Noto Sans JP",sans-serif;
+      --radius: 12px; --shadow: 0 2px 12px rgba(0,0,0,0.08);
+    }
+    html { font-size: 16px; } body { background: var(--bg); color: var(--text); font-family: var(--font-ja); line-height: 1.75; -webkit-text-size-adjust: 100%; padding: 0 0 100px; }
+    main { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
+    .hero { text-align: center; padding: 80px 24px 64px; background: linear-gradient(135deg, var(--hero-bg-from) 0%, var(--hero-bg-to) 100%); border-bottom: 1px solid var(--rule); margin-bottom: 64px; }
+    .hero-tag { display: inline-block; font-family: var(--font-go); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent-sub); background: var(--bg-sub); border: 1px solid var(--rule); border-radius: 999px; padding: 4px 14px; margin-bottom: 24px; }
+    .hero h1 { font-family: var(--font-go); font-size: clamp(2rem, 6vw, 3rem); font-weight: 900; letter-spacing: -0.03em; line-height: 1.2; margin-bottom: 16px; }
+    .hero-desc { font-family: var(--font-go); font-size: 1rem; color: var(--text-soft); line-height: 1.8; max-width: 560px; margin: 0 auto; }
+    .toc { background: var(--bg-sub); border-radius: var(--radius); padding: 28px 32px; margin-bottom: 48px; }
+    .toc-title, .section-label { font-family: var(--font-go); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent-sub); }
+    .toc-title { margin-bottom: 14px; }
+    .toc ol { padding-left: 1.4em; }
+    .toc li { font-family: var(--font-go); font-size: 0.92rem; line-height: 1.7; margin-bottom: 6px; }
+    .toc a { color: var(--text); text-decoration: none; }
+    section { margin-bottom: 72px; padding-left: 24px; border-left: 3px solid var(--accent); }
+    .section-label { display: inline-block; margin-bottom: 10px; }
+    h2 { font-family: var(--font-go); font-size: clamp(1.45rem, 4vw, 1.95rem); font-weight: 900; letter-spacing: -0.02em; line-height: 1.25; margin-bottom: 16px; }
+    .intro-text { font-size: 0.98rem; color: var(--text-soft); line-height: 1.85; margin-bottom: 28px; font-style: italic; }
+    h3 { font-family: var(--font-go); font-size: 1.05rem; font-weight: 700; margin: 28px 0 10px; }
+    p { font-size: 0.97rem; line-height: 1.85; margin-bottom: 14px; }
+    ul, ol { padding-left: 1.5em; margin-bottom: 16px; }
+    li { font-size: 0.95rem; line-height: 1.8; margin-bottom: 6px; }
+    li::marker { color: var(--accent-sub); }
+    .card-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; margin-top: 20px; }
+    .card, .work-card, .highlight-box { background: var(--bg-card); border-radius: var(--radius); box-shadow: var(--shadow); border: 1px solid var(--rule); padding: 22px; }
+    .highlight-box { background: var(--bg-sub); box-shadow: none; margin: 22px 0; }
+    .table-wrap { overflow-x: auto; border: 1px solid var(--rule); border-radius: var(--radius); margin-top: 20px; }
+    table { width: 100%; border-collapse: collapse; background: #fff; }
+    th, td { padding: 14px 16px; border-bottom: 1px solid var(--rule); text-align: left; vertical-align: top; font-size: 0.93rem; line-height: 1.7; }
+    th { background: var(--accent); color: #fff; font-family: var(--font-go); font-weight: 700; }
+    .timeline { position: relative; margin-top: 20px; padding-left: 22px; }
+    .timeline::before { content: ""; position: absolute; left: 7px; top: 4px; bottom: 4px; width: 1px; background: var(--rule); }
+    .tl-item { position: relative; margin-bottom: 22px; padding-left: 16px; }
+    .tl-marker { position: absolute; left: -22px; top: 7px; width: 12px; height: 12px; border-radius: 999px; background: var(--accent); box-shadow: 0 0 0 4px var(--bg-sub); }
+    .tl-phase { display: inline-block; font-family: var(--font-go); font-size: 0.7rem; font-weight: 700; color: var(--accent-sub); margin-bottom: 6px; }
+    .work-title { display: flex; align-items: center; gap: 8px; font-family: var(--font-go); font-size: 0.95rem; font-weight: 700; margin-bottom: 12px; }
+    @media (max-width: 720px) { .card-grid { grid-template-columns: 1fr; } main { padding: 0 18px; } .toc { padding: 22px 20px; } section { padding-left: 18px; } .hero { padding: 64px 20px 52px; } }
+    @media print { body { padding-bottom: 0; } .hero { padding-top: 48px; padding-bottom: 40px; } section { break-inside: avoid; } }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <span class="hero-tag">WORK &amp; LICENSE STUDY</span>
+    <h1>集中が続かない人へ</h1>
+    <p class="hero-desc">勉強中に気が散る、疲れて続かないという悩みは珍しくありません。集中力は根性で維持するものではなく、環境、休憩、刺激の使い方を整えることで安定しやすくなります。</p>
+  </header>
+
+  <main>
+    <nav class="toc">
+      <div class="toc-title">目次</div>
+      <ol>
+        <li><a href="#sec1">集中が切れる原因を分解する</a></li>
+        <li><a href="#sec2">休憩を学習の一部として扱う</a></li>
+        <li><a href="#sec3">環境刺激を目的別に整える</a></li>
+        <li><a href="#sec4">疲れていても回る勉強の型を作る</a></li>
+      </ol>
+    </nav>
+
+    <section id="sec1">
+      <div class="section-label">Section 01</div>
+      <h2>集中が続かないのは、意志の問題より「切れやすい条件」が揃っているから</h2>
+      <p class="intro-text">集中力が落ちると、自分を責めたくなることがあります。しかし実際には、疲労、刺激の多さ、休み方の悪さ、タスク設計の曖昧さが重なっているだけのことも少なくありません。原因を分けて見るだけでも対策は立てやすくなります。</p>
+      <p>勉強法のメモには、10秒休憩、ウェイクフルレスト、光や音の調整、コーヒーと音楽の使い分け、予期せぬ出来事の挿入など、集中を支える工夫が多くありました。共通点は、集中力を気分に任せず、環境側で支えることです。</p>
+      <div class="card-grid">
+        <div class="card">
+          <h3>よくある崩れ方</h3>
+          <ul>
+            <li>タスクが大きすぎて着手までに疲れる</li>
+            <li>休憩のたびにスマホへ流れて戻れない</li>
+            <li>眠気や不安が強いまま勉強を続けている</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>見直す視点</h3>
+          <ul>
+            <li>今の集中切れは疲労か退屈か不安か</li>
+            <li>勉強の区切りが粗すぎないか</li>
+            <li>休憩が回復ではなく刺激追加になっていないか</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="sec2">
+      <div class="section-label">Section 02</div>
+      <h2>休憩はサボりではなく、記憶と集中を回復させる工程である</h2>
+      <p class="intro-text">疲れているのに勉強を続けると、時間は使っていても理解が浅くなりやすくなります。短い休憩を挟むことで、脳を切り替え、次の学習の質を守ることができます。</p>
+      <p>メモにあった10秒休憩、5〜15分のウェイクフルレスト、15分のパワーナップ、10分散歩は、どれも単なる気分転換ではありません。情報の整理、覚醒度の調整、記憶の再活性化を助けるための方法です。</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>休憩法</th>
+              <th>やり方</th>
+              <th>向いている場面</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>10秒休憩</td>
+              <td>タスク間で止まり、深呼吸して何もしない</td>
+              <td>問題演習の切り替え時</td>
+            </tr>
+            <tr>
+              <td>ウェイクフルレスト</td>
+              <td>5〜15分、閉眼や静かな座位で休む</td>
+              <td>インプット後の整理</td>
+            </tr>
+            <tr>
+              <td>10分散歩</td>
+              <td>軽く歩いて頭を切り替える</td>
+              <td>眠気や煮詰まりが強いとき</td>
+            </tr>
+            <tr>
+              <td>短い昼寝</td>
+              <td>15分前後で切り上げる</td>
+              <td>午後の学習前後</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="highlight-box">
+        <p><strong>注意点:</strong> 休憩中にスマホで強い刺激を入れると、休んだつもりでも脳は休まりません。特に学習直後の数分は、静かな回復時間として確保する価値があります。</p>
+      </div>
+    </section>
+
+    <section id="sec3">
+      <div class="section-label">Section 03</div>
+      <h2>集中しやすさは、光・音・刺激の使い分けで大きく変わる</h2>
+      <p class="intro-text">集中力は体調だけでなく、周囲の刺激によっても大きく左右されます。何となく勉強するのではなく、タスクの種類ごとに環境を調整すると、疲れ方と入りやすさが変わってきます。</p>
+      <div class="card-grid">
+        <div class="card">
+          <h3>インプット中心のとき</h3>
+          <ul>
+            <li>無音か静かな環境を選ぶ</li>
+            <li>白色寄りの明るさで眠気を防ぐ</li>
+            <li>教材以外の視覚刺激を減らす</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>作業や演習中心のとき</h3>
+          <ul>
+            <li>覚醒を上げたいなら音楽やカフェインを限定的に使う</li>
+            <li>単調なら形式を変えて予測違反を作る</li>
+            <li>タスクの区切りごとに短い停止を入れる</li>
+          </ul>
+        </div>
+      </div>
+      <p>また、リモート学習で不安が高まる人は、対面学習を一部混ぜたり、セルフビューを切ったりするだけでも負荷が下がります。環境調整は小さい工夫ですが、長期的には大きな差になります。</p>
+    </section>
+
+    <section id="sec4">
+      <div class="section-label">Section 04</div>
+      <h2>疲れていても回る勉強は、「短く区切る」「戻りやすくする」で作れる</h2>
+      <p class="intro-text">忙しい社会人や受験者にとって、毎回万全の状態で勉強するのは現実的ではありません。だからこそ、疲れている日でも最低限回る形を先に持っておくことが大切です。</p>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-marker"></div>
+          <div class="tl-content">
+            <span class="tl-phase">Phase 1</span>
+            <h3>最初の単位を小さくする</h3>
+            <p>1時間勉強ではなく、1問題、1節、5分確認など、最初の着手を小さくします。集中は始めてから高まることが多いからです。</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-marker"></div>
+          <div class="tl-content">
+            <span class="tl-phase">Phase 2</span>
+            <h3>切れ目で短く止まる</h3>
+            <p>問題が終わるたび、段落が終わるたびに10秒だけ止まります。小休止を入れる方が、だらだら崩れるより再集中しやすくなります。</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-marker"></div>
+          <div class="tl-content">
+            <span class="tl-phase">Phase 3</span>
+            <h3>再開ポイントを残して終える</h3>
+            <p>次にどこから始めるかを1行だけ残します。翌日の着手負荷が下がると、勉強の継続率は大きく上がります。</p>
+          </div>
+        </div>
+      </div>
+      <div class="work-card">
+        <div class="work-title">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="12" height="12" rx="2"></rect><path d="M5 8l2 2 4-4"></path></svg>
+          今日からのワーク
+        </div>
+        <ul>
+          <li>勉強タスクの最小単位を1つ決める</li>
+          <li>タスク間で10秒止まる習慣を試す</li>
+          <li>学習直後のスマホ休憩を静かな休憩に置き換える</li>
+          <li>終わる前に「次はここから」を1行残す</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

@@ -234,6 +234,81 @@
       ],
       "readTime": 3,
       "file": "articles/side_business_pricing_psychology.html"
+    },
+    {
+      "id": 33,
+      "title": "何を勉強すればいいか分からない人へ｜仕事と資格勉強の進め方",
+      "genre": "ライフスタイル",
+      "date": "2026-05-10",
+      "summary": "仕事や資格の勉強で、何から手を付けるべきか分からない人に向けて、目的整理・教材選定・行動設計の進め方を分かりやすく整理したHTML記事。",
+      "tags": [
+        "勉強法",
+        "資格勉強",
+        "仕事術",
+        "学習設計"
+      ],
+      "readTime": 3,
+      "file": "articles/work_study_direction_reset.html"
+    },
+    {
+      "id": 34,
+      "title": "覚えられない人へ｜仕事と資格勉強の記憶定着法",
+      "genre": "ライフスタイル",
+      "date": "2026-05-10",
+      "summary": "勉強しても覚えられない、すぐ忘れると感じる人に向けて、記憶定着を高める学び方と復習法を分かりやすく整理したHTML記事。",
+      "tags": [
+        "勉強法",
+        "記憶",
+        "復習",
+        "資格勉強"
+      ],
+      "readTime": 3,
+      "file": "articles/work_study_memory_fix.html"
+    },
+    {
+      "id": 35,
+      "title": "ノートが活かせない人へ｜仕事と資格勉強のメモ設計",
+      "genre": "ライフスタイル",
+      "date": "2026-05-10",
+      "summary": "ノートを書いているのに復習しにくい、情報が散らかる人向けに、仕事や資格勉強で使えるメモ設計を整理したHTML記事。",
+      "tags": [
+        "ノート術",
+        "メモ術",
+        "勉強法",
+        "思考整理"
+      ],
+      "readTime": 3,
+      "file": "articles/work_study_note_system.html"
+    },
+    {
+      "id": 36,
+      "title": "理解が浅いと感じる人へ｜説明できる学び方",
+      "genre": "ライフスタイル",
+      "date": "2026-05-10",
+      "summary": "分かったつもりで終わる、説明できないと悩む人向けに、仕事や資格勉強で理解を深める学び方を整理したHTML記事。",
+      "tags": [
+        "理解力",
+        "説明力",
+        "勉強法",
+        "学習法"
+      ],
+      "readTime": 3,
+      "file": "articles/work_study_explain_to_understand.html"
+    },
+    {
+      "id": 37,
+      "title": "集中が続かない人へ｜仕事と資格勉強の環境と休憩設計",
+      "genre": "ライフスタイル",
+      "date": "2026-05-10",
+      "summary": "集中が続かない、疲れて勉強が進まない人向けに、仕事や資格勉強で使える休憩と環境設計を整理したHTML記事。",
+      "tags": [
+        "集中力",
+        "休憩",
+        "環境設計",
+        "勉強法"
+      ],
+      "readTime": 3,
+      "file": "articles/work_study_focus_recovery.html"
     }
   ]
 }

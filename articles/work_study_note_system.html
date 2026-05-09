@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ノートが活かせない人へ｜仕事と資格勉強のメモ設計</title>
+  <meta name="description" content="ノートを書いているのに復習しにくい、情報が散らかる人向けに、仕事や資格勉強で使えるメモ設計を整理したHTML記事。">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --hero-bg-from: #edf3f8; --hero-bg-to: #ffffff; --accent: #183b66; --accent-sub: #4a6f9d; --bg-sub: #eaf1f7;
+      --bg: #ffffff; --bg-card: #ffffff; --text: #1a1a1a; --text-soft: #555555; --rule: #e0e0e0; --max-w: 760px;
+      --font-ja: "Hiragino Mincho ProN","Yu Mincho","游明朝","Noto Serif JP",Georgia,serif;
+      --font-go: "Hiragino Kaku Gothic ProN","Yu Gothic","游ゴシック","Noto Sans JP",sans-serif;
+      --radius: 12px; --shadow: 0 2px 12px rgba(0,0,0,0.08);
+    }
+    html { font-size: 16px; } body { background: var(--bg); color: var(--text); font-family: var(--font-ja); line-height: 1.75; -webkit-text-size-adjust: 100%; padding: 0 0 100px; }
+    main { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
+    .hero { text-align: center; padding: 80px 24px 64px; background: linear-gradient(135deg, var(--hero-bg-from) 0%, var(--hero-bg-to) 100%); border-bottom: 1px solid var(--rule); margin-bottom: 64px; }
+    .hero-tag { display: inline-block; font-family: var(--font-go); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent-sub); background: var(--bg-sub); border: 1px solid var(--rule); border-radius: 999px; padding: 4px 14px; margin-bottom: 24px; }
+    .hero h1 { font-family: var(--font-go); font-size: clamp(2rem, 6vw, 3rem); font-weight: 900; letter-spacing: -0.03em; line-height: 1.2; margin-bottom: 16px; }
+    .hero-desc { font-family: var(--font-go); font-size: 1rem; color: var(--text-soft); line-height: 1.8; max-width: 560px; margin: 0 auto; }
+    .toc { background: var(--bg-sub); border-radius: var(--radius); padding: 28px 32px; margin-bottom: 48px; }
+    .toc-title, .section-label { font-family: var(--font-go); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent-sub); }
+    .toc-title { margin-bottom: 14px; }
+    .toc ol { padding-left: 1.4em; }
+    .toc li { font-family: var(--font-go); font-size: 0.92rem; line-height: 1.7; margin-bottom: 6px; }
+    .toc a { color: var(--text); text-decoration: none; }
+    section { margin-bottom: 72px; padding-left: 24px; border-left: 3px solid var(--accent); }
+    .section-label { display: inline-block; margin-bottom: 10px; }
+    h2 { font-family: var(--font-go); font-size: clamp(1.45rem, 4vw, 1.95rem); font-weight: 900; letter-spacing: -0.02em; line-height: 1.25; margin-bottom: 16px; }
+    .intro-text { font-size: 0.98rem; color: var(--text-soft); line-height: 1.85; margin-bottom: 28px; font-style: italic; }
+    h3 { font-family: var(--font-go); font-size: 1.05rem; font-weight: 700; margin: 28px 0 10px; }
+    p { font-size: 0.97rem; line-height: 1.85; margin-bottom: 14px; }
+    ul, ol { padding-left: 1.5em; margin-bottom: 16px; }
+    li { font-size: 0.95rem; line-height: 1.8; margin-bottom: 6px; }
+    li::marker { color: var(--accent-sub); }
+    .card-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; margin-top: 20px; }
+    .card, .work-card, .highlight-box { background: var(--bg-card); border-radius: var(--radius); box-shadow: var(--shadow); border: 1px solid var(--rule); padding: 22px; }
+    .highlight-box { background: var(--bg-sub); box-shadow: none; margin: 22px 0; }
+    .table-wrap { overflow-x: auto; border: 1px solid var(--rule); border-radius: var(--radius); margin-top: 20px; }
+    table { width: 100%; border-collapse: collapse; background: #fff; }
+    th, td { padding: 14px 16px; border-bottom: 1px solid var(--rule); text-align: left; vertical-align: top; font-size: 0.93rem; line-height: 1.7; }
+    th { background: var(--accent); color: #fff; font-family: var(--font-go); font-weight: 700; }
+    .timeline { position: relative; margin-top: 20px; padding-left: 22px; }
+    .timeline::before { content: ""; position: absolute; left: 7px; top: 4px; bottom: 4px; width: 1px; background: var(--rule); }
+    .tl-item { position: relative; margin-bottom: 22px; padding-left: 16px; }
+    .tl-marker { position: absolute; left: -22px; top: 7px; width: 12px; height: 12px; border-radius: 999px; background: var(--accent); box-shadow: 0 0 0 4px var(--bg-sub); }
+    .tl-phase { display: inline-block; font-family: var(--font-go); font-size: 0.7rem; font-weight: 700; color: var(--accent-sub); margin-bottom: 6px; }
+    .work-title { display: flex; align-items: center; gap: 8px; font-family: var(--font-go); font-size: 0.95rem; font-weight: 700; margin-bottom: 12px; }
+    @media (max-width: 720px) { .card-grid { grid-template-columns: 1fr; } main { padding: 0 18px; } .toc { padding: 22px 20px; } section { padding-left: 18px; } .hero { padding: 64px 20px 52px; } }
+    @media print { body { padding-bottom: 0; } .hero { padding-top: 48px; padding-bottom: 40px; } section { break-inside: avoid; } }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <span class="hero-tag">WORK &amp; LICENSE STUDY</span>
+    <h1>ノートが活かせない人へ</h1>
+    <p class="hero-desc">たくさん書いているのに復習しにくいなら、問題は量ではなく設計です。ノートは記録ではなく、判断と再起動のための道具として作ると、勉強効率が大きく変わります。</p>
+  </header>
+
+  <main>
+    <nav class="toc">
+      <div class="toc-title">目次</div>
+      <ol>
+        <li><a href="#sec1">ノートが散らかる理由を知る</a></li>
+        <li><a href="#sec2">使えるメモの基本原則を押さえる</a></li>
+        <li><a href="#sec3">仕事と資格勉強での使い分けを決める</a></li>
+        <li><a href="#sec4">見返せるノートへ育てる</a></li>
+      </ol>
+    </nav>
+
+    <section id="sec1">
+      <div class="section-label">Section 01</div>
+      <h2>ノートが機能しないのは、情報が多いからではなく役割が曖昧だから</h2>
+      <p class="intro-text">ノートが続かない人の多くは、書き方ではなく目的が混ざっています。記録したい、理解したい、覚えたい、実務で使いたい。この役割が一冊や一ページの中で混線すると、見返しても使い道が見えなくなります。</p>
+      <p>メモ関連の原稿では、ノートは「認知資源の節約装置」「判断装置」「再起動の手順書」として捉えられていました。つまり、きれいに残すことより、次の行動を迷わず決められることの方が重要です。</p>
+      <div class="card-grid">
+        <div class="card">
+          <h3>機能しないノートの特徴</h3>
+          <ul>
+            <li>文章が長く、1ページに情報が詰まりすぎている</li>
+            <li>重要点と感想と宿題が同じ粒度で並んでいる</li>
+            <li>後で見たときに、何をすればいいか分からない</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>機能するノートの特徴</h3>
+          <ul>
+            <li>1行1メッセージで要点が分かれる</li>
+            <li>見出し、理由、行動が分かれている</li>
+            <li>見返した瞬間に次の一手が決まる</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="sec2">
+      <div class="section-label">Section 02</div>
+      <h2>使えるメモの基本は「単純化」「並列化」「余白」である</h2>
+      <p class="intro-text">良いノートは、内容を増やすことで完成するのではありません。理解しやすい単位に分け、同じ並びで並べ、あとから考え直せる余白を残すことで、はじめて使える形になります。</p>
+      <p>原稿では、一行一メッセージ、並列構造の統一、5±2原則、橋渡し文、断定回避、半分空けて使う、リライト前提などが共通していました。これは見た目のルールではなく、頭の中で再利用しやすくするための設計です。</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>原則</th>
+              <th>意味</th>
+              <th>すぐできる改善</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1行1メッセージ</td>
+              <td>一つの行に一つの要点だけを書く</td>
+              <td>長文を箇条書きに分割する</td>
+            </tr>
+            <tr>
+              <td>並列構造</td>
+              <td>文頭や粒度を揃えて比較しやすくする</td>
+              <td>動詞始まりで統一する</td>
+            </tr>
+            <tr>
+              <td>余白を残す</td>
+              <td>後から理解を追加できるようにする</td>
+              <td>ページの半分を追記欄にする</td>
+            </tr>
+            <tr>
+              <td>橋渡し文</td>
+              <td>次のブロックとのつながりを作る</td>
+              <td>最後に「次に何を見るか」を1文書く</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="highlight-box">
+        <p><strong>意識したいこと:</strong> ノートはその場で完璧に仕上げるものではありません。書いた後に直せるようにしておくことで、理解の成長に追従できるようになります。</p>
+      </div>
+    </section>
+
+    <section id="sec3">
+      <div class="section-label">Section 03</div>
+      <h2>仕事学習と資格勉強では、ノートの役割分担を決めると迷いが減る</h2>
+      <p class="intro-text">ノートが散らかる人は、あらゆる情報を一つの形式で扱おうとしがちです。しかし、仕事で使う知識と試験で点を取る知識では、残し方の最適解が少し異なります。役割ごとに形式を分けると、復習の負担が軽くなります。</p>
+      <div class="card-grid">
+        <div class="card">
+          <h3>資格勉強向け</h3>
+          <ul>
+            <li>論点ごとの定義、頻出ミス、暗記ポイントを短く整理する</li>
+            <li>問題演習で間違えた理由を書き残す</li>
+            <li>復習時に赤字でリライトし、理解の更新を見える化する</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>仕事学習向け</h3>
+          <ul>
+            <li>会議、提案、説明で使う表現をまとめる</li>
+            <li>概念は「自分の業務では何に当たるか」で言い換える</li>
+            <li>行動や改善案までセットで残す</li>
+          </ul>
+        </div>
+      </div>
+      <p>紙ノートで定着を狙い、マインドマップで整理し、スマホは一時メモにとどめるという役割分担も有効です。全情報をきれいに集約するより、「どこに何を書くか」を固定する方が実用的です。</p>
+    </section>
+
+    <section id="sec4">
+      <div class="section-label">Section 04</div>
+      <h2>ノートは「書いた後」が本番であり、見返して育てるもの</h2>
+      <p class="intro-text">ノート術の核として最も重要だったのは、リライトの考え方でした。書いた瞬間に価値が決まるのではなく、見返し、書き直し、比較することで、はじめて長期記憶と実践に結びつきます。</p>
+      <p>以下の流れを固定しておくと、ノートがただの保管場所ではなく、理解を深める装置になります。最初からきれいに書くより、あとで更新しやすい形で残すことを優先してください。</p>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-marker"></div>
+          <div class="tl-content">
+            <span class="tl-phase">Phase 1</span>
+            <h3>その場では要点だけ書く</h3>
+            <p>聞いたこと、読んだことを丸写しせず、3〜5分で説明できる粒度まで絞って書きます。</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-marker"></div>
+          <div class="tl-content">
+            <span class="tl-phase">Phase 2</span>
+            <h3>復習時にリライトする</h3>
+            <p>キャッチコピー化、図解化、言い換えを追加し、理解の更新を追記します。色を変えて追加すると変化が見えやすくなります。</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-marker"></div>
+          <div class="tl-content">
+            <span class="tl-phase">Phase 3</span>
+            <h3>次アクションを残す</h3>
+            <p>最後に「この内容をどう使うか」を一文で書きます。知識が行動に接続されることで、ノートが初めて活きます。</p>
+          </div>
+        </div>
+      </div>
+      <div class="work-card">
+        <div class="work-title">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="12" height="12" rx="2"></rect><path d="M5 8l2 2 4-4"></path></svg>
+          今日からのワーク
+        </div>
+        <ul>
+          <li>1ページにつき一つの目的だけを持たせる</li>
+          <li>1行1メッセージに書き直す</li>
+          <li>復習用の余白を残す</li>
+          <li>最後に「次の一手」を1行で追記する</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

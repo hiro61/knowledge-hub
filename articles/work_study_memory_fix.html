@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>覚えられない人へ｜仕事と資格勉強の記憶定着法</title>
+  <meta name="description" content="勉強しても覚えられない、すぐ忘れると感じる人に向けて、記憶定着を高める学び方と復習法を分かりやすく整理したHTML記事。">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --hero-bg-from: #edf3f8; --hero-bg-to: #ffffff; --accent: #183b66; --accent-sub: #4a6f9d; --bg-sub: #eaf1f7;
+      --bg: #ffffff; --bg-card: #ffffff; --text: #1a1a1a; --text-soft: #555555; --rule: #e0e0e0; --max-w: 760px;
+      --font-ja: "Hiragino Mincho ProN","Yu Mincho","游明朝","Noto Serif JP",Georgia,serif;
+      --font-go: "Hiragino Kaku Gothic ProN","Yu Gothic","游ゴシック","Noto Sans JP",sans-serif;
+      --radius: 12px; --shadow: 0 2px 12px rgba(0,0,0,0.08);
+    }
+    html { font-size: 16px; }
+    body { background: var(--bg); color: var(--text); font-family: var(--font-ja); line-height: 1.75; -webkit-text-size-adjust: 100%; padding: 0 0 100px; }
+    main { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
+    .hero { text-align: center; padding: 80px 24px 64px; background: linear-gradient(135deg, var(--hero-bg-from) 0%, var(--hero-bg-to) 100%); border-bottom: 1px solid var(--rule); margin-bottom: 64px; }
+    .hero-tag { display: inline-block; font-family: var(--font-go); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent-sub); background: var(--bg-sub); border: 1px solid var(--rule); border-radius: 999px; padding: 4px 14px; margin-bottom: 24px; }
+    .hero h1 { font-family: var(--font-go); font-size: clamp(2rem, 6vw, 3rem); font-weight: 900; letter-spacing: -0.03em; line-height: 1.2; margin-bottom: 16px; }
+    .hero-desc { font-family: var(--font-go); font-size: 1rem; color: var(--text-soft); line-height: 1.8; max-width: 560px; margin: 0 auto; }
+    .toc { background: var(--bg-sub); border-radius: var(--radius); padding: 28px 32px; margin-bottom: 48px; }
+    .toc-title, .section-label { font-family: var(--font-go); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent-sub); }
+    .toc-title { margin-bottom: 14px; }
+    .toc ol { padding-left: 1.4em; }
+    .toc li { font-family: var(--font-go); font-size: 0.92rem; line-height: 1.7; margin-bottom: 6px; }
+    .toc a { color: var(--text); text-decoration: none; }
+    section { margin-bottom: 72px; padding-left: 24px; border-left: 3px solid var(--accent); }
+    .section-label { display: inline-block; margin-bottom: 10px; }
+    h2 { font-family: var(--font-go); font-size: clamp(1.45rem, 4vw, 1.95rem); font-weight: 900; letter-spacing: -0.02em; line-height: 1.25; margin-bottom: 16px; }
+    .intro-text { font-size: 0.98rem; color: var(--text-soft); line-height: 1.85; margin-bottom: 28px; font-style: italic; }
+    h3 { font-family: var(--font-go); font-size: 1.05rem; font-weight: 700; margin: 28px 0 10px; }
+    p { font-size: 0.97rem; line-height: 1.85; margin-bottom: 14px; }
+    ul, ol { padding-left: 1.5em; margin-bottom: 16px; }
+    li { font-size: 0.95rem; line-height: 1.8; margin-bottom: 6px; }
+    li::marker { color: var(--accent-sub); }
+    .card-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; margin-top: 20px; }
+    .card, .work-card, .highlight-box { background: var(--bg-card); border-radius: var(--radius); box-shadow: var(--shadow); border: 1px solid var(--rule); padding: 22px; }
+    .card h3, .work-card h3 { margin-top: 0; }
+    .highlight-box { background: var(--bg-sub); box-shadow: none; margin: 22px 0; }
+    .table-wrap { overflow-x: auto; border: 1px solid var(--rule); border-radius: var(--radius); margin-top: 20px; }
+    table { width: 100%; border-collapse: collapse; background: #fff; }
+    th, td { padding: 14px 16px; border-bottom: 1px solid var(--rule); text-align: left; vertical-align: top; font-size: 0.93rem; line-height: 1.7; }
+    th { background: var(--accent); color: #fff; font-family: var(--font-go); font-weight: 700; }
+    .timeline { position: relative; margin-top: 20px; padding-left: 22px; }
+    .timeline::before { content: ""; position: absolute; left: 7px; top: 4px; bottom: 4px; width: 1px; background: var(--rule); }
+    .tl-item { position: relative; margin-bottom: 22px; padding-left: 16px; }
+    .tl-marker { position: absolute; left: -22px; top: 7px; width: 12px; height: 12px; border-radius: 999px; background: var(--accent); box-shadow: 0 0 0 4px var(--bg-sub); }
+    .tl-phase { display: inline-block; font-family: var(--font-go); font-size: 0.7rem; font-weight: 700; color: var(--accent-sub); margin-bottom: 6px; }
+    .work-title { display: flex; align-items: center; gap: 8px; font-family: var(--font-go); font-size: 0.95rem; font-weight: 700; margin-bottom: 12px; }
+    @media (max-width: 720px) { .card-grid { grid-template-columns: 1fr; } main { padding: 0 18px; } .toc { padding: 22px 20px; } section { padding-left: 18px; } .hero { padding: 64px 20px 52px; } }
+    @media print { body { padding-bottom: 0; } .hero { padding-top: 48px; padding-bottom: 40px; } section { break-inside: avoid; } }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <span class="hero-tag">WORK &amp; LICENSE STUDY</span>
+    <h1>覚えられない人へ</h1>
+    <p class="hero-desc">勉強したのにすぐ忘れる人は、記憶力が低いのではなく、定着しやすい使い方に変換できていないことが少なくありません。覚えるより、思い出す設計に変えることが鍵です。</p>
+  </header>
+
+  <main>
+    <nav class="toc">
+      <div class="toc-title">目次</div>
+      <ol>
+        <li><a href="#sec1">忘れてしまう原因を見直す</a></li>
+        <li><a href="#sec2">覚えるより思い出す回数を増やす</a></li>
+        <li><a href="#sec3">複数の方法で同じ知識をたどる</a></li>
+        <li><a href="#sec4">定着を高める復習ルーティンを作る</a></li>
+      </ol>
+    </nav>
+
+    <section id="sec1">
+      <div class="section-label">Section 01</div>
+      <h2>忘れてしまうのは、頭が悪いからではなく「受け身の学習」が多いから</h2>
+      <p class="intro-text">覚えられないと感じるとき、多くの人は自分の記憶力を疑います。しかし実際には、見る、読む、線を引くといった受け身の学習が中心になり、脳が「使う価値のある情報」と判断できていないことがよくあります。</p>
+      <p>記憶系のメモでは、インプットよりもアウトプットに負荷をかけること、そして間違いからの修正や再説明が定着を深めることが繰り返し示されていました。つまり、忘れにくい学習は、正しく覚えることではなく、何度も取り出せる状態を作ることです。</p>
+      <div class="card-grid">
+        <div class="card">
+          <h3>忘れやすい勉強</h3>
+          <ul>
+            <li>読むだけで終わる</li>
+            <li>正解を見る回数が多く、自力で思い出す回数が少ない</li>
+            <li>復習の方法が毎回同じで、刺激が単調になる</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>残りやすい勉強</h3>
+          <ul>
+            <li>説明、描写、再生など取り出す作業がある</li>
+            <li>間違えた理由まで言語化している</li>
+            <li>読む、話す、描くを使い分けている</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="sec2">
+      <div class="section-label">Section 02</div>
+      <h2>記憶を強くする基本は「思い出す練習」を増やすこと</h2>
+      <p class="intro-text">知識を定着させたいときは、覚え込む時間を増やすより、取り出す回数を増やす方が効果的です。自力で思い出そうとして詰まる体験そのものが、記憶を強化する材料になります。</p>
+      <p>元のメモには、検索練習、自己説明法、40秒リプレイ、エラー訂正法といった手法が並んでいました。共通点は、どれも「学習した内容を脳の外に出す」ことです。問題を解く、声に出す、間違いを比較する。この工程があると、知識はただ見た情報から、使える情報へと変わります。</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>方法</th>
+              <th>何をするか</th>
+              <th>向いている場面</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>検索練習</td>
+              <td>答えを見ずに問題を解く</td>
+              <td>試験対策、暗記事項の確認</td>
+            </tr>
+            <tr>
+              <td>自己説明法</td>
+              <td>自分の言葉で要点を説明する</td>
+              <td>理解確認、仕事への応用</td>
+            </tr>
+            <tr>
+              <td>エラー訂正法</td>
+              <td>もっともらしい誤りと正解を比較する</td>
+              <td>混同しやすい知識の整理</td>
+            </tr>
+            <tr>
+              <td>40秒リプレイ</td>
+              <td>学習直後に頭の中で再生する</td>
+              <td>短時間学習の締め</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="highlight-box">
+        <p><strong>改善のコツ:</strong> 「覚えたかどうか」ではなく「何も見ずにどこまで言えるか」で確認すると、復習の質が大きく変わります。</p>
+      </div>
+    </section>
+
+    <section id="sec3">
+      <div class="section-label">Section 03</div>
+      <h2>同じ内容を別ルートでたどると、知識は折れにくくなる</h2>
+      <p class="intro-text">一度覚えても本番で出てこないのは、記憶の入り口が一つしかないからです。読むだけで覚えた情報は、その入口が塞がれると取り出せません。複数のルートを作っておくことが、忘れにくさにつながります。</p>
+      <p>メモでは、話す、描く、場所法を使う、年齢別に説明する、ストーリー化するなど、いくつもの変換方法が紹介されていました。これは、記憶の糸を太くする作業です。資格勉強なら「定義を書く」「図で描く」「具体例を出す」、仕事学習なら「会議で一言使う」「後輩に説明する」といった変換が有効です。</p>
+      <div class="card-grid">
+        <div class="card">
+          <h3>理解系の内容</h3>
+          <ul>
+            <li>10歳にも分かる表現に言い換える</li>
+            <li>抽象概念を具体例に変える</li>
+            <li>図や流れ図で再構成する</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>暗記系の内容</h3>
+          <ul>
+            <li>場所法や語呂で固定する</li>
+            <li>似た概念を誤答とセットで比較する</li>
+            <li>短いクイズにして思い出す回数を増やす</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="sec4">
+      <div class="section-label">Section 04</div>
+      <h2>定着は「復習の長さ」より「復習の形」で決まる</h2>
+      <p class="intro-text">復習を頑張っているのに残らない人は、回数ではなく中身を見直す必要があります。脳を休ませる時間と、思い出す時間をセットで作ると、短時間でも定着しやすくなります。</p>
+      <p>散歩、ウェイクフルレスト、短い昼寝、10秒休憩などのメモは、勉強を中断させるためではなく、整理と再活性化を促すための工夫です。学習直後にスマホへ流れる習慣がある人ほど、この時間を整える価値があります。</p>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-marker"></div>
+          <div class="tl-content">
+            <span class="tl-phase">Phase 1</span>
+            <h3>学習直後に40秒リプレイ</h3>
+            <p>テキストを閉じて、何を学んだかを頭の中か口頭で再生します。抜けた部分があれば、それが次の復習ポイントです。</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-marker"></div>
+          <div class="tl-content">
+            <span class="tl-phase">Phase 2</span>
+            <h3>5〜15分は何もしない時間を取る</h3>
+            <p>スマホを見ず、軽い散歩や閉眼で情報を落ち着かせます。休むこと自体が定着の一部です。</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-marker"></div>
+          <div class="tl-content">
+            <span class="tl-phase">Phase 3</span>
+            <h3>次回は別の方法で復習する</h3>
+            <p>前回が読むだったなら、次回は話す、描く、解くに変えます。やり方を変えることで記憶の回路が増えます。</p>
+          </div>
+        </div>
+      </div>
+      <div class="work-card">
+        <div class="work-title">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="12" height="12" rx="2"></rect><path d="M5 8l2 2 4-4"></path></svg>
+          今日からのワーク
+        </div>
+        <ul>
+          <li>勉強後40秒で内容を再生する</li>
+          <li>次回復習は「読む」以外の方法を1つ選ぶ</li>
+          <li>間違えた論点は、誤答と正答の対比で書き残す</li>
+          <li>学習直後のスマホ時間を5分だけ止める</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

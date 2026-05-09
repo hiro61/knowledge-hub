@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>何を勉強すればいいか分からない人へ｜仕事と資格勉強の進め方</title>
+  <meta name="description" content="仕事や資格の勉強で、何から手を付けるべきか分からない人に向けて、目的整理・教材選定・行動設計の進め方を分かりやすく整理したHTML記事。">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --hero-bg-from: #edf3f8;
+      --hero-bg-to: #ffffff;
+      --accent: #183b66;
+      --accent-sub: #4a6f9d;
+      --bg-sub: #eaf1f7;
+      --bg: #ffffff;
+      --bg-card: #ffffff;
+      --text: #1a1a1a;
+      --text-soft: #555555;
+      --rule: #e0e0e0;
+      --max-w: 760px;
+      --font-ja: "Hiragino Mincho ProN","Yu Mincho","游明朝","Noto Serif JP",Georgia,serif;
+      --font-go: "Hiragino Kaku Gothic ProN","Yu Gothic","游ゴシック","Noto Sans JP",sans-serif;
+      --radius: 12px;
+      --shadow: 0 2px 12px rgba(0,0,0,0.08);
+    }
+    html { font-size: 16px; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-ja);
+      line-height: 1.75;
+      -webkit-text-size-adjust: 100%;
+      padding: 0 0 100px;
+    }
+    main { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
+    .hero {
+      text-align: center;
+      padding: 80px 24px 64px;
+      background: linear-gradient(135deg, var(--hero-bg-from) 0%, var(--hero-bg-to) 100%);
+      border-bottom: 1px solid var(--rule);
+      margin-bottom: 64px;
+    }
+    .hero-tag {
+      display: inline-block;
+      font-family: var(--font-go);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent-sub);
+      background: var(--bg-sub);
+      border: 1px solid var(--rule);
+      border-radius: 999px;
+      padding: 4px 14px;
+      margin-bottom: 24px;
+    }
+    .hero h1 {
+      font-family: var(--font-go);
+      font-size: clamp(2rem, 6vw, 3rem);
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+    .hero-desc {
+      font-family: var(--font-go);
+      font-size: 1rem;
+      color: var(--text-soft);
+      line-height: 1.8;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+    .toc {
+      background: var(--bg-sub);
+      border-radius: var(--radius);
+      padding: 28px 32px;
+      margin-bottom: 48px;
+    }
+    .toc-title, .section-label {
+      font-family: var(--font-go);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent-sub);
+    }
+    .toc-title { margin-bottom: 14px; }
+    .toc ol { padding-left: 1.4em; }
+    .toc li { font-family: var(--font-go); font-size: 0.92rem; line-height: 1.7; margin-bottom: 6px; }
+    .toc a { color: var(--text); text-decoration: none; }
+    section {
+      margin-bottom: 72px;
+      padding-left: 24px;
+      border-left: 3px solid var(--accent);
+    }
+    .section-label { display: inline-block; margin-bottom: 10px; }
+    h2 {
+      font-family: var(--font-go);
+      font-size: clamp(1.45rem, 4vw, 1.95rem);
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      line-height: 1.25;
+      margin-bottom: 16px;
+    }
+    .intro-text {
+      font-size: 0.98rem;
+      color: var(--text-soft);
+      line-height: 1.85;
+      margin-bottom: 28px;
+      font-style: italic;
+    }
+    h3 {
+      font-family: var(--font-go);
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin: 28px 0 10px;
+    }
+    p { font-size: 0.97rem; line-height: 1.85; margin-bottom: 14px; }
+    ul, ol { padding-left: 1.5em; margin-bottom: 16px; }
+    li { font-size: 0.95rem; line-height: 1.8; margin-bottom: 6px; }
+    li::marker { color: var(--accent-sub); }
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 20px;
+    }
+    .card, .work-card, .highlight-box {
+      background: var(--bg-card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--rule);
+      padding: 22px;
+    }
+    .card h3, .work-card h3 { margin-top: 0; }
+    .highlight-box {
+      background: var(--bg-sub);
+      box-shadow: none;
+      margin: 22px 0;
+    }
+    .table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--rule);
+      border-radius: var(--radius);
+      margin-top: 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+    }
+    th, td {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--rule);
+      text-align: left;
+      vertical-align: top;
+      font-size: 0.93rem;
+      line-height: 1.7;
+    }
+    th {
+      background: var(--accent);
+      color: #fff;
+      font-family: var(--font-go);
+      font-weight: 700;
+    }
+    .timeline {
+      position: relative;
+      margin-top: 20px;
+      padding-left: 22px;
+    }
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 7px;
+      top: 4px;
+      bottom: 4px;
+      width: 1px;
+      background: var(--rule);
+    }
+    .tl-item {
+      position: relative;
+      margin-bottom: 22px;
+      padding-left: 16px;
+    }
+    .tl-marker {
+      position: absolute;
+      left: -22px;
+      top: 7px;
+      width: 12px;
+      height: 12px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 0 4px var(--bg-sub);
+    }
+    .tl-phase {
+      display: inline-block;
+      font-family: var(--font-go);
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--accent-sub);
+      margin-bottom: 6px;
+    }
+    .work-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-go);
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .work-title svg { flex: none; }
+    @media (max-width: 720px) {
+      .card-grid { grid-template-columns: 1fr; }
+      main { padding: 0 18px; }
+      .toc { padding: 22px 20px; }
+      section { padding-left: 18px; }
+      .hero { padding: 64px 20px 52px; }
+    }
+    @media print {
+      body { padding-bottom: 0; }
+      .hero { padding-top: 48px; padding-bottom: 40px; }
+      section { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <span class="hero-tag">WORK &amp; LICENSE STUDY</span>
+    <h1>何を勉強すればいいか分からない人へ</h1>
+    <p class="hero-desc">仕事や資格の勉強で手が止まる人の多くは、努力不足ではなく「進め方の設計」が曖昧です。目的、教材、行動の順で整理すると、勉強は一気に進めやすくなります。</p>
+  </header>
+
+  <main>
+    <nav class="toc">
+      <div class="toc-title">目次</div>
+      <ol>
+        <li><a href="#sec1">困りごとの正体を整理する</a></li>
+        <li><a href="#sec2">勉強の軸を先に決める</a></li>
+        <li><a href="#sec3">教材と行動を絞り込む</a></li>
+        <li><a href="#sec4">今日からの進め方を固定する</a></li>
+      </ol>
+    </nav>
+
+    <section id="sec1">
+      <div class="section-label">Section 01</div>
+      <h2>困りごとの正体は「勉強量不足」より「選択疲れ」である</h2>
+      <p class="intro-text">仕事や資格の勉強で迷う人は、やる気がないのではなく、毎回ゼロから判断していることが多いものです。何を読むか、どこまでやるか、何を覚えるかをその場で決め続けると、勉強前に脳の体力を使い切ってしまいます。</p>
+      <p>勉強が進まないとき、よくあるのは「教材はあるのに手が付かない」「頑張っているのに前に進んでいる感覚がない」「本を読んでも仕事で使える形にならない」という状態です。これは学習意欲の問題というより、勉強の入り口が整理されていないサインです。</p>
+      <div class="card-grid">
+        <div class="card">
+          <h3>よくある困りごと</h3>
+          <ul>
+            <li>試験範囲が広く、どこから着手すべきか分からない</li>
+            <li>本や動画を見ても、仕事にどうつながるか見えない</li>
+            <li>教材を増やしすぎて、どれも中途半端になる</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>背景にある問題</h3>
+          <ul>
+            <li>勉強の目的が「受かる」「役立てる」以上に具体化されていない</li>
+            <li>優先順位ではなく不安で教材を選んでいる</li>
+            <li>学びを行動に変える仕組みがない</li>
+          </ul>
+        </div>
+      </div>
+      <div class="highlight-box">
+        <p><strong>先に覚えておきたい視点:</strong> 勉強の迷いは、能力不足ではなく設計不足で起こります。まずは「何を頑張るか」ではなく「何を捨てるか」を決めることが重要です。</p>
+      </div>
+    </section>
+
+    <section id="sec2">
+      <div class="section-label">Section 02</div>
+      <h2>勉強の軸は「なりたい状態」から逆算して決める</h2>
+      <p class="intro-text">勉強を続けやすくするには、最初に目的を曖昧なままにしないことが重要です。ゴールがぼんやりしていると、目の前の情報に引っ張られ、必要な学習より安心できる学習ばかり増えていきます。</p>
+      <p>元のメモでは、事前準備として「どんな人や状態になりたいかを一言で書く」「今の自分に最も効果的なアクションを決める」と整理されていました。これは資格勉強でも仕事学習でも非常に有効です。目的が決まると、読み込むべき章、解くべき問題、練習すべき場面が明確になります。</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>整理する項目</th>
+              <th>悪い例</th>
+              <th>良い例</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>目標設定</td>
+              <td>とにかく勉強する</td>
+              <td>3か月後に模試で7割を取る</td>
+            </tr>
+            <tr>
+              <td>仕事への接続</td>
+              <td>知識を増やしたい</td>
+              <td>会議で3分説明できる状態にする</td>
+            </tr>
+            <tr>
+              <td>今日の焦点</td>
+              <td>とりあえず1章読む</td>
+              <td>頻出論点を20分で確認し、1問解く</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="sec3">
+      <div class="section-label">Section 03</div>
+      <h2>教材と行動は「全部」ではなく「今効くもの」に絞る</h2>
+      <p class="intro-text">勉強が苦しくなるのは、量が多いからだけではありません。必要なものと不要なものが混ざったまま進めると、理解より消耗が先に来ます。ここでは、学習対象を絞るための視点を整理します。</p>
+      <p>複数のメモに共通していたのは、「全部読むのではなく使える章に集中する」「教材数より使い切りが成果を左右する」「学んだ文を行動文に変える」という考え方です。つまり、勉強の質は、情報量ではなく変換率で決まります。</p>
+      <div class="card-grid">
+        <div class="card">
+          <h3>絞り込みの基準</h3>
+          <ul>
+            <li>試験頻出か、仕事で使用頻度が高いか</li>
+            <li>今の弱点を直接改善できるか</li>
+            <li>学んだ当日中に1回使えるか</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>行動への変換例</h3>
+          <ul>
+            <li>「理解する」ではなく「3行で説明する」に変える</li>
+            <li>「復習する」ではなく「間違えた3問を解き直す」に変える</li>
+            <li>「読む」ではなく「次の会議で1つ使う」に変える</li>
+          </ul>
+        </div>
+      </div>
+      <div class="highlight-box">
+        <p><strong>実践前の一文:</strong> 勉強内容を増やす前に、今持っている教材から「今日の行動」に変換できるものだけを拾ってください。その一手が決まると、学習は抽象論から実務に変わります。</p>
+      </div>
+    </section>
+
+    <section id="sec4">
+      <div class="section-label">Section 04</div>
+      <h2>迷わない人は、勉強を始めるまでの手順を固定している</h2>
+      <p class="intro-text">継続できる人は、意志が強いというより、着手までの流れを毎回同じにしています。今日の気分でやり方を変えず、最初の10分を定型化することで、迷いのコストを減らしています。</p>
+      <p>以下の流れは、仕事学習にも資格学習にも使いやすい基本形です。短時間でもこの順序で進めると、勉強が「考える作業」ではなく「回せる作業」になります。</p>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-marker"></div>
+          <div class="tl-content">
+            <span class="tl-phase">Phase 1</span>
+            <h3>目的を一言で書く</h3>
+            <p>今日は何を前進させたいのかを一文で決めます。例として「模試で落とした論点を潰す」「利用者説明で使う表現を整える」など、結果が見える言葉にします。</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-marker"></div>
+          <div class="tl-content">
+            <span class="tl-phase">Phase 2</span>
+            <h3>扱う範囲を限定する</h3>
+            <p>1章全部ではなく、節・問題・ケースなど最小単位に絞ります。迷いを防ぐには、広げるより先に削ることが有効です。</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-marker"></div>
+          <div class="tl-content">
+            <span class="tl-phase">Phase 3</span>
+            <h3>行動文に変える</h3>
+            <p>学んだ内容は、その場で動詞から始まるToDoに変換します。行動に落ちない知識は、記憶に残っても成果にはつながりにくいからです。</p>
+          </div>
+        </div>
+      </div>
+      <div class="work-card">
+        <div class="work-title">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="12" height="12" rx="2"></rect><path d="M5 8l2 2 4-4"></path></svg>
+          今日からのワーク
+        </div>
+        <ul>
+          <li>「この勉強で得たい成果」を1行で書く</li>
+          <li>教材を3つ以内に絞り、それぞれの役割を決める</li>
+          <li>学んだ内容を1行1アクションのToDoに変換する</li>
+          <li>最後に「今日やる1つ」を選んで終える</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

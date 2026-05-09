@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>理解が浅いと感じる人へ｜説明できる学び方</title>
+  <meta name="description" content="分かったつもりで終わる、説明できないと悩む人向けに、仕事や資格勉強で理解を深める学び方を整理したHTML記事。">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --hero-bg-from: #edf3f8; --hero-bg-to: #ffffff; --accent: #183b66; --accent-sub: #4a6f9d; --bg-sub: #eaf1f7;
+      --bg: #ffffff; --bg-card: #ffffff; --text: #1a1a1a; --text-soft: #555555; --rule: #e0e0e0; --max-w: 760px;
+      --font-ja: "Hiragino Mincho ProN","Yu Mincho","游明朝","Noto Serif JP",Georgia,serif;
+      --font-go: "Hiragino Kaku Gothic ProN","Yu Gothic","游ゴシック","Noto Sans JP",sans-serif;
+      --radius: 12px; --shadow: 0 2px 12px rgba(0,0,0,0.08);
+    }
+    html { font-size: 16px; } body { background: var(--bg); color: var(--text); font-family: var(--font-ja); line-height: 1.75; -webkit-text-size-adjust: 100%; padding: 0 0 100px; }
+    main { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
+    .hero { text-align: center; padding: 80px 24px 64px; background: linear-gradient(135deg, var(--hero-bg-from) 0%, var(--hero-bg-to) 100%); border-bottom: 1px solid var(--rule); margin-bottom: 64px; }
+    .hero-tag { display: inline-block; font-family: var(--font-go); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent-sub); background: var(--bg-sub); border: 1px solid var(--rule); border-radius: 999px; padding: 4px 14px; margin-bottom: 24px; }
+    .hero h1 { font-family: var(--font-go); font-size: clamp(2rem, 6vw, 3rem); font-weight: 900; letter-spacing: -0.03em; line-height: 1.2; margin-bottom: 16px; }
+    .hero-desc { font-family: var(--font-go); font-size: 1rem; color: var(--text-soft); line-height: 1.8; max-width: 560px; margin: 0 auto; }
+    .toc { background: var(--bg-sub); border-radius: var(--radius); padding: 28px 32px; margin-bottom: 48px; }
+    .toc-title, .section-label { font-family: var(--font-go); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent-sub); }
+    .toc-title { margin-bottom: 14px; }
+    .toc ol { padding-left: 1.4em; }
+    .toc li { font-family: var(--font-go); font-size: 0.92rem; line-height: 1.7; margin-bottom: 6px; }
+    .toc a { color: var(--text); text-decoration: none; }
+    section { margin-bottom: 72px; padding-left: 24px; border-left: 3px solid var(--accent); }
+    .section-label { display: inline-block; margin-bottom: 10px; }
+    h2 { font-family: var(--font-go); font-size: clamp(1.45rem, 4vw, 1.95rem); font-weight: 900; letter-spacing: -0.02em; line-height: 1.25; margin-bottom: 16px; }
+    .intro-text { font-size: 0.98rem; color: var(--text-soft); line-height: 1.85; margin-bottom: 28px; font-style: italic; }
+    h3 { font-family: var(--font-go); font-size: 1.05rem; font-weight: 700; margin: 28px 0 10px; }
+    p { font-size: 0.97rem; line-height: 1.85; margin-bottom: 14px; }
+    ul, ol { padding-left: 1.5em; margin-bottom: 16px; }
+    li { font-size: 0.95rem; line-height: 1.8; margin-bottom: 6px; }
+    li::marker { color: var(--accent-sub); }
+    .card-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; margin-top: 20px; }
+    .card, .work-card, .highlight-box { background: var(--bg-card); border-radius: var(--radius); box-shadow: var(--shadow); border: 1px solid var(--rule); padding: 22px; }
+    .highlight-box { background: var(--bg-sub); box-shadow: none; margin: 22px 0; }
+    .table-wrap { overflow-x: auto; border: 1px solid var(--rule); border-radius: var(--radius); margin-top: 20px; }
+    table { width: 100%; border-collapse: collapse; background: #fff; }
+    th, td { padding: 14px 16px; border-bottom: 1px solid var(--rule); text-align: left; vertical-align: top; font-size: 0.93rem; line-height: 1.7; }
+    th { background: var(--accent); color: #fff; font-family: var(--font-go); font-weight: 700; }
+    .timeline { position: relative; margin-top: 20px; padding-left: 22px; }
+    .timeline::before { content: ""; position: absolute; left: 7px; top: 4px; bottom: 4px; width: 1px; background: var(--rule); }
+    .tl-item { position: relative; margin-bottom: 22px; padding-left: 16px; }
+    .tl-marker { position: absolute; left: -22px; top: 7px; width: 12px; height: 12px; border-radius: 999px; background: var(--accent); box-shadow: 0 0 0 4px var(--bg-sub); }
+    .tl-phase { display: inline-block; font-family: var(--font-go); font-size: 0.7rem; font-weight: 700; color: var(--accent-sub); margin-bottom: 6px; }
+    .work-title { display: flex; align-items: center; gap: 8px; font-family: var(--font-go); font-size: 0.95rem; font-weight: 700; margin-bottom: 12px; }
+    @media (max-width: 720px) { .card-grid { grid-template-columns: 1fr; } main { padding: 0 18px; } .toc { padding: 22px 20px; } section { padding-left: 18px; } .hero { padding: 64px 20px 52px; } }
+    @media print { body { padding-bottom: 0; } .hero { padding-top: 48px; padding-bottom: 40px; } section { break-inside: avoid; } }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <span class="hero-tag">WORK &amp; LICENSE STUDY</span>
+    <h1>理解が浅いと感じる人へ</h1>
+    <p class="hero-desc">読んだ直後は分かった気がするのに、人に説明しようとすると詰まる。その感覚は自然です。理解は、情報を見た量ではなく、自分の言葉で再構成できるかで深まっていきます。</p>
+  </header>
+
+  <main>
+    <nav class="toc">
+      <div class="toc-title">目次</div>
+      <ol>
+        <li><a href="#sec1">分かったつもりが起こる理由</a></li>
+        <li><a href="#sec2">理解を深める説明型の学習</a></li>
+        <li><a href="#sec3">抽象と具体を往復する練習</a></li>
+        <li><a href="#sec4">説明できる状態まで持っていく流れ</a></li>
+      </ol>
+    </nav>
+
+    <section id="sec1">
+      <div class="section-label">Section 01</div>
+      <h2>「分かったつもり」は、情報を見慣れたことと理解を混同したときに起こる</h2>
+      <p class="intro-text">勉強していて内容が頭に入った気がするのは、多くの場合、情報に触れた回数が増えたからです。しかし本当の理解は、別の言葉に置き換えたり、具体例を出したり、逆の質問に答えたりできる状態で初めて確認できます。</p>
+      <p>勉強法のメモでは、思考発話法、説明力トレーニング、パラフレージング、サードパーソンセルフトークなど、「理解を声や言葉に変える方法」が多く挙がっていました。理解は頭の中で完結させるより、外に出した方が精度が上がります。</p>
+      <div class="card-grid">
+        <div class="card">
+          <h3>浅い理解のサイン</h3>
+          <ul>
+            <li>読めば分かるが、閉じると言えない</li>
+            <li>専門用語が多く、自分の言葉に直せない</li>
+            <li>具体例を求められると止まる</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>深い理解のサイン</h3>
+          <ul>
+            <li>短く説明できる</li>
+            <li>別の場面に置き換えて話せる</li>
+            <li>よくある誤解も一緒に説明できる</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="sec2">
+      <div class="section-label">Section 02</div>
+      <h2>理解を深めるには、「読む」から「説明する」へ重心を移す</h2>
+      <p class="intro-text">理解が浅いと感じる人は、インプットを増やすより先に、アウトプットの形を整える方が効果的です。特に仕事や資格の勉強では、自分が説明できるかどうかがそのまま実践力につながります。</p>
+      <p>メモにあった「教えるつもり勉強法」や「何も見ずに説明する練習」は、理解の穴を見つけるための手段です。相手がいなくても、自分に向かって話す、録音する、3行にまとめるだけで十分です。</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>方法</th>
+              <th>やること</th>
+              <th>狙い</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>思考発話法</td>
+              <td>勉強中の疑問や重要点を口に出す</td>
+              <td>理解の詰まりをその場で見つける</td>
+            </tr>
+            <tr>
+              <td>パラフレージング</td>
+              <td>専門的な表現を自分の言葉に言い換える</td>
+              <td>本質だけを残す</td>
+            </tr>
+            <tr>
+              <td>説明力トレーニング</td>
+              <td>例や図を使って他者向けに説明する</td>
+              <td>仕事や試験答案で使える理解にする</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="highlight-box">
+        <p><strong>ポイント:</strong> 「理解したい」と思ったら、読む時間を延ばすより、説明する時間を3分だけ追加してください。そこで詰まる場所が、本当に復習すべき場所です。</p>
+      </div>
+    </section>
+
+    <section id="sec3">
+      <div class="section-label">Section 03</div>
+      <h2>抽象と具体を往復できると、知識は仕事でも試験でも使いやすくなる</h2>
+      <p class="intro-text">理解を強くするには、定義だけでも、例だけでも不十分です。概念を抽象のまま覚えると使えず、具体例だけだと応用が利きません。この両方を行き来する力が、深い理解の核になります。</p>
+      <p>メモでは、梯子メタファーやストーリー抽象法が紹介されていました。これは「概念 → 具体例 → もう一段高い意味づけ」という流れで考える技術です。資格の定義問題でも、仕事の説明でも、この往復ができると整理しやすくなります。</p>
+      <div class="card-grid">
+        <div class="card">
+          <h3>抽象から具体へ</h3>
+          <ul>
+            <li>定義を、自分の現場での事例に置き換える</li>
+            <li>難しい理論を一つの場面に当てはめてみる</li>
+            <li>「つまり何が起こるのか」を言う</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>具体から抽象へ</h3>
+          <ul>
+            <li>ケースの共通点を一言でまとめる</li>
+            <li>出来事を原則レベルに引き上げる</li>
+            <li>別の分野でも使える表現に言い換える</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="sec4">
+      <div class="section-label">Section 04</div>
+      <h2>説明できる状態まで持っていくには、短い確認を何度も挟む</h2>
+      <p class="intro-text">深い理解は、一気に完成するものではありません。短く読んで、話して、直してを繰り返す方が、長時間読むよりも精度が上がりやすくなります。完璧な説明を最初から求めないことも大切です。</p>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-marker"></div>
+          <div class="tl-content">
+            <span class="tl-phase">Phase 1</span>
+            <h3>3行で要約する</h3>
+            <p>読んだ直後に、定義、理由、使いどころを3行で書きます。文章を短くすると、本質が見えやすくなります。</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-marker"></div>
+          <div class="tl-content">
+            <span class="tl-phase">Phase 2</span>
+            <h3>1分で口頭説明する</h3>
+            <p>相手を想定して説明します。資格勉強なら採点者、仕事学習なら同僚や後輩を想定すると実践的です。</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-marker"></div>
+          <div class="tl-content">
+            <span class="tl-phase">Phase 3</span>
+            <h3>詰まった箇所だけ戻る</h3>
+            <p>全部読み直すのではなく、言えなかった箇所だけ確認します。戻る範囲を狭くすると、復習が軽くなります。</p>
+          </div>
+        </div>
+      </div>
+      <div class="work-card">
+        <div class="work-title">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="12" height="12" rx="2"></rect><path d="M5 8l2 2 4-4"></path></svg>
+          今日からのワーク
+        </div>
+        <ul>
+          <li>学んだ内容を3行でまとめる</li>
+          <li>専門用語を一つ、自分の言葉に言い換える</li>
+          <li>1分だけ声に出して説明する</li>
+          <li>詰まった点だけ再読する</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
