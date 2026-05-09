@@ -94,9 +94,43 @@
       .thinking-frame { flex-direction:column; }
       .summary-box { padding:24px 20px; }
     }
-  </style>
+  
+    .back-link {
+      position: fixed;
+      top: calc(16px + env(safe-area-inset-top));
+      left: 16px;
+      z-index: 20;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--rule);
+      background: rgba(255, 255, 255, 0.92);
+      color: var(--text);
+      font-family: var(--font-go);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+    }
+    .back-link:hover { opacity: 0.96; }
+    .back-link:active { transform: translateY(1px); }
+    .back-link svg { width: 16px; height: 16px; flex-shrink: 0; }
+    @media print { .back-link { display: none; } }
+
+</style>
 </head>
 <body>
+  <a class="back-link" href="../" onclick="if (window.history.length > 1) { window.history.back(); return false; }">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="m15 18-6-6 6-6"></path>
+    </svg>
+    <span>戻る</span>
+  </a>
   <main>
     <header class="doc-header">
       <div class="doc-meta">Critical Thinking Notes</div>
