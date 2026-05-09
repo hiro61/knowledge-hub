@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>副業で稼げない人の「値段の決め方」が間違っている件。価格は感情で決まります</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --hero-bg-from: #f4edeb;
+      --hero-bg-to: #ffffff;
+      --accent: #6f3f3a;
+      --accent-sub: #9f7069;
+      --bg-sub: #f8f1ef;
+      --bg: #ffffff;
+      --bg-card: #ffffff;
+      --text: #241917;
+      --text-soft: #6d5b58;
+      --rule: #e8dbd8;
+      --max-w: 740px;
+      --font-ja: "Hiragino Mincho ProN","Yu Mincho","游明朝","Noto Serif JP",Georgia,serif;
+      --font-go: "Hiragino Kaku Gothic ProN","Yu Gothic","游ゴシック","Noto Sans JP",sans-serif;
+      --radius: 12px;
+      --shadow: 0 2px 12px rgba(0,0,0,0.08);
+    }
+    html { font-size: 16px; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-ja);
+      line-height: 1.75;
+      -webkit-text-size-adjust: 100%;
+      padding: 0 0 100px;
+    }
+    main { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
+    .hero {
+      text-align: center;
+      padding: 80px 24px 64px;
+      background: linear-gradient(135deg, var(--hero-bg-from) 0%, var(--hero-bg-to) 100%);
+      border-bottom: 1px solid var(--rule);
+      margin-bottom: 64px;
+    }
+    .hero-tag, .toc-title, .section-label, .tl-phase {
+      font-family: var(--font-go);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent-sub);
+    }
+    .hero-tag {
+      display: inline-block;
+      background: var(--bg-sub);
+      border: 1px solid var(--rule);
+      border-radius: 999px;
+      padding: 4px 14px;
+      margin-bottom: 24px;
+    }
+    .hero h1 {
+      font-family: var(--font-go);
+      font-size: clamp(2rem, 6vw, 3rem);
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+    .hero-desc {
+      font-family: var(--font-go);
+      font-size: 1rem;
+      color: var(--text-soft);
+      line-height: 1.7;
+      max-width: 580px;
+      margin: 0 auto;
+    }
+    .toc {
+      background: var(--bg-sub);
+      border-radius: var(--radius);
+      padding: 28px 32px;
+      margin-bottom: 48px;
+    }
+    .toc-title { margin-bottom: 14px; }
+    .toc ol { padding-left: 1.4em; }
+    .toc li {
+      font-family: var(--font-go);
+      font-size: 0.9rem;
+      line-height: 1.7;
+      margin-bottom: 6px;
+      color: var(--text-soft);
+    }
+    .toc a { color: var(--text); text-decoration: none; }
+    section {
+      margin-bottom: 72px;
+      padding-left: 24px;
+      border-left: 3px solid var(--accent);
+    }
+    h2 {
+      font-family: var(--font-go);
+      font-size: clamp(1.4rem, 4vw, 1.9rem);
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      line-height: 1.25;
+      margin: 10px 0 16px;
+    }
+    h3, h4 {
+      font-family: var(--font-go);
+      font-weight: 700;
+    }
+    h3 { font-size: 1.02rem; margin-bottom: 10px; }
+    h4 { font-size: 1rem; margin-bottom: 8px; }
+    p { font-size: 0.97rem; line-height: 1.8; margin-bottom: 14px; }
+    .intro-text {
+      font-size: 0.97rem;
+      color: var(--text-soft);
+      line-height: 1.8;
+      margin-bottom: 28px;
+      font-style: italic;
+    }
+    hr { border: none; border-top: 1px solid var(--rule); margin: 56px 0; }
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin: 18px 0 8px;
+    }
+    .card, .highlight-box, .summary-box, .tl-content {
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--rule);
+      background: #fff;
+    }
+    .card { padding: 24px; }
+    .highlight-box, .summary-box {
+      background: var(--bg-sub);
+      padding: 22px 24px;
+      margin-top: 18px;
+    }
+    .timeline {
+      position: relative;
+      margin: 20px 0 8px;
+      padding-left: 8px;
+    }
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 13px;
+      top: 4px;
+      bottom: 4px;
+      width: 1px;
+      background: var(--rule);
+    }
+    .tl-item {
+      position: relative;
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+    .tl-marker {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      margin-top: 9px;
+      margin-left: 4px;
+      position: relative;
+      z-index: 1;
+    }
+    .tl-content { padding: 18px 20px; }
+    .table-wrap {
+      overflow-x: auto;
+      margin: 18px 0 10px;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--rule);
+    }
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+    }
+    .data-table th,
+    .data-table td {
+      padding: 14px 16px;
+      vertical-align: top;
+      border-bottom: 1px solid var(--rule);
+      text-align: left;
+      font-size: 0.94rem;
+      line-height: 1.7;
+    }
+    .data-table th {
+      background: var(--accent);
+      color: #fff;
+      font-family: var(--font-go);
+      font-weight: 700;
+    }
+    .data-table tr:last-child td { border-bottom: none; }
+    .checklist {
+      background: #fdfafb;
+      border: 1px dashed var(--rule);
+      border-radius: var(--radius);
+      padding: 22px 24px;
+      margin-top: 18px;
+      white-space: pre-wrap;
+      font-family: var(--font-go);
+      font-size: 0.92rem;
+      line-height: 1.8;
+    }
+    @media (max-width: 720px) {
+      main { padding: 0 18px; }
+      .hero { padding: 64px 18px 52px; margin-bottom: 48px; }
+      .toc { padding: 22px 22px; }
+      section { padding-left: 18px; margin-bottom: 56px; }
+      .card-grid { grid-template-columns: 1fr; }
+      .data-table th, .data-table td { min-width: 180px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <span class="hero-tag">Pricing Psychology</span>
+    <h1>副業で稼げない人の「値段の決め方」が間違っている件。価格は感情で決まります</h1>
+    <p class="hero-desc">価格設定は原価計算だけで決まるものではない。比較対象や見せ方によって、お客さんが感じる高い・安いは変わる。その基本設計を副業向けに整理した。</p>
+  </header>
+
+  <main>
+    <nav class="toc">
+      <div class="toc-title">目次</div>
+      <ol>
+        <li><a href="#sec1">安くすれば売れるとは限らない</a></li>
+        <li><a href="#sec2">価格は比較対象で変わって見える</a></li>
+        <li><a href="#sec3">価格設計の3ステップ</a></li>
+        <li><a href="#sec4">納得感を作る説明を添える</a></li>
+        <li><a href="#sec5">価格は自分の価値観ともつながっている</a></li>
+      </ol>
+    </nav>
+    <hr>
+
+    <section id="sec1">
+      <div class="section-label">Section 01</div>
+      <h2>安くすれば売れるとは限らない</h2>
+      <p class="intro-text">売れないときに最初に値下げへ向かう人は多いですが、それが必ずしも改善にはなりません。価格は購入の障壁である一方で、価値の手掛かりでもあるからです。</p>
+      <p>極端に安い価格は、「なぜこんなに安いのか」という不安を生みます。さらに、低単価のまま受注数だけを増やすと、疲弊して継続しにくくなります。</p>
+      <div class="card-grid">
+        <div class="card">
+          <h3>安さが不安を生む</h3>
+          <p>サービス業では、価格が品質の代わりに見られやすくなります。安すぎること自体が疑念になる場合があります。</p>
+        </div>
+        <div class="card">
+          <h3>低単価が消耗を招く</h3>
+          <p>単価を下げるだけでは、同じ売上を作るためにより多くの時間と労力が必要になります。</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="sec2">
+      <div class="section-label">Section 02</div>
+      <h2>価格は比較対象で変わって見える</h2>
+      <p class="intro-text">お客さんは絶対額だけで判断していません。何と比べるか、どう提示されるかによって、同じ金額でも高くも安くも感じられます。</p>
+      <p>月額を一日あたりに言い換えること、三つのプランを並べること、競合や代替手段との比較を示すことは、すべて感情の基準を整える作業です。</p>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>見せ方</th>
+              <th>受け取り方</th>
+              <th>狙い</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>月3,000円 → 1日100円</td>
+              <td>負担が小さく見えやすい</td>
+              <td>心理的ハードルを下げる</td>
+            </tr>
+            <tr>
+              <td>3プラン提示</td>
+              <td>真ん中が選ばれやすい</td>
+              <td>本命プランに寄せる</td>
+            </tr>
+            <tr>
+              <td>比較対象を併記</td>
+              <td>高いか安いかの基準ができる</td>
+              <td>納得感を作る</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="highlight-box">
+        <p><strong>キーポイント:</strong> 価格設定は金額決めだけではなく、比較の土台をどう置くかまで含めて設計するものです。売れやすさは見せ方でも変わります。</p>
+      </div>
+    </section>
+
+    <section id="sec3">
+      <div class="section-label">Section 03</div>
+      <h2>価格設計の3ステップ</h2>
+      <p class="intro-text">価格に自信が持てないときは、金額だけを悩み続けるより、見せ方を三段階で整えると考えやすくなります。</p>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-marker"></div>
+          <div class="tl-content">
+            <span class="tl-phase">Step 1</span>
+            <h4>1日あたり、1回あたりに換算する</h4>
+            <p>まとまった金額を小さな単位に分解すると、体感の負担は変わります。価値が日常に落ちて見えやすくなります。</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-marker"></div>
+          <div class="tl-content">
+            <span class="tl-phase">Step 2</span>
+            <h4>三つの選択肢を用意する</h4>
+            <p>ライト、スタンダード、プレミアムのように並べると、真ん中のプランに納得してもらいやすくなります。</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-marker"></div>
+          <div class="tl-content">
+            <span class="tl-phase">Step 3</span>
+            <h4>価格の理由を短く説明する</h4>
+            <p>時間、提供物、サポート範囲が見えるだけで納得感は上がります。説明不足は高い安い以前の不安につながります。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="sec4">
+      <div class="section-label">Section 04</div>
+      <h2>納得感を作る説明を添える</h2>
+      <p class="intro-text">お客さんは価格だけでなく、その価格に至る理由も見ています。内訳や提供範囲が見えると、買う判断に必要な安心が生まれます。</p>
+      <div class="checklist">【価格設計チェックリスト】
+
+価格の表現
+□ 1日あたり、1回あたりに換算したか
+□ 比較対象を提示したか
+□ 価格を先に明示しているか
+
+選択肢の設計
+□ 3つのプランを用意しているか
+□ 本命プランを真ん中に置いているか
+□ 最安プランの役割を決めているか
+
+価格の納得感
+□ なぜこの価格なのかを説明しているか
+□ 提供内容や時間の内訳が見えるか
+□ 購入リスクを下げる要素があるか
+
+心理的ハードル
+□ まず試せる入口を用意しているか
+□ 追加費用が見えにくくなっていないか</div>
+    </section>
+
+    <section id="sec5">
+      <div class="section-label">Section 05</div>
+      <h2>価格は自分の価値観ともつながっている</h2>
+      <p class="intro-text">副業の価格は売り方の技術であると同時に、自分が何のために取り組むのかを映す鏡でもあります。安く売ることが正義とは限りません。</p>
+      <p>本業から逃げたいだけの状態だと、価格設定も不安主導になりやすくなります。一方で、自分の価値を試したい、成長したいという視点があると、価格を整えること自体が学びになります。</p>
+      <div class="summary-box">
+        <p>価格はコスト計算だけで決まるものではなく、比較対象と納得感の設計で受け取られ方が変わります。安くすれば売れるという前提は、一度疑ったほうが安全です。</p>
+        <p>まずは今の価格を一日あたり換算に言い換え、三つのプランに並べ替えてみてください。それだけでも見え方の差を確認できます。</p>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

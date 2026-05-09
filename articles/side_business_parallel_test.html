@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>副業で3ヶ月動いても稼げなかった理由。「1本釣り」をやめたら変わった話</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --hero-bg-from: #edf4f1;
+      --hero-bg-to: #ffffff;
+      --accent: #203631;
+      --accent-sub: #5f7b73;
+      --bg-sub: #eff5f3;
+      --bg: #ffffff;
+      --bg-card: #ffffff;
+      --text: #18211f;
+      --text-soft: #566562;
+      --rule: #dbe4e0;
+      --max-w: 740px;
+      --font-ja: "Hiragino Mincho ProN","Yu Mincho","游明朝","Noto Serif JP",Georgia,serif;
+      --font-go: "Hiragino Kaku Gothic ProN","Yu Gothic","游ゴシック","Noto Sans JP",sans-serif;
+      --radius: 12px;
+      --shadow: 0 2px 12px rgba(0,0,0,0.08);
+    }
+    html { font-size: 16px; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-ja);
+      line-height: 1.75;
+      -webkit-text-size-adjust: 100%;
+      padding: 0 0 100px;
+    }
+    main { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
+    .hero {
+      text-align: center;
+      padding: 80px 24px 64px;
+      background: linear-gradient(135deg, var(--hero-bg-from) 0%, var(--hero-bg-to) 100%);
+      border-bottom: 1px solid var(--rule);
+      margin-bottom: 64px;
+    }
+    .hero-tag {
+      display: inline-block;
+      font-family: var(--font-go);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent-sub);
+      background: var(--bg-sub);
+      border: 1px solid var(--rule);
+      border-radius: 999px;
+      padding: 4px 14px;
+      margin-bottom: 24px;
+    }
+    .hero h1 {
+      font-family: var(--font-go);
+      font-size: clamp(2rem, 6vw, 3rem);
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+    .hero-desc {
+      font-family: var(--font-go);
+      font-size: 1rem;
+      color: var(--text-soft);
+      line-height: 1.7;
+      max-width: 580px;
+      margin: 0 auto;
+    }
+    .toc {
+      background: var(--bg-sub);
+      border-radius: var(--radius);
+      padding: 28px 32px;
+      margin-bottom: 48px;
+    }
+    .toc-title, .section-label {
+      font-family: var(--font-go);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent-sub);
+    }
+    .toc-title { margin-bottom: 14px; }
+    .toc ol { padding-left: 1.4em; }
+    .toc li {
+      font-family: var(--font-go);
+      font-size: 0.9rem;
+      line-height: 1.7;
+      margin-bottom: 6px;
+      color: var(--text-soft);
+    }
+    .toc a {
+      color: var(--text);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+    }
+    section {
+      margin-bottom: 72px;
+      padding-left: 24px;
+      border-left: 3px solid var(--accent);
+    }
+    h2 {
+      font-family: var(--font-go);
+      font-size: clamp(1.4rem, 4vw, 1.9rem);
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      line-height: 1.25;
+      margin: 10px 0 16px;
+    }
+    h3 {
+      font-family: var(--font-go);
+      font-size: 1.02rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    p { font-size: 0.97rem; line-height: 1.8; margin-bottom: 14px; }
+    .intro-text {
+      font-size: 0.97rem;
+      color: var(--text-soft);
+      line-height: 1.8;
+      margin-bottom: 28px;
+      font-style: italic;
+    }
+    ul, ol { padding-left: 1.5em; margin-bottom: 16px; }
+    li { font-size: 0.95rem; line-height: 1.8; margin-bottom: 6px; }
+    li::marker { color: var(--accent-sub); }
+    hr { border: none; border-top: 1px solid var(--rule); margin: 56px 0; }
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin: 18px 0 8px;
+    }
+    .card, .summary-box, .highlight-box, .tl-content {
+      background: var(--bg-card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--rule);
+    }
+    .card { padding: 24px; }
+    .highlight-box, .summary-box {
+      background: var(--bg-sub);
+      padding: 22px 24px;
+      margin-top: 18px;
+    }
+    .timeline {
+      position: relative;
+      margin: 20px 0 8px;
+      padding-left: 8px;
+    }
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 13px;
+      top: 4px;
+      bottom: 4px;
+      width: 1px;
+      background: var(--rule);
+    }
+    .tl-item {
+      position: relative;
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+    .tl-marker {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      margin-top: 9px;
+      margin-left: 4px;
+      position: relative;
+      z-index: 1;
+    }
+    .tl-content { padding: 18px 20px; }
+    .tl-phase {
+      display: inline-block;
+      font-family: var(--font-go);
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent-sub);
+      margin-bottom: 8px;
+    }
+    .tl-content h4 {
+      font-family: var(--font-go);
+      font-size: 1rem;
+      margin-bottom: 8px;
+    }
+    .checklist {
+      background: #fcfdfc;
+      border: 1px dashed var(--rule);
+      border-radius: var(--radius);
+      padding: 22px 24px;
+      margin-top: 18px;
+      white-space: pre-wrap;
+      font-family: var(--font-go);
+      font-size: 0.92rem;
+      line-height: 1.8;
+    }
+    @media (max-width: 720px) {
+      main { padding: 0 18px; }
+      .hero { padding: 64px 18px 52px; margin-bottom: 48px; }
+      .toc { padding: 22px 22px; }
+      section { padding-left: 18px; margin-bottom: 56px; }
+      .card-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <span class="hero-tag">Side Hustle Strategy</span>
+    <h1>副業で3ヶ月動いても稼げなかった理由。「1本釣り」をやめたら変わった話</h1>
+    <p class="hero-desc">副業で成果が出ないときは、努力不足より先に「一つの案に賭けすぎていないか」を見直す必要がある。多案を小さく試す発想へ切り替えるための整理と実践手順をまとめた。</p>
+  </header>
+
+  <main>
+    <nav class="toc">
+      <div class="toc-title">目次</div>
+      <ol>
+        <li><a href="#sec1">まず疑うべきは努力量ではなく案の選び方</a></li>
+        <li><a href="#sec2">副業は仮説検証の連続で進める</a></li>
+        <li><a href="#sec3">多案並列テストの3ステップ</a></li>
+        <li><a href="#sec4">反応を見るときの観点を揃える</a></li>
+        <li><a href="#sec5">1本釣りをやめると学習速度が上がる</a></li>
+      </ol>
+    </nav>
+    <hr>
+
+    <section id="sec1">
+      <div class="section-label">Section 01</div>
+      <h2>まず疑うべきは努力量ではなく案の選び方</h2>
+      <p class="intro-text">副業がうまくいかないとき、人は自分の努力が足りないと考えがちです。ただ実際には、頑張り方より前に「何を試しているか」の精度が結果を左右している場面が少なくありません。</p>
+      <p>一つのアイデアに長く張り続けると、外れたときの損失が大きくなります。売れなかった原因が市場なのか、訴求なのか、媒体なのかも見えないまま時間だけが過ぎます。</p>
+      <div class="card-grid">
+        <div class="card">
+          <h3>1本釣りの弱点</h3>
+          <p>一つの案に時間を集中すると、外れた際に学びが一案分しか残りません。次の行動に移る心理的負担も重くなります。</p>
+        </div>
+        <div class="card">
+          <h3>小さく複数試す利点</h3>
+          <p>同じ期間でも複数案の反応を比べられるため、当たり筋の方向性が早く見えます。判断が感覚ではなくデータに寄ります。</p>
+        </div>
+      </div>
+      <div class="highlight-box">
+        <p><strong>視点の切り替え:</strong> 成果が出ないときは、努力量を増やす前に「今の案は本当に試す価値があるのか」を再点検したほうが、結果的に前進が早くなります。</p>
+      </div>
+    </section>
+
+    <section id="sec2">
+      <div class="section-label">Section 02</div>
+      <h2>副業は仮説検証の連続で進める</h2>
+      <p class="intro-text">副業で差が出るのは、行動量の多さだけではありません。どれだけ低コストで仮説を試し、見込みのある案に資源を寄せられるかが分岐点になります。</p>
+      <p>この考え方は、いわば当たりを探しながら配分を変える運用です。最初から正解を当てにいくのではなく、反応を見ながら次の一手を調整していきます。</p>
+      <div class="card-grid">
+        <div class="card">
+          <h3>早い検証</h3>
+          <p>売れるかどうかは、長く準備するより早く反応に触れたほうが判断できます。検証の遅さは無駄な固定化を招きます。</p>
+        </div>
+        <div class="card">
+          <h3>安い検証</h3>
+          <p>費用や工数をかけすぎると撤退判断が難しくなります。最小コストで試せる形に落とすことが重要です。</p>
+        </div>
+        <div class="card">
+          <h3>多い検証</h3>
+          <p>少数の案に大きく賭けるより、複数案を並べたほうが比較ができます。反応の差がそのまま判断材料になります。</p>
+        </div>
+        <div class="card">
+          <h3>集中投下</h3>
+          <p>反応が出た案にだけ時間を寄せることで、遠回りに見えて収益化の速度は上がりやすくなります。</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="sec3">
+      <div class="section-label">Section 03</div>
+      <h2>多案並列テストの3ステップ</h2>
+      <p class="intro-text">ここでは、発想を実際の行動に落とす最小フローを整理します。目的は立派な事業計画を作ることではなく、短期間で反応差を見えるようにすることです。</p>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-marker"></div>
+          <div class="tl-content">
+            <span class="tl-phase">Step 1</span>
+            <h4>副業アイデアを10個出す</h4>
+            <p>スキル、趣味、経験、人脈まで広げて候補を書き出します。一つしか出ない状態は、選択ではなく執着に近い状態です。</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-marker"></div>
+          <div class="tl-content">
+            <span class="tl-phase">Step 2</span>
+            <h4>インパクトとコストで仮評価する</h4>
+            <p>稼ぎやすさと負担の軽さを、それぞれ直感で点検します。最初は精密さより比較可能な形を作ることが大切です。</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-marker"></div>
+          <div class="tl-content">
+            <span class="tl-phase">Step 3</span>
+            <h4>上位案を1週間で無料テストする</h4>
+            <p>記事一本、投稿数本、出品一件など、反応確認だけに必要な最小行動へ落とし込みます。作り込みより露出が優先です。</p>
+          </div>
+        </div>
+      </div>
+      <div class="highlight-box">
+        <p><strong>実践の要点:</strong> テストの目的は売上確定ではなく、見込みの有無を知ることです。初回から完成度を求めるほど、検証回数は減ってしまいます。</p>
+      </div>
+    </section>
+
+    <section id="sec4">
+      <div class="section-label">Section 04</div>
+      <h2>反応を見るときの観点を揃える</h2>
+      <p class="intro-text">並列で試しても、見る指標が曖昧だと比較が難しくなります。評価基準を先に決めておくと、感情ではなく事実で案を残せるようになります。</p>
+      <p>反応を見る際は、売上だけに限定しないほうが初期検証では有効です。閲覧数、保存、コメント、問い合わせなど、次の手応えにつながる信号を拾います。</p>
+      <div class="checklist">【副業テスト設計チェックリスト】
+
+アイデア出し
+□ 副業アイデアを10個以上書き出した
+□ 各案にインパクト×コスト評価を付けた
+□ 上位3〜5案を選んだ
+
+検証設計
+□ 各案を1週間で試せる最小の形に落とし込んだ
+□ 無料・低コストで試せる媒体を決めた
+□ 何をもって反応ありと判断するか決めた
+
+データ収集
+□ 反応の数値を記録した
+□ 反応なしの案を保留へ移した
+□ 最も反応が良い案に次の1週間を集中させた</div>
+    </section>
+
+    <section id="sec5">
+      <div class="section-label">Section 05</div>
+      <h2>1本釣りをやめると学習速度が上がる</h2>
+      <p class="intro-text">副業では、努力の美学がそのまま成果に結びつくとは限りません。むしろ、試す数を増やした人ほど早く現実に学ばされ、次の精度が上がっていきます。</p>
+      <p>失敗を一回の敗北として抱えるのではなく、複数の比較データの一つとして扱えれば、撤退も修正も軽くなります。これが継続と改善の両方を支えます。</p>
+      <div class="summary-box">
+        <p>副業で成果を早めたいなら、一つの案に長く賭けるより、複数の案を小さく試し、反応が出たところに集中するほうが合理的です。</p>
+        <p>今日やることはシンプルで、まず副業アイデアを10個書き出すことです。視野が広がるだけで、次の一手の質が変わります。</p>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

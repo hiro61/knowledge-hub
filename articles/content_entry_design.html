@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>頑張って発信しているのに売れない。その原因は「内容」じゃなくて「入口」でした</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --hero-bg-from: #f6f0e8;
+      --hero-bg-to: #ffffff;
+      --accent: #6d4d2f;
+      --accent-sub: #9d7d5f;
+      --bg-sub: #f8f3ee;
+      --bg: #ffffff;
+      --bg-card: #ffffff;
+      --text: #241c15;
+      --text-soft: #6b5c50;
+      --rule: #eadfd3;
+      --max-w: 740px;
+      --font-ja: "Hiragino Mincho ProN","Yu Mincho","游明朝","Noto Serif JP",Georgia,serif;
+      --font-go: "Hiragino Kaku Gothic ProN","Yu Gothic","游ゴシック","Noto Sans JP",sans-serif;
+      --radius: 12px;
+      --shadow: 0 2px 12px rgba(0,0,0,0.08);
+    }
+    html { font-size: 16px; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-ja);
+      line-height: 1.75;
+      -webkit-text-size-adjust: 100%;
+      padding: 0 0 100px;
+    }
+    main { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
+    .hero {
+      text-align: center;
+      padding: 80px 24px 64px;
+      background: linear-gradient(135deg, var(--hero-bg-from) 0%, var(--hero-bg-to) 100%);
+      border-bottom: 1px solid var(--rule);
+      margin-bottom: 64px;
+    }
+    .hero-tag, .toc-title, .section-label, .tl-phase {
+      font-family: var(--font-go);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent-sub);
+    }
+    .hero-tag {
+      display: inline-block;
+      background: var(--bg-sub);
+      border: 1px solid var(--rule);
+      border-radius: 999px;
+      padding: 4px 14px;
+      margin-bottom: 24px;
+    }
+    .hero h1 {
+      font-family: var(--font-go);
+      font-size: clamp(2rem, 6vw, 3rem);
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+    .hero-desc {
+      font-family: var(--font-go);
+      font-size: 1rem;
+      color: var(--text-soft);
+      line-height: 1.7;
+      max-width: 580px;
+      margin: 0 auto;
+    }
+    .toc {
+      background: var(--bg-sub);
+      border-radius: var(--radius);
+      padding: 28px 32px;
+      margin-bottom: 48px;
+    }
+    .toc-title { margin-bottom: 14px; }
+    .toc ol { padding-left: 1.4em; }
+    .toc li {
+      font-family: var(--font-go);
+      font-size: 0.9rem;
+      line-height: 1.7;
+      margin-bottom: 6px;
+      color: var(--text-soft);
+    }
+    .toc a { color: var(--text); text-decoration: none; }
+    section {
+      margin-bottom: 72px;
+      padding-left: 24px;
+      border-left: 3px solid var(--accent);
+    }
+    h2 {
+      font-family: var(--font-go);
+      font-size: clamp(1.4rem, 4vw, 1.9rem);
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      line-height: 1.25;
+      margin: 10px 0 16px;
+    }
+    h3, h4 {
+      font-family: var(--font-go);
+      font-weight: 700;
+    }
+    h3 { font-size: 1.02rem; margin-bottom: 10px; }
+    h4 { font-size: 1rem; margin-bottom: 8px; }
+    p { font-size: 0.97rem; line-height: 1.8; margin-bottom: 14px; }
+    .intro-text {
+      font-size: 0.97rem;
+      color: var(--text-soft);
+      line-height: 1.8;
+      margin-bottom: 28px;
+      font-style: italic;
+    }
+    li { font-size: 0.95rem; line-height: 1.8; margin-bottom: 6px; }
+    li::marker { color: var(--accent-sub); }
+    hr { border: none; border-top: 1px solid var(--rule); margin: 56px 0; }
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin: 18px 0 8px;
+    }
+    .card, .highlight-box, .summary-box, .tl-content {
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--rule);
+      background: #fff;
+    }
+    .card { padding: 24px; }
+    .highlight-box, .summary-box {
+      background: var(--bg-sub);
+      padding: 22px 24px;
+      margin-top: 18px;
+    }
+    .timeline {
+      position: relative;
+      margin: 20px 0 8px;
+      padding-left: 8px;
+    }
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 13px;
+      top: 4px;
+      bottom: 4px;
+      width: 1px;
+      background: var(--rule);
+    }
+    .tl-item {
+      position: relative;
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+    .tl-marker {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      margin-top: 9px;
+      margin-left: 4px;
+      position: relative;
+      z-index: 1;
+    }
+    .tl-content { padding: 18px 20px; }
+    .checklist {
+      background: #fdfbf9;
+      border: 1px dashed var(--rule);
+      border-radius: var(--radius);
+      padding: 22px 24px;
+      margin-top: 18px;
+      white-space: pre-wrap;
+      font-family: var(--font-go);
+      font-size: 0.92rem;
+      line-height: 1.8;
+    }
+    @media (max-width: 720px) {
+      main { padding: 0 18px; }
+      .hero { padding: 64px 18px 52px; margin-bottom: 48px; }
+      .toc { padding: 22px 22px; }
+      section { padding-left: 18px; margin-bottom: 56px; }
+      .card-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <span class="hero-tag">Content Design</span>
+    <h1>頑張って発信しているのに売れない。その原因は「内容」じゃなくて「入口」でした</h1>
+    <p class="hero-desc">発信が読まれないときは、中身の前に「読む気になる入口」が機能しているかを点検したほうが早い。タイトルと冒頭設計を改善するための考え方と実践手順を整理した。</p>
+  </header>
+
+  <main>
+    <nav class="toc">
+      <div class="toc-title">目次</div>
+      <ol>
+        <li><a href="#sec1">内容が良ければ売れるわけではない</a></li>
+        <li><a href="#sec2">人が動く文章に共通する4要素</a></li>
+        <li><a href="#sec3">タイトル改善の3ステップ</a></li>
+        <li><a href="#sec4">冒頭文で離脱を防ぐ設計をする</a></li>
+        <li><a href="#sec5">入口を変えるだけで同じ内容の価値は伝わりやすくなる</a></li>
+      </ol>
+    </nav>
+    <hr>
+
+    <section id="sec1">
+      <div class="section-label">Section 01</div>
+      <h2>内容が良ければ売れるわけではない</h2>
+      <p class="intro-text">多くの人は、良い内容さえ作れば自然に読まれると考えます。しかし実際の読者行動はもっと早く、タイトルと最初の数行で「読むかどうか」を判断しています。</p>
+      <p>情報の質が高くても、入口で止まらなければ本文には到達しません。発信の成果を左右しているのは、文章力そのものより、最初の接点の設計であることが多いのです。</p>
+      <div class="highlight-box">
+        <p><strong>重要な前提:</strong> 内容改善は必要ですが、入口が弱い状態では評価される機会そのものが減ります。まずは読まれる条件を作ることが先です。</p>
+      </div>
+    </section>
+
+    <section id="sec2">
+      <div class="section-label">Section 02</div>
+      <h2>人が動く文章に共通する4要素</h2>
+      <p class="intro-text">読者が立ち止まる文章には、感覚的に見えて一定の型があります。得になる予感、新しさ、気になる引っかかり、そして手軽さの四つです。</p>
+      <div class="card-grid">
+        <div class="card">
+          <h3>得になる</h3>
+          <p>読むことで何を得られるかが一目で伝わると、読者は先を読む理由を持てます。</p>
+        </div>
+        <div class="card">
+          <h3>新しい</h3>
+          <p>見慣れた主張でも、切り口が新しければ注意を引けます。意外性は強い入口になります。</p>
+        </div>
+        <div class="card">
+          <h3>気になる</h3>
+          <p>少しだけ余白を残すと、「どういうことだろう」と思わせられます。全部を先に言い切らない設計です。</p>
+        </div>
+        <div class="card">
+          <h3>手軽</h3>
+          <p>難しそうに見えないことも重要です。読む負担が軽そうだと、クリックやスクロールが起きやすくなります。</p>
+        </div>
+      </div>
+      <p>平凡なタイトルが悪いのは、内容が弱いからではなく、入口としての4要素が薄いからです。表現の仕方を変えるだけで、同じ主張でも届き方は大きく変わります。</p>
+    </section>
+
+    <section id="sec3">
+      <div class="section-label">Section 03</div>
+      <h2>タイトル改善の3ステップ</h2>
+      <p class="intro-text">タイトルはひらめきで決めるものではなく、設計して磨くものとして扱うと安定します。ここでは再現しやすい三段階に分けて考えます。</p>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-marker"></div>
+          <div class="tl-content">
+            <span class="tl-phase">Step 1</span>
+            <h4>「だからどうした？」を繰り返す</h4>
+            <p>言いたいことから一段深い価値へ掘り下げ、読者が本当に欲しい変化まで言語化します。</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-marker"></div>
+          <div class="tl-content">
+            <span class="tl-phase">Step 2</span>
+            <h4>タイトル案を10個以上出す</h4>
+            <p>最初の案は無難に寄りやすいため、数を出して比較します。量を出すほど切り口が見えてきます。</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-marker"></div>
+          <div class="tl-content">
+            <span class="tl-phase">Step 3</span>
+            <h4>4要素が入っているか確認する</h4>
+            <p>得、新しさ、気になる、手軽さのどれが含まれているかを見て、入口としての強さを点検します。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="sec4">
+      <div class="section-label">Section 04</div>
+      <h2>冒頭文で離脱を防ぐ設計をする</h2>
+      <p class="intro-text">タイトルで止まっても、冒頭が抽象的すぎると読者はすぐ離れます。最初の三行は、読者の状況と得られる価値をつなぐ役割として設計すると安定します。</p>
+      <p>冒頭では、まず「自分のことだ」と思わせる場面を置き、その直後に記事が何をくれるかを見せます。専門用語や長い前置きは、この段階では逆効果です。</p>
+      <div class="checklist">【タイトル・文章設計チェックリスト】
+
+タイトルチェック
+□ 読んで何が得かが伝わるか
+□ 軽い引っかかりがあるか
+□ 数字や期間が入っているか
+□ 難しそう、長そうに見えないか
+□ 複数案を出して比較したか
+
+文章の冒頭チェック
+□ 自分ごと化できる状況描写から始まっているか
+□ 最初の3行で記事の価値が伝わるか
+□ 専門用語や難しい言葉を避けているか
+
+訴求チェック
+□ 機能ではなく未来を描いているか
+□ 根拠となる数字や経験が入っているか
+□ メリットを1〜2個に絞れているか</div>
+    </section>
+
+    <section id="sec5">
+      <div class="section-label">Section 05</div>
+      <h2>入口を変えるだけで同じ内容の価値は伝わりやすくなる</h2>
+      <p class="intro-text">発信が届かない理由を、すべて内容不足に帰す必要はありません。入口設計を整えるだけで、同じ情報でも反応は大きく変わる可能性があります。</p>
+      <div class="summary-box">
+        <p>文章が読まれるかどうかは、本文の質だけでなく、タイトルと冒頭の設計でかなり決まります。入口は発信の価値を伝えるための最初の装置です。</p>
+        <p>まずは過去の発信を一つ選び、タイトル案を複数出し直してみるだけでも十分です。内容を書き換える前に、入口を磨く発想を持つことが改善の近道になります。</p>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
