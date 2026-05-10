@@ -216,17 +216,6 @@ function renderNewTab(articles) {
 }
 
 function renderFavoritesTab(articles) {
-  contentArea.appendChild(createHeroPanel({
-    eyebrow: "Saved notes",
-    description: "あとで読み返したい記事だけを、静かにまとめています。",
-    stats: [
-      { value: String(articles.length), label: "Saved" },
-      { value: String(allArticles.length), label: "Total" },
-      { value: articles.length ? articles[0].date : "0", label: "Latest" },
-    ],
-    compact: true,
-  }));
-
   const section = createSectionShell("Favorites");
   if (!articles.length) {
     section.appendChild(createEmptyState({
@@ -272,17 +261,6 @@ function renderGenreTab(articles) {
 }
 
 function renderSearchTab(articles, query) {
-  contentArea.appendChild(createHeroPanel({
-    eyebrow: "Search",
-    description: "タイトル、要約、タグ、ジャンルから検索できます。",
-    stats: [
-      { value: String(articles.length), label: "Indexed" },
-      { value: query ? String(filterArticles(articles, query).length) : "All", label: "Matched" },
-      { value: "Tags", label: "Searchable" },
-    ],
-    compact: true,
-  }));
-
   const shell = document.createElement("section");
   shell.className = "search-shell glass-panel reveal";
   shell.style.animationDelay = "90ms";
