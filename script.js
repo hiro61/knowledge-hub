@@ -86,6 +86,7 @@ const GENRE_ORDER = ["ライフスタイル", "健康", "副業・ビジネス",
 let allArticles = [];
 let currentTab = "new";
 let currentSearchQuery = "";
+let currentGenreSelection = "";
 
 const contentArea = document.getElementById("contentArea");
 const tabButtons = Array.from(document.querySelectorAll(".tab-button"));
@@ -238,15 +239,12 @@ function renderFavoritesTab(articles) {
 function renderGenreTab(articles) {
   contentArea.appendChild(createHeroPanel({
     eyebrow: "Genres",
-    description: "ジャンルごとに、見やすく整理しています。",
+    description: "ジャンルを選ぶと、その記事だけを読みやすく表示します。",
     stats: summarizeGenres(articles),
     compact: true,
   }));
 
-  const container = document.createElement("section");
-  container.className = "section-shell genre-list";
   const genreMap = new Map();
-
   articles.forEach(article => {
     if (!genreMap.has(article.genre)) {
       genreMap.set(article.genre, []);
@@ -254,11 +252,26 @@ function renderGenreTab(articles) {
     genreMap.get(article.genre).push(article);
   });
 
-  sortGenreEntries(Array.from(genreMap.entries())).forEach(([genre, items], index) => {
-    container.appendChild(createGenreSection(genre, items, index));
-  });
+  const entries = sortGenreEntries(Array.from(genreMap.entries()));
+  if (!entries.length) {
+    contentArea.appendChild(createEmptyState({
+      title: "ジャンルがまだありません",
+      text: "記事が追加されると、ここにジャンルカードが表示されます。",
+      icon: searchIcon(),
+    }));
+    return;
+  }
 
-  contentArea.appendChild(container);
+  if (!entries.some(([genre]) => genre === currentGenreSelection)) {
+    currentGenreSelection = entries[0][0];
+  }
+
+  contentArea.appendChild(createGenreSelector(entries));
+
+  const selectedEntry = entries.find(([genre]) => genre === currentGenreSelection) || entries[0];
+  if (selectedEntry) {
+    contentArea.appendChild(createGenreArticleSection(selectedEntry[0], selectedEntry[1]));
+  }
 }
 
 function renderSearchTab(articles, query) {
@@ -369,9 +382,9 @@ function createSectionShell(label) {
   return section;
 }
 
-function createArticleGrid(articles) {
+function createArticleGrid(articles, className = "article-grid") {
   const grid = document.createElement("div");
-  grid.className = "article-grid";
+  grid.className = className;
   articles.forEach((article, index) => {
     grid.appendChild(createArticleCard(article, index + 1));
   });
@@ -415,34 +428,55 @@ function createArticleCard(article, index) {
   return element;
 }
 
-function createGenreSection(genre, items, index) {
-  const block = document.createElement("section");
-  block.className = "genre-section reveal";
-  block.style.animationDelay = `${Math.min(index, 6) * 70}ms`;
-  const genreTheme = getGenreTheme(genre);
+function createGenreSelector(entries) {
+  const section = document.createElement("section");
+  section.className = "section-shell genre-selector-shell";
+  section.innerHTML = `<p class="section-label">Pick a genre</p>`;
 
-  const header = document.createElement("div");
-  header.className = "genre-section__header glass-panel";
-  header.innerHTML = `
-    <div class="genre-section__left">
-      <span class="genre-section__icon genre-section__icon--accent" style="background:${genreTheme.bg}; border-color:${genreTheme.border}; color:${genreTheme.text};">${GENRE_ICONS[genre] || GENRE_ICONS["ライフスタイル"]}</span>
-      <div class="genre-section__text">
-        <h3 class="genre-section__title">${escapeHtml(genre)}</h3>
-        <p class="genre-section__count" style="color:${genreTheme.text};"><strong>${items.length}</strong> articles</p>
-      </div>
-    </div>
-    <span class="genre-section__accent" style="background:${genreTheme.glow}; border-color:${genreTheme.border};"></span>
-  `;
-
-  const body = document.createElement("div");
-  body.className = "genre-section__body article-grid article-grid--genre";
-  items.forEach((article, itemIndex) => {
-    body.appendChild(createArticleCard(article, itemIndex + 1));
+  const grid = document.createElement("div");
+  grid.className = "genre-selector-grid";
+  entries.forEach(([genre, items], index) => {
+    grid.appendChild(createGenreSelectorCard(genre, items, index, genre === currentGenreSelection));
   });
 
-  block.appendChild(header);
-  block.appendChild(body);
-  return block;
+  section.appendChild(grid);
+  return section;
+}
+
+function createGenreSelectorCard(genre, items, index, isActive) {
+  const button = document.createElement("button");
+  button.className = `genre-selector-card glass-panel reveal${isActive ? " is-active" : ""}`;
+  button.type = "button";
+  button.style.animationDelay = `${Math.min(index, 6) * 60}ms`;
+  const genreTheme = getGenreTheme(genre);
+  button.setAttribute("aria-pressed", isActive ? "true" : "false");
+  button.innerHTML = `
+    <span class="genre-selector-card__icon" style="background:${genreTheme.bg}; border-color:${genreTheme.border}; color:${genreTheme.text};">${GENRE_ICONS[genre] || GENRE_ICONS["ライフスタイル"]}</span>
+    <span class="genre-selector-card__title">${escapeHtml(genre)}</span>
+    <span class="genre-selector-card__count" style="color:${genreTheme.text};">${items.length} articles</span>
+  `;
+  button.addEventListener("click", () => {
+    if (currentGenreSelection === genre) {
+      return;
+    }
+    currentGenreSelection = genre;
+    renderCurrentTab();
+  });
+  return button;
+}
+
+function createGenreArticleSection(genre, items) {
+  const section = document.createElement("section");
+  section.className = "section-shell genre-articles-shell";
+  section.innerHTML = `
+    <div class="genre-articles-shell__header reveal">
+      <p class="section-label">Articles</p>
+      <h3 class="genre-articles-shell__title">${escapeHtml(genre)}</h3>
+      <p class="genre-articles-shell__meta">${escapeHtml(String(items.length))} articles</p>
+    </div>
+  `;
+  section.appendChild(createArticleGrid(items, "article-grid article-grid--selected-genre"));
+  return section;
 }
 
 function sortGenreEntries(entries) {
