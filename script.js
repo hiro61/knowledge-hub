@@ -241,13 +241,6 @@ function renderFavoritesTab(articles) {
 }
 
 function renderGenreTab(articles) {
-  contentArea.appendChild(createHeroPanel({
-    eyebrow: "Genres",
-    description: "ジャンルを選ぶと、その記事だけを読みやすく表示します。",
-    stats: summarizeGenres(articles),
-    compact: true,
-  }));
-
   const genreMap = new Map();
   articles.forEach(article => {
     if (!genreMap.has(article.genre)) {
