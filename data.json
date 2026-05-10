@@ -309,6 +309,21 @@
       ],
       "readTime": 3,
       "file": "articles/work_study_focus_recovery.html"
+    },
+    {
+      "id": 38,
+      "title": "曖昧さに耐える力を育てる",
+      "genre": "ライフスタイル",
+      "date": "2026-05-10",
+      "summary": "ネガティブケイパビリティとは、答えの出ない状況でも拙速な結論に逃げず、行動を止めずに保留し続ける力である。不確実性への耐性を、思考と習慣の両面から整える。",
+      "tags": [
+        "心理",
+        "思考",
+        "不確実性",
+        "行動設計"
+      ],
+      "readTime": 3,
+      "file": "articles/negative_capability_practice.html"
     }
   ]
 }

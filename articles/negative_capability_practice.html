@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>曖昧さに耐える力を育てる</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --hero-bg-from: #f2eef5;
+      --hero-bg-to: #ffffff;
+      --accent: #4c4864;
+      --accent-sub: #76728f;
+      --bg-sub: #efedf4;
+      --bg: #ffffff;
+      --bg-card: #ffffff;
+      --text: #1a1a1a;
+      --text-soft: #555555;
+      --rule: #e0e0e0;
+      --max-w: 740px;
+      --font-ja: "Hiragino Mincho ProN","Yu Mincho","游明朝","Noto Serif JP",Georgia,serif;
+      --font-go: "Hiragino Kaku Gothic ProN","Yu Gothic","游ゴシック","Noto Sans JP",sans-serif;
+      --radius: 12px;
+      --shadow: 0 2px 12px rgba(0,0,0,0.08);
+    }
+
+    html { font-size: 16px; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-ja);
+      line-height: 1.75;
+      -webkit-text-size-adjust: 100%;
+      padding: 0 0 100px;
+    }
+    main { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
+
+    .hero {
+      text-align: center;
+      padding: 80px 24px 64px;
+      background: linear-gradient(135deg, var(--hero-bg-from) 0%, var(--hero-bg-to) 100%);
+      border-bottom: 1px solid var(--rule);
+      margin-bottom: 64px;
+    }
+    .hero-tag {
+      display: inline-block;
+      font-family: var(--font-go);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent-sub);
+      background: var(--bg-sub);
+      border: 1px solid var(--rule);
+      border-radius: 999px;
+      padding: 4px 14px;
+      margin-bottom: 24px;
+    }
+    .hero h1 {
+      font-family: var(--font-go);
+      font-size: clamp(2rem, 6vw, 3rem);
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+      color: var(--text);
+      max-width: 18ch;
+      text-wrap: balance;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 16px;
+    }
+    .hero-desc {
+      font-family: var(--font-go);
+      font-size: 1rem;
+      color: var(--text-soft);
+      line-height: 1.7;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    .toc {
+      background: var(--bg-sub);
+      border-radius: var(--radius);
+      padding: 28px 32px;
+      margin-bottom: 48px;
+    }
+    .toc-title {
+      font-family: var(--font-go);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent-sub);
+      margin-bottom: 14px;
+    }
+    .toc ol { padding-left: 1.4em; margin: 0; }
+    .toc li {
+      font-family: var(--font-go);
+      font-size: 0.9rem;
+      line-height: 1.7;
+      margin-bottom: 6px;
+      color: var(--text-soft);
+    }
+    .toc a { color: var(--text); text-decoration: none; border-bottom: 1px solid transparent; }
+
+    hr { border: none; border-top: 1px solid var(--rule); margin: 56px 0; }
+    section {
+      margin-bottom: 72px;
+      padding-left: 24px;
+      border-left: 3px solid var(--accent);
+    }
+    .section-label {
+      display: inline-block;
+      font-family: var(--font-go);
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--accent-sub);
+      margin-bottom: 10px;
+    }
+    h2 {
+      font-family: var(--font-go);
+      font-size: clamp(1.4rem, 4vw, 1.9rem);
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      line-height: 1.25;
+      margin-bottom: 16px;
+      color: var(--text);
+    }
+    .intro-text {
+      font-size: 0.97rem;
+      color: var(--text-soft);
+      line-height: 1.8;
+      margin-bottom: 28px;
+      font-style: italic;
+    }
+    h3 {
+      font-family: var(--font-go);
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      margin-bottom: 10px;
+      margin-top: 28px;
+      color: var(--text);
+    }
+    p { font-size: 0.97rem; line-height: 1.8; margin-bottom: 14px; }
+    ul, ol { padding-left: 1.5em; margin-bottom: 16px; }
+    li { font-size: 0.95rem; line-height: 1.8; margin-bottom: 6px; }
+    li::marker { color: var(--accent-sub); }
+    strong, b { font-weight: 700; }
+
+    .card {
+      background: var(--bg-card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--rule);
+      padding: 22px 24px;
+    }
+    .card-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 24px 0;
+    }
+    .highlight-box {
+      background: var(--bg-sub);
+      border-left: 4px solid var(--accent);
+      padding: 18px 20px;
+      border-radius: 0 8px 8px 0;
+      margin: 20px 0;
+    }
+    .work-card {
+      background: var(--bg-sub);
+      border: 1px solid var(--rule);
+      border-radius: var(--radius);
+      padding: 20px 22px;
+      margin-top: 18px;
+    }
+    .work-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-go);
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+    .work-title svg { flex-shrink: 0; }
+    .table-wrap {
+      overflow-x: auto;
+      margin: 22px 0;
+      border: 1px solid var(--rule);
+      border-radius: var(--radius);
+    }
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--bg-card);
+    }
+    .data-table th,
+    .data-table td {
+      padding: 14px 16px;
+      text-align: left;
+      vertical-align: top;
+      border-bottom: 1px solid var(--rule);
+      font-size: 0.92rem;
+      line-height: 1.7;
+    }
+    .data-table th {
+      background: var(--accent);
+      color: #ffffff;
+      font-family: var(--font-go);
+      font-weight: 700;
+    }
+    .data-table tr:last-child td { border-bottom: none; }
+    .key-box {
+      background: var(--bg-sub);
+      border-left: 4px solid var(--accent);
+      padding: 18px 22px;
+      margin: 24px 0;
+      border-radius: 0 8px 8px 0;
+    }
+    .key-box p:last-child { margin-bottom: 0; }
+
+    @media print {
+      body { padding: 0; font-size: 10pt; }
+      main { max-width: 100%; }
+      .hero { padding: 40px 16px 32px; margin-bottom: 40px; }
+      .hero h1 { font-size: 22pt; }
+      h2 { font-size: 14pt; }
+      h3 { font-size: 11pt; }
+      p, li, .data-table td, .data-table th { font-size: 10pt; line-height: 1.7; }
+      section, .card, .key-box, .highlight-box, .work-card, .table-wrap { page-break-inside: avoid; }
+      @page { size: A4 portrait; margin: 20mm 18mm 22mm; }
+    }
+
+    @media screen and (max-width: 640px) {
+      main { padding: 0 16px; }
+      .hero { padding: 56px 16px 44px; }
+      .card-grid { grid-template-columns: 1fr; }
+      .toc { padding: 22px 20px; }
+      .card, .work-card, .highlight-box, .key-box { padding: 18px 18px; }
+      section { padding-left: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <section class="hero">
+    <span class="hero-tag">Psychology</span>
+    <h1>曖昧さに耐える力を育てる</h1>
+    <p class="hero-desc">ネガティブケイパビリティとは、答えの出ない状況でも拙速な結論に逃げず、行動を止めずに保留し続ける力である。不確実性への耐性を、思考と習慣の両面から整える。</p>
+  </section>
+
+  <main>
+    <nav class="toc">
+      <div class="toc-title">目次</div>
+      <ol>
+        <li><a href="#sec1">ネガティブケイパビリティの定義と背景</a></li>
+        <li><a href="#sec2">低いと起きやすい認知の崩れ</a></li>
+        <li><a href="#sec3">育つと得られる実践的な利点</a></li>
+        <li><a href="#sec4">高めるための具体策</a></li>
+        <li><a href="#sec5">日常に落とし込む実装法</a></li>
+      </ol>
+    </nav>
+    <hr>
+
+    <section id="sec1">
+      <div class="section-label">Section 01</div>
+      <h2>ネガティブケイパビリティの定義と背景</h2>
+      <p class="intro-text">ネガティブケイパビリティは、単に我慢強いという意味ではない。答えが未確定な場面でも思考停止せず、保留しながら行動の質を落とさない能力として理解すると使いやすい。</p>
+      <div class="key-box">
+        <p><strong>定義:</strong> 曖昧・不確実・答えの出ない状況に耐え、拙速な結論に飛びつかず行動を継続する力。</p>
+        <p><strong>背景:</strong> SNSやスマホにより即時的に答えへアクセスできる環境が、不確実性への心的持久力を弱めやすくしている。</p>
+      </div>
+      <div class="card-grid">
+        <div class="card">
+          <h3>起きている現象</h3>
+          <p>あらすじ依存、即結果志向、不安耐性の低下が進み、分からない時間そのものに耐えにくくなっている。</p>
+        </div>
+        <div class="card">
+          <h3>本質的な問題</h3>
+          <p>答えが出る前の試行期間を短縮しすぎると、浅い結論を採用しやすくなり、長期的な学習や創造が止まりやすい。</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="sec2">
+      <div class="section-label">Section 02</div>
+      <h2>低いと起きやすい認知の崩れ</h2>
+      <p class="intro-text">ネガティブケイパビリティが低い状態では、能力の不足というより、認知の運び方に偏りが出やすい。特に白黒思考と即答志向が組み合わさると、行動の選択肢が急に狭くなる。</p>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr><th>崩れ方</th><th>内容</th><th>起きやすい結果</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>二分思考</td><td>白黒で判断し、途中のグラデーションに耐えにくい。</td><td>小さな失敗で全体を否定しやすい。</td></tr>
+            <tr><td>安直化</td><td>すぐ答えを出そうとして浅い結論に着地する。</td><td>長期的に重要なことより、簡単な選択を優先する。</td></tr>
+            <tr><td>極端化</td><td>依存か拒絶かのような両極の反応を取りやすい。</td><td>部分評価や条件付き判断が難しくなる。</td></tr>
+            <tr><td>過敏化</td><td>些細な不確実性を脅威として扱う。</td><td>行動開始が遅れ、不安回避が習慣化する。</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="highlight-box">
+        <p><strong>補足:</strong> ここで問題なのは「悩むこと」自体ではなく、未確定な状態を危険とみなし、考える前に切り捨ててしまう反応である。</p>
+      </div>
+    </section>
+
+    <section id="sec3">
+      <div class="section-label">Section 03</div>
+      <h2>育つと得られる実践的な利点</h2>
+      <p class="intro-text">この力が高まると、メンタルが強くなるという曖昧な話に留まらない。未経験領域や不完全な情報下でも、試しながら前へ進める実務上の利点が増えていく。</p>
+      <div class="card-grid">
+        <div class="card">
+          <h3>未経験への耐性</h3>
+          <p>経験がなくても、完璧な理解を待たずに小さく着手しやすくなる。</p>
+        </div>
+        <div class="card">
+          <h3>結果の遅延への耐性</h3>
+          <p>成果がまだ見えない段階でも、行動を続ける余力を保ちやすい。</p>
+        </div>
+        <div class="card">
+          <h3>不完全情報での意思決定</h3>
+          <p>すべて揃っていなくても、仮置きしながら判断できるようになる。</p>
+        </div>
+        <div class="card">
+          <h3>回復力</h3>
+          <p>習慣が崩れた後も全否定に流れず、再開の起点を作り直しやすい。</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="sec4">
+      <div class="section-label">Section 04</div>
+      <h2>高めるための具体策</h2>
+      <p class="intro-text">ネガティブケイパビリティは抽象的な概念に見えるが、実際には認知の扱い方と行動設計の工夫でかなり育てられる。重要なのは、不安をなくすことより、不安の中で動ける形を作ることにある。</p>
+      <h3>1. 境界線を明確にする</h3>
+      <p>「分かっていること」と「まだ分からないこと」を切り分ける。仮説、検証方法、行動の三点に分けるだけでも、曖昧さは扱いやすくなる。</p>
+      <h3>2. 再評価する</h3>
+      <p>曖昧さを脅威としてみなす自動反応に気づき、不安を「探索前の自然反応」と再解釈する。IF-THENやリフレーミングが有効である。</p>
+      <h3>3. 複数案を保持する</h3>
+      <p>単一解を求めず、選択肢を複数並べる。曖昧な状況では、正解探しより仮説群を持つほうが実用的である。</p>
+      <h3>4. 遊び心を加える</h3>
+      <p>工夫を娯楽化し、活動に点数を付けるなど、プレイフルネスを加えると不安への過集中を避けやすい。</p>
+    </section>
+
+    <section id="sec5">
+      <div class="section-label">Section 05</div>
+      <h2>日常に落とし込む実装法</h2>
+      <p class="intro-text">力として定着させるには、概念理解だけでは足りない。週単位で試行できるサイズに落とし込むと、曖昧さへの耐性は習慣として育ちやすくなる。</p>
+      <div class="work-card">
+        <div class="work-title">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="2" y="2" width="12" height="12" rx="2"></rect>
+            <path d="M5 8l2 2 4-4"></path>
+          </svg>
+          Weekly Practice
+        </div>
+        <ul>
+          <li>週1回15分、曖昧さに弱い場面を一つ選ぶ。</li>
+          <li>「今わかること」「今わからないこと」を紙に分けて書く。</li>
+          <li>IF-THENで次の一手を決める。</li>
+          <li>失敗時の対策と、損失上限を先に決めておく。</li>
+          <li>空白時間や習慣中断を意図的に作り、不安への反応を観察する。</li>
+        </ul>
+      </div>
+      <div class="highlight-box">
+        <p><strong>結論:</strong> ネガティブケイパビリティは、曖昧さを消す力ではなく、曖昧さの中で機能を落とさずに前進する力である。完璧な答えを待つより、保留しながら試せる形を持つことが実践の鍵になる。</p>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
