@@ -185,6 +185,10 @@ function setActiveTab(tab) {
   tabButtons.forEach(button => {
     button.classList.toggle("is-active", button.dataset.tab === tab);
   });
+  const topbar = document.querySelector(".topbar");
+  if (topbar) {
+    topbar.classList.toggle("topbar--minimal", tab === "new");
+  }
 }
 
 function renderCurrentTab() {
@@ -207,7 +211,7 @@ function renderNewTab(articles) {
   }
 
   const section = createSectionShell("Latest notes");
-  section.appendChild(createArticleGrid(articles));
+  section.appendChild(createArticleGrid(articles, "article-grid article-grid--new-tab"));
   contentArea.appendChild(section);
 }
 
@@ -349,7 +353,7 @@ function createHeroPanel({ eyebrow, headline, description, stats, compact = fals
 
 function createFeaturedArticle(article) {
   const element = document.createElement(article.file ? "button" : "section");
-  element.className = "featured-card reveal";
+  element.className = "featured-card featured-card--compact reveal";
   element.style.animationDelay = "70ms";
   if (article.file) {
     element.type = "button";

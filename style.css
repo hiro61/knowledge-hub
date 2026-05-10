@@ -261,6 +261,55 @@ input {
   font-size: 1.2rem;
 }
 
+/* 新着タブ：フィーチャードカード縮小 */
+.featured-card--compact {
+  padding: 13px 15px 14px;
+  border-radius: var(--radius-sm);
+}
+
+.featured-card--compact .featured-card__label {
+  font-size: 0.54rem;
+  margin-bottom: 6px;
+}
+
+.featured-card--compact .meta-row {
+  font-size: 0.56rem;
+  gap: 7px;
+  margin-bottom: 7px;
+}
+
+.featured-card--compact .featured-card__title {
+  font-size: 0.88rem;
+  line-height: 1.3;
+  font-weight: 460;
+}
+
+.featured-card--compact .featured-card__summary {
+  display: none;
+}
+
+.featured-card--compact .article-link-hint {
+  display: none;
+}
+
+/* 新着タブ限定：ほぼ存在感なし */
+.topbar--minimal {
+  padding: 7px 14px 7px;
+  border-radius: 16px;
+  margin-bottom: 16px;
+}
+
+.topbar--minimal .topbar__eyebrow {
+  display: none;
+}
+
+.topbar--minimal .topbar__title {
+  font-size: 0.65rem;
+  font-weight: 400;
+  color: var(--text-3);
+  letter-spacing: 0.08em;
+}
+
 .icon-button,
 .secondary-button,
 .favorite-button {
@@ -641,6 +690,65 @@ input {
   grid-template-columns: 1fr;
   gap: 12px;
   align-items: start;
+}
+
+.article-grid--new-tab {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+/* 新着2列グリッド内カード専用 */
+.article-grid--new-tab .article-card {
+  min-height: clamp(130px, 22vw, 160px);
+  padding: 11px 11px 11px 13px;
+}
+
+.article-grid--new-tab .article-card__body {
+  gap: 5px;
+}
+
+.article-grid--new-tab .article-card__title {
+  font-size: clamp(0.82rem, 3.2vw, 0.96rem);
+  line-height: 1.38;
+  font-weight: 560;
+  -webkit-line-clamp: 2;
+}
+
+.article-grid--new-tab .article-card__summary {
+  font-size: clamp(0.6rem, 2vw, 0.7rem);
+  line-height: 1.45;
+  -webkit-line-clamp: 2;
+  color: var(--text-3);
+}
+
+.article-grid--new-tab .genre-pill {
+  font-size: 0.48rem;
+  min-height: 18px;
+  padding-inline: 7px;
+  gap: 4px;
+  letter-spacing: 0.05em;
+}
+
+.article-grid--new-tab .genre-pill__dot {
+  width: 5px;
+  height: 5px;
+}
+
+.article-grid--new-tab .genre-pill svg {
+  width: 10px;
+  height: 10px;
+}
+
+.article-grid--new-tab .favorite-button {
+  width: 26px;
+  height: 26px;
+  flex: 0 0 26px;
+  border-radius: 9px;
+}
+
+.article-grid--new-tab .favorite-button svg {
+  width: 13px;
+  height: 13px;
 }
 
 .genre-list {
