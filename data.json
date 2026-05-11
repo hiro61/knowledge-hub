@@ -324,6 +324,21 @@
       ],
       "readTime": 3,
       "file": "articles/negative_capability_practice.html"
+    },
+    {
+      "id": 39,
+      "title": "心理学で進めるFIRE戦略",
+      "genre": "ライフスタイル",
+      "date": "2026-05-11",
+      "summary": "FIREは投資テクニックだけで決まらない。学習、入金力、負債管理、支出設計を年代ごとに整えると、再現性のある資産形成に変わる。",
+      "tags": [
+        "心理学",
+        "FIRE",
+        "資産形成",
+        "金融リテラシー"
+      ],
+      "readTime": 4,
+      "file": "articles/fire_strategy_psychology.html"
     }
   ]
 }

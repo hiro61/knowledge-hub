@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>心理学で進めるFIRE戦略</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --hero-bg-from: #e8edf3;
+      --hero-bg-to: #ffffff;
+      --accent: #243b5a;
+      --accent-sub: #4f6787;
+      --bg-sub: #edf2f7;
+      --bg-tint: #f4f7fa;
+      --bg: #ffffff;
+      --bg-card: #ffffff;
+      --text: #111111;
+      --text-soft: #222222;
+      --rule: #d0d7df;
+      --max-w: 760px;
+      --font-ja: "Hiragino Mincho ProN","Yu Mincho","Noto Serif JP",Georgia,serif;
+      --font-go: "Hiragino Kaku Gothic ProN","Yu Gothic","Noto Sans JP",sans-serif;
+      --radius: 14px;
+      --shadow: 0 2px 12px rgba(0,0,0,0.08);
+      --shadow-soft: 0 18px 44px rgba(76,72,100,0.10);
+    }
+    html { font-size: 16px; }
+    body {
+      background: linear-gradient(180deg, var(--bg-tint) 0%, var(--bg) 240px);
+      color: var(--text);
+      font-family: var(--font-ja);
+      line-height: 1.8;
+      -webkit-text-size-adjust: 100%;
+      padding: 0 0 88px;
+    }
+    main { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
+    .hero {
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+      padding: 88px 24px 68px;
+      background: linear-gradient(135deg, var(--hero-bg-from) 0%, var(--hero-bg-to) 100%);
+      border-bottom: 1px solid var(--rule);
+      margin-bottom: 56px;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 64px;
+      background: linear-gradient(180deg, rgba(255,255,255,0), rgba(255,255,255,0.85));
+      pointer-events: none;
+    }
+    .hero > * { position: relative; z-index: 1; }
+    .hero-tag, .mini-label, .section-label, .toc-title, .tl-phase {
+      display: inline-block;
+      font-family: var(--font-go);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+    .hero-tag, .mini-label {
+      color: var(--accent-sub);
+      background: var(--bg-sub);
+      border: 1px solid var(--rule);
+      border-radius: 999px;
+      padding: 4px 12px;
+    }
+    .hero h1 {
+      margin-top: 20px;
+      font-family: var(--font-go);
+      font-size: clamp(2rem, 5vw, 2.95rem);
+      line-height: 1.18;
+      letter-spacing: -0.03em;
+    }
+    .hero-desc {
+      max-width: 600px;
+      margin: 16px auto 0;
+      color: var(--text);
+      font-family: var(--font-go);
+      font-size: 1rem;
+      line-height: 1.75;
+    }
+    .mood-panel, .toc, .card, .highlight-box, .summary-box, .tl-content, .table-wrap {
+      background: var(--bg-card);
+      border: 1px solid var(--rule);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .mood-panel {
+      display: grid;
+      grid-template-columns: 92px 1fr;
+      gap: 18px;
+      align-items: center;
+      margin: -18px 0 34px;
+      padding: 18px;
+      grid-template-columns: 1fr;
+      background: linear-gradient(135deg, rgba(255,255,255,0.98), rgba(241,245,249,0.96));
+      box-shadow: var(--shadow-soft);
+    }
+    .mood-copy strong {
+      display: block;
+      font-family: var(--font-go);
+      font-size: 0.96rem;
+      margin-bottom: 6px;
+      color: var(--text);
+    }
+    .mood-copy p, .intro-text, p, li, td { color: var(--text); }
+    .toc {
+      background: rgba(237,242,247,0.92);
+      backdrop-filter: blur(8px);
+      padding: 22px 24px;
+      margin-bottom: 40px;
+    }
+    .toc-title, h2, h3, h4 { font-family: var(--font-go); }
+    .toc-title {
+      color: var(--accent-sub);
+      margin-bottom: 10px;
+    }
+    .toc ol { padding-left: 20px; }
+    .toc li { margin-bottom: 6px; }
+    .toc a { color: var(--text); text-decoration: none; }
+    section {
+      position: relative;
+      margin-bottom: 42px;
+      border-left: 3px solid var(--accent);
+      padding: 26px 26px 26px 24px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(255,255,255,1));
+      border-radius: 0 var(--radius) var(--radius) 0;
+      box-shadow: var(--shadow-soft);
+    }
+    .section-label {
+      color: var(--accent-sub);
+      margin-bottom: 8px;
+    }
+    h2 {
+      font-size: clamp(1.42rem, 4vw, 1.9rem);
+      line-height: 1.28;
+      margin-bottom: 12px;
+    }
+    h3 {
+      font-size: 1rem;
+      margin-bottom: 8px;
+    }
+    h4 {
+      font-size: 0.98rem;
+      margin-bottom: 8px;
+    }
+    p {
+      font-size: 0.97rem;
+      margin-bottom: 14px;
+    }
+    .intro-text {
+      margin-bottom: 20px;
+      font-style: italic;
+    }
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin: 20px 0;
+    }
+    .card, .highlight-box, .summary-box, .tl-content { padding: 18px; }
+    .card {
+      background: linear-gradient(180deg, rgba(255,255,255,1), rgba(243,246,250,0.96));
+    }
+    .highlight-box {
+      background: linear-gradient(180deg, rgba(237,242,247,0.96), rgba(255,255,255,1));
+      border-left: 4px solid var(--accent-sub);
+      margin-top: 18px;
+    }
+    .summary-box {
+      background: linear-gradient(180deg, rgba(246,248,251,0.98), rgba(255,255,255,1));
+      margin-top: 18px;
+    }
+    .table-wrap {
+      overflow-x: auto;
+      margin: 20px 0 10px;
+    }
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+    }
+    .data-table th,
+    .data-table td {
+      padding: 14px 16px;
+      text-align: left;
+      vertical-align: top;
+      border-bottom: 1px solid var(--rule);
+      font-size: 0.94rem;
+      line-height: 1.7;
+    }
+    .data-table th {
+      background: var(--accent);
+      color: #fff;
+      font-family: var(--font-go);
+      font-weight: 700;
+    }
+    .data-table tr:last-child td { border-bottom: none; }
+    .timeline {
+      position: relative;
+      margin: 20px 0 8px;
+      padding-left: 8px;
+    }
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 13px;
+      top: 4px;
+      bottom: 4px;
+      width: 1px;
+      background: var(--rule);
+    }
+    .tl-item {
+      position: relative;
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+    .tl-marker {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      margin-top: 9px;
+      margin-left: 4px;
+      position: relative;
+      z-index: 1;
+    }
+    .tl-phase {
+      color: var(--accent-sub);
+      margin-bottom: 8px;
+    }
+    ul { padding-left: 20px; }
+    li { margin-bottom: 8px; }
+    .checklist {
+      margin-top: 18px;
+      padding: 20px 22px;
+      border: 1px dashed var(--rule);
+      border-radius: var(--radius);
+      background: #f8fafc;
+      white-space: pre-wrap;
+      font-family: var(--font-go);
+      font-size: 0.92rem;
+      line-height: 1.85;
+      color: var(--text-soft);
+    }
+    @media print {
+      body { background: #fff; padding-bottom: 0; }
+      .hero, section, .toc, .mood-panel, .table-wrap, .card, .highlight-box, .summary-box, .tl-content {
+        box-shadow: none;
+      }
+      section { break-inside: avoid; }
+    }
+    @media (max-width: 720px) {
+      main { padding: 0 18px; }
+      .hero { padding: 72px 18px 58px; margin-bottom: 48px; }
+      .toc { padding: 20px; }
+      section { padding: 22px 18px; }
+      .data-table th, .data-table td { min-width: 180px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <span class="hero-tag">PSYCHOLOGY × FIRE</span>
+    <h1>心理学で進めるFIRE戦略</h1>
+    <p class="hero-desc">FIREは投資テクニックだけで決まらない。学習、入金力、負債管理、支出設計を年代ごとに整えると、再現性のある資産形成に変わる。</p>
+  </header>
+
+  <main>
+    <div class="mood-panel">
+      <div class="mood-copy">
+        <strong>Quiet Structure</strong>
+        <p>このメモの核は、早く始めることそのものより、行動を続けやすい心理設計を先に作ることにある。年代別の役割と日々の仕組みを分けて考えると、FIREは一部の強者だけの話ではなくなる。</p>
+      </div>
+    </div>
+
+    <nav class="toc">
+      <div class="toc-title">目次</div>
+      <ol>
+        <li><a href="#sec1">FIREは年代ごとの長期戦で考える</a></li>
+        <li><a href="#sec2">金融リテラシーは最初に作る土台</a></li>
+        <li><a href="#sec3">入金力は自己投資で引き上げる</a></li>
+        <li><a href="#sec4">負債と浪費を避けて複利を守る</a></li>
+        <li><a href="#sec5">副業と目標設計で行動を継続させる</a></li>
+      </ol>
+    </nav>
+
+    <section id="sec1">
+      <div class="section-label">SECTION 01</div>
+      <h2>FIREは年代ごとの長期戦で考える</h2>
+      <p class="intro-text">この講義メモでは、FIREを一気に達成する話ではなく、20代の種まき、30代から40代の加速、40代の着地という三段階で捉えている。要するに、勝負は単発の高リターンではなく、時間と習慣を味方につける設計にある。</p>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>フェーズ</th>
+              <th>主な課題</th>
+              <th>重視する行動</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>20代の種まき</td>
+              <td>知識不足と行動の遅れを防ぐ</td>
+              <td>金融教育、学習習慣、少額投資の開始</td>
+            </tr>
+            <tr>
+              <td>30代から40代の加速</td>
+              <td>収入拡大と資産形成の両立</td>
+              <td>入金力の強化、副業、固定費最適化、継続投資</td>
+            </tr>
+            <tr>
+              <td>40代の着地</td>
+              <td>働き方の選択肢を広げる</td>
+              <td>生活コスト管理、出口戦略、目標額の確認</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="card-grid">
+        <div class="card">
+          <span class="mini-label">TIME</span>
+          <h3>早く始める意味は複利だけではない</h3>
+          <p>早期開始の価値は、運用期間の長さに加えて、失敗を修正できる回数が増えることにもある。若いほど取り返しの効く挑戦がしやすい。</p>
+        </div>
+        <div class="card">
+          <span class="mini-label">RESET</span>
+          <h3>今の年齢からでも設計し直せる</h3>
+          <p>メモ全体は、20代を逃した人に絶望を促していない。いまの年齢から不足している仕組みを補うことが重要だと繰り返している。</p>
+        </div>
+      </div>
+      <div class="highlight-box">
+        <p>要点は、FIREを「一発逆転の投資術」と見るほど失敗しやすいということじゃ。長く続けるための順番を決めておく方が、再現性は高いのう！</p>
+      </div>
+    </section>
+
+    <section id="sec2">
+      <div class="section-label">SECTION 02</div>
+      <h2>金融リテラシーは最初に作る土台</h2>
+      <p class="intro-text">このメモでは、お金の知識は学歴の代用品というより、意思決定の質を底上げする土台として扱われている。知らないまま投資を始めるのではなく、家計、金利、複利、インフレの理解を先に育てる発想である。</p>
+      <div class="card-grid">
+        <div class="card">
+          <span class="mini-label">LITERACY</span>
+          <h3>金融教育は行動を変える</h3>
+          <p>知識が増えるだけでなく、貯蓄や投資の行動も改善しやすいという前提で話が進んでいる。つまり学ぶ価値は、理解そのものより実践への波及にある。</p>
+        </div>
+        <div class="card">
+          <span class="mini-label">PORTFOLIO</span>
+          <h3>知識も分散が必要</h3>
+          <p>一つの投資法や一人の発信者に依存すると、認知バイアスが強まりやすい。知識のポートフォリオを持つ発想は、投資対象の分散と同じくらい重要である。</p>
+        </div>
+        <div class="card">
+          <span class="mini-label">VISIBILITY</span>
+          <h3>お金の流れを可視化する</h3>
+          <p>家計簿や資産管理アプリを使って、収入・支出・投資の流れを見えるようにすると、感情で散るお金を仕組みで止めやすくなる。</p>
+        </div>
+      </div>
+      <div class="summary-box">
+        <h3>基礎で押さえたい3点</h3>
+        <ul>
+          <li>金利と複利を理解し、時間の価値を数字で捉える。</li>
+          <li>インフレやリスク許容度を学び、感情だけで判断しない。</li>
+          <li>毎月の学習を固定化し、知識更新を止めない。</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="sec3">
+      <div class="section-label">SECTION 03</div>
+      <h2>入金力は自己投資で引き上げる</h2>
+      <p class="intro-text">FIREの成否は利回りだけでなく、どれだけ安定して投資へ回せるかで決まる。このメモが強調しているのは、入金力を高める最短ルートとして、若いうちの勉強と実践を徹底することだ。</p>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>投資先</th>
+              <th>狙い</th>
+              <th>FIREへの効き方</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>語学・IT・専門スキル</td>
+              <td>市場価値を上げる</td>
+              <td>本業の年収上昇と転職耐性につながる</td>
+            </tr>
+            <tr>
+              <td>数学・数的感覚</td>
+              <td>投資判断の精度を上げる</td>
+              <td>感情的な売買や借入判断のミスを減らす</td>
+            </tr>
+            <tr>
+              <td>資格・実務経験</td>
+              <td>学習を収入に変える</td>
+              <td>入金力を継続的に高める源泉になる</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="card-grid">
+        <div class="card">
+          <span class="mini-label">LEARNING</span>
+          <h3>学ぶだけでは不十分</h3>
+          <p>講義メモは、知識や資格を得ても実践しなければ忘れると指摘している。仕事や副業で使って初めて、学びは入金力へ変わる。</p>
+        </div>
+        <div class="card">
+          <span class="mini-label">EARNING</span>
+          <h3>収入増は投資余力を増やす</h3>
+          <p>節約だけでは限界がある。教育投資で稼ぐ力を上げるほど、積立額と選択肢の両方が広がる。</p>
+        </div>
+      </div>
+      <div class="highlight-box">
+        <p>もし今が30代や40代でも、ここは後追いで補強できる領域じゃ。若さの時間差は埋めにくいが、学習と収入の設計は今からでも積み直せる可能性が高いのじゃ！</p>
+      </div>
+    </section>
+
+    <section id="sec4">
+      <div class="section-label">SECTION 04</div>
+      <h2>負債と浪費を避けて複利を守る</h2>
+      <p class="intro-text">増やす話だけでなく、減らさない話も同じくらい重要である。メモでは一貫して、高金利の借金は複利の逆回転であり、FIREの土台を崩す最大要因として扱われている。</p>
+      <div class="card-grid">
+        <div class="card">
+          <span class="mini-label">DEBT</span>
+          <h3>消費のための借金を遠ざける</h3>
+          <p>リボ払い、消費者金融、カードローンは、資産形成のスピードを直接奪う。借金があるうちは、投資より返済を優先する発想が基本になる。</p>
+        </div>
+        <div class="card">
+          <span class="mini-label">RULE</span>
+          <h3>支出はルールで管理する</h3>
+          <p>贅沢品を買うなら同額を投資する、給料日に自動振替するなど、意思力ではなく仕組みで支出を制御する方法が勧められている。</p>
+        </div>
+        <div class="card">
+          <span class="mini-label">GAME</span>
+          <h3>節約をゲーム化する</h3>
+          <p>家計管理を苦行にせず、スコア更新のように扱う発想が出てくる。継続率を上げるには、我慢より楽しさの設計が効く。</p>
+        </div>
+      </div>
+      <div class="summary-box">
+        <h3>支出設計の見直し順</h3>
+        <ul>
+          <li>高金利負債の有無を確認する。</li>
+          <li>固定費を先に削り、毎月の改善幅を大きくする。</li>
+          <li>浮いたお金を生活口座に残さず、投資口座へ自動で移す。</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="sec5">
+      <div class="section-label">SECTION 05</div>
+      <h2>副業と目標設計で行動を継続させる</h2>
+      <p class="intro-text">最後の論点は、FIREを願望で終わらせないための行動設計である。副業で収入源を増やし、具体的な資産目標を置き、進捗を見える化することで、日々の判断がぶれにくくなる。</p>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-marker"></div>
+          <div class="tl-content">
+            <div class="tl-phase">STEP 01</div>
+            <h4>目標額を数値で置く</h4>
+            <p>何歳までに、いくらの資産を、どの生活費で運用するのかを決める。曖昧な「自由になりたい」では、支出も学習も最適化しにくい。</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-marker"></div>
+          <div class="tl-content">
+            <div class="tl-phase">STEP 02</div>
+            <h4>副業を小さく始める</h4>
+            <p>若いうちほど失敗コストは低い。月数万円でも追加のキャッシュフローを持てれば、投資資金と経験値の両方が増える。</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-marker"></div>
+          <div class="tl-content">
+            <div class="tl-phase">STEP 03</div>
+            <h4>生活イベントと資金計画を連動させる</h4>
+            <p>結婚、住居、教育費などのライフイベントを無視すると、積立計画は崩れやすい。ライフプラン表で現実の支出と接続することが大切である。</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-marker"></div>
+          <div class="tl-content">
+            <div class="tl-phase">STEP 04</div>
+            <h4>AIや仲間を使って継続を補強する</h4>
+            <p>計画作成やシミュレーションをAIに補助させ、進捗確認は仲間や記録の仕組みに任せる。行動の継続には、孤独より外部化が効く。</p>
+          </div>
+        </div>
+      </div>
+      <div class="checklist">実行チェック
+1. 今月の学習テーマを1つ決める
+2. 家計の固定費を1つ見直す
+3. 給料日の自動積立を設定する
+4. 副業の種を1つ試す
+5. FIRE目標額と期限を数字で書く</div>
+      <div class="highlight-box">
+        <p>反対意見としては、「副業まで広げると消耗する」「節約をゲーム化しても根本収入が低ければ限界がある」という見方も成り立つ。じゃが、このメモの立場は明快で、収入・支出・投資・学習の四つを同時に整える方が、どれか一つだけ磨くより強いという整理なのじゃ！</p>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
