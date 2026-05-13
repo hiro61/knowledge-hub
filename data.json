@@ -339,6 +339,20 @@
       ],
       "readTime": 4,
       "file": "articles/fire_strategy_psychology.html"
+    },
+    {
+      "id": 40,
+      "title": "運を習慣で仕組み化する｜行動設計と自己効力感",
+      "genre": "ライフスタイル",
+      "date": "2026-05-13",
+      "summary": "運を偶然任せにしないために、週1行動、異世界デー、柔軟性、自己効力感を仕組み化するPart 3のHTML記事。",
+      "tags": [
+        "運",
+        "習慣",
+        "自己効力感"
+      ],
+      "readTime": 3,
+      "file": "articles/luck_design_part3_habits_self_efficacy.html"
     }
   ]
 }

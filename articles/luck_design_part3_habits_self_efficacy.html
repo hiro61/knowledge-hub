@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>運を習慣で仕組み化する｜行動設計と自己効力感</title>
+  <meta name="description" content="運を偶然任せにしないために、週1行動、異世界デー、柔軟性、自己効力感を仕組み化するPart 3のHTML記事。">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --hero-bg-from: #f6efe8;
+      --hero-bg-to: #ffffff;
+      --accent: #7a4f2d;
+      --accent-sub: #9a6a42;
+      --bg-sub: #f3e9de;
+      --bg: #ffffff;
+      --bg-card: #ffffff;
+      --text: #1a1a1a;
+      --text-soft: #555555;
+      --rule: #e8dfd5;
+      --max-w: 760px;
+      --font-ja: "Hiragino Mincho ProN","Yu Mincho","游明朝","Noto Serif JP",Georgia,serif;
+      --font-go: "Hiragino Kaku Gothic ProN","Yu Gothic","游ゴシック","Noto Sans JP",sans-serif;
+      --radius: 12px;
+      --shadow: 0 2px 12px rgba(0,0,0,0.08);
+    }
+    html { font-size: 16px; }
+    body { background: var(--bg); color: var(--text); font-family: var(--font-ja); line-height: 1.75; -webkit-text-size-adjust: 100%; padding: 0 0 100px; }
+    main { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
+    .hero { text-align: center; padding: 80px 24px 64px; background: linear-gradient(135deg, var(--hero-bg-from) 0%, var(--hero-bg-to) 100%); border-bottom: 1px solid var(--rule); margin-bottom: 64px; }
+    .hero-tag { display: inline-block; font-family: var(--font-go); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent-sub); background: var(--bg-sub); border: 1px solid var(--rule); border-radius: 999px; padding: 4px 14px; margin-bottom: 24px; }
+    .hero h1 { font-family: var(--font-go); font-size: clamp(2rem, 6vw, 3rem); font-weight: 900; letter-spacing: -0.03em; line-height: 1.2; margin-bottom: 16px; }
+    .hero-desc { font-family: var(--font-go); font-size: 1rem; color: var(--text-soft); line-height: 1.8; max-width: 560px; margin: 0 auto; }
+    .toc { background: var(--bg-sub); border-radius: var(--radius); padding: 28px 32px; margin-bottom: 48px; }
+    .toc-title, .section-label { font-family: var(--font-go); font-size: 0.65rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent-sub); }
+    .toc-title { margin-bottom: 14px; }
+    .toc ol { padding-left: 1.4em; }
+    .toc li { font-family: var(--font-go); font-size: 0.92rem; line-height: 1.7; margin-bottom: 6px; }
+    .toc a { color: var(--text); text-decoration: none; }
+    section { margin-bottom: 72px; padding-left: 24px; border-left: 3px solid var(--accent); }
+    .section-label { display: inline-block; margin-bottom: 10px; }
+    h2 { font-family: var(--font-go); font-size: clamp(1.45rem, 4vw, 1.95rem); font-weight: 900; letter-spacing: -0.02em; line-height: 1.25; margin-bottom: 16px; }
+    .intro-text { font-size: 0.98rem; color: var(--text-soft); line-height: 1.85; margin-bottom: 28px; font-style: italic; }
+    h3 { font-family: var(--font-go); font-size: 1.05rem; font-weight: 700; margin: 28px 0 10px; }
+    p { font-size: 0.97rem; line-height: 1.85; margin-bottom: 14px; }
+    ul, ol { padding-left: 1.5em; margin-bottom: 16px; }
+    li { font-size: 0.95rem; line-height: 1.8; margin-bottom: 6px; }
+    li::marker { color: var(--accent-sub); }
+    .card-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; margin-top: 20px; }
+    .card, .work-card, .highlight-box { background: var(--bg-card); border-radius: var(--radius); box-shadow: var(--shadow); border: 1px solid var(--rule); padding: 22px; }
+    .highlight-box { background: var(--bg-sub); box-shadow: none; margin: 22px 0; }
+    .table-wrap { overflow-x: auto; border: 1px solid var(--rule); border-radius: var(--radius); margin-top: 20px; }
+    table { width: 100%; border-collapse: collapse; background: #fff; }
+    th, td { padding: 14px 16px; border-bottom: 1px solid var(--rule); text-align: left; vertical-align: top; font-size: 0.93rem; line-height: 1.7; }
+    th { background: var(--accent); color: #fff; font-family: var(--font-go); font-weight: 700; }
+    .timeline { position: relative; margin-top: 20px; padding-left: 22px; }
+    .timeline::before { content: ""; position: absolute; left: 7px; top: 4px; bottom: 4px; width: 1px; background: var(--rule); }
+    .tl-item { position: relative; margin-bottom: 22px; padding-left: 16px; }
+    .tl-marker { position: absolute; left: -22px; top: 7px; width: 12px; height: 12px; border-radius: 999px; background: var(--accent); box-shadow: 0 0 0 4px var(--bg-sub); }
+    .tl-phase { display: inline-block; font-family: var(--font-go); font-size: 0.7rem; font-weight: 700; color: var(--accent-sub); margin-bottom: 6px; }
+    .work-title { font-family: var(--font-go); font-size: 0.95rem; font-weight: 700; margin-bottom: 12px; }
+    @media (max-width: 720px) {
+      .card-grid { grid-template-columns: 1fr; }
+      main { padding: 0 18px; }
+      .toc { padding: 22px 20px; }
+      section { padding-left: 18px; }
+      .hero { padding: 64px 20px 52px; }
+    }
+    @media print {
+      body { padding-bottom: 0; }
+      .hero { padding-top: 48px; padding-bottom: 40px; }
+      section { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <span class="hero-tag">PART 3 / HABIT SYSTEM</span>
+    <h1>運を習慣で仕組み化する</h1>
+    <p class="hero-desc">運は一度の気合いで変えるより、毎週・毎月の行動に埋め込んだ方が再現しやすくなります。Part 3では、新しい挑戦、柔軟性、楽観性、自己効力感を続く仕組みに変える考え方を整理します。</p>
+  </header>
+
+  <main>
+    <nav class="toc">
+      <div class="toc-title">目次</div>
+      <ol>
+        <li><a href="#sec1">運は知識ではなく、習慣に落ちた時に効き始める</a></li>
+        <li><a href="#sec2">新しい行動と異世界デーで、偶然の母数を増やす</a></li>
+        <li><a href="#sec3">柔軟性・楽観性・小さなリスクで行動停止を防ぐ</a></li>
+        <li><a href="#sec4">自己効力感を回すと、運は長期で強くなる</a></li>
+      </ol>
+    </nav>
+
+    <section id="sec1">
+      <div class="section-label">Section 01</div>
+      <h2>運は知識ではなく、習慣に落ちた時に効き始める</h2>
+      <p class="intro-text">Part 3の出発点は明快です。運を上げる考え方を知っているだけでは効果は出ず、日々の習慣に落ちた時に初めて確率が変わり始めます。これは耳が痛い話ですが、非常に実務的な視点です。</p>
+      <p>ここまでの内容は、認知の癖、人間関係、長期習慣の三層で構成されていました。つまり、気分で頑張るのではなく、毎週自動的に回る仕組みへ変えることが必要です。</p>
+      <div class="highlight-box">
+        <p><strong>要点:</strong> 「運を良くしたい」と思うだけでは足りず、「何曜日に何をするか」まで具体化して初めて再現性が生まれます。</p>
+      </div>
+    </section>
+
+    <section id="sec2">
+      <div class="section-label">Section 02</div>
+      <h2>新しい行動と異世界デーで、偶然の母数を増やす</h2>
+      <p class="intro-text">メモで特に実装しやすいのが、週一の新行動と月一の異世界デーです。これは派手な挑戦ではなく、今の生活に意図的なズレを入れる方法だと考えると分かりやすいです。</p>
+      <p>週一の新行動は微調整、月一の異世界デーは進路変更に近い役割を持ちます。新しい店で質問する、普段と違う作業を5分やる、異業種の場に出るなど、少し緊張する行動の方が運には効きやすいとされています。</p>
+      <div class="card-grid">
+        <div class="card">
+          <h3>週一で入れたい小変化</h3>
+          <ul>
+            <li>行ったことのない店や場所に行く</li>
+            <li>会ったことのないタイプの人と話す</li>
+            <li>興味が薄い分野を5分だけ深掘りする</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>月一で入れたい異世界</h3>
+          <ul>
+            <li>異業種イベントに参加する</li>
+            <li>別のコミュニティを覗く</li>
+            <li>自分の常識が通じにくい場へ行く</li>
+          </ul>
+        </div>
+      </div>
+      <p>もし負荷が高すぎると感じるなら、最初は規模を小さくしてよいです。ただし、抵抗の少ないオンライン交流だけでは変化量が弱い可能性もあるので、少しだけ緊張する現実の接点を混ぜるのが有効でしょう。</p>
+    </section>
+
+    <section id="sec3">
+      <div class="section-label">Section 03</div>
+      <h2>柔軟性・楽観性・小さなリスクで行動停止を防ぐ</h2>
+      <p class="intro-text">習慣化が崩れる最大の理由は、完璧にできなかった時に止まることです。Part 3では、その停止を防ぐために、柔軟性、楽観性、小さなリスクテイクが重要だとされています。</p>
+      <p>柔軟性とは、目的を変えずに手段を選び直すことです。楽観性とは、現実逃避ではなく、事実を見た上で解釈だけを前向きに保つことです。そしてリスクテイクは、大勝負ではなく「笑ってごまかせる小さな痛み」から始めるのが基本です。</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>要素</th>
+              <th>意味</th>
+              <th>実践例</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>柔軟性</td>
+              <td>予定変更後も止まらない</td>
+              <td>事前にプランBを3つ持つ</td>
+            </tr>
+            <tr>
+              <td>楽観性</td>
+              <td>失敗を学習へ変える</td>
+              <td>悲観は準備に、楽観は継続に使う</td>
+            </tr>
+            <tr>
+              <td>小さなリスク</td>
+              <td>試行回数を増やす</td>
+              <td>軽い誘い、短い打診、先にモックを見せる</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-marker"></div>
+          <div class="tl-content">
+            <span class="tl-phase">Step 1</span>
+            <h3>気になったら48時間以内に試す</h3>
+            <p>直感は大きな決断の根拠ではなく、小さな実験の起点として扱います。</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-marker"></div>
+          <div class="tl-content">
+            <span class="tl-phase">Step 2</span>
+            <h3>仮イエスで機会を失わない</h3>
+            <p>すぐ決めない時でも、「48時間以内に返します」と返せば、検討時間と機会確保を両立できます。</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-marker"></div>
+          <div class="tl-content">
+            <span class="tl-phase">Step 3</span>
+            <h3>最小単位に戻して継続する</h3>
+            <p>3分散歩、3分読書、1行メモのような軽い形でも、継続が自己評価を守ります。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="sec4">
+      <div class="section-label">Section 04</div>
+      <h2>自己効力感を回すと、運は長期で強くなる</h2>
+      <p class="intro-text">最後に出てくる自己効力感は、「自分はできる」という感覚です。これは気分論に見えて、実際には行動量に強く影響します。自分でできる感覚が下がると、挑戦回数そのものが減ってしまうからです。</p>
+      <p>自己効力感は、大きな成功だけでなく、小さな成功体験の可視化、人からのフィードバック、助けてもらえた感覚でも高まります。だから、運を良くする設計は一人で完結させるより、他者との接点も含めて回す方が強いのです。</p>
+      <div class="card-grid">
+        <div class="card">
+          <h3>自己効力感を上げる材料</h3>
+          <ul>
+            <li>達成可能な小目標を毎週クリアする</li>
+            <li>できたことを見える化する</li>
+            <li>人から反応や支援を受け取る</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>初学者向けの始め方</h3>
+          <ul>
+            <li>週1回の未体験を先に予定へ入れる</li>
+            <li>毎晩1行だけ運ログを書く</li>
+            <li>月1回は別世界に触れる日を固定する</li>
+          </ul>
+        </div>
+      </div>
+      <div class="work-card">
+        <div class="work-title">今日からの実践メモ</div>
+        <ul>
+          <li>週1回の新行動をカレンダーに入れる</li>
+          <li>月1回の異世界デー候補を3つ書く</li>
+          <li>気になったことは48時間以内に小実験する</li>
+          <li>一週間の終わりに「できたこと」を3つ記録する</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
