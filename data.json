@@ -353,6 +353,20 @@
       ],
       "readTime": 3,
       "file": "articles/luck_design_part3_habits_self_efficacy.html"
+    },
+    {
+      "id": 41,
+      "title": "ロングゲームで意味のある一点を選ぶ",
+      "genre": "ライフスタイル",
+      "date": "2026-05-14",
+      "summary": "忙しさから距離を取り、余白を守り、10年単位で効く目標に集中する。北極星の設定、20%ルール、失敗の扱い方までを、今日から動ける形へ整理した。",
+      "tags": [
+        "目標設定",
+        "時間管理",
+        "集中力"
+      ],
+      "readTime": 5,
+      "file": "articles/long_game_meaningful_focus.html"
     }
   ]
 }
