@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>やりたいことは育てて見つける</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --hero-bg-from: #e8edf3;
+      --hero-bg-to: #ffffff;
+      --accent: #243b5a;
+      --accent-sub: #4f6787;
+      --bg-sub: #edf2f7;
+      --bg: #ffffff;
+      --bg-card: #ffffff;
+      --text: #111111;
+      --text-soft: #222222;
+      --rule: #d0d7df;
+      --max-w: 740px;
+      --font-ja: "Hiragino Mincho ProN","Yu Mincho","游明朝","Noto Serif JP",Georgia,serif;
+      --font-go: "Hiragino Kaku Gothic ProN","Yu Gothic","游ゴシック","Noto Sans JP",sans-serif;
+      --radius: 12px;
+      --shadow: 0 2px 12px rgba(0,0,0,0.08);
+    }
+
+    html { font-size: 16px; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-ja);
+      line-height: 1.75;
+      -webkit-text-size-adjust: 100%;
+      padding: 0 0 100px;
+    }
+    main { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
+
+    .hero {
+      text-align: center;
+      padding: 80px 24px 64px;
+      background: linear-gradient(135deg, var(--hero-bg-from) 0%, var(--hero-bg-to) 100%);
+      border-bottom: 1px solid var(--rule);
+      margin-bottom: 64px;
+    }
+    .hero-tag {
+      display: inline-block;
+      font-family: var(--font-go);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent-sub);
+      background: var(--bg-sub);
+      border: 1px solid var(--rule);
+      border-radius: 999px;
+      padding: 4px 14px;
+      margin-bottom: 24px;
+    }
+    .hero h1 {
+      font-family: var(--font-go);
+      font-size: clamp(2rem, 6vw, 3rem);
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+      color: var(--text);
+      max-width: 18ch;
+      text-wrap: balance;
+      margin: 0 auto 16px;
+    }
+    .hero-desc {
+      font-family: var(--font-go);
+      font-size: 1rem;
+      color: var(--text);
+      line-height: 1.7;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    .toc {
+      background: var(--bg-sub);
+      border-radius: var(--radius);
+      padding: 28px 32px;
+      margin-bottom: 48px;
+    }
+    .toc-title {
+      font-family: var(--font-go);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent-sub);
+      margin-bottom: 14px;
+    }
+    .toc ol { padding-left: 1.4em; }
+    .toc li {
+      font-family: var(--font-go);
+      font-size: 0.9rem;
+      line-height: 1.7;
+      margin-bottom: 6px;
+      color: var(--text);
+    }
+    .toc a {
+      color: var(--text);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+    .toc a:hover { border-bottom-color: var(--accent); }
+
+    hr { border: none; border-top: 1px solid var(--rule); margin: 56px 0; }
+
+    section {
+      margin-bottom: 72px;
+      padding-left: 24px;
+      border-left: 3px solid var(--accent);
+    }
+    .section-label {
+      display: inline-block;
+      font-family: var(--font-go);
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--accent-sub);
+      margin-bottom: 10px;
+    }
+    h2 {
+      font-family: var(--font-go);
+      font-size: clamp(1.4rem, 4vw, 1.9rem);
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      line-height: 1.25;
+      margin-bottom: 16px;
+      color: var(--text);
+    }
+    .intro-text {
+      font-size: 0.97rem;
+      color: var(--text);
+      line-height: 1.8;
+      margin-bottom: 28px;
+      font-style: italic;
+    }
+    h3 {
+      font-family: var(--font-go);
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      margin-bottom: 10px;
+      margin-top: 28px;
+      color: var(--text);
+    }
+    p { font-size: 0.97rem; line-height: 1.8; margin-bottom: 14px; color: var(--text); }
+    ul, ol { padding-left: 1.5em; margin-bottom: 16px; }
+    li { font-size: 0.95rem; line-height: 1.8; margin-bottom: 6px; color: var(--text); }
+    li::marker { color: var(--accent-sub); }
+
+    .card {
+      background: var(--bg-card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--rule);
+      padding: 28px 32px;
+      margin: 16px 0;
+    }
+    .card h3 { margin-top: 0; margin-bottom: 12px; font-size: 1rem; }
+    .card p:last-child { margin-bottom: 0; }
+    .card-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 20px 0;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      margin: 24px 0;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.88rem;
+      background: var(--bg-card);
+    }
+    .data-table thead tr { background: var(--text); color: #ffffff; }
+    .data-table th {
+      font-family: var(--font-go);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 14px 18px;
+      text-align: left;
+    }
+    .data-table td {
+      padding: 12px 18px;
+      border-bottom: 1px solid var(--rule);
+      line-height: 1.6;
+      color: var(--text);
+      vertical-align: top;
+    }
+    .data-table tbody tr:last-child td { border-bottom: none; }
+
+    .timeline { position: relative; padding-left: 28px; margin: 24px 0; }
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 6px;
+      bottom: 6px;
+      width: 2px;
+      background: var(--rule);
+    }
+    .tl-item { position: relative; margin-bottom: 28px; }
+    .tl-marker {
+      position: absolute;
+      left: -34px;
+      top: 6px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 2px solid var(--bg);
+      box-shadow: 0 0 0 2px var(--rule);
+    }
+    .tl-content {
+      background: var(--bg-card);
+      border-radius: var(--radius);
+      border: 1px solid var(--rule);
+      padding: 20px 24px;
+      box-shadow: var(--shadow);
+    }
+    .tl-phase {
+      display: inline-block;
+      font-family: var(--font-go);
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent-sub);
+      background: var(--bg-sub);
+      border-radius: 999px;
+      padding: 2px 10px;
+      margin-bottom: 8px;
+    }
+    .tl-content h4 {
+      font-family: var(--font-go);
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+    .tl-content p { font-size: 0.88rem; margin-bottom: 0; }
+
+    .highlight-box {
+      background: var(--bg-sub);
+      border-radius: var(--radius);
+      border: 1px solid var(--rule);
+      border-left: 4px solid var(--accent-sub);
+      padding: 20px 24px;
+      margin: 24px 0;
+    }
+    .highlight-box p:last-child { margin-bottom: 0; }
+
+    @media (max-width: 720px) {
+      main { padding: 0 18px; }
+      .hero { padding: 64px 18px 52px; margin-bottom: 48px; }
+      .toc { padding: 22px 20px; }
+      section { padding-left: 18px; margin-bottom: 56px; }
+      .card, .tl-content { padding: 20px 18px; }
+      .card-grid { grid-template-columns: 1fr; }
+      .data-table th, .data-table td { padding: 12px 14px; }
+    }
+
+    @media print {
+      body { padding-bottom: 0; }
+      .hero { padding-top: 48px; padding-bottom: 40px; }
+      section, .card, .highlight-box, .table-wrap, .tl-item { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <span class="hero-tag">PSYCHOLOGY</span>
+    <h1>やりたいことは育てて見つける</h1>
+    <p class="hero-desc">やりたいことは、最初から明確に存在する答えではない。興味の種を選び、価値観と工夫で育てる視点を持つと、迷いは行動計画へ変わっていく。</p>
+  </header>
+
+  <main>
+    <nav class="toc">
+      <div class="toc-title">目次</div>
+      <ol>
+        <li><a href="#sec1">なぜ見つからないのか</a></li>
+        <li><a href="#sec2">育てるマインドセット</a></li>
+        <li><a href="#sec3">好きより重要を軸にする</a></li>
+        <li><a href="#sec4">夢中を生む四つの設計</a></li>
+        <li><a href="#sec5">行動へ落とす実践手順</a></li>
+      </ol>
+    </nav>
+    <hr>
+
+    <section id="sec1">
+      <div class="section-label">SECTION 01</div>
+      <h2>なぜ「やりたいこと」が見つからないのか</h2>
+      <p class="intro-text">迷いの原因は、能力不足よりも前提の置き方にあることが多い。最初から運命的な答えを探そうとすると、難しさや退屈にぶつかった瞬間に候補を切り捨ててしまう。</p>
+      <div class="card">
+        <h3>よくある誤解</h3>
+        <p>多くの人は「本当にやりたいことは、どこかに完成形として存在し、それを見つけさえすれば熱意が続く」と考える。しかしこの前提では、少しでも合わない瞬間に「違った」と判断しやすい。</p>
+        <p>さらに、現状維持バイアスが加わると、「でも」「だって」と言い訳を探しやすくなり、挑戦前に行動が止まる。結果として、候補は増えても深掘りが起こらず、何も育たない。</p>
+      </div>
+      <div class="card-grid">
+        <div class="card">
+          <h3>止まりやすい人の傾向</h3>
+          <ul>
+            <li>運任せで答えを待つ</li>
+            <li>少し難しくなると興味を失う</li>
+            <li>候補が多いほど選べなくなる</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>前に進む人の傾向</h3>
+          <ul>
+            <li>小さく試しながら判断する</li>
+            <li>飽きや停滞を前提に工夫する</li>
+            <li>答えより育成可能性を見る</li>
+          </ul>
+        </div>
+      </div>
+      <div class="highlight-box">
+        <p>反対意見として、「最初の直感こそ重要だ」という見方もある。確かに初期の高揚感は入口として有効じゃが、それだけで継続は保証されぬ。直感は出発点、育成は継続条件、と分けて考えるのが妥当じゃのう。</p>
+      </div>
+    </section>
+
+    <section id="sec2">
+      <div class="section-label">SECTION 02</div>
+      <h2>やりたいことは見つけるのでなく、育てる</h2>
+      <p class="intro-text">長く続く情熱は、偶然の発見よりも、関わり続ける過程で形づくられる。ここで必要になるのが、興味は変化し深まるものだと捉える発想である。</p>
+      <p>育てる視点では、「これかもしれない」と感じる対象に一定期間関わり、難しさや飽きを越えるための工夫を重ねていく。最初から強い情熱がなくても、試行と意味づけを繰り返すうちに対象の見え方は変わる。</p>
+      <p>逆に、興味を固定されたものと捉えると、難易度が上がった場面で「向いていない」と結論づけやすい。すると行動量が減り、対象が深まる前に関係が切れてしまう。</p>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>視点</th>
+              <th>前提</th>
+              <th>難しさに直面した時の反応</th>
+              <th>長期的な結果</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>フィット発想</td>
+              <td>最初から合うものがある</td>
+              <td>合わないと判断して離れる</td>
+              <td>候補だけ増え、深まらない</td>
+            </tr>
+            <tr>
+              <td>デベロップ発想</td>
+              <td>関わりの中で面白くなる</td>
+              <td>続け方や工夫を見直す</td>
+              <td>情熱と実力が一緒に育つ</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="card">
+        <h3>判断の妥当性を確かめる視点</h3>
+        <p>もし今気になっている対象が「少し難しいが、工夫すれば続けられそう」なら、見込みは十分ある。反対に「楽しいが、価値観とも生活とも接続しない」場合は、一時的な刺激で終わる可能性が高い。ここは二者択一ではなく、時間軸で評価するのがよい。</p>
+      </div>
+    </section>
+
+    <section id="sec3">
+      <div class="section-label">SECTION 03</div>
+      <h2>「好き」より「重要」を軸にすると続きやすい</h2>
+      <p class="intro-text">感情は入口になるが、持続の土台は価値観との接続にある。好き嫌いだけで選ぶより、自分にとって重要な方向へ結びつくかを問うほうが、行動は安定しやすい。</p>
+      <div class="card-grid">
+        <div class="card">
+          <h3>感情ベースの選択</h3>
+          <p>楽しい、気持ちいい、面白そうという反応で始める方法じゃ。初速は出やすいが、気分の波に左右されやすく、忙しさや難しさの前で失速しやすい。</p>
+        </div>
+        <div class="card">
+          <h3>重要性ベースの選択</h3>
+          <p>自分の価値観や人生に必要かで選ぶ方法じゃ。即効性は弱くても、意味づけが深まりやすく、困難な時に踏みとどまる理由を持てる。</p>
+        </div>
+      </div>
+      <p>さらに、人とのつながりは「重要性」を具体化する。誰の役に立つか、どんな影響を与えたいかが見えると、取り組みは単なる趣味候補から、守りたいテーマへ変わる。</p>
+      <div class="highlight-box">
+        <p>もし「好きなことが何もない」なら、無理に感情の高まりを探さなくてよい。代わりに「放っておけない問題は何か」「誰の役に立ちたいか」を起点に考えると、選択肢は見えやすくなる。成功確率の感覚値は、感情起点よりも重要性起点のほうが 15% から 25% ほど高いと見積もるのが実務的じゃのう。</p>
+      </div>
+    </section>
+
+    <section id="sec4">
+      <div class="section-label">SECTION 04</div>
+      <h2>夢中を生む四つの設計</h2>
+      <p class="intro-text">やりたいことは意思だけでは続かない。日々の行動設計を変え、自律性・能力・関係性が満たされる状態をつくることで、没頭しやすい土台が整う。</p>
+      <div class="card-grid">
+        <div class="card">
+          <h3>セルフリーダーシップ</h3>
+          <p>目標を自分で定め、定期的に見直し、前向きなセルフトークで行動を支える。気分任せを減らし、続ける力を補強する。</p>
+        </div>
+        <div class="card">
+          <h3>タスククラフティング</h3>
+          <p>同じ作業でも、意味づけややり方を変えて面白くする。学習、仕事、家事のような既存タスクほど効果が出やすい。</p>
+        </div>
+        <div class="card">
+          <h3>プレイフルワークデザイン</h3>
+          <p>ゲーム性、制限時間、記録、比較などを導入し、退屈を工夫で乗り越える。やる気を待つより、環境を設計する考え方じゃ。</p>
+        </div>
+        <div class="card">
+          <h3>強みの活用</h3>
+          <p>得意なやり方で成果が出ると、自己効力感が上がり、継続しやすくなる。認められる経験は、やりたいことの輪郭を濃くする。</p>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>要素</th>
+              <th>問い</th>
+              <th>整え方</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>自律性</td>
+              <td>自分で決めている感覚はあるか</td>
+              <td>小さくても選択権を持つ</td>
+            </tr>
+            <tr>
+              <td>能力</td>
+              <td>少し背伸びすれば届く難易度か</td>
+              <td>課題を細分化して成功体験を作る</td>
+            </tr>
+            <tr>
+              <td>関係性</td>
+              <td>誰かとの接続や貢献実感があるか</td>
+              <td>共有先、仲間、顧客を明確にする</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="sec5">
+      <div class="section-label">SECTION 05</div>
+      <h2>価値観から始める実践手順</h2>
+      <p class="intro-text">考え方が整っても、行動へ落ちなければ手応えは生まれない。重要なのは、候補を選び、意味を確かめ、工夫を重ねる小さな循環を作ることだ。</p>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-marker"></div>
+          <div class="tl-content">
+            <span class="tl-phase">Step 1</span>
+            <h4>価値観を一つ言語化する</h4>
+            <p>自由、成長、貢献、独立など、自分が捨てにくい価値観を一つ選ぶ。ここが曖昧だと、選択は気分に流されやすい。</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-marker"></div>
+          <div class="tl-content">
+            <span class="tl-phase">Step 2</span>
+            <h4>「これかも」の候補を一つだけ試す</h4>
+            <p>完璧な答えを待たず、今の生活で着手できる対象を一つに絞る。複数同時進行より、深さを作る方が検証精度は高い。</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-marker"></div>
+          <div class="tl-content">
+            <span class="tl-phase">Step 3</span>
+            <h4>飽きる前提で工夫を足す</h4>
+            <p>記録、制限時間、学び直し、他者共有など、続けるための仕掛けを先に用意する。熱量低下を異常ではなく前提として扱う。</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-marker"></div>
+          <div class="tl-content">
+            <span class="tl-phase">Step 4</span>
+            <h4>誰かとのつながりを作る</h4>
+            <p>役立てる相手が見えると、重要性が増し、続ける理由が具体化する。孤立したままでは意味づけが弱くなりやすい。</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-marker"></div>
+          <div class="tl-content">
+            <span class="tl-phase">Step 5</span>
+            <h4>一定期間後に見直す</h4>
+            <p>感情だけで評価せず、学び、手応え、貢献感、改善余地を振り返る。続けるか、育て方を変えるかをここで決める。</p>
+          </div>
+        </div>
+      </div>
+      <div class="highlight-box">
+        <p>結論として、「やりたいことがない」のではなく、「育てる前に手放している」可能性が高い。まずは価値観に近い候補を一つ選び、工夫しながら関わる時間を確保することじゃ。もし三週間から六週間ほど続けても意味も手応えも生まれぬなら、その時に別候補へ移ればよいのじゃ！</p>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

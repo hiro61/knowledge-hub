@@ -367,6 +367,21 @@
       ],
       "readTime": 5,
       "file": "articles/long_game_meaningful_focus.html"
+    },
+    {
+      "id": 42,
+      "title": "やりたいことは育てて見つける",
+      "genre": "ライフスタイル",
+      "date": "2026-05-15",
+      "summary": "やりたいことは、最初から明確に存在する答えではない。興味の種を選び、価値観と工夫で育てる視点を持つと、迷いは行動計画へ変わっていく。",
+      "tags": [
+        "やりたいこと",
+        "価値観",
+        "モチベーション",
+        "自己理解"
+      ],
+      "readTime": 4,
+      "file": "articles/yaritaikoto_wo_sodateru.html"
     }
   ]
 }
