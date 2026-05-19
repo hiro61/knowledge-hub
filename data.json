@@ -382,6 +382,22 @@
       ],
       "readTime": 4,
       "file": "articles/yaritaikoto_wo_sodateru.html"
+    },
+    {
+      "id": 43,
+      "title": "物欲を制御するお金の心理設計",
+      "genre": "ライフスタイル",
+      "date": "2026-05-19",
+      "summary": "節約を根性論で終わらせず、欲望が暴走する場面を見抜き、投資と満足度の両方を守るための判断ルールを一つの流れで整理した。",
+      "tags": [
+        "物欲",
+        "節約",
+        "投資",
+        "心理バイアス",
+        "意思決定"
+      ],
+      "readTime": 5,
+      "file": "articles/desire_control_method.html"
     }
   ]
 }
