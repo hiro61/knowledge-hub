@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#0a0d18">
+  <title>Knowledge Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="night-sky" aria-hidden="true">
+    <div class="night-sky__gradient"></div>
+    <div class="night-sky__stars night-sky__stars--far"></div>
+    <div class="night-sky__stars night-sky__stars--near"></div>
+    <svg class="night-sky__moon" viewBox="0 0 64 64" aria-hidden="true">
+      <defs>
+        <radialGradient id="moonGlow" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stop-color="rgba(245, 233, 198, 0.55)"/>
+          <stop offset="60%" stop-color="rgba(245, 233, 198, 0.08)"/>
+          <stop offset="100%" stop-color="rgba(245, 233, 198, 0)"/>
+        </radialGradient>
+      </defs>
+      <circle cx="32" cy="32" r="30" fill="url(#moonGlow)"/>
+      <path d="M40 16 a18 18 0 1 0 8 24 a14 14 0 0 1 -8 -24 z" fill="#f5e9c6" opacity="0.92"/>
+    </svg>
+    <div class="night-sky__horizon" aria-hidden="true"></div>
+  </div>
+
+  <div id="authOverlay" class="auth-overlay">
+    <div class="auth-card reveal">
+      <p class="auth-card__eyebrow">a quiet library</p>
+      <h1 class="auth-card__title">Knowledge Hub</h1>
+      <p class="auth-card__sub">夜更けの本棚へ。</p>
+      <label class="auth-card__field">
+        <span class="visually-hidden">パスワード</span>
+        <input id="passInput" type="password" placeholder="パスワード" autocomplete="current-password">
+      </label>
+      <p id="passError" class="auth-card__error hidden">パスワードが違います</p>
+      <button id="authButton" class="moon-button" type="button">
+        <span>入る</span>
+      </button>
+    </div>
+  </div>
+
+  <div id="app" class="app-shell hidden">
+    <header class="topbar">
+      <p class="topbar__eyebrow">tonight&apos;s shelf</p>
+      <h1 class="topbar__title">Knowledge Hub</h1>
+    </header>
+
+    <main id="contentArea" class="content-area">
+      <section class="loading-state">
+        <span class="loading-state__dot"></span>
+        <span class="loading-state__dot"></span>
+        <span class="loading-state__dot"></span>
+      </section>
+    </main>
+
+    <nav class="dock" aria-label="Primary navigation">
+      <div class="dock__inner">
+        <button data-tab="new" class="dock__btn is-active" type="button">
+          <span class="dock__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 4h11l3 3v13H5z"/>
+              <path d="M16 4v3h3"/>
+              <path d="M8 12h7M8 16h5"/>
+            </svg>
+          </span>
+          <span class="dock__label">新着</span>
+        </button>
+        <button data-tab="genre" class="dock__btn" type="button">
+          <span class="dock__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="7" cy="7" r="3"/>
+              <circle cx="17" cy="7" r="3"/>
+              <circle cx="7" cy="17" r="3"/>
+              <circle cx="17" cy="17" r="3"/>
+            </svg>
+          </span>
+          <span class="dock__label">ジャンル</span>
+        </button>
+        <button data-tab="search" class="dock__btn" type="button">
+          <span class="dock__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="6.5"/>
+              <path d="m16 16 5 5"/>
+            </svg>
+          </span>
+          <span class="dock__label">検索</span>
+        </button>
+        <button data-tab="favorites" class="dock__btn" type="button">
+          <span class="dock__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 4h12v17l-6-4-6 4z"/>
+            </svg>
+          </span>
+          <span class="dock__label">保存</span>
+        </button>
+      </div>
+    </nav>
+  </div>
+
+  <noscript>
+    <div class="noscript-banner">このアプリの表示には JavaScript が必要です。</div>
+  </noscript>
+
+  <script src="./script.js" defer></script>
+</body>
+</html>
