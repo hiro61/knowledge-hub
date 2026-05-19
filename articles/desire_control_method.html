@@ -3,26 +3,27 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>物欲を制御するお金の心理設計</title>
+  <title>物欲を整えるお金の心理設計</title>
+  <meta name="description" content="衝動買いを意志の弱さとして片づけず、感情・比較・高級志向の罠を見抜き、72時間テストと自動化で支出を整えるための実践ガイド。">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --hero-bg-from: #edf3f8;
+      --hero-bg-from: #e8edf3;
       --hero-bg-to: #ffffff;
-      --accent: #183b66;
-      --accent-sub: #4a6f9d;
-      --bg-sub: #eaf1f7;
+      --accent: #243b5a;
+      --accent-sub: #4f6787;
+      --bg-sub: #edf2f7;
       --bg: #ffffff;
       --bg-card: #ffffff;
       --text: #111111;
-      --text-soft: #2f3a46;
-      --rule: #d6e0ea;
+      --text-soft: #222222;
+      --rule: #d0d7df;
       --max-w: 760px;
-      --font-ja: "Hiragino Mincho ProN","Yu Mincho","游明朝","Noto Serif JP",Georgia,serif;
-      --font-go: "Hiragino Kaku Gothic ProN","Yu Gothic","游ゴシック","Noto Sans JP",sans-serif;
-      --radius: 14px;
-      --shadow: 0 2px 12px rgba(0,0,0,0.08);
+      --font-ja: "Hiragino Mincho ProN", "Yu Mincho", "YuMincho", "Noto Serif JP", Georgia, serif;
+      --font-go: "Hiragino Kaku Gothic ProN", "Yu Gothic", "YuGothic", "Noto Sans JP", sans-serif;
+      --radius: 12px;
+      --shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
     }
 
     html { font-size: 16px; }
@@ -30,7 +31,7 @@
       background: var(--bg);
       color: var(--text);
       font-family: var(--font-ja);
-      line-height: 1.8;
+      line-height: 1.78;
       -webkit-text-size-adjust: 100%;
       padding: 0 0 100px;
     }
@@ -38,15 +39,15 @@
 
     .hero {
       text-align: center;
-      padding: 84px 24px 66px;
+      padding: 82px 24px 64px;
       background: linear-gradient(135deg, var(--hero-bg-from) 0%, var(--hero-bg-to) 100%);
       border-bottom: 1px solid var(--rule);
-      margin-bottom: 60px;
+      margin-bottom: 64px;
     }
     .hero-tag {
       display: inline-block;
       font-family: var(--font-go);
-      font-size: 0.66rem;
+      font-size: 0.65rem;
       font-weight: 700;
       letter-spacing: 0.2em;
       text-transform: uppercase;
@@ -54,50 +55,56 @@
       background: var(--bg-sub);
       border: 1px solid var(--rule);
       border-radius: 999px;
-      padding: 5px 14px;
+      padding: 4px 14px;
       margin-bottom: 24px;
     }
     .hero h1 {
       font-family: var(--font-go);
-      font-size: clamp(2rem, 5.8vw, 3rem);
+      font-size: clamp(2rem, 6vw, 3rem);
       font-weight: 900;
       letter-spacing: -0.03em;
       line-height: 1.18;
       color: var(--text);
-      margin-bottom: 16px;
+      max-width: 18ch;
+      text-wrap: balance;
+      margin: 0 auto 16px;
     }
-    .hero-desc {
+    .hero-desc,
+    .doc-subtitle {
       font-family: var(--font-go);
       font-size: 1rem;
       color: var(--text-soft);
-      line-height: 1.75;
-      max-width: 620px;
+      line-height: 1.72;
+      max-width: 560px;
       margin: 0 auto;
     }
+    .doc-subtitle { margin-top: 10px; }
 
     .toc {
       background: var(--bg-sub);
       border-radius: var(--radius);
-      padding: 28px 30px;
+      padding: 28px 32px;
       margin-bottom: 48px;
       border: 1px solid var(--rule);
+      box-shadow: var(--shadow);
     }
-    .toc-title {
+    .toc-title,
+    .section-label {
       font-family: var(--font-go);
-      font-size: 0.66rem;
+      font-size: 0.64rem;
       font-weight: 700;
       letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--accent-sub);
-      margin-bottom: 14px;
     }
-    .toc ol { padding-left: 1.4em; }
+    .toc-title { margin-bottom: 14px; }
+    .toc ol { padding-left: 1.35em; }
     .toc li {
       font-family: var(--font-go);
-      font-size: 0.94rem;
-      line-height: 1.75;
+      font-size: 0.92rem;
+      line-height: 1.72;
       margin-bottom: 7px;
-      color: var(--text-soft);
+      color: var(--text);
     }
     .toc a {
       color: var(--text);
@@ -109,18 +116,12 @@
     hr { border: none; border-top: 1px solid var(--rule); margin: 56px 0; }
 
     section {
-      margin-bottom: 72px;
+      margin-bottom: 76px;
       padding-left: 24px;
       border-left: 3px solid var(--accent);
     }
     .section-label {
       display: inline-block;
-      font-family: var(--font-go);
-      font-size: 0.62rem;
-      font-weight: 700;
-      letter-spacing: 0.22em;
-      text-transform: uppercase;
-      color: var(--accent-sub);
       margin-bottom: 10px;
     }
     h2 {
@@ -128,7 +129,7 @@
       font-size: clamp(1.45rem, 4vw, 1.95rem);
       font-weight: 900;
       letter-spacing: -0.02em;
-      line-height: 1.25;
+      line-height: 1.24;
       color: var(--text);
       margin-bottom: 16px;
     }
@@ -143,125 +144,122 @@
       font-family: var(--font-go);
       font-size: 1.05rem;
       font-weight: 700;
+      margin: 28px 0 10px;
       color: var(--text);
-      margin-top: 28px;
-      margin-bottom: 10px;
     }
-    p { font-size: 0.98rem; line-height: 1.85; margin-bottom: 14px; }
-    ul, ol { padding-left: 1.5em; margin-bottom: 18px; }
-    li { font-size: 0.95rem; line-height: 1.8; margin-bottom: 7px; }
-    li::marker { color: var(--accent-sub); }
-    strong { font-weight: 700; }
+    h4 {
+      font-family: var(--font-go);
+      font-size: 0.98rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+    p { margin-bottom: 18px; }
+    ul, ol { padding-left: 1.35em; }
+    li { margin-bottom: 8px; }
 
     .card-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 16px;
-      margin: 18px 0 10px;
+      gap: 18px;
+      margin: 24px 0;
     }
     .card,
     .highlight-box,
-    .summary-box,
     .work-card,
-    .table-wrap,
-    .tl-content {
+    .summary-box,
+    .table-wrap {
       background: var(--bg-card);
       border: 1px solid var(--rule);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
     }
-    .card {
-      padding: 24px;
-    }
-    .card h3 { margin-top: 0; }
-
+    .card,
     .highlight-box,
-    .summary-box {
-      background: var(--bg-sub);
-      padding: 22px 24px;
-      margin: 20px 0 22px;
+    .work-card,
+    .summary-box { padding: 22px; }
+    .card p:last-child,
+    .highlight-box p:last-child,
+    .summary-box p:last-child { margin-bottom: 0; }
+    .highlight-box {
+      background: linear-gradient(180deg, rgba(237, 242, 247, 0.96), rgba(255, 255, 255, 0.98));
+      margin-top: 24px;
     }
 
     .table-wrap {
       overflow-x: auto;
-      margin: 18px 0 12px;
+      margin: 24px 0;
     }
     .data-table {
       width: 100%;
       border-collapse: collapse;
-      background: #fff;
+      min-width: 620px;
     }
     .data-table th,
     .data-table td {
       padding: 14px 16px;
+      text-align: left;
       vertical-align: top;
       border-bottom: 1px solid var(--rule);
-      text-align: left;
-      font-size: 0.94rem;
-      line-height: 1.72;
     }
-    .data-table th {
-      background: var(--accent);
-      color: #fff;
+    .data-table thead th {
       font-family: var(--font-go);
+      font-size: 0.85rem;
       font-weight: 700;
+      background: var(--accent);
+      color: #ffffff;
     }
-    .data-table tr:last-child td { border-bottom: none; }
+    .data-table tbody tr:last-child td { border-bottom: none; }
 
     .timeline {
       position: relative;
-      margin: 20px 0 10px;
-      padding-left: 8px;
+      margin: 24px 0;
+      padding-left: 6px;
     }
     .timeline::before {
       content: "";
       position: absolute;
-      left: 13px;
-      top: 4px;
-      bottom: 4px;
+      left: 11px;
+      top: 6px;
+      bottom: 6px;
       width: 1px;
       background: var(--rule);
     }
     .tl-item {
       position: relative;
-      display: grid;
-      grid-template-columns: 28px 1fr;
-      gap: 14px;
-      margin-bottom: 18px;
+      padding-left: 34px;
+      margin-bottom: 22px;
     }
+    .tl-item:last-child { margin-bottom: 0; }
     .tl-marker {
-      width: 10px;
-      height: 10px;
+      position: absolute;
+      left: 0;
+      top: 5px;
+      width: 22px;
+      height: 22px;
       border-radius: 50%;
-      background: var(--accent);
-      margin-top: 9px;
-      margin-left: 4px;
-      position: relative;
-      z-index: 1;
+      background: #ffffff;
+      border: 2px solid var(--accent);
     }
-    .tl-content { padding: 18px 20px; }
+    .tl-content {
+      background: #ffffff;
+      border: 1px solid var(--rule);
+      border-radius: var(--radius);
+      padding: 18px 18px 16px;
+      box-shadow: var(--shadow);
+    }
     .tl-phase {
       display: inline-block;
       font-family: var(--font-go);
-      font-size: 0.62rem;
+      font-size: 0.7rem;
       font-weight: 700;
-      letter-spacing: 0.18em;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--accent-sub);
       margin-bottom: 8px;
     }
-    .tl-content h4 {
-      font-family: var(--font-go);
-      font-size: 1rem;
-      margin-bottom: 8px;
-      color: var(--text);
-    }
-    .tl-content p { margin-bottom: 0; }
+    .tl-content p:last-child { margin-bottom: 0; }
 
-    .work-card {
-      padding: 22px 24px;
-      margin-top: 18px;
-    }
     .work-title {
       display: flex;
       align-items: center;
@@ -272,235 +270,179 @@
       margin-bottom: 14px;
       color: var(--text);
     }
-    .work-title svg { color: var(--accent); flex: none; }
-
-    .summary-box p:last-child,
-    .highlight-box p:last-child,
-    .work-card ul:last-child { margin-bottom: 0; }
+    .work-card ul { margin-bottom: 0; }
 
     @media (max-width: 720px) {
       main { padding: 0 18px; }
-      .hero { padding: 66px 18px 54px; margin-bottom: 48px; }
-      .toc { padding: 22px; }
-      section { padding-left: 18px; margin-bottom: 56px; }
+      .hero { padding: 72px 20px 56px; }
+      .toc { padding: 24px 22px; }
+      section { padding-left: 18px; margin-bottom: 64px; }
       .card-grid { grid-template-columns: 1fr; }
-      .data-table th, .data-table td { min-width: 190px; }
-    }
-
-    @media print {
-      body { padding-bottom: 0; }
-      .hero { margin-bottom: 40px; }
-      section { break-inside: avoid; }
-      .card, .highlight-box, .summary-box, .work-card, .table-wrap, .tl-content {
-        box-shadow: none;
-      }
+      .data-table { min-width: 560px; }
     }
   </style>
 </head>
 <body>
   <header class="hero">
     <span class="hero-tag">Money Psychology</span>
-    <h1>物欲を制御するお金の心理設計</h1>
-    <p class="hero-desc">節約を根性論で終わらせず、欲望が暴走する場面を見抜き、投資と満足度の両方を守るための判断ルールを一つの流れで整理した。</p>
+    <h1>物欲を整えるお金の心理設計</h1>
+    <p class="hero-desc">衝動買いは意志の弱さだけで起こるわけではない。感情、比較、高級志向の罠を見抜き、支出を未来の満足へつなげるための考え方を整理する。</p>
+    <p class="doc-subtitle">節約を我慢で終わらせず、72時間テストや自動積立、価値観の言語化まで含めて、買い物の判断を一段深く設計し直すための実践ガイド。</p>
   </header>
 
   <main>
     <nav class="toc">
       <div class="toc-title">目次</div>
       <ol>
-        <li><a href="#sec1">物欲管理は幸福と資産形成の土台になる</a></li>
-        <li><a href="#sec2">散財を生む4つの心理トリガーを知る</a></li>
-        <li><a href="#sec3">買う前に通す判断フィルターを持つ</a></li>
-        <li><a href="#sec4">意志より仕組みで無駄遣いを減らす</a></li>
-        <li><a href="#sec5">日常に落とす実践ルールを固定する</a></li>
+        <li><a href="#sec1">物欲管理はメンタルと資産形成の土台になる</a></li>
+        <li><a href="#sec2">散財を招く心理トリガーを先に知る</a></li>
+        <li><a href="#sec3">高級品と比較の罠から距離を取る</a></li>
+        <li><a href="#sec4">買う前に通す判断フィルターを固定する</a></li>
+        <li><a href="#sec5">意志より仕組みで支出を制御する</a></li>
+        <li><a href="#sec6">幸福度が上がるお金の使い方へ振り直す</a></li>
       </ol>
     </nav>
     <hr>
 
     <section id="sec1">
       <div class="section-label">Section 01</div>
-      <h2>物欲管理は幸福と資産形成の土台になる</h2>
-      <p class="intro-text">このテーマの要点は、物欲を抑え込むことではなく、お金の流れを自分に有利な形へ設計し直すことにある。特に感情の揺れやすさが大きい人ほど、収入と資産の安定が心理状態を支えやすい。</p>
-      <p>講義の出発点には、「お金は誰にでも同じ幸福をもたらすわけではない」という視点がある。感情の安定度や性格傾向によって、収入の安定や使い方が幸福感に与える影響は変わるため、物欲管理は単なる節約術ではなくメンタルの土台づくりでもある。</p>
-      <p>そのため、目指すべき状態は我慢の連続ではない。日々の収入は生活と投資を支え、消費は資産や副収入の余白から行う。この順序を守るだけで、買い物が不安の解消手段になりにくくなる。</p>
-      <div class="card-grid">
-        <div class="card">
-          <h3>お金の安定は感情の安定に直結しやすい</h3>
-          <p>支出や収入の変動に敏感な人ほど、生活防衛資金や投資残高の見通しがあるだけで心理負荷が下がる。</p>
-        </div>
-        <div class="card">
-          <h3>消費の満足度は順番で変わる</h3>
-          <p>先に投資や貯蓄を済ませてから使うお金は、罪悪感が少なく、満足度の高い支出として残りやすい。</p>
-        </div>
-        <div class="card">
-          <h3>節約の目的は我慢ではない</h3>
-          <p>余計な支出を減らすのは、本当に価値を感じる体験や知識にお金を回すためである。</p>
-        </div>
-        <div class="card">
-          <h3>副収入は緩衝材になる</h3>
-          <p>投資がまだ難しい段階でも、副業収入をクッションにすれば、浪費せずに消費と投資を分けやすくなる。</p>
-        </div>
+      <h2>物欲管理はメンタルと資産形成の土台になる</h2>
+      <p class="intro-text">物欲コントロールの本質は、欲望を消すことではなく、欲望が人生全体を乱さない順番へ並べ替えることにある。特に気分の揺れが支出に出やすい人ほど、お金の扱い方はメンタルの土台に直結しやすい。</p>
+      <p>お金が幸福をすべて決めるわけではないが、少なくとも不安を増やす支出構造は幸福を削りやすい。収入の安定、生活防衛資金、投資や副収入による余白があると、買い物を不安解消の手段にしにくくなる。</p>
+      <p>反対意見として、「お金では幸せになれないのだから細かく管理しても意味が薄い」という見方もある。これは半分正しいが、支出の乱れが不安を増幅する人にとっては不十分じゃ。お金そのものより、収入と支出を自分で扱えている感覚が心理状態を支えることが多い。</p>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>視点</th>
+              <th>起こりやすいこと</th>
+              <th>実務上の示唆</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>感情が揺れやすい人</td>
+              <td>収入や資産の変動がそのまま不安に結びつきやすい</td>
+              <td>生活費と投資資金を分け、安定を先に作る</td>
+            </tr>
+            <tr>
+              <td>満足度の高い消費</td>
+              <td>先に貯蓄や投資を済ませると、残りのお金を気持ちよく使いやすい</td>
+              <td>支出順序を「守る」より「先取り」で固定する</td>
+            </tr>
+            <tr>
+              <td>副収入の役割</td>
+              <td>本業以外の収入口があると、消費と投資の分離がしやすい</td>
+              <td>すぐ使うお金と将来へ回すお金の境界を作る</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
       <div class="highlight-box">
-        <p><strong>要点:</strong> 物欲管理の目的は、欲望をなくすことではなく、欲望が人生全体を乱さない配置に変えることにある。資産形成とメンタル安定を同じ設計図で扱うと、無理のないコントロールがしやすい。</p>
+        <p><strong>要点:</strong> 物欲管理は節約術というより、幸福度を下げる支出の流れを止める生活設計である。安心を先に作り、その後に消費を置く順番へ変えるだけで、買い物の意味がかなり変わる。</p>
       </div>
     </section>
 
     <section id="sec2">
       <div class="section-label">Section 02</div>
-      <h2>散財を生む4つの心理トリガーを知る</h2>
-      <p class="intro-text">無駄遣いは意志の弱さだけで起こるわけではない。多くは、判断をゆがめる定番の心理トリガーに引き込まれた結果として起こる。</p>
-      <p>講義では、セール、臨時収入、支払いの痛みの麻痺、公平感やアンカリングといった要素が繰り返し扱われている。これらは単独でも強いが、同時に重なると購入判断をかなり乱しやすい。</p>
+      <h2>散財を招く心理トリガーを先に知る</h2>
+      <p class="intro-text">無駄遣いは、意志が一度負けた結果ではなく、判断を崩す刺激が何層にも重なった結果として起こりやすい。まずは、どこで判断がねじれるかを先に見抜く必要がある。</p>
+      <p>典型的なのは、セールによる錯覚、臨時収入の別財布化、カード決済で支払いの痛みが消えること、公平感や最初の価格へ引きずられることじゃ。さらに、自尊心が落ちている場面や、信頼できそうな顔の相手に流される場面も、支出を増やす引き金になりやすい。</p>
       <div class="table-wrap">
         <table class="data-table">
           <thead>
             <tr>
-              <th>心理トリガー</th>
-              <th>起こること</th>
+              <th>トリガー</th>
+              <th>何が起こるか</th>
               <th>崩れやすい判断</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td>セールの錯覚</td>
-              <td>価格の安さが価値の高さに見えてしまう</td>
-              <td>「安いから得」という理由だけで買う</td>
+              <td>安さが価値の高さに見えてしまう</td>
+              <td>予定外の物まで「今しかない」で買う</td>
             </tr>
             <tr>
               <td>感情会計</td>
-              <td>ボーナスやポイントを別財布として扱い、気が大きくなる</td>
-              <td>臨時収入を通常より雑に使う</td>
+              <td>ボーナスやポイントを通常収入と別扱いし、気が大きくなる</td>
+              <td>臨時収入だけ雑に使ってしまう</td>
             </tr>
             <tr>
               <td>支払いの痛みの麻痺</td>
-              <td>カードやワンクリック決済で損失感覚が弱くなる</td>
-              <td>総額を見ずに小さな快楽で決める</td>
+              <td>ワンクリック決済で総額の重みが消える</td>
+              <td>小さな快感で判断し、後から後悔する</td>
             </tr>
             <tr>
               <td>公平感とアンカリング</td>
-              <td>最初に見た価格や値付けの印象に引きずられる</td>
-              <td>自分の価値基準ではなく、相場感だけで判断する</td>
+              <td>最初に見た価格や値付けの印象へ引っ張られる</td>
+              <td>自分の価値基準ではなく相場感で決める</td>
+            </tr>
+            <tr>
+              <td>自尊心の低下と顔バイアス</td>
+              <td>落ち込んだときや信頼できそうな相手に財布が緩む</td>
+              <td>感情回復や印象でお金を出してしまう</td>
             </tr>
           </tbody>
         </table>
       </div>
-      <p>反対意見として、「安く買えるなら得なのだからセール活用は合理的だ」という見方もある。これは半分正しく、半分危うい。もともと買う予定だった必需品なら合理的だが、値引きが欲求そのものを作っているなら、節約ではなく出費の追加になっている可能性が高い。</p>
+      <p>もし「自分は顔で判断しないし、値段にも流されない」と感じていても、実際にはその自信こそ危ういことがある。バイアスは気づいていない時ほど強く効くので、主観の自信より手順の固定を優先した方が安全じゃ。</p>
       <div class="highlight-box">
-        <p><strong>見分け方:</strong> 判断がぶれているときは、価格、タイミング、気分のどれに引っ張られているかを分けて考えるとよい。価値ではなく刺激に反応しているなら、その買い物は一度止める価値がある。</p>
+        <p><strong>見分け方:</strong> 買いたい理由を一文で書けないときは、価値ではなく刺激に反応している可能性が高い。価格、気分、相手、タイミングのどれが効いているかを分解すると、衝動はかなり弱くなる。</p>
       </div>
     </section>
 
     <section id="sec3">
       <div class="section-label">Section 03</div>
-      <h2>買う前に通す判断フィルターを持つ</h2>
-      <p class="intro-text">物欲をなくすよりも効果的なのは、購入判断の前に通す問いを固定しておくことだ。問いが先にあれば、感情が先に走っても判断を戻しやすい。</p>
-      <p>講義の内容を整理すると、買い物前の判断は「価格」ではなく「価値」「機会費用」「低減予測」の3方向から見ると崩れにくい。ここで大切なのは、買わない理由を探すことではなく、本当に残したい支出だけを選ぶことである。</p>
+      <h2>高級品と比較の罠から距離を取る</h2>
+      <p class="intro-text">物欲が強くなる場面では、未来の高揚感ばかりが膨らみ、購入後の現実が見えにくくなる。そこを戻すのに役立つのが、過去の使用体験や比較枠そのものを見直す発想である。</p>
+      <p>高級品の魅力は、所有した後の実用より前に、所有する前の気分を盛り上げることで強くなる。その熱を下げるには、過去に似た物をどう使い、どこで飽き、何が不便だったかを思い出すリフレクションが有効じゃ。機能へ目が戻ると、ロゴや演出の比率が見えやすくなる。</p>
       <div class="card-grid">
         <div class="card">
-          <h3>セール抜きでも買うか</h3>
-          <p>値引き表示を外したときに欲しいかを問う。答えが曖昧なら、欲しいのは商品ではなく割引体験かもしれない。</p>
+          <h3>リフレクションで機能へ戻す</h3>
+          <p>最近買った似た物の使い道、満足度、飽きるまでの時間を思い出すと、欲求の熱より実用の輪郭が先に見えてくる。</p>
         </div>
         <div class="card">
-          <h3>自分の時間でいくらか</h3>
-          <p>価格を労働時間や月収比率に置き換えると、支払いの痛みを現実のものとして再確認しやすくなる。</p>
+          <h3>デコイ効果を疑う</h3>
+          <p>三択のうち一つが露骨に弱いときは、選ばせたい本命が隠れていることが多い。提示された枠の中で最適化しないことが重要である。</p>
         </div>
         <div class="card">
-          <h3>何を失って買うのか</h3>
-          <p>同じ金額で買える別の選択肢や、将来の投資元本を失うと考えると、機会費用が見えやすい。</p>
+          <h3>グローバル思考で比較軸を広げる</h3>
+          <p>その金額で他に何ができるか、人生のどこが変わるかを考えると、商品内比較から抜けやすい。</p>
         </div>
         <div class="card">
-          <h3>どれくらいで飽きるか</h3>
-          <p>過去に似た買い物へ飽きた期間を思い出し、価値の低減速度を予測すると、衝動買いの熱が冷めやすい。</p>
+          <h3>お金を意識しすぎない</h3>
+          <p>お金のことばかり考える状態は、小さな喜びを味わう力まで削りやすい。稼ぐ時間と楽しむ時間を分ける意識が必要である。</p>
         </div>
       </div>
-      <h3>価格が高くても買うべき場面はある</h3>
-      <p>ここで誤解してはいけないのは、すべての高額支出を否定する話ではないという点である。本当に欲しいもの、長く使うもの、人生の質を上げる体験には、値段だけでなく納得感で判断する余地がある。妥協した三つより、強く望んだ一つの方が幸福度が高いことは珍しくない。</p>
+      <p>もちろん、高級品がすべて悪いわけではない。もしその支出が学び、関係性、記憶に残る体験へつながるなら、単なる見栄の消費とは意味が違う。ただし、その区別を曖昧にしたまま買うと、満足感は長続きしにくいのじゃ。</p>
       <div class="highlight-box">
-        <p><strong>判断基準:</strong> 「安いから買う」をやめて、「高くても欲しいか」「将来まで納得できるか」に軸を移すと、支出総額は下がりやすいのに満足度はむしろ上がりやすい。</p>
+        <p><strong>代替案との比較:</strong> 「欲しい気持ちを我慢する」だけでは再発しやすい。一方で、比較の枠を広げ、過去の使用実感を呼び戻す方法は、欲求の熱そのものを下げやすい。</p>
       </div>
     </section>
 
     <section id="sec4">
       <div class="section-label">Section 04</div>
-      <h2>意志より仕組みで無駄遣いを減らす</h2>
-      <p class="intro-text">誘惑に強い人になるより、誘惑が通りにくい環境を作る方が再現性は高い。講義でいうユリシーズ法は、この発想をお金に応用したものである。</p>
-      <p>人は目の前に選択肢があると迷う。だからこそ、使えるお金を最初から減らす、自動積立に回す、パスワードや決済導線を遠ざけるといった方法が効く。自由意志を信じすぎない設計は、弱さを前提にした実務的な戦略である。</p>
-      <div class="timeline">
-        <div class="tl-item">
-          <div class="tl-marker"></div>
-          <div class="tl-content">
-            <span class="tl-phase">Phase 1</span>
-            <h4>臨時収入の配分を先に決める</h4>
-            <p>ボーナス、還付金、ポイント収益などは、受け取った瞬間ではなく、受け取る前に貯蓄・投資・予備費へ配分比率を決めておく。</p>
-          </div>
+      <h2>買う前に通す判断フィルターを固定する</h2>
+      <p class="intro-text">感情が先に走ること自体は止めにくい。だからこそ、買う前に通る問いを固定しておくと、判断を戻す手すりができる。</p>
+      <p>ここで使いやすいのが、セール抜きで欲しいか、自分の労働時間でいくらか、何を失って買うのか、どれくらいで飽きそうかを問う基本フィルターじゃ。さらに詳細版として強力なのが、72時間テストとオーバーナイトテストである。</p>
+      <div class="card-grid">
+        <div class="card">
+          <h3>セール抜きでも買うか</h3>
+          <p>値引き表示を外しても欲しいなら価値に近い。外した途端に熱が下がるなら、欲しいのは商品より割引体験かもしれない。</p>
         </div>
-        <div class="tl-item">
-          <div class="tl-marker"></div>
-          <div class="tl-content">
-            <span class="tl-phase">Phase 2</span>
-            <h4>自動積立で先取りする</h4>
-            <p>給料日直後に別口座や投資口座へ自動で移す。残ったお金で生活する形にすると、毎回の意志決定が不要になる。</p>
-          </div>
+        <div class="card">
+          <h3>自分の時間でいくらか</h3>
+          <p>価格を労働時間や月収比率に置き換えると、支払いの痛みを現実へ戻しやすい。</p>
         </div>
-        <div class="tl-item">
-          <div class="tl-marker"></div>
-          <div class="tl-content">
-            <span class="tl-phase">Phase 3</span>
-            <h4>決済導線をわざと不便にする</h4>
-            <p>通販アプリを消す、カード情報を保存しない、特定サービスのパスワード管理を分けるなど、衝動を行動へ変えにくくする。</p>
-          </div>
+        <div class="card">
+          <h3>72時間テスト</h3>
+          <p>欲しい物はすぐ買わず、後で買うリストへ移し、三日後に再判定する。衝動は短命なので、時間がかなり有効なフィルターになる。</p>
         </div>
-        <div class="tl-item">
-          <div class="tl-marker"></div>
-          <div class="tl-content">
-            <span class="tl-phase">Phase 4</span>
-            <h4>使わなかったお金の将来価値を見る</h4>
-            <p>浪費しそうになった金額を投資に回した場合の将来価値を簡単に計算し、今の快楽と将来の余白を比較できるようにする。</p>
-          </div>
+        <div class="card">
+          <h3>オーバーナイトテスト</h3>
+          <p>持ち物をすべて失ったとしても買い戻したいかを考える。買い戻したい物だけが、自分の価値観に近い支出である。</p>
         </div>
-      </div>
-      <div class="highlight-box">
-        <p><strong>代替案との比較:</strong> 家計簿だけで管理する方法は把握には役立つが、誘惑の瞬間を止める力は弱めである。即効性を重視するなら、記録より先に「使えない状態を作る」方が効きやすい。</p>
-      </div>
-    </section>
-
-    <section id="sec5">
-      <div class="section-label">Section 05</div>
-      <h2>日常に落とす実践ルールを固定する</h2>
-      <p class="intro-text">最後に必要なのは、一度理解した理屈を毎日の選択へ戻す仕組みである。ここでは、講義の内容を日常で再現するための小さな運用ルールへ落とし込む。</p>
-      <p>特に有効なのが、毎日を一直線ではなく反復するサイクルとして捉える考え方である。今日の判断は明日の例外ではなく、次の判断の型になる。そう見るだけで、「また今度からやる」という先送りが減りやすい。</p>
-      <div class="table-wrap">
-        <table class="data-table">
-          <thead>
-            <tr>
-              <th>もしこうなら</th>
-              <th>採るべきルール</th>
-              <th>狙い</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>セールに弱い</td>
-              <td>欲しい物リストを先に作り、リスト外は値引きでも買わない</td>
-              <td>割引ではなく事前計画で判断する</td>
-            </tr>
-            <tr>
-              <td>臨時収入で気が大きくなる</td>
-              <td>入金前に配分比率を固定し、自動で移す</td>
-              <td>感情会計を断つ</td>
-            </tr>
-            <tr>
-              <td>ネット通販で衝動買いしやすい</td>
-              <td>決済情報を保存せず、24時間保留を必須にする</td>
-              <td>衝動の熱が下がる時間を作る</td>
-            </tr>
-            <tr>
-              <td>高額商品の印象に流される</td>
-              <td>事前に相場と欠点を調べ、比較対象を自分で持つ</td>
-              <td>アンカリングを弱める</td>
-            </tr>
-          </tbody>
-        </table>
       </div>
       <div class="work-card">
         <div class="work-title">
@@ -508,26 +450,110 @@
             <rect x="2" y="2" width="12" height="12" rx="2"></rect>
             <path d="M5 8l2 2 4-4"></path>
           </svg>
-          今週の運用チェック
+          購入前の確認順
         </div>
         <ul>
-          <li>買い物前に「セール抜きでも買うか」を一度書き出す</li>
-          <li>臨時収入の配分ルールを一つだけ決めて固定する</li>
-          <li>自動積立または別口座への先取り設定を一件見直す</li>
-          <li>欲しい物が出たら、価格・欠点・飽きる時期を並べてから判断する</li>
-          <li>一日の終わりに、今日の支出が明日も繰り返してよい行動かを確認する</li>
+          <li>その商品を定価でも欲しいかを確認する</li>
+          <li>価格を時間、月収、将来投資の損失に置き換える</li>
+          <li>72時間待てる物か、それとも本当に生活必需かを切り分ける</li>
+          <li>似た物へどれくらいで飽きたかを思い出す</li>
+          <li>全部失っても買い戻すかを最後に問う</li>
         </ul>
+      </div>
+      <div class="highlight-box">
+        <p><strong>判断基準:</strong> 安いから買うのではなく、時間を置いても残る価値へお金を使う。そう切り替えると、支出総額は下がりやすいのに、満足度はむしろ上がりやすい。</p>
       </div>
     </section>
 
-    <hr>
+    <section id="sec5">
+      <div class="section-label">Section 05</div>
+      <h2>意志より仕組みで支出を制御する</h2>
+      <p class="intro-text">欲望を毎回正面からねじ伏せるのは効率が悪い。再現性を上げるなら、そもそも使いすぎにくい環境を先に作った方がよい。</p>
+      <p>ここで役立つのが、ユリシーズ法の発想である。使えるお金を先に減らす、臨時収入の配分を前もって決める、通販の導線をわざと不便にする。こうした設計は、自分の弱さを前提にした堅実な対策じゃ。</p>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-marker"></div>
+          <div class="tl-content">
+            <span class="tl-phase">Phase 1</span>
+            <h4>お金の意味を一文で決める</h4>
+            <p>お金は安心の源泉か、自由の道具か、成長の燃料か。自分なりの短い定義を持つと、支出判断の基準がぶれにくくなる。</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-marker"></div>
+          <div class="tl-content">
+            <span class="tl-phase">Phase 2</span>
+            <h4>臨時収入の配分を先に決める</h4>
+            <p>ボーナスや還付金は受け取った後で考えない。貯蓄、投資、予備費の比率を先に固定して、感情会計を切る。</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-marker"></div>
+          <div class="tl-content">
+            <span class="tl-phase">Phase 3</span>
+            <h4>自動積立と別口座で先取りする</h4>
+            <p>給料日に別口座へ自動移動させると、残りで暮らす形になる。意志ではなく構造で支出を抑えられる。</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-marker"></div>
+          <div class="tl-content">
+            <span class="tl-phase">Phase 4</span>
+            <h4>決済導線を不便にする</h4>
+            <p>カード情報を保存しない、通販アプリを消す、買い物サイトをブックマークしない。衝動が行動へ変わる速さを落とす。</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-marker"></div>
+          <div class="tl-content">
+            <span class="tl-phase">Phase 5</span>
+            <h4>毎日をサイクルとして扱う</h4>
+            <p>今日の支出は一度きりの例外ではなく、明日も繰り返す型になりうる。そう考えると、先送りや例外処理が減りやすい。</p>
+          </div>
+        </div>
+      </div>
+      <div class="highlight-box">
+        <p><strong>もし家計簿だけで管理しているなら:</strong> 把握には役立つが、誘惑の瞬間を止める力は弱めじゃ。記録の前に、先取り、自動化、不便化の三つを優先した方が、短期の改善確率は高い。</p>
+      </div>
+    </section>
 
-    <section>
-      <div class="section-label">Summary</div>
-      <h2>まとめ</h2>
+    <section id="sec6">
+      <div class="section-label">Section 06</div>
+      <h2>幸福度が上がるお金の使い方へ振り直す</h2>
+      <p class="intro-text">物欲を抑えるだけでは、支出の方向が空白になる。最後に必要なのは、減らしたお金をどこへ向けると満足度が高まるかを決めることである。</p>
+      <p>詳細版で重要なのは、自己決定論に沿ったお金の使い方じゃ。自分の意思で選び、何かを成長させ、周囲との関係を良くする支出は、単なる贅沢より幸福へつながりやすい。学び、体験、対話、人間関係に資する支出は、物としての消費を超えて残りやすい。</p>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>自己決定の軸</th>
+              <th>満たされる感覚</th>
+              <th>お金の使い方の例</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>自立感</td>
+              <td>自分で選んでいる感覚</td>
+              <td>見栄ではなく、自分の価値観に沿った支出を選ぶ</td>
+            </tr>
+            <tr>
+              <td>有能感</td>
+              <td>学習や成長が進む感覚</td>
+              <td>本、講座、道具、練習機会など成長に返る支出へ回す</td>
+            </tr>
+            <tr>
+              <td>関係性</td>
+              <td>人とのつながりが深まる感覚</td>
+              <td>会話が増える体験、贈り物、時間共有に投資する</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>もし高価な物を買うとしても、その先に成長や関係性があるかで意味は変わる。同じワインでも、見栄の証明で終わるなら満足は短いが、知識や会話、人とのつながりへ変わるなら別の価値になる。ゆえに重要なのは値段の大小ではなく、支出の出口じゃ。</p>
       <div class="summary-box">
-        <p>物欲コントロールは、我慢の強さを競う話ではなく、判断を狂わせるトリガーを先に見抜き、行動を仕組みで支える設計の話である。</p>
-        <p>セール、感情会計、支払いの麻痺、アンカリングを理解し、価値と機会費用で買い物を選び直せば、支出総額を抑えながら本当に欲しいものへ資源を集中しやすくなる。</p>
+        <p>物欲コントロールは、欲望をゼロにする話ではない。感情や比較の罠を理解し、時間と仕組みで判断を守り、本当に育てたい人生の方向へお金を振り直す話である。</p>
+        <p>支出を減らすだけでなく、自立感、有能感、関係性が増える使い方へ資源を移せば、我慢ではなく納得でお金を整えられる。</p>
       </div>
     </section>
   </main>
