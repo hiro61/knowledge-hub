@@ -8,7 +8,7 @@ const FAVORITES_KEY = "kh_favorites";
 const GENRE_COLORS = {
   "健康":           { bg: "rgba(168, 210, 191, 0.16)", border: "rgba(168, 210, 191, 0.36)", text: "#cfeadc", dot: "#a8d2bf", glow: "rgba(168, 210, 191, 0.16)" },
   "AI・技術":       { bg: "rgba(158, 193, 222, 0.16)", border: "rgba(158, 193, 222, 0.36)", text: "#d4e3f1", dot: "#9ec1de", glow: "rgba(158, 193, 222, 0.16)" },
-  "理学療法":       { bg: "rgba(185, 174, 219, 0.16)", border: "rgba(185, 174, 219, 0.36)", text: "#dcd4ee", dot: "#b9aedb", glow: "rgba(185, 174, 219, 0.16)" },
+  "理学療法":       { bg: "rgba(143, 188, 201, 0.16)", border: "rgba(143, 188, 201, 0.36)", text: "#d7e8ee", dot: "#8fbcc9", glow: "rgba(143, 188, 201, 0.16)" },
   "副業・ビジネス": { bg: "rgba(234, 215, 162, 0.16)", border: "rgba(234, 215, 162, 0.36)", text: "#ecdfb6", dot: "#ead7a2", glow: "rgba(234, 215, 162, 0.16)" },
   "ライフスタイル": { bg: "rgba(233, 178, 154, 0.16)", border: "rgba(233, 178, 154, 0.36)", text: "#ecc7b3", dot: "#e9b29a", glow: "rgba(233, 178, 154, 0.16)" },
   "人間関係":       { bg: "rgba(217, 167, 182, 0.16)", border: "rgba(217, 167, 182, 0.36)", text: "#ebc4cf", dot: "#d9a7b6", glow: "rgba(217, 167, 182, 0.16)" },
@@ -23,7 +23,8 @@ const GENRE_ICONS = {
   "人間関係": `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="8" r="3"/><circle cx="16" cy="10" r="3"/><path d="M3.5 19c.9-2.3 3-3.5 5.5-3.5S13.6 16.7 14.5 19"/><path d="M10.5 19c.7-1.9 2.4-3 4.5-3 2 0 3.7 1.1 4.5 3"/></svg>`,
 };
 
-const GENRE_ORDER = ["ライフスタイル", "健康", "副業・ビジネス", "人間関係", "AI・技術", "理学療法"];
+const GENRE_ORDER = ["ライフスタイル", "健康", "理学療法", "副業・ビジネス", "人間関係", "AI・技術"];
+const PINNED_GENRES = ["理学療法"];
 
 let allArticles = [];
 let currentTab = "new";
@@ -163,7 +164,8 @@ function renderGenreTab(articles) {
     genreMap.get(article.genre).push(article);
   });
 
-  const entries = sortGenreEntries(Array.from(genreMap.entries()));
+  const genreNames = Array.from(new Set([...PINNED_GENRES, ...genreMap.keys()]));
+  const entries = sortGenreEntries(genreNames.map(genre => [genre, genreMap.get(genre) || []]));
   if (!entries.length) {
     contentArea.appendChild(createEmptyState({
       title: "ジャンルがまだありません",
@@ -226,6 +228,14 @@ function createGenreArticleSection(genre, items) {
       <p class="genre-articles-header__meta">${escapeHtml(String(items.length))} stories</p>
     </div>
   `;
+  if (!items.length) {
+    section.appendChild(createEmptyState({
+      title: `${genre}の記事はまだありません`,
+      text: "今後このジャンルで公開した記事が、ここに掲載されます。",
+      icon: GENRE_ICONS[genre] || searchIcon(),
+    }));
+    return section;
+  }
   section.appendChild(createArticleGrid(items));
   return section;
 }
