@@ -443,6 +443,21 @@
       ],
       "readTime": 5,
       "file": "articles/kakugo_03.html"
+    },
+    {
+      "id": 47,
+      "title": "変わる勇気の作り方",
+      "genre": "ライフスタイル",
+      "date": "2026-05-25",
+      "summary": "変化が怖いのは意志が弱いからではない。不安の正体を見抜き、小さく試し、続けられる形に変えることで、人は少しずつ新しい自分に慣れていける。",
+      "tags": [
+        "変化",
+        "心理学",
+        "習慣",
+        "自己効力感"
+      ],
+      "readTime": 4,
+      "file": "articles/kawaru_yuki_no_tsukurikata.html"
     }
   ]
 }
