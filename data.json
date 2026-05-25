@@ -398,6 +398,21 @@
       ],
       "readTime": 6,
       "file": "articles/desire_control_method.html"
+    },
+    {
+      "id": 44,
+      "title": "覚悟01",
+      "genre": "ライフスタイル",
+      "date": "2026-05-25",
+      "summary": "覚悟は気合いではなく、自分の価値観を言語化し、毎日の行動へ落とし込む設計である。心のコンパスを定め、迷いを減らし、逆境に強い意思決定をつくるための手順を整理する。",
+      "tags": [
+        "覚悟",
+        "価値観",
+        "目標設定",
+        "自己理解"
+      ],
+      "readTime": 5,
+      "file": "articles/kakugo_compass_guide.html"
     }
   ]
 }
