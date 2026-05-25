@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>覚悟02</title>
+  <meta name="description" content="覚悟を行動へ変えるために、習慣化、環境設計、トリガー管理、完璧主義の手放し方を整理したビジネス資料風HTML。">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --hero-bg-from: #e8eef4;
+      --hero-bg-to: #f9fbfc;
+      --accent: #314e67;
+      --accent-sub: #657d96;
+      --bg-sub: #edf3f8;
+      --bg: #ffffff;
+      --bg-card: #ffffff;
+      --text: #111111;
+      --text-soft: #2b2b2b;
+      --rule: #d4dde5;
+      --max-w: 760px;
+      --font-ja: "Hiragino Mincho ProN","Yu Mincho","游明朝","Noto Serif JP",Georgia,serif;
+      --font-go: "Hiragino Kaku Gothic ProN","Yu Gothic","游ゴシック","Noto Sans JP",sans-serif;
+      --radius: 14px;
+      --shadow: 0 10px 26px rgba(20, 34, 52, 0.08);
+    }
+
+    html { font-size: 16px; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-ja);
+      line-height: 1.8;
+      -webkit-text-size-adjust: 100%;
+      padding: 0 0 100px;
+    }
+    main { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
+
+    .hero {
+      text-align: center;
+      padding: 84px 24px 64px;
+      background: linear-gradient(135deg, var(--hero-bg-from) 0%, var(--hero-bg-to) 100%);
+      border-bottom: 1px solid var(--rule);
+      margin-bottom: 64px;
+    }
+    .hero-tag {
+      display: inline-block;
+      font-family: var(--font-go);
+      font-size: 0.66rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent-sub);
+      background: var(--bg-sub);
+      border: 1px solid var(--rule);
+      border-radius: 999px;
+      padding: 4px 14px;
+      margin-bottom: 22px;
+    }
+    .hero h1 {
+      font-family: var(--font-go);
+      font-size: clamp(2rem, 6vw, 3rem);
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+      color: var(--text);
+      max-width: 12ch;
+      text-wrap: balance;
+      margin: 0 auto 16px;
+    }
+    .hero-desc {
+      font-family: var(--font-go);
+      font-size: 1rem;
+      color: var(--text);
+      line-height: 1.75;
+      max-width: 580px;
+      margin: 0 auto;
+    }
+
+    .toc {
+      background: var(--bg-sub);
+      border-radius: var(--radius);
+      padding: 28px 32px;
+      margin-bottom: 48px;
+    }
+    .toc-title {
+      font-family: var(--font-go);
+      font-size: 0.66rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent-sub);
+      margin-bottom: 14px;
+    }
+    .toc ol { padding-left: 1.4em; }
+    .toc li {
+      font-family: var(--font-go);
+      font-size: 0.92rem;
+      line-height: 1.75;
+      margin-bottom: 6px;
+      color: var(--text);
+    }
+    .toc a {
+      color: var(--text);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+    .toc a:hover { border-bottom-color: var(--accent); }
+
+    hr { border: none; border-top: 1px solid var(--rule); margin: 56px 0; }
+
+    section {
+      margin-bottom: 72px;
+      padding-left: 24px;
+      border-left: 3px solid var(--accent);
+    }
+    .section-label {
+      display: inline-block;
+      font-family: var(--font-go);
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--accent-sub);
+      margin-bottom: 10px;
+    }
+    h2 {
+      font-family: var(--font-go);
+      font-size: clamp(1.45rem, 4vw, 2rem);
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      line-height: 1.25;
+      margin-bottom: 16px;
+      color: var(--text);
+    }
+    .intro-text {
+      font-size: 0.98rem;
+      color: var(--text);
+      line-height: 1.85;
+      margin-bottom: 28px;
+      font-style: italic;
+    }
+    h3 {
+      font-family: var(--font-go);
+      font-size: 1.05rem;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      margin-bottom: 10px;
+      margin-top: 28px;
+      color: var(--text);
+    }
+    p { font-size: 0.98rem; line-height: 1.85; margin-bottom: 14px; color: var(--text); }
+    ul, ol { padding-left: 1.5em; margin-bottom: 16px; }
+    li { font-size: 0.95rem; line-height: 1.85; margin-bottom: 7px; color: var(--text); }
+    li::marker { color: var(--accent-sub); }
+
+    .card {
+      background: var(--bg-card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--rule);
+      padding: 28px 30px;
+      margin: 16px 0;
+    }
+    .card h3 { margin-top: 0; margin-bottom: 12px; font-size: 1rem; }
+    .card p:last-child, .card ul:last-child { margin-bottom: 0; }
+    .card-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 20px 0;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      margin: 24px 0;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+      background: var(--bg-card);
+    }
+    .data-table thead tr { background: var(--text); color: #ffffff; }
+    .data-table th {
+      font-family: var(--font-go);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 14px 18px;
+      text-align: left;
+    }
+    .data-table td {
+      padding: 13px 18px;
+      border-bottom: 1px solid var(--rule);
+      line-height: 1.7;
+      color: var(--text);
+      vertical-align: top;
+    }
+    .data-table tbody tr:last-child td { border-bottom: none; }
+
+    .timeline { position: relative; padding-left: 28px; margin: 24px 0; }
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 8px;
+      bottom: 8px;
+      width: 2px;
+      background: var(--rule);
+    }
+    .tl-item { position: relative; margin-bottom: 26px; }
+    .tl-marker {
+      position: absolute;
+      left: -34px;
+      top: 7px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 2px solid var(--bg);
+      box-shadow: 0 0 0 2px var(--rule);
+    }
+    .tl-content {
+      background: var(--bg-card);
+      border-radius: var(--radius);
+      border: 1px solid var(--rule);
+      padding: 20px 24px;
+      box-shadow: var(--shadow);
+    }
+    .tl-phase {
+      display: inline-block;
+      font-family: var(--font-go);
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent-sub);
+      background: var(--bg-sub);
+      border-radius: 999px;
+      padding: 2px 10px;
+      margin-bottom: 8px;
+    }
+    .tl-content h4 {
+      font-family: var(--font-go);
+      font-size: 0.96rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+    .tl-content p { font-size: 0.9rem; margin-bottom: 0; }
+
+    .highlight-box {
+      background: var(--bg-sub);
+      border-radius: var(--radius);
+      border: 1px solid var(--rule);
+      border-left: 4px solid var(--accent-sub);
+      padding: 20px 24px;
+      margin: 24px 0;
+    }
+    .highlight-box p:last-child { margin-bottom: 0; }
+
+    @media (max-width: 720px) {
+      main { padding: 0 18px; }
+      .hero { padding: 64px 18px 52px; margin-bottom: 48px; }
+      .toc { padding: 22px 20px; }
+      section { padding-left: 18px; margin-bottom: 56px; }
+      .card, .tl-content { padding: 20px 18px; }
+      .card-grid { grid-template-columns: 1fr; }
+      .data-table th, .data-table td { padding: 12px 14px; }
+    }
+
+    @media print {
+      body { padding-bottom: 0; }
+      .hero { padding-top: 48px; padding-bottom: 40px; }
+      section, .card, .highlight-box, .table-wrap, .tl-item { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <span class="hero-tag">HABIT CHANGE</span>
+    <h1>覚悟02</h1>
+    <p class="hero-desc">覚悟は強い気持ちだけでは続かない。行動変容を起こすには、習慣を小さく始め、環境を整え、反復で自動化する設計が要る。</p>
+  </header>
+
+  <main>
+    <nav class="toc">
+      <div class="toc-title">目次</div>
+      <ol>
+        <li><a href="#sec1">覚悟だけでは人生は変わらず、行動変容が分岐点になる</a></li>
+        <li><a href="#sec2">習慣化は意思の強さよりも環境設計で決まる</a></li>
+        <li><a href="#sec3">小さく始めるほど、習慣は自動化へ近づく</a></li>
+        <li><a href="#sec4">トリガーと摩擦を制すと、良い行動は続きやすい</a></li>
+        <li><a href="#sec5">完璧主義を捨て、一貫性の複利を回す</a></li>
+      </ol>
+    </nav>
+    <hr>
+
+    <section id="sec1">
+      <div class="section-label">SECTION 01</div>
+      <h2>覚悟だけでは人生は変わらず、行動変容が分岐点になる</h2>
+      <p class="intro-text">強い決意をしたのに生活が変わらない人は少なくない。理由は単純で、人生を動かすのは感情のピークではなく、毎日の行動の総量だからである。覚悟は方向を決めるが、現実を変えるのは行動変容である。</p>
+      <div class="card">
+        <h3>覚悟の役割を現実的に捉える</h3>
+        <p>覚悟は出発点としては重要じゃが、それ自体が成果を生むわけではない。行動が変わらぬままでは、脳も生活も同じ軌道を保ちやすく、未来も大きくは変わらぬのじゃ。ゆえに重要なのは、覚悟を毎日の反復へ接続することじゃのう。</p>
+      </div>
+      <div class="card-grid">
+        <div class="card">
+          <h3>止まりやすい考え方</h3>
+          <ul>
+            <li>強い意思があれば続くはずだと考える</li>
+            <li>最初から大きく変えようとする</li>
+            <li>一度崩れたら失敗だと見なす</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>進みやすい考え方</h3>
+          <ul>
+            <li>行動を仕組みで再現する</li>
+            <li>超小さな単位まで分解する</li>
+            <li>中断後の再開まで設計する</li>
+          </ul>
+        </div>
+      </div>
+      <div class="highlight-box">
+        <p>反対意見として「まずは気合いがないと始まらない」という見方もある。これは初速づくりには一定の妥当性があり、成功確率はおよそ30〜40%ほど押し上げる可能性があるじゃろう。ただし、数週間後まで残る再現性は、気合い単独では20%未満に落ちやすく、構造化した習慣設計の方が信頼度は高いと見るのが自然じゃ。</p>
+      </div>
+    </section>
+
+    <section id="sec2">
+      <div class="section-label">SECTION 02</div>
+      <h2>習慣化は意思の強さよりも環境設計で決まる</h2>
+      <p class="intro-text">成功している人ほど、毎回やる気を出しているわけではない。実際には、意志が弱くても動ける配置へ生活を寄せている。習慣化とは、気分に頼らず行動を起こせるように周囲を整える技術だと考えると理解しやすい。</p>
+      <p>良い習慣は手間を減らし、悪い習慣は手間を増やす。運動着を枕元に置く、仕事道具を前夜に開いておく、誘惑の強いアプリはログインの手間を増やす。この発想は地味じゃが、再現性は高いのじゃ。</p>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>観点</th>
+              <th>意思頼みの運用</th>
+              <th>環境設計の運用</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>開始のしやすさ</td>
+              <td>その日の気分に左右される</td>
+              <td>目に入った瞬間に始めやすい</td>
+            </tr>
+            <tr>
+              <td>失敗時の立て直し</td>
+              <td>自己嫌悪で止まりやすい</td>
+              <td>配置が残るので戻りやすい</td>
+            </tr>
+            <tr>
+              <td>継続率</td>
+              <td>短期的には高くても不安定</td>
+              <td>中長期で安定しやすい</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="highlight-box">
+        <p>もし生活環境を大きく変えられぬなら、机の上、寝床まわり、スマホのホーム画面だけでも変えるとよい。全面改造より局所改造の方が着手率は高く、初手としての成功確率は60〜70%ほど見込めるのう。</p>
+      </div>
+    </section>
+
+    <section id="sec3">
+      <div class="section-label">SECTION 03</div>
+      <h2>小さく始めるほど、習慣は自動化へ近づく</h2>
+      <p class="intro-text">習慣化の初期に必要なのは、大きな成果ではなく、脳に「これは日常の一部だ」と学習させることじゃ。そのためには、負荷を下げて反復回数を稼ぐ方が合理的である。小さく始めることは妥協ではなく、むしろ加速装置なのじゃ。</p>
+      <div class="card-grid">
+        <div class="card">
+          <h3>既存習慣に紐づける</h3>
+          <p>コーヒーを淹れた後に単語を一つ見る、歯磨きの後に深呼吸を三回するなど、既にある行動の直後へ新習慣を差し込む。ゼロから思い出すより失敗しにくい。</p>
+        </div>
+        <div class="card">
+          <h3>超小目標で始める</h3>
+          <p>筋トレ一回、読書一行、日記一文でもよい。開始のハードルを極小化すると、脳は抵抗より実行の記録を残しやすくなる。</p>
+        </div>
+      </div>
+      <div class="card">
+        <h3>21日神話より、反復設計を見る</h3>
+        <p>習慣は一律で21日あれば定着する、という見方は単純化が強すぎる。実際には個人差も行動差も大きく、66日前後を目安にしつつ、難しい行動はそれ以上かかる前提で見積もる方が現実的じゃ。短期で結果を断定せず、2〜3か月単位で見る方が判断として妥当じゃのう。</p>
+      </div>
+      <div class="highlight-box">
+        <p>代替案として、最初から高い目標を掲げて一気に生活を変える方法もある。短期集中型に向く人も5〜15%ほどはおるじゃろうが、疲労や予定変更に弱く、一般には小目標方式の方が再現性が高いと見てよい。</p>
+      </div>
+    </section>
+
+    <section id="sec4">
+      <div class="section-label">SECTION 04</div>
+      <h2>トリガーと摩擦を制すと、良い行動は続きやすい</h2>
+      <p class="intro-text">人の行動は意思決定の産物である前に、流れの産物でもある。同じ場所、同じ時間、同じ前行動が揃うと、脳は自動的に次の行動を起こしやすくなる。ゆえに、習慣化ではトリガー管理と摩擦調整が中核になる。</p>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-marker"></div>
+          <div class="tl-content">
+            <span class="tl-phase">STEP 1</span>
+            <h4>開始条件を一つに絞る</h4>
+            <p>いつ、どこで、何の直後にやるかを固定する。曖昧さを減らすだけで開始率は上がりやすい。</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-marker"></div>
+          <div class="tl-content">
+            <span class="tl-phase">STEP 2</span>
+            <h4>良い習慣の摩擦を削る</h4>
+            <p>使う物を前に出し、準備を前倒しし、最初の一歩を短くする。これだけで実行までの心理距離が縮まる。</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-marker"></div>
+          <div class="tl-content">
+            <span class="tl-phase">STEP 3</span>
+            <h4>悪い習慣の摩擦を増やす</h4>
+            <p>充電器を遠ざける、通知を切る、ログイン手順を増やすなど、無意識で触れにくくする。悪習慣の勢いを削ぐには有効じゃ。</p>
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-marker"></div>
+          <div class="tl-content">
+            <span class="tl-phase">STEP 4</span>
+            <h4>中断時の代替行動を決めておく</h4>
+            <p>残業でジムへ行けぬ日は自宅で三分動く、読書できぬ日は一行だけ読む。失敗後の再開ルートを先に持つのが肝要じゃ。</p>
+          </div>
+        </div>
+      </div>
+      <div class="card-grid">
+        <div class="card">
+          <h3>良い摩擦削減の例</h3>
+          <ul>
+            <li>運動靴を玄関に置く</li>
+            <li>朝の机にノートを開いておく</li>
+            <li>学習アプリを一番目立つ位置へ置く</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>悪い摩擦追加の例</h3>
+          <ul>
+            <li>スマホを寝室から外す</li>
+            <li>娯楽アプリを削除または再ログイン制にする</li>
+            <li>夜更かし機器にタイマーをかける</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="sec5">
+      <div class="section-label">SECTION 05</div>
+      <h2>完璧主義を捨て、一貫性の複利を回す</h2>
+      <p class="intro-text">習慣化の最大の敵は怠惰だけではない。むしろ、完璧にやれなかった日の自己否定の方が継続を壊しやすい。重要なのは毎日百点を取ることではなく、長期で戻り続けることじゃ。</p>
+      <p>一日や二日の中断は、それ自体では致命傷になりにくい。むしろ、再開の回数を重ねるほど「自分は戻れる」という自己効力感が育ち、継続の土台が強くなる。小さな改善を積み上げる複利型の戦略が、最終的には大きな差になるのう。</p>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>場面</th>
+              <th>完璧主義の反応</th>
+              <th>一貫性重視の反応</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1日休んだ</td>
+              <td>計画崩壊とみなして止まる</td>
+              <td>翌日に最小単位で再開する</td>
+            </tr>
+            <tr>
+              <td>忙しくて時間がない</td>
+              <td>今日は無理だと切り捨てる</td>
+              <td>3分版へ縮小して続ける</td>
+            </tr>
+            <tr>
+              <td>成果が見えない</td>
+              <td>やり方が悪いと即断する</td>
+              <td>期間・頻度・摩擦を見直す</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="highlight-box">
+        <p>もし「毎日できないなら意味がない」と感じるなら、その前提自体を疑うべきじゃ。毎日実行の方が習慣化は早まりやすいが、毎日できぬ人でも週単位で戻り続ければ十分に前進する。わしの見立てでは、継続の成否は意志の強度より、再開戦略の有無で7割方決まるのじゃ。</p>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

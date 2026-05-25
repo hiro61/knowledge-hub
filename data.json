@@ -413,6 +413,20 @@
       ],
       "readTime": 5,
       "file": "articles/kakugo_compass_guide.html"
+    },
+    {
+      "id": 45,
+      "title": "覚悟02",
+      "genre": "ライフスタイル",
+      "date": "2026-05-25",
+      "summary": "覚悟を行動へ変えるために、習慣化、環境設計、トリガー管理、完璧主義の手放し方を整理したビジネス資料風HTML。",
+      "tags": [
+        "覚悟",
+        "習慣化",
+        "行動変容"
+      ],
+      "readTime": 4,
+      "file": "articles/kakugo_02.html"
     }
   ]
 }
