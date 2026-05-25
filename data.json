@@ -458,6 +458,20 @@
       ],
       "readTime": 4,
       "file": "articles/kawaru_yuki_no_tsukurikata.html"
+    },
+    {
+      "id": 48,
+      "title": "本音と信頼を引き出す質問力",
+      "genre": "ライフスタイル",
+      "date": "2026-05-25",
+      "summary": "性格診断への依存を避けつつ、感情の観察、質問の順序、場の設計、自己開示の戦略までを整理した、質問力の実践ガイド。",
+      "tags": [
+        "コミュニケーション",
+        "質問力",
+        "信頼構築"
+      ],
+      "readTime": 5,
+      "file": "articles/questioning_power_practical_guide.html"
     }
   ]
 }
