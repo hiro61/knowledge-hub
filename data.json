@@ -472,6 +472,21 @@
       ],
       "readTime": 5,
       "file": "articles/questioning_power_practical_guide.html"
+    },
+    {
+      "id": 49,
+      "title": "質問力3",
+      "genre": "人間関係",
+      "date": "2026-05-25",
+      "summary": "命令ではなく質問で相手の再考を促し、オープン質問、視点転換、未来質問、イエス・ノーの使い分けまでを整理した実践ガイド。",
+      "tags": [
+        "質問力",
+        "コミュニケーション",
+        "交渉",
+        "思考整理"
+      ],
+      "readTime": 5,
+      "file": "articles/questioning_power_3.html"
     }
   ]
 }
