@@ -487,6 +487,21 @@
       ],
       "readTime": 5,
       "file": "articles/questioning_power_3.html"
+    },
+    {
+      "id": 50,
+      "title": "質問力4",
+      "genre": "人間関係",
+      "date": "2026-05-25",
+      "summary": "弱みの見せ方から好奇心シフト、逆質問法、心理的安全性、内容・感情・行動の聞き分けまでを整理し、本音と率直な意見を引き出す質問設計を一枚でまとめる。",
+      "tags": [
+        "質問力",
+        "コミュニケーション",
+        "信頼構築",
+        "心理的安全性"
+      ],
+      "readTime": 5,
+      "file": "articles/questioning_power_4.html"
     }
   ]
 }

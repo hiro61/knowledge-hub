@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="弱みの見せ方から好奇心シフト、逆質問法、心理的安全性、内容・感情・行動の聞き分けまでを整理し、本音と率直な意見を引き出す質問設計を一枚でまとめる。">
+  <title>質問力4</title>
+  <style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --hero-bg-from: #f4efee;
+  --hero-bg-to:   #ffffff;
+  --accent:       #6c4f4b;
+  --accent-sub:   #95706b;
+  --bg-sub:       #f1eae8;
+  --bg:      #ffffff;
+  --bg-card: #ffffff;
+  --text:    #111111;
+  --text-soft: #222222;
+  --rule:    #d0d7df;
+  --max-w: 740px;
+  --font-ja: "Hiragino Mincho ProN","Yu Mincho","游明朝","Noto Serif JP",Georgia,serif;
+  --font-go: "Hiragino Kaku Gothic ProN","Yu Gothic","游ゴシック","Noto Sans JP",sans-serif;
+  --radius: 12px;
+  --shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+html { font-size: 16px; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-ja);
+  line-height: 1.75;
+  -webkit-text-size-adjust: 100%;
+  padding: 0 0 100px;
+}
+main { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
+
+.hero {
+  text-align: center;
+  padding: 80px 24px 64px;
+  background: linear-gradient(135deg, var(--hero-bg-from) 0%, var(--hero-bg-to) 100%);
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: 64px;
+}
+.hero-tag {
+  display: inline-block;
+  font-family: var(--font-go);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent-sub);
+  background: var(--bg-sub);
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  padding: 4px 14px;
+  margin-bottom: 24px;
+}
+.hero h1 {
+  font-family: var(--font-go);
+  font-size: clamp(2rem, 6vw, 3rem);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  color: var(--text);
+  max-width: 18ch;
+  text-wrap: balance;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 16px;
+}
+.hero-desc {
+  font-family: var(--font-go);
+  font-size: 1rem;
+  color: var(--text);
+  line-height: 1.7;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.toc {
+  background: var(--bg-sub);
+  border-radius: var(--radius);
+  padding: 28px 32px;
+  margin-bottom: 48px;
+}
+.toc-title {
+  font-family: var(--font-go);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent-sub);
+  margin-bottom: 14px;
+}
+.toc ol { padding-left: 1.4em; margin: 0; }
+.toc li {
+  font-family: var(--font-go);
+  font-size: 0.9rem;
+  line-height: 1.7;
+  margin-bottom: 6px;
+  color: var(--text);
+}
+.toc a { color: var(--text); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s; }
+.toc a:hover { border-bottom-color: var(--accent); }
+
+section {
+  margin-bottom: 72px;
+  padding-left: 24px;
+  border-left: 3px solid var(--accent);
+}
+
+.section-label {
+  display: inline-block;
+  font-family: var(--font-go);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--accent-sub);
+  margin-bottom: 10px;
+}
+
+h2 {
+  font-family: var(--font-go);
+  font-size: clamp(1.4rem, 4vw, 1.9rem);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  margin-bottom: 16px;
+  color: var(--text);
+}
+
+.intro-text {
+  font-size: 0.97rem;
+  color: var(--text);
+  line-height: 1.8;
+  margin-bottom: 28px;
+  font-style: italic;
+}
+
+h3 {
+  font-family: var(--font-go);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  margin-bottom: 10px;
+  margin-top: 28px;
+  color: var(--text);
+}
+
+p { font-size: 0.97rem; line-height: 1.8; margin-bottom: 14px; color: var(--text); }
+ul, ol { padding-left: 1.5em; margin-bottom: 16px; }
+li { font-size: 0.95rem; line-height: 1.8; margin-bottom: 6px; color: var(--text); }
+li::marker { color: var(--accent-sub); }
+strong, b { font-weight: 700; }
+
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 0.92em;
+}
+
+hr { border: none; border-top: 1px solid var(--rule); margin: 56px 0; }
+
+.card {
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--rule);
+  padding: 28px 32px;
+  margin: 16px 0;
+}
+.card h3 { margin-top: 0; margin-bottom: 12px; font-size: 1rem; }
+.card p { margin-bottom: 8px; }
+.card p:last-child { margin-bottom: 0; }
+
+.card-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin: 20px 0;
+}
+
+.mini-label {
+  display: inline-block;
+  font-family: var(--font-go);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent-sub);
+  margin-bottom: 8px;
+}
+
+.table-wrap { overflow-x: auto; margin: 24px 0; border-radius: var(--radius); box-shadow: var(--shadow); }
+.data-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; background: var(--bg-card); }
+.data-table thead tr { background: var(--text); color: #ffffff; }
+.data-table th {
+  font-family: var(--font-go);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 14px 18px;
+  text-align: left;
+}
+.data-table td { padding: 12px 18px; border-bottom: 1px solid var(--rule); line-height: 1.6; color: var(--text); }
+.data-table tbody tr:last-child td { border-bottom: none; }
+.data-table tbody tr:hover { background: var(--bg-sub); }
+
+.timeline { position: relative; padding-left: 28px; margin: 24px 0; }
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 6px; bottom: 6px;
+  width: 2px;
+  background: var(--rule);
+}
+.tl-item { position: relative; margin-bottom: 28px; }
+.tl-marker {
+  position: absolute;
+  left: -34px; top: 6px;
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid var(--bg);
+  box-shadow: 0 0 0 2px var(--rule);
+}
+.tl-content {
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  border: 1px solid var(--rule);
+  padding: 20px 24px;
+  box-shadow: var(--shadow);
+}
+.tl-phase {
+  display: inline-block;
+  font-family: var(--font-go);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent-sub);
+  background: var(--bg-sub);
+  border-radius: 999px;
+  padding: 2px 10px;
+  margin-bottom: 8px;
+}
+.tl-content h4 { font-family: var(--font-go); font-size: 0.95rem; font-weight: 700; margin-bottom: 8px; color: var(--text); }
+.tl-content p { font-size: 0.88rem; color: var(--text); margin-bottom: 0; line-height: 1.7; }
+
+.highlight-box {
+  background: var(--bg-sub);
+  border-radius: var(--radius);
+  border: 1px solid var(--rule);
+  border-left: 4px solid var(--accent-sub);
+  padding: 20px 24px;
+  margin: 24px 0;
+}
+.highlight-box p { font-size: 0.93rem; margin-bottom: 6px; }
+.highlight-box p:last-child { margin-bottom: 0; }
+
+.quote-block {
+  background: var(--bg-sub);
+  border-radius: var(--radius);
+  border: none;
+  padding: 28px 32px;
+  margin: 24px 0;
+  position: relative;
+}
+.quote-block::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 4px; height: 100%;
+  background: var(--accent);
+  border-radius: 2px 0 0 2px;
+}
+.quote-block p { font-size: 0.97rem; line-height: 1.85; color: var(--text); margin-bottom: 16px; font-style: italic; }
+.quote-block footer { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.quote-name {
+  font-family: var(--font-go);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text);
+  background: var(--rule);
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+.quote-org { font-family: var(--font-go); font-size: 0.78rem; color: var(--text); }
+
+.work-card {
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  border: 1px solid var(--rule);
+  box-shadow: var(--shadow);
+  padding: 24px 28px;
+  margin: 20px 0;
+}
+.work-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-go);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent-sub);
+  margin-bottom: 16px;
+}
+.work-title svg { flex-shrink: 0; }
+.work-card ul { margin: 0; padding-left: 1.4em; }
+.work-card li { font-size: 0.93rem; line-height: 1.75; margin-bottom: 8px; }
+.work-card li:last-child { margin-bottom: 0; }
+
+.key-box {
+  background: var(--text);
+  color: #ffffff;
+  border-radius: var(--radius);
+  padding: 28px 32px;
+  margin: 32px 0;
+}
+.key-box .kbox-label {
+  font-family: var(--font-go);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #aaaaaa;
+  margin-bottom: 12px;
+  display: block;
+}
+.key-box p { color: #e8e8e8; font-size: 0.95rem; line-height: 1.85; margin-bottom: 8px; }
+.key-box p:last-child { margin-bottom: 0; }
+
+@media print {
+  body { padding: 0; font-size: 10pt; }
+  main { max-width: 100%; padding: 0; }
+  .hero { padding: 40px 0; }
+  h1 { font-size: 22pt; } h2 { font-size: 14pt; } h3 { font-size: 11pt; }
+  p, li { font-size: 10pt; line-height: 1.7; }
+  section, .card, .timeline, .key-box, .work-card { page-break-inside: avoid; }
+  @page { size: A4 portrait; margin: 20mm 18mm 22mm; }
+}
+
+@media screen and (max-width: 640px) {
+  .hero { padding: 56px 20px 44px; }
+  main { padding: 0 16px; }
+  section { padding-left: 16px; }
+  h2 { font-size: 1.35rem; }
+  .card-grid { grid-template-columns: 1fr; }
+  .toc { padding: 20px 20px; }
+  .card { padding: 20px 20px; }
+  .key-box { padding: 20px 20px; }
+  .quote-block { padding: 20px 20px; }
+}
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <span class="hero-tag">COMMUNICATION</span>
+    <h1>質問力4</h1>
+    <p class="hero-desc">弱みの見せ方から好奇心シフト、逆質問法、心理的安全性、内容・感情・行動の聞き分けまでを整理し、本音と率直な意見を引き出す質問設計を一枚でまとめる。</p>
+  </header>
+
+  <main>
+    <nav class="toc">
+      <div class="toc-title">目次</div>
+      <ol>
+      <li><a href="#sec1">信頼は「答え」より「打ち明け」で始まる</a></li>
+      <li><a href="#sec2">質問は広く投げ、準備で深さを作る</a></li>
+      <li><a href="#sec3">洞察を生む四つの問いの型</a></li>
+      <li><a href="#sec4">率直な意見は安全な場でしか出てこない</a></li>
+      <li><a href="#sec5">良いフィードバックは三段階で取りに行く</a></li>
+      <li><a href="#sec6">聞き方と行動で信頼を完成させる</a></li>
+      </ol>
+    </nav>
+    <hr>
+
+<section id="sec1">
+  <div class="section-label">SECTION 01</div>
+  <h2>信頼は「答え」より「打ち明け」で始まる</h2>
+<p class="intro-text">質問の目的は情報を奪うことではなく、相手が安心して本音を出せる状態を作ることにある。先に弱みを見せ、助けを求める姿勢が信頼の入口になる。</p>
+<h3>本音が信頼を深める理由</h3>
+<p>人は自分の本音や弱みを話した相手に対して、関係が一歩進んだと感じやすい。だから質問力とは、知りたい情報を抜き出す技術というより、相手が安心して打ち明けられる流れを作る設計力である。</p>
+<p>重要なのは、弱みを無防備にぶちまけることではない。『ここが分からない』『力を貸してほしい』と適度に開示し、相手の助言や視点が必要だと示すことが、信頼のサインとして機能する。</p>
+<div class="card-grid">
+<div class="card">
+<span class="mini-label">Open Up</span>
+<h3>弱みは打ち明けるが、ぶちまけない</h3>
+<p>相手が引くほどの過剰開示は逆効果じゃ。信頼を作るには、助言や協力を求める範囲で素直に弱点を明かすのがよい。</p>
+</div>
+<div class="card">
+<span class="mini-label">Ask Help</span>
+<h3>『答えが分からない』を率直に伝える</h3>
+<p>自力で全部分かっているふりをすると、会話は表面的になりやすい。分からない点を明示し、考えを借りたいと伝えるほうが相手は関わりやすい。</p>
+</div>
+<div class="card">
+<span class="mini-label">Purpose</span>
+<h3>信頼構築の目的を曖昧にしない</h3>
+<p>大人同士の信頼には利害が絡む。何を達成したくて関係を深めたいのかを自分で把握しておくと、質問の設計もぶれにくい。</p>
+</div>
+<div class="card">
+<span class="mini-label">Loop</span>
+<h3>本音の共有は信頼のループを生む</h3>
+<p>こちらが先に心を開くと、相手も話しやすくなる。この往復が続くほど、表面的な会話から協力関係へ移りやすい。</p>
+</div>
+</div>
+<div class="key-box">
+  <span class="kbox-label">要点</span>
+<p>信頼を得たいなら、まず自分が『完全に整った側』を演じすぎないこと。適切な弱みの開示は、質問そのものより先に効く。</p>
+</div>
+</section>
+
+<section id="sec2">
+  <div class="section-label">SECTION 02</div>
+  <h2>質問は広く投げ、準備で深さを作る</h2>
+<p class="intro-text">相手を問い詰める鋭い質問より、一緒に考えられる余白を残す質問のほうが信頼を壊しにくい。そのうえで、事前準備があると質問者の有能さも伝わる。</p>
+<div class="table-wrap">
+  <table class="data-table">
+    <thead>
+      <tr><th>型</th><th>狙い</th><th>例</th><th>注意点</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>対極的な質問</td><td>答えの正誤より可能性を広げる</td><td>AIで仕事はどう変わると思うか</td><td>詰問口調になると探求でなく試験になる</td></tr>
+      <tr><td>準備済みの質問</td><td>調べたうえで盲点を埋める</td><td>ここまで調べたが、この論点だけ判断がつかない</td><td>丸投げにすると相手の負担だけが増える</td></tr>
+      <tr><td>他者巻き込み質問</td><td>外部の視点と協力者を増やす</td><td>どこを改善すべきか率直に教えてほしい</td><td>弱点を隠したままでは深い意見は出にくい</td></tr>
+      <tr><td>期待確認の質問</td><td>相手のゴールや評価軸を把握する</td><td>自分に何を期待しているか</td><td>聞くだけで終えると信頼にはつながらない</td></tr>
+    </tbody>
+  </table>
+</div>
+<div class="highlight-box">
+<p>良い質問は『自分はここまで考えた。そのうえで、まだ見えていない部分を一緒に考えてほしい』という姿勢を含んでおる。広い質問と準備不足は別物じゃ。</p>
+</div>
+<div class="work-card">
+  <div class="work-title"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+  <rect x="2" y="2" width="12" height="12" rx="2"></rect>
+  <path d="M5 8l2 2 4-4"></path>
+</svg>質問前の整え方</div>
+<ul>
+<li>相手に聞く前に、すでに分かっていることと分からないことを切り分ける</li>
+<li>自分の仮説を一度言語化し、『何を一緒に考えてほしいのか』を明確にする</li>
+<li>期待値を聞いたら、あとでどう応えるかまで想定しておく</li>
+</ul>
+</div>
+</section>
+
+<section id="sec3">
+  <div class="section-label">SECTION 03</div>
+  <h2>洞察を生む四つの問いの型</h2>
+<p class="intro-text">問題をそのまま聞くだけでは浅い。時間軸や立場をずらすと、相手は自分でも見えていなかった論点に気づきやすくなる。</p>
+<div class="timeline">
+<div class="tl-item">
+  <div class="tl-marker"></div>
+  <div class="tl-content">
+    <span class="tl-phase">Past</span>
+    <h4>過去から学ぶ質問</h4>
+<p>これまでで一番学びになった経験は何か、若い頃の自分に何を伝えるかを聞くと、相手の判断基準や教訓が見えやすい。</p>
+  </div>
+</div>
+<div class="tl-item">
+  <div class="tl-marker"></div>
+  <div class="tl-content">
+    <span class="tl-phase">Future</span>
+    <h4>未来を見据える質問</h4>
+<p>3年後、5年後、10年後の理想状態を問うと、いまの行動をどう変えるべきかという気づきが生まれやすい。</p>
+  </div>
+</div>
+<div class="tl-item">
+  <div class="tl-marker"></div>
+  <div class="tl-content">
+    <span class="tl-phase">Perspective</span>
+    <h4>視点を変える質問</h4>
+<p>顧客、競合、株主、家族など別の立場に立って考えてもらうと、自分だけの前提で詰まっていた思考がほぐれやすい。</p>
+  </div>
+</div>
+<div class="tl-item">
+  <div class="tl-marker"></div>
+  <div class="tl-content">
+    <span class="tl-phase">Reverse</span>
+    <h4>逆質問法</h4>
+<p>『どうすれば良くなるか』ではなく『どうすれば悪くなるか』を先に考えると、見落としていたリスクや改善優先順位が浮かび上がる。</p>
+  </div>
+</div>
+</div>
+<div class="card-grid">
+<div class="card">
+<span class="mini-label">Use Case</span>
+<h3>問題解決に使う</h3>
+<p>品質、サービス、働き方など、改善したい対象がある場面では逆質問法が効く。悪化パターンを挙げるほど、避けるべき行動が明確になる。</p>
+</div>
+<div class="card">
+<span class="mini-label">Use Case</span>
+<h3>人間関係に使う</h3>
+<p>『どうすれば関係が悪くなるか』を考えると、自分の態度や癖のうち、無意識に相手を遠ざけている行動が見えやすい。</p>
+</div>
+</div>
+<div class="work-card">
+  <div class="work-title"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+  <rect x="2" y="2" width="12" height="12" rx="2"></rect>
+  <path d="M5 8l2 2 4-4"></path>
+</svg>すぐ使える問い</div>
+<ul>
+<li>これまでの経験で得た一番の教訓は何か</li>
+<li>5年後の理想状態から逆算すると、今やめるべきことは何か</li>
+<li>もし相手の立場だったら、今の提案のどこに不安を感じるか</li>
+<li>この関係を悪くするとしたら、どんな行動が原因になるか</li>
+</ul>
+</div>
+</section>
+
+<section id="sec4">
+  <div class="section-label">SECTION 04</div>
+  <h2>率直な意見は安全な場でしか出てこない</h2>
+<p class="intro-text">有益な情報ほど言いにくい。だから率直な意見を引き出すには、質問内容より先に相手の防衛反応を下げる環境設計が要る。</p>
+<h3>好奇心シフトの三つの自問</h3>
+<p>確信を握ったまま質問すると、相手は答えを言い渡されるだけだと感じやすい。そこでまず、自分が見落としているものはないか、無意識に問題を悪化させていないか、他人が困っていることに気づいていないだけではないかを自問する。</p>
+<p>この姿勢があると、質問は評価や尋問ではなく学びの入口になる。相手も『正解を当てる場』ではなく『一緒に整理できる場』だと受け取りやすい。</p>
+<ol>
+<li>自分が見落としているものはないだろうか</li>
+<li>私は知らないうちに問題を悪化させていないだろうか</li>
+<li>私が気づいていないだけで、相手や周囲が困っていることはないだろうか</li>
+</ol>
+<div class="card-grid">
+<div class="card">
+<span class="mini-label">Place</span>
+<h3>話しやすい場所と時間を選ぶ</h3>
+<p>率直さは内容だけで決まらぬ。相手のホームグラウンドや落ち着ける場所を選ぶだけで、本音の出やすさは大きく変わる。</p>
+</div>
+<div class="card">
+<span class="mini-label">Transparency</span>
+<h3>動機を先に明かす</h3>
+<p>なぜその質問をするのか、何を改善したいのかを先に共有すると、相手の疑心暗鬼が減り、返答の質が安定しやすい。</p>
+</div>
+<div class="card">
+<span class="mini-label">Resilience</span>
+<h3>厳しい意見を受け止められると示す</h3>
+<p>相手が気を遣う最大の理由は、こちらが傷つくのではという懸念じゃ。率直な意見も受け止められると明示することが安全性を作る。</p>
+</div>
+<div class="card">
+<span class="mini-label">Safety</span>
+<h3>心理的安全性を優先する</h3>
+<p>上司部下や初対面ほど、言いにくさは増える。安全性が足りない場では、質問の質より前に関係が閉じる。</p>
+</div>
+</div>
+</section>
+
+<section id="sec5">
+  <div class="section-label">SECTION 05</div>
+  <h2>良いフィードバックは三段階で取りに行く</h2>
+<p class="intro-text">率直な意見を期待するだけでは足りない。相手が答えやすい順序で聞くと、抽象論ではなく使える示唆が返ってきやすい。</p>
+<div class="table-wrap">
+  <table class="data-table">
+    <thead>
+      <tr><th>段階</th><th>役割</th><th>代表的な問い</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>原因を特定する</td><td>問題の背景や感情を具体化する</td><td>この問題の背景にはどんな原因があるか</td></tr>
+      <tr><td>自分の盲点を確認する</td><td>思い込みや見落としを減らす</td><td>私が誤解している点や気づいていないことは何か</td></tr>
+      <tr><td>解決策を一緒に考える</td><td>相手を助言者から協力者へ変える</td><td>過去の経験を今回どう応用できると思うか</td></tr>
+    </tbody>
+  </table>
+</div>
+<div class="highlight-box">
+<p>質の高い質問とは、答えを奪う質問ではなく学びを増やす質問じゃ。相手に『言って終わり』ではなく、『一緒に進める相手』になってもらう順序が重要になる。</p>
+</div>
+<blockquote class="quote-block">
+<p>自分はここまで調べたが、この部分だけはまだ判断がつかない。あなたならどこを見直すか、一緒に考えてほしい。</p>
+<footer><span class="quote-name">実践用の型</span></footer>
+</blockquote>
+</section>
+
+<section id="sec6">
+  <div class="section-label">SECTION 06</div>
+  <h2>聞き方と行動で信頼を完成させる</h2>
+<p class="intro-text">質問して終わりではない。内容を正確に捉え、感情を読み、必要な行動で返すところまでやって初めて『この人は本当に聞いている』と伝わる。</p>
+<div class="table-wrap">
+  <table class="data-table">
+    <thead>
+      <tr><th>チャネル</th><th>見るもの</th><th>返し方</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>内容</td><td>事実、要点、キーワード</td><td>メモを取り、要約して認識のズレを確認する</td></tr>
+      <tr><td>感情</td><td>トーン、表情、背後の欲求</td><td>悲しさや苛立ちなどの感情を言葉にして確かめる</td></tr>
+      <tr><td>行動</td><td>相手が実際に何を望んでいるか</td><td>問題解決、共感、支援のどれを求めているかを読み取り、行動計画で返す</td></tr>
+    </tbody>
+  </table>
+</div>
+<div class="work-card">
+  <div class="work-title"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+  <rect x="2" y="2" width="12" height="12" rx="2"></rect>
+  <path d="M5 8l2 2 4-4"></path>
+</svg>面談後の実践ルーチン</div>
+<ul>
+<li>相手の話をメモし、自分の理解を一度要約して返す</li>
+<li>曖昧な点は『具体的にはどういうことか』と明確化する</li>
+<li>感情が読めないときは、候補を示して確認する</li>
+<li>次に自分が取る行動を伝え、これで合っているか確かめる</li>
+<li>会話後に、自分の見方がどう変わったかを振り返る</li>
+</ul>
+</div>
+<h3>最後に効くのは再接続である</h3>
+<p>率直な意見を聞いたあとに何も変わらなければ、相手は『聞かれ損だった』と感じる。だからこそ、聞いた内容を踏まえて行動し、その結果を再び共有することが信頼の仕上げになる。</p>
+<p>質問力の本質は、場当たり的な会話テクニックではない。弱みの開示、問いの順序、安全な場、聞いた後の行動まで含めた一連の設計こそが、本音と協力を引き出す土台になる。</p>
+</section>
+  </main>
+</body>
+</html>
