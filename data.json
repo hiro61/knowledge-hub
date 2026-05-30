@@ -517,6 +517,22 @@
       ],
       "readTime": 5,
       "file": "articles/questioning_power_5.html"
+    },
+    {
+      "id": 52,
+      "title": "炎症対策とおすすめ筋肉痛回復法総まとめ",
+      "genre": "健康",
+      "date": "2026-05-30",
+      "summary": "筋肉痛を長引かせないための優先順位を、水分・電解質、タンパク質、抗炎症食品、回復サプリの順で整理した実践ガイド。",
+      "tags": [
+        "筋肉痛",
+        "炎症対策",
+        "回復",
+        "栄養",
+        "サプリ"
+      ],
+      "readTime": 5,
+      "file": "articles/inflammation_muscle_recovery_guide.html"
     }
   ]
 }

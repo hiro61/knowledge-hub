@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="筋肉痛を長引かせないための優先順位を、水分・電解質、タンパク質、抗炎症食品、回復サプリの順で整理した実践ガイド。">
+  <title>炎症対策とおすすめ筋肉痛回復法総まとめ</title>
+  <style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --hero-bg-from: #eef5f2;
+  --hero-bg-to:   #ffffff;
+  --accent:       #245844;
+  --accent-sub:   #5d8576;
+  --bg-sub:       #ebf2ee;
+  --bg:      #ffffff;
+  --bg-card: #ffffff;
+  --text:    #111111;
+  --text-soft: #222222;
+  --rule:    #d0d7df;
+  --max-w: 740px;
+  --font-ja: "Hiragino Mincho ProN","Yu Mincho","游明朝","Noto Serif JP",Georgia,serif;
+  --font-go: "Hiragino Kaku Gothic ProN","Yu Gothic","游ゴシック","Noto Sans JP",sans-serif;
+  --radius: 12px;
+  --shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+html { font-size: 16px; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-ja);
+  line-height: 1.75;
+  -webkit-text-size-adjust: 100%;
+  padding: 0 0 100px;
+}
+main { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
+
+.hero {
+  text-align: center;
+  padding: 80px 24px 64px;
+  background: linear-gradient(135deg, var(--hero-bg-from) 0%, var(--hero-bg-to) 100%);
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: 64px;
+}
+.hero-tag {
+  display: inline-block;
+  font-family: var(--font-go);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent-sub);
+  background: var(--bg-sub);
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  padding: 4px 14px;
+  margin-bottom: 24px;
+}
+.hero h1 {
+  font-family: var(--font-go);
+  font-size: clamp(2rem, 6vw, 3rem);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  color: var(--text);
+  max-width: 18ch;
+  text-wrap: balance;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 16px;
+}
+.hero-desc {
+  font-family: var(--font-go);
+  font-size: 1rem;
+  color: var(--text);
+  line-height: 1.7;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.toc {
+  background: var(--bg-sub);
+  border-radius: var(--radius);
+  padding: 28px 32px;
+  margin-bottom: 48px;
+}
+.toc-title {
+  font-family: var(--font-go);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent-sub);
+  margin-bottom: 14px;
+}
+.toc ol { padding-left: 1.4em; margin: 0; }
+.toc li {
+  font-family: var(--font-go);
+  font-size: 0.9rem;
+  line-height: 1.7;
+  margin-bottom: 6px;
+  color: var(--text);
+}
+.toc a { color: var(--text); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s; }
+.toc a:hover { border-bottom-color: var(--accent); }
+
+section {
+  margin-bottom: 72px;
+  padding-left: 24px;
+  border-left: 3px solid var(--accent);
+}
+
+.section-label {
+  display: inline-block;
+  font-family: var(--font-go);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--accent-sub);
+  margin-bottom: 10px;
+}
+
+h2 {
+  font-family: var(--font-go);
+  font-size: clamp(1.4rem, 4vw, 1.9rem);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  margin-bottom: 16px;
+  color: var(--text);
+}
+
+.intro-text {
+  font-size: 0.97rem;
+  color: var(--text);
+  line-height: 1.8;
+  margin-bottom: 28px;
+  font-style: italic;
+}
+
+h3 {
+  font-family: var(--font-go);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  margin-bottom: 10px;
+  margin-top: 28px;
+  color: var(--text);
+}
+
+p { font-size: 0.97rem; line-height: 1.8; margin-bottom: 14px; color: var(--text); }
+ul, ol { padding-left: 1.5em; margin-bottom: 16px; }
+li { font-size: 0.95rem; line-height: 1.8; margin-bottom: 6px; color: var(--text); }
+li::marker { color: var(--accent-sub); }
+strong, b { font-weight: 700; }
+
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 0.92em;
+}
+
+hr { border: none; border-top: 1px solid var(--rule); margin: 56px 0; }
+
+.card {
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--rule);
+  padding: 28px 32px;
+  margin: 16px 0;
+}
+.card h3 { margin-top: 0; margin-bottom: 12px; font-size: 1rem; }
+.card p { margin-bottom: 8px; }
+.card p:last-child { margin-bottom: 0; }
+
+.card-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin: 20px 0;
+}
+
+.mini-label {
+  display: inline-block;
+  font-family: var(--font-go);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent-sub);
+  margin-bottom: 8px;
+}
+
+.table-wrap { overflow-x: auto; margin: 24px 0; border-radius: var(--radius); box-shadow: var(--shadow); }
+.data-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; background: var(--bg-card); }
+.data-table thead tr { background: var(--text); color: #ffffff; }
+.data-table th {
+  font-family: var(--font-go);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 14px 18px;
+  text-align: left;
+}
+.data-table td { padding: 12px 18px; border-bottom: 1px solid var(--rule); line-height: 1.6; color: var(--text); }
+.data-table tbody tr:last-child td { border-bottom: none; }
+.data-table tbody tr:hover { background: var(--bg-sub); }
+
+.timeline { position: relative; padding-left: 28px; margin: 24px 0; }
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 6px; bottom: 6px;
+  width: 2px;
+  background: var(--rule);
+}
+.tl-item { position: relative; margin-bottom: 28px; }
+.tl-marker {
+  position: absolute;
+  left: -34px; top: 6px;
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid var(--bg);
+  box-shadow: 0 0 0 2px var(--rule);
+}
+.tl-content {
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  border: 1px solid var(--rule);
+  padding: 20px 24px;
+  box-shadow: var(--shadow);
+}
+.tl-phase {
+  display: inline-block;
+  font-family: var(--font-go);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent-sub);
+  background: var(--bg-sub);
+  border-radius: 999px;
+  padding: 2px 10px;
+  margin-bottom: 8px;
+}
+.tl-content h4 { font-family: var(--font-go); font-size: 0.95rem; font-weight: 700; margin-bottom: 8px; color: var(--text); }
+.tl-content p { font-size: 0.88rem; color: var(--text); margin-bottom: 0; line-height: 1.7; }
+
+.highlight-box {
+  background: var(--bg-sub);
+  border-radius: var(--radius);
+  border: 1px solid var(--rule);
+  border-left: 4px solid var(--accent-sub);
+  padding: 20px 24px;
+  margin: 24px 0;
+}
+.highlight-box p { font-size: 0.93rem; margin-bottom: 6px; }
+.highlight-box p:last-child { margin-bottom: 0; }
+
+.quote-block {
+  background: var(--bg-sub);
+  border-radius: var(--radius);
+  border: none;
+  padding: 28px 32px;
+  margin: 24px 0;
+  position: relative;
+}
+.quote-block::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 4px; height: 100%;
+  background: var(--accent);
+  border-radius: 2px 0 0 2px;
+}
+.quote-block p { font-size: 0.97rem; line-height: 1.85; color: var(--text); margin-bottom: 16px; font-style: italic; }
+.quote-block footer { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.quote-name {
+  font-family: var(--font-go);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text);
+  background: var(--rule);
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+.quote-org { font-family: var(--font-go); font-size: 0.78rem; color: var(--text); }
+
+.work-card {
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  border: 1px solid var(--rule);
+  box-shadow: var(--shadow);
+  padding: 24px 28px;
+  margin: 20px 0;
+}
+.work-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-go);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent-sub);
+  margin-bottom: 16px;
+}
+.work-title svg { flex-shrink: 0; }
+.work-card ul { margin: 0; padding-left: 1.4em; }
+.work-card li { font-size: 0.93rem; line-height: 1.75; margin-bottom: 8px; }
+.work-card li:last-child { margin-bottom: 0; }
+
+.key-box {
+  background: var(--text);
+  color: #ffffff;
+  border-radius: var(--radius);
+  padding: 28px 32px;
+  margin: 32px 0;
+}
+.key-box .kbox-label {
+  font-family: var(--font-go);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #aaaaaa;
+  margin-bottom: 12px;
+  display: block;
+}
+.key-box p { color: #e8e8e8; font-size: 0.95rem; line-height: 1.85; margin-bottom: 8px; }
+.key-box p:last-child { margin-bottom: 0; }
+
+@media print {
+  body { padding: 0; font-size: 10pt; }
+  main { max-width: 100%; padding: 0; }
+  .hero { padding: 40px 0; }
+  h1 { font-size: 22pt; } h2 { font-size: 14pt; } h3 { font-size: 11pt; }
+  p, li { font-size: 10pt; line-height: 1.7; }
+  section, .card, .timeline, .key-box, .work-card { page-break-inside: avoid; }
+  @page { size: A4 portrait; margin: 20mm 18mm 22mm; }
+}
+
+@media screen and (max-width: 640px) {
+  .hero { padding: 56px 20px 44px; }
+  main { padding: 0 16px; }
+  section { padding-left: 16px; }
+  h2 { font-size: 1.35rem; }
+  .card-grid { grid-template-columns: 1fr; }
+  .toc { padding: 20px 20px; }
+  .card { padding: 20px 20px; }
+  .key-box { padding: 20px 20px; }
+  .quote-block { padding: 20px 20px; }
+}
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <span class="hero-tag">HEALTH</span>
+    <h1>炎症対策とおすすめ筋肉痛回復法総まとめ</h1>
+    <p class="hero-desc">筋肉痛を長引かせないための優先順位を、水分・電解質、タンパク質、抗炎症食品、回復サプリの順で整理した実践ガイド。</p>
+  </header>
+
+  <main>
+    <nav class="toc">
+      <div class="toc-title">目次</div>
+      <ol>
+      <li><a href="#priority">まず押さえる回復の優先順位</a></li>
+      <li><a href="#flow">運動前後の実践フロー</a></li>
+      <li><a href="#foods">抗炎症に役立つ食品の使い分け</a></li>
+      <li><a href="#snacks">回復おやつとタンパク質設計</a></li>
+      <li><a href="#supplements">サプリと補助策の使いどころ</a></li>
+      <li><a href="#checklist">最終チェックと注意点</a></li>
+      </ol>
+    </nav>
+    <hr>
+
+<section id="priority">
+  <div class="section-label">PRIORITY</div>
+  <h2>まず押さえる回復の優先順位</h2>
+<p class="intro-text">筋肉痛対策は、特定の食品だけを足すよりも、回復の土台を崩さないことが先じゃ。原メモ全体を通すと、優先順位は水分と電解質、運動後の栄養補給、抗炎症食品、必要に応じたサプリの順で整理できる。</p>
+<div class="highlight-box">
+<p>最初に整えるべきは、喉が渇く前の水分補給と電解質補給じゃ。ここが崩れると、炎症緩和、疲労物質の排出、筋肉への栄養供給がまとめて鈍る。</p>
+</div>
+<div class="card-grid">
+<div class="card">
+<span class="mini-label">01</span>
+<h3>水分と電解質</h3>
+<p>運動前2時間に水500ml、運動中は20分ごとに200ml程度を目安に補給する。</p>
+<p>長時間運動や発汗量が多い日は、糖質過多のスポーツドリンクより低糖質の電解質サプリが向く。</p>
+</div>
+<div class="card">
+<span class="mini-label">02</span>
+<h3>運動後30分の栄養</h3>
+<p>運動後30分以内にタンパク質20〜40gと炭水化物を合わせると、回復速度を上げやすい。</p>
+<p>ホエイプロテインとベリー、蜂蜜、ギリシャヨーグルトの組み合わせは実践しやすい。</p>
+</div>
+<div class="card">
+<span class="mini-label">03</span>
+<h3>抗炎症食品</h3>
+<p>タルトチェリー、色の濃いベリー、コーヒー、生姜、ブロッコリー、サーモンなどは、炎症対策の軸として挙げられていた。</p>
+<p>単品で万能ではないが、日常の食事に載せやすい点が強みじゃ。</p>
+</div>
+<div class="card">
+<span class="mini-label">04</span>
+<h3>補助サプリ</h3>
+<p>クルクミン、レスベラトロール、シトルリンは補助線として有力じゃ。</p>
+<p>ただし、食品で土台を作らずにサプリだけ強化しても、効率は落ちやすい。</p>
+</div>
+</div>
+<div class="key-box">
+  <span class="kbox-label">要点</span>
+<p>筋肉痛を軽くしたいなら、まず脱水と栄養不足を潰すことじゃ。抗炎症食品やサプリは、その上に積み上げると効きやすい。</p>
+</div>
+</section>
+
+<section id="flow">
+  <div class="section-label">FLOW</div>
+  <h2>運動前後の実践フロー</h2>
+<p class="intro-text">原メモの情報を時系列に並べ替えると、何をいつ入れるかが見えやすくなる。迷ったときはこの流れを基準にすると崩れにくい。</p>
+<div class="timeline">
+<div class="tl-item">
+  <div class="tl-marker"></div>
+  <div class="tl-content">
+    <span class="tl-phase">2時間前</span>
+    <h4>水500mlを先に入れる</h4>
+<p>運動前2時間に水500mlを摂っておくと、脱水予防と循環維持に役立つ。</p>
+<p>喉が渇いてから慌てて飲むより、事前補給の方が安定しやすい。</p>
+  </div>
+</div>
+<div class="tl-item">
+  <div class="tl-marker"></div>
+  <div class="tl-content">
+    <span class="tl-phase">1時間前</span>
+    <h4>カフェインが合うならコーヒー2杯</h4>
+<p>コーヒーは抗酸化物質とカフェインの両面から筋肉痛対策候補になる。</p>
+<p>ただし、カフェイン感受性が高い人や他のプレワークアウトを使う人は量を下げる判断が要る。</p>
+  </div>
+</div>
+<div class="tl-item">
+  <div class="tl-marker"></div>
+  <div class="tl-content">
+    <span class="tl-phase">運動中</span>
+    <h4>20分ごとに200ml前後</h4>
+<p>運動中は水または低糖質の電解質ドリンクを少量ずつ継続する。</p>
+<p>足つりが出やすい人は、タンパク質不足より先に電解質不足を疑うのが実務的じゃ。</p>
+  </div>
+</div>
+<div class="tl-item">
+  <div class="tl-marker"></div>
+  <div class="tl-content">
+    <span class="tl-phase">30分以内</span>
+    <h4>タンパク質と炭水化物をセットにする</h4>
+<p>ホエイプロテイン20〜40gに、ブルーベリー、蜂蜜、ギリシャヨーグルトなどを合わせる。</p>
+<p>焼き芋やバナナも良いが、持ち運びやすさまで含めて選ぶと継続しやすい。</p>
+  </div>
+</div>
+<div class="tl-item">
+  <div class="tl-marker"></div>
+  <div class="tl-content">
+    <span class="tl-phase">日常</span>
+    <h4>体重1kgあたり1.6gを目安に整える</h4>
+<p>慢性的なたんぱく質不足があると、筋肉痛対策の効果が出にくい。</p>
+<p>普段の食事と間食で不足分を埋める発想の方が、単発のドカ飲みより再現性が高い。</p>
+  </div>
+</div>
+</div>
+<div class="work-card">
+  <div class="work-title"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+  <rect x="2" y="2" width="12" height="12" rx="2"></rect>
+  <path d="M5 8l2 2 4-4"></path>
+</svg>実践チェック</div>
+<ul>
+<li>運動前に水500mlを確保したか</li>
+<li>運動中の補給を20分刻みで考えているか</li>
+<li>運動後30分以内にタンパク質と糖質を入れられる準備があるか</li>
+</ul>
+</div>
+</section>
+
+<section id="foods">
+  <div class="section-label">FOODS</div>
+  <h2>抗炎症に役立つ食品の使い分け</h2>
+<p class="intro-text">原メモには候補が多く並んでおるが、効果の強さと手に入れやすさで分けると選びやすい。全部を毎日食べる必要はないのじゃ。</p>
+<div class="card-grid">
+<div class="card">
+<span class="mini-label">強候補</span>
+<h3>タルトチェリー</h3>
+<p>筋肉痛軽減の代表格として挙げられていた。運動の5日前、当日、48時間後の摂取で有意差が出た研究も紹介されている。</p>
+<p>日本では入手性が低いため、ジュースやサプリで補う前提が現実的じゃ。</p>
+</div>
+<div class="card">
+<span class="mini-label">実践向き</span>
+<h3>コーヒー</h3>
+<p>運動前のコーヒー2杯で遅発性筋肉痛が減ったという話が軸になっておる。</p>
+<p>インスタントや缶より、良質な豆を自分で淹れる方が望ましいと整理されていた。</p>
+</div>
+<div class="card">
+<span class="mini-label">代替候補</span>
+<h3>色の濃いベリー類</h3>
+<p>ブラックベリー、ラズベリー、ブルーベリーは、タルトチェリーの代替として回しやすい。</p>
+<p>回復おやつに混ぜやすく、継続性が高いのが利点じゃ。</p>
+</div>
+<div class="card">
+<span class="mini-label">食事に混ぜる</span>
+<h3>生姜・ブロッコリー・サーモン</h3>
+<p>生姜はジンゲロール、ブロッコリーは各種ビタミンとミネラル、サーモンはオメガ3脂肪酸が強みじゃ。</p>
+<p>主菜や副菜として組み込みやすいので、日常の軸にしやすい。</p>
+</div>
+</div>
+<h3>追加候補として挙がっていた食品</h3>
+<ul>
+<li>スイカ、パイナップル、セロリ、チンゲンサイ、クルミ、ニンニク</li>
+<li>ココナッツオイル、豆腐、アボカド、全粒粉穀物、さつまいも</li>
+<li>卵、カッテージチーズ、ギリシャヨーグルト、鶏肉、マグロ</li>
+</ul>
+<blockquote class="quote-block">
+<p>候補を増やしすぎて食事が複雑になるくらいなら、ベリー類、たんぱく源、電解質補給の3本柱を固定した方が続く。</p>
+<footer><span class="quote-name">運用の考え方</span></footer>
+</blockquote>
+</section>
+
+<section id="snacks">
+  <div class="section-label">RECOVERY</div>
+  <h2>回復おやつとタンパク質設計</h2>
+<p class="intro-text">回復が遅れる人は、サプリより先に間食設計が曖昧なことが多い。原メモでは、吸収しやすさと食べやすさの両立が重視されておった。</p>
+<div class="table-wrap">
+  <table class="data-table">
+    <thead>
+      <tr><th>場面</th><th>組み合わせ</th><th>狙い</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>運動直後</td><td>ホエイプロテイン + ベリー + 蜂蜜</td><td>タンパク質と糖質を素早く補う</td></tr>
+      <tr><td>間食</td><td>ギリシャヨーグルト + バナナ + クルミ</td><td>高タンパクと抗酸化を一度に入れる</td></tr>
+      <tr><td>腹持ち重視</td><td>オートミール or キヌア + 果物</td><td>低GIで長めに回復を支える</td></tr>
+      <tr><td>主食寄り</td><td>冷やしさつまいも + 良質な脂質</td><td>グリコーゲン補給と腸内環境の両立</td></tr>
+    </tbody>
+  </table>
+</div>
+<h3>プロテイン選びの注意</h3>
+<p>ホエイは筋肉痛対策の中心候補じゃが、糖質が多すぎる製品や表示どおりのタンパク質量でない製品もある。</p>
+<p>植物性プロテインを使うなら、乳糖不耐の回避だけでなく、第三者機関の検査や重金属対策まで見るのが堅い。</p>
+<div class="key-box">
+  <span class="kbox-label">実務メモ</span>
+<p>回復おやつは理論上最強の一品を探すより、運動後30分以内に確実に食べられるものを固定する方が成果につながりやすい。</p>
+</div>
+</section>
+
+<section id="supplements">
+  <div class="section-label">SUPPLEMENTS</div>
+  <h2>サプリと補助策の使いどころ</h2>
+<p class="intro-text">原メモでは、クルクミンとレスベラトロールが強く推されておった。ただし、効かせ方は『全部盛り』ではなく、症状と生活に合わせた使い分けじゃ。</p>
+<div class="table-wrap">
+  <table class="data-table">
+    <thead>
+      <tr><th>候補</th><th>役割</th><th>判断ポイント</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>クルクミン</td><td>抗炎症の中心候補</td><td>吸収率の高い製品を選ぶ。食品だけでは量を確保しにくい</td></tr>
+      <tr><td>レスベラトロール</td><td>運動後ダメージの軽減補助</td><td>トランス型が推奨。油と一緒に食後摂取が向く</td></tr>
+      <tr><td>シトルリン</td><td>回復心拍数や筋肉痛の補助</td><td>スイカを日常的に食べにくい人の代替候補</td></tr>
+      <tr><td>電解質サプリ</td><td>脱水と足つり対策</td><td>長時間運動や大量発汗の人ほど優先度が上がる</td></tr>
+    </tbody>
+  </table>
+</div>
+<h3>鎮痛薬の扱い</h3>
+<p>アセトアミノフェン、イブプロフェン、ナプロキセンなどは筋肉痛緩和の選択肢として挙げられていたが、消化管出血、心血管リスク、筋肉の再成長への影響など注意点も同時に示されていた。</p>
+<p>筋肉痛が強すぎて運動習慣が切れる場合は、自己判断で常用するより医師と相談しつつ位置づけるのが無難じゃ。</p>
+<h3>補助策として触れられていたもの</h3>
+<ul>
+<li>ザクロジュースはタルトチェリーの代替候補になりうる</li>
+<li>アルニカ外用薬は塗布による痛み緩和の可能性がある</li>
+<li>メラトニンは睡眠改善を通じて間接的に回復へ寄与する</li>
+</ul>
+</section>
+
+<section id="checklist">
+  <div class="section-label">CHECKLIST</div>
+  <h2>最終チェックと注意点</h2>
+<p class="intro-text">最後は『何を足すか』より『何を崩していないか』の確認じゃ。睡眠、補給、刺激物の量、この3つを見直すだけでも精度はかなり上がる。</p>
+<div class="work-card">
+  <div class="work-title"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+  <rect x="2" y="2" width="12" height="12" rx="2"></rect>
+  <path d="M5 8l2 2 4-4"></path>
+</svg>毎回の確認項目</div>
+<ul>
+<li>喉が渇く前に補給を始めているか</li>
+<li>運動後30分以内の食事か間食が固定されているか</li>
+<li>コーヒーとプレワークアウトの併用でカフェイン過多になっていないか</li>
+<li>クルクミンやレスベラトロールを、食事改善なしの埋め合わせにしていないか</li>
+</ul>
+</div>
+<div class="highlight-box">
+<p>最短で効かせるなら、水分と電解質、運動後のタンパク質と糖質、抗炎症食品の固定化、この3段を先に回すことじゃ。サプリはその後の微調整と考えるのが堅い。</p>
+</div>
+<hr>
+<h3>もしこうなら</h3>
+<p>もしカフェインが苦手なら、コーヒーを無理に使わず、ベリー類、タルトチェリー、電解質補給を主軸にする方が再現性は高い。</p>
+<p>もし胃腸が弱くて運動直後に食べにくいなら、液体で入れやすいホエイと蜂蜜から始め、固形食は少し遅らせる方が続けやすい。</p>
+</section>
+  </main>
+</body>
+</html>
