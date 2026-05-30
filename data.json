@@ -533,6 +533,21 @@
       ],
       "readTime": 5,
       "file": "articles/inflammation_muscle_recovery_guide.html"
+    },
+    {
+      "id": 53,
+      "title": "前十字靭帯（ACL）損傷後のリハビリテーション",
+      "genre": "理学療法",
+      "date": "2026-05-30",
+      "summary": "前十字靭帯（ACL）損傷後の評価・リハビリテーション・トレーニング",
+      "tags": [
+        "ACL",
+        "前十字靭帯",
+        "リハビリテーション",
+        "スポーツ復帰"
+      ],
+      "readTime": 7,
+      "file": "articles/acl_rehabilitation.html"
     }
   ]
 }

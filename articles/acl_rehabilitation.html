@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="前十字靭帯（ACL）損傷後の評価・リハビリテーション・トレーニング">
+  <title>前十字靭帯（ACL）損傷後のリハビリテーション</title>
+  <style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --hero-bg-from: #eef5f2;
+  --hero-bg-to:   #ffffff;
+  --accent:       #245844;
+  --accent-sub:   #5d8576;
+  --bg-sub:       #ebf2ee;
+  --bg:      #ffffff;
+  --bg-card: #ffffff;
+  --text:    #111111;
+  --text-soft: #222222;
+  --rule:    #d0d7df;
+  --max-w: 740px;
+  --font-ja: "Hiragino Mincho ProN","Yu Mincho","游明朝","Noto Serif JP",Georgia,serif;
+  --font-go: "Hiragino Kaku Gothic ProN","Yu Gothic","游ゴシック","Noto Sans JP",sans-serif;
+  --radius: 12px;
+  --shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+html { font-size: 16px; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-ja);
+  line-height: 1.75;
+  -webkit-text-size-adjust: 100%;
+  padding: 0 0 100px;
+}
+main { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
+
+.hero {
+  text-align: center;
+  padding: 80px 24px 64px;
+  background: linear-gradient(135deg, var(--hero-bg-from) 0%, var(--hero-bg-to) 100%);
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: 64px;
+}
+.hero-tag {
+  display: inline-block;
+  font-family: var(--font-go);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent-sub);
+  background: var(--bg-sub);
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  padding: 4px 14px;
+  margin-bottom: 24px;
+}
+.hero h1 {
+  font-family: var(--font-go);
+  font-size: clamp(2rem, 6vw, 3rem);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  color: var(--text);
+  max-width: 18ch;
+  text-wrap: balance;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 16px;
+}
+.hero-desc {
+  font-family: var(--font-go);
+  font-size: 1rem;
+  color: var(--text);
+  line-height: 1.7;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.toc {
+  background: var(--bg-sub);
+  border-radius: var(--radius);
+  padding: 28px 32px;
+  margin-bottom: 48px;
+}
+.toc-title {
+  font-family: var(--font-go);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent-sub);
+  margin-bottom: 14px;
+}
+.toc ol { padding-left: 1.4em; margin: 0; }
+.toc li {
+  font-family: var(--font-go);
+  font-size: 0.9rem;
+  line-height: 1.7;
+  margin-bottom: 6px;
+  color: var(--text);
+}
+.toc a { color: var(--text); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s; }
+.toc a:hover { border-bottom-color: var(--accent); }
+
+section {
+  margin-bottom: 72px;
+  padding-left: 24px;
+  border-left: 3px solid var(--accent);
+}
+
+.section-label {
+  display: inline-block;
+  font-family: var(--font-go);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--accent-sub);
+  margin-bottom: 10px;
+}
+
+h2 {
+  font-family: var(--font-go);
+  font-size: clamp(1.4rem, 4vw, 1.9rem);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  margin-bottom: 16px;
+  color: var(--text);
+}
+
+.intro-text {
+  font-size: 0.97rem;
+  color: var(--text);
+  line-height: 1.8;
+  margin-bottom: 28px;
+  font-style: italic;
+}
+
+h3 {
+  font-family: var(--font-go);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  margin-bottom: 10px;
+  margin-top: 28px;
+  color: var(--text);
+}
+
+p { font-size: 0.97rem; line-height: 1.8; margin-bottom: 14px; color: var(--text); }
+ul, ol { padding-left: 1.5em; margin-bottom: 16px; }
+li { font-size: 0.95rem; line-height: 1.8; margin-bottom: 6px; color: var(--text); }
+li::marker { color: var(--accent-sub); }
+strong, b { font-weight: 700; }
+
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 0.92em;
+}
+
+hr { border: none; border-top: 1px solid var(--rule); margin: 56px 0; }
+
+.card {
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--rule);
+  padding: 28px 32px;
+  margin: 16px 0;
+}
+.card h3 { margin-top: 0; margin-bottom: 12px; font-size: 1rem; }
+.card p { margin-bottom: 8px; }
+.card p:last-child { margin-bottom: 0; }
+
+.card-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin: 20px 0;
+}
+
+.mini-label {
+  display: inline-block;
+  font-family: var(--font-go);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent-sub);
+  margin-bottom: 8px;
+}
+
+.table-wrap { overflow-x: auto; margin: 24px 0; border-radius: var(--radius); box-shadow: var(--shadow); }
+.data-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; background: var(--bg-card); }
+.data-table thead tr { background: var(--text); color: #ffffff; }
+.data-table th {
+  font-family: var(--font-go);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 14px 18px;
+  text-align: left;
+}
+.data-table td { padding: 12px 18px; border-bottom: 1px solid var(--rule); line-height: 1.6; color: var(--text); }
+.data-table tbody tr:last-child td { border-bottom: none; }
+.data-table tbody tr:hover { background: var(--bg-sub); }
+
+.timeline { position: relative; padding-left: 28px; margin: 24px 0; }
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 6px; bottom: 6px;
+  width: 2px;
+  background: var(--rule);
+}
+.tl-item { position: relative; margin-bottom: 28px; }
+.tl-marker {
+  position: absolute;
+  left: -34px; top: 6px;
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid var(--bg);
+  box-shadow: 0 0 0 2px var(--rule);
+}
+.tl-content {
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  border: 1px solid var(--rule);
+  padding: 20px 24px;
+  box-shadow: var(--shadow);
+}
+.tl-phase {
+  display: inline-block;
+  font-family: var(--font-go);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent-sub);
+  background: var(--bg-sub);
+  border-radius: 999px;
+  padding: 2px 10px;
+  margin-bottom: 8px;
+}
+.tl-content h4 { font-family: var(--font-go); font-size: 0.95rem; font-weight: 700; margin-bottom: 8px; color: var(--text); }
+.tl-content p { font-size: 0.88rem; color: var(--text); margin-bottom: 0; line-height: 1.7; }
+
+.highlight-box {
+  background: var(--bg-sub);
+  border-radius: var(--radius);
+  border: 1px solid var(--rule);
+  border-left: 4px solid var(--accent-sub);
+  padding: 20px 24px;
+  margin: 24px 0;
+}
+.highlight-box p { font-size: 0.93rem; margin-bottom: 6px; }
+.highlight-box p:last-child { margin-bottom: 0; }
+
+.quote-block {
+  background: var(--bg-sub);
+  border-radius: var(--radius);
+  border: none;
+  padding: 28px 32px;
+  margin: 24px 0;
+  position: relative;
+}
+.quote-block::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 4px; height: 100%;
+  background: var(--accent);
+  border-radius: 2px 0 0 2px;
+}
+.quote-block p { font-size: 0.97rem; line-height: 1.85; color: var(--text); margin-bottom: 16px; font-style: italic; }
+.quote-block footer { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.quote-name {
+  font-family: var(--font-go);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text);
+  background: var(--rule);
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+.quote-org { font-family: var(--font-go); font-size: 0.78rem; color: var(--text); }
+
+.work-card {
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  border: 1px solid var(--rule);
+  box-shadow: var(--shadow);
+  padding: 24px 28px;
+  margin: 20px 0;
+}
+.work-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-go);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent-sub);
+  margin-bottom: 16px;
+}
+.work-title svg { flex-shrink: 0; }
+.work-card ul { margin: 0; padding-left: 1.4em; }
+.work-card li { font-size: 0.93rem; line-height: 1.75; margin-bottom: 8px; }
+.work-card li:last-child { margin-bottom: 0; }
+
+.key-box {
+  background: var(--text);
+  color: #ffffff;
+  border-radius: var(--radius);
+  padding: 28px 32px;
+  margin: 32px 0;
+}
+.key-box .kbox-label {
+  font-family: var(--font-go);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #aaaaaa;
+  margin-bottom: 12px;
+  display: block;
+}
+.key-box p { color: #e8e8e8; font-size: 0.95rem; line-height: 1.85; margin-bottom: 8px; }
+.key-box p:last-child { margin-bottom: 0; }
+
+@media print {
+  body { padding: 0; font-size: 10pt; }
+  main { max-width: 100%; padding: 0; }
+  .hero { padding: 40px 0; }
+  h1 { font-size: 22pt; } h2 { font-size: 14pt; } h3 { font-size: 11pt; }
+  p, li { font-size: 10pt; line-height: 1.7; }
+  section, .card, .timeline, .key-box, .work-card { page-break-inside: avoid; }
+  @page { size: A4 portrait; margin: 20mm 18mm 22mm; }
+}
+
+@media screen and (max-width: 640px) {
+  .hero { padding: 56px 20px 44px; }
+  main { padding: 0 16px; }
+  section { padding-left: 16px; }
+  h2 { font-size: 1.35rem; }
+  .card-grid { grid-template-columns: 1fr; }
+  .toc { padding: 20px 20px; }
+  .card { padding: 20px 20px; }
+  .key-box { padding: 20px 20px; }
+  .quote-block { padding: 20px 20px; }
+}
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <span class="hero-tag">REHABILITATION</span>
+    <h1>前十字靭帯（ACL）損傷後のリハビリテーション</h1>
+    <p class="hero-desc">前十字靭帯（ACL）損傷後の評価・リハビリテーション・トレーニング</p>
+  </header>
+
+  <main>
+    <nav class="toc">
+      <div class="toc-title">目次</div>
+      <ol>
+      <li><a href="#anatomy">1. 前十字靭帯（ACL）の解剖と機能</a></li>
+      <li><a href="#assessment">2. 評価方法</a></li>
+      <li><a href="#surgery">3. 治療（ACL再建術）</a></li>
+      <li><a href="#phases">4. リハビリテーションの段階と重要点</a></li>
+      <li><a href="#training">5. 具体的なトレーニングとストレッチング</a></li>
+      <li><a href="#keypoints">6. リハビリテーションの重要ポイント</a></li>
+      <li><a href="#detail">7. 前十字靭帯（ACL）再建術後のリハビリテーション詳細（術後1日〜8ヶ月）</a></li>
+      <li><a href="#summary">まとめ：リハビリテーションの重要点</a></li>
+      </ol>
+    </nav>
+    <hr>
+
+<section id="anatomy">
+  <div class="section-label">ANATOMY</div>
+  <h2>1. 前十字靭帯（ACL）の解剖と機能</h2>
+<p class="intro-text">前十字靭帯は、大腿骨外側顆の窩間側後方から脛骨プラトーの内側顆間結節に向かって、後外側から遠位前方にねじれながら走行する紐状の線維束です。</p>
+<h3>主な機能</h3>
+<ul>
+<li>大腿骨に対する脛骨の前方移動と内旋運動の制動</li>
+<li>膝関節の外反の制動</li>
+</ul>
+<h3>荷重位での役割</h3>
+<p>足部が固定された荷重位（CKC）では、脛骨に対する大腿骨の後方移動と外旋を制動します。</p>
+</section>
+
+<section id="assessment">
+  <div class="section-label">ASSESSMENT</div>
+  <h2>2. 評価方法</h2>
+<p class="intro-text">ACL損傷の評価には、画像診断、整形外科的徒手検査、および動的アライメントの評価が含まれます。</p>
+<h3>① 画像診断と臨床症状</h3>
+<ul>
+<li><strong>MRI:</strong> 損傷部位や形態の診断に最も有用です。新鮮損傷では受傷後12時間以内に関節血腫に伴う関節腫脹が生じることが多いです。</li>
+<li><strong>臨床症状:</strong> 受傷時に「pop音」という断裂音を自覚することが多く、12時間以内に関節腫脹あり。膝くずれ（giving way）や脱力感、可動域制限（特に伸展制限）が見られる。</li>
+<li>骨挫傷や関節軟骨、半月板損傷を合併している場合は、虚脱が著名。</li>
+<li>損傷したACLは自然治癒力が低い</li>
+</ul>
+<h3>② 整形外科的徒手検査（前方・回旋不安定性の評価）</h3>
+<ul>
+<li><strong>Lachman test:</strong> 背臥位で膝を20〜30°屈曲させて脛骨を前方に引き出す検査で、ACL損傷の診断に対する有用性が高いとされています。</li>
+<li><strong>前方引き出しテスト（ADT）:</strong> 膝関節90°屈曲位で行う古典的な検査ですが、ACL後外側束の弛緩によって偽陰性となる率が高いため、Lachman testより信頼性は低いとされます。</li>
+<li><strong>Pivot shift test / N-テスト:</strong> 膝関節の回旋不安定性を評価します。膝関節の伸展位から、外反・内旋を加えながら屈曲していく際、30〜40°付近で脛骨の亜脱臼が整復されるクリックを触知すれば陽性です。</li>
+</ul>
+<h3>③ 柔軟性とアライメントの評価</h3>
+<ul>
+<li><strong>伸展の評価（HHD）:</strong> 腹臥位で膝蓋骨を支持した際の踵骨高の左右差（Heel Height Difference）を測定します。術後3ヵ月までに左右差0cmを目指します。</li>
+<li><strong>動的アライメント:</strong> ジャンプ着地やステップ動作時に、膝が内側に入る「knee-in」や、足先が外を向く「toe-out」が生じないかを確認します。これらはACL損傷の危険因子です。</li>
+</ul>
+</section>
+
+<section id="surgery">
+  <div class="section-label">SURGERY</div>
+  <h2>3. 治療（ACL再建術）</h2>
+<p class="intro-text">ACLは血行に乏しく自然治癒能力が低いため、スポーツ復帰を目指す場合は、自家移植腱（自分の腱）を用いた関節内再建術が一般的です。</p>
+<div class="table-wrap">
+  <table class="data-table">
+    <thead>
+      <tr><th>移植腱</th><th>長所</th><th>短所</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>骨付き膝蓋腱（BTB）</td><td>強固な固定が得られやすい</td><td>採取部の痛み、大腿四頭筋の筋力回復遅延</td></tr>
+      <tr><td>半腱様筋腱（ST）</td><td>採取部の痛みが少ない</td><td>膝関節屈曲筋力の低下、腱の低形成、バレエのパッセやヨガのポーズが難しくなる…</td></tr>
+    </tbody>
+  </table>
+</div>
+<h3>移植腱の強度変化</h3>
+<p>術後、移植腱はいったん虚血性壊死に陥り強度が低下します。</p>
+<p>その後、数カ月から1年以上かけて再構築（リマデリング）され、</p>
+<p>最終的な強度は正常靭帯の60〜70%程度となります。</p>
+</section>
+
+<section id="phases">
+  <div class="section-label">PHASES</div>
+  <h2>4. リハビリテーションの段階と重要点</h2>
+<p class="intro-text">リハビリテーションは、組織の治癒過程に合わせて「保護期」「トレーニング期」「前復帰期」に分けられます。</p>
+<h3>可動域</h3>
+<ul>
+<li>術後2週までは、屈曲120度までの範囲内でROM実施。</li>
+<li>骨孔と再腱靭帯が癒合するOPE後の3ヶ月までに、屈曲130度を目標。</li>
+<li>150度以上は術後4ヶ月以降から。</li>
+</ul>
+<h3>筋トレ</h3>
+<ul>
+<li>屈曲70度以上の状態で大腿四頭筋ex</li>
+<li>有効なのは：伸展位でクワドセッティング、SLR</li>
+</ul>
+<div class="timeline">
+<div class="tl-item">
+  <div class="tl-marker"></div>
+  <div class="tl-content">
+    <span class="tl-phase">① 保護期（術後〜6週）</span>
+
+<p><strong>目的:</strong> 再建靭帯と骨孔部の安静保持、廃用による機能低下の予防</p>
+<p><strong>注意点:</strong> 術後早期は移植腱の強度が一時的に低下するため、過度な負荷を避けます。膝関節の完全伸展の獲得と、膝蓋骨・組織の滑走性維持（膝蓋上嚢のモビライゼーションなど）が重要です。</p>
+  </div>
+</div>
+<div class="tl-item">
+  <div class="tl-marker"></div>
+  <div class="tl-content">
+    <span class="tl-phase">② トレーニング期（〜12週）</span>
+
+<p><strong>目的:</strong> 運動機能と支持機能の獲得</p>
+<p><strong>筋力強化の原則:</strong></p>
+<p><strong>OKC（非荷重）:</strong> 膝伸展0〜30°での単独収縮は脛骨の前方剪断力を生じ、再建腱に負担をかけるため、早期（8週まで）は伸展角度を制限（例えば90〜45°など）します。</p>
+<p><strong>CKC（荷重）:</strong> スクワットやレッグプレスなどは、ハムストリングスの同時収縮を促すため安全性が高く、推奨されます。</p>
+  </div>
+</div>
+<div class="tl-item">
+  <div class="tl-marker"></div>
+  <div class="tl-content">
+    <span class="tl-phase">③ 前復帰期（12〜24週）</span>
+
+<p><strong>目的:</strong> スポーツ活動に必要な体力と技術の獲得</p>
+<p><strong>内容:</strong> ジョギングから開始し、徐々にジャンプ、方向転換、カッティングなどの種目特性に応じた動作を導入します。</p>
+<p>レッグエクステンション：術後4ヶ月から5kg程度の軽負荷から開始する。</p>
+  </div>
+</div>
+</div>
+</section>
+
+<section id="training">
+  <div class="section-label">TRAINING</div>
+  <h2>5. 具体的なトレーニングとストレッチング</h2>
+<h3>① ストレッチング</h3>
+<ul>
+<li><strong>膝関節伸展ストレッチ:</strong> ハムストリングスの緊張を緩和し、完全伸展を目指します。傾斜台を使用した持続伸張などが有効です。</li>
+<li><strong>膝関節屈曲ストレッチ（大腿直筋・腸腰筋）:</strong> 術後、膝前面の組織が硬くなりやすいため、伏臥位での膝屈曲や腸腰筋のストレッチを行います。術後6週までに屈曲135°の獲得を目標とします。</li>
+</ul>
+<h3>② 筋力トレーニング：大腿四頭筋強化</h3>
+<ul>
+<li><strong>クォータースクワット:</strong> 膝屈曲45°程度の負荷から開始します。</li>
+<li><strong>レッグプレス:</strong> 足尖荷重と体幹前傾を組み合わせることで、ACLのsynergist（共同筋）であるハムストリングスの活動を高め、安全に実施できます。</li>
+</ul>
+<h3>② 筋力トレーニング：ハムストリングス強化</h3>
+<ul>
+<li>ハムストリングスは脛骨の後方外力を発生させ、ACLを助ける作用があるため、積極的に強化します。</li>
+<li><strong>ブリッジ運動:</strong> 背臥位で臀部を挙上します。</li>
+<li>（注意：早期の高負荷は、腱採取部に剥離が生じて肉離れになる可能性あるため）</li>
+<li><strong>ノルディックハムストリング:</strong> 高負荷の遠心性収縮トレーニングです。</li>
+</ul>
+<h3>③ 姿勢制御・動作練習</h3>
+<ul>
+<li><strong>着地姿勢の修正:</strong> 膝の外反（knee-in）を防ぐため、股関節の外転・外旋筋（中殿筋など）を活性化させます。</li>
+<li><strong>前傾姿勢の推奨:</strong> 体幹を前傾させることでハムストリングスの活動が高まり、ACLへの負荷（前方剪断力）を軽減できます。</li>
+<li><strong>ステップ・ターン動作:</strong> 摩擦の少ない床面でのピボットターン練習から始め、徐々に実際の競技動作に近づけます。</li>
+</ul>
+</section>
+
+<section id="keypoints">
+  <div class="section-label">KEYPOINTS</div>
+  <h2>6. リハビリテーションの重要ポイント</h2>
+<ul>
+<li><strong>knee-inの回避:</strong> 常に「股関節・膝・足部」が直線上に並ぶように意識させます。中殿筋の筋力低下がある場合は、クラムシェルやサイドプランクなどの補強運動を併用します。</li>
+<li><strong>恐怖心の払拭:</strong> 術後早期の痛みや膝の不安定感から生じる「動かすことへの恐怖心」に配慮し、段階的に負荷を上げることが大切です。</li>
+<li><strong>スポーツ復帰の基準:</strong> 筋力（健側比90%以上など）だけでなく、片脚着地時の安定性やホップテストの成績、心理的準備状態を総合的に判断します。</li>
+</ul>
+</section>
+
+<section id="detail">
+  <div class="section-label">DETAIL</div>
+  <h2>7. 前十字靭帯（ACL）再建術後のリハビリテーション詳細（術後1日〜8ヶ月）</h2>
+<h3>1. 術後初期：炎症制御と伸展可動域の絶対死守（術後1日〜2週）</h3>
+<p>この時期の最大の課題は、再建靭帯へのストレスを最小限にしつつ、将来的な不具合を防ぐための「完全伸展」を獲得することです。</p>
+<h3>詳細なリハビリ内容</h3>
+<ul>
+<li><strong>術後1日目</strong>: CPM（15〜60°）開始。病棟内での車椅子移動や、リハビリ室での練習を開始します。</li>
+<li><strong>術後2日目</strong>: ヒールスライドによる屈曲練習、SLR、1/4スクワット、階段昇降練習を開始。</li>
+<li><strong>術後7日目〜</strong>: 簡易装具から、個人で購入した<strong>硬性装具</strong>へと変更します。</li>
+</ul>
+<h3>重要な注意点</h3>
+<ul>
+<li><strong>HHD 0（完全伸展）の死守</strong>: 退院時までに、踵骨高の左右差（HHD）を0cm（左右差なし）にすることが必須です。伸展制限が残ると、後の大腿四頭筋の筋力回復が著しく遅れます。</li>
+<li><strong>炎症管理（アイシング）</strong>: 術後24時間は5℃に設定されたシステムで持続冷却し、関節内血腫や腫脹を最小限に抑えます。</li>
+<li><strong>パテラ（膝蓋骨）の可動性</strong>: 膝蓋下脂肪体などが炎症で硬化しやすいため、膝蓋骨のモビライゼーションや周囲組織のマッサージを行い、インピンジメントを防ぎます。</li>
+</ul>
+<hr>
+<h3>2. 荷重・筋力トレーニング期（術後4週〜12週）</h3>
+<p>移植腱が骨孔内で癒合し始める時期ですが、腱自体の強度は一時的に低下（リマデリング）するため、負荷の方向に細心の注意を払います。</p>
+<h3>詳細なリハビリ内容</h3>
+<ul>
+<li><strong>4週〜</strong>: 自転車エルゴメーター、バウンディングスクワット（クォータースクワットの位置から軽く跳ねる動作）開始。</li>
+<li><strong>8週〜</strong>: ジョギング開始（まずは1分走・1分歩の交互から）。</li>
+</ul>
+<h3>重要な注意点</h3>
+<ul>
+<li><strong>OKC（非荷重）の制限</strong>: 膝伸展0〜70°の範囲での大腿四頭筋単独収縮は、脛骨を前方に引き出す剪断力が働き、ACLに過度なストレスを与えます。そのため、術後早期の筋トレは<strong>70°以上の屈曲位</strong>で行うか、荷重位（CKC）を選択します。</li>
+<li><strong>スクワットの姿勢</strong>: 上半身が後方に位置すると、膝を伸ばそうとする力が強まりACLへの負荷が増します。体幹をやや前傾させ、重心を安定させることが重要です。</li>
+</ul>
+<hr>
+<h3>3. スポーツ動作獲得期（術後12週〜5ヶ月）</h3>
+<p>直線的な動きから、横方向や衝撃を伴う動作へと負荷を高めていきます。</p>
+<h3>詳細なリハビリ内容</h3>
+<ul>
+<li><strong>12週（3ヶ月）〜</strong>: ステップ動作、ダッシュ、サイドランジ、片脚クォータースクワット。</li>
+<li><strong>4ヶ月〜</strong>: レッグエクステンション（5kg程度の低負荷から段階的に）、ジャンプ、アジリティトレーニング開始。</li>
+</ul>
+<h3>重要な注意点</h3>
+<ul>
+<li><strong>Knee-in（膝の内入れ）の回避</strong>: ステップやジャンプ着地時に膝が内側に入る動作は、再断裂の最大の危険因子です。股関節外転筋（中殿筋など）を活用し、膝を足先と一直線に保つ「アライメントの再学習」を徹底します。</li>
+<li><strong>移植腱の脆弱性</strong>: 術後3ヶ月頃は再構築の過程で腱が最も弱いとされる時期であるため、痛みのない範囲での段階的な負荷増量を守ります。</li>
+</ul>
+<hr>
+<h3>4. 競技復帰準備期（術後5ヶ月〜8ヶ月）</h3>
+<p>客観的なデータに基づき、フィールドへの復帰可否を判断する最終局面です。</p>
+<h3>詳細なリハビリ内容</h3>
+<ul>
+<li><strong>5ヶ月〜</strong>: 非接触練習（部分的な部活参加など）を開始。</li>
+<li><strong>6.5ヶ月〜8ヶ月</strong>: 競技復帰に向けた最終評価。</li>
+</ul>
+<h3>重要な注意点</h3>
+<ul>
+<li><strong>定量的評価の実施</strong>: 「期間が経ったから」という理由で復帰させるのではなく、<strong>Biodexによる筋力測定（健側比80%以上）</strong>や、KNEELAX等による関節安定性の評価を必ず行います。</li>
+<li><strong>再断裂リスクの考慮</strong>: 10歳代の選手は再断裂率が11.23%と他の年代より高い傾向にあります。また、内因性（アライメント等）による損傷は再受傷しやすいため、復帰後もフォームチェックの継続が必要です。</li>
+<li><strong>心理的準備</strong>: フィールドでの急激な切り返しやターンに対する恐怖心が残っている場合は、リアクショントレーニング（合図に反応する動き）を増やし、自信をつけさせます。</li>
+</ul>
+</section>
+
+<section id="summary">
+  <div class="section-label">SUMMARY</div>
+  <h2>まとめ：リハビリテーションの重要点</h2>
+<ul>
+<li><strong>伸展制限を1日も早く解消すること</strong>が、後の全てのトレーニングの基礎となります。</li>
+<li><strong>OKCトレーニングの角度制限（0-70°は避ける）</strong>を徹底し、ACLへのストレスを管理します。</li>
+<li>復帰判断は、必ず<strong>筋力（健側比）と安定性の客観的データ</strong>に基づいて行います。</li>
+</ul>
+</section>
+  </main>
+</body>
+</html>
