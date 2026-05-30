@@ -548,6 +548,20 @@
       ],
       "readTime": 7,
       "file": "articles/acl_rehabilitation.html"
+    },
+    {
+      "id": 54,
+      "title": "人生は工夫で変わる！正しい努力の仕方",
+      "genre": "ライフスタイル",
+      "date": "2026-05-30",
+      "summary": "成果を運や才能任せにせず、問いの立て方、分解と発散、仮説検証、他者視点で努力の質を上げるための実践ガイド。",
+      "tags": [
+        "工夫",
+        "思考法",
+        "行動設計"
+      ],
+      "readTime": 4,
+      "file": "articles/jinsei_kufu_right_effort.html"
     }
   ]
 }
