@@ -562,6 +562,22 @@
       ],
       "readTime": 4,
       "file": "articles/jinsei_kufu_right_effort.html"
+    },
+    {
+      "id": 55,
+      "title": "コリの原因と筋攣縮",
+      "genre": "理学療法",
+      "date": "2026-05-31",
+      "summary": "肩こりや動かしにくさの背景にある筋攣縮を中心に、筋短縮との違い、進行の流れ、見分け方、対処の順序を整理します。",
+      "tags": [
+        "肩こり",
+        "筋攣縮",
+        "筋短縮",
+        "拘縮",
+        "肩関節"
+      ],
+      "readTime": 3,
+      "file": "articles/stiffness_causes_and_muscle_spasm.html"
     }
   ]
 }

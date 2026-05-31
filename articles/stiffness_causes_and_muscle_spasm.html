@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="肩こりや動かしにくさの背景にある筋攣縮を中心に、筋短縮との違い、進行の流れ、見分け方、対処の順序を整理します。">
+  <title>コリの原因と筋攣縮</title>
+  <style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --hero-bg-from: #eef5f2;
+  --hero-bg-to:   #ffffff;
+  --accent:       #245844;
+  --accent-sub:   #5d8576;
+  --bg-sub:       #ebf2ee;
+  --bg:      #ffffff;
+  --bg-card: #ffffff;
+  --text:    #111111;
+  --text-soft: #222222;
+  --rule:    #d0d7df;
+  --max-w: 740px;
+  --font-ja: "Hiragino Mincho ProN","Yu Mincho","游明朝","Noto Serif JP",Georgia,serif;
+  --font-go: "Hiragino Kaku Gothic ProN","Yu Gothic","游ゴシック","Noto Sans JP",sans-serif;
+  --radius: 12px;
+  --shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+html { font-size: 16px; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-ja);
+  line-height: 1.75;
+  -webkit-text-size-adjust: 100%;
+  padding: 0 0 100px;
+}
+main { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
+
+.hero {
+  text-align: center;
+  padding: 80px 24px 64px;
+  background: linear-gradient(135deg, var(--hero-bg-from) 0%, var(--hero-bg-to) 100%);
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: 64px;
+}
+.hero-tag {
+  display: inline-block;
+  font-family: var(--font-go);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent-sub);
+  background: var(--bg-sub);
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  padding: 4px 14px;
+  margin-bottom: 24px;
+}
+.hero h1 {
+  font-family: var(--font-go);
+  font-size: clamp(2rem, 6vw, 3rem);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  color: var(--text);
+  max-width: 18ch;
+  text-wrap: balance;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 16px;
+}
+.hero-desc {
+  font-family: var(--font-go);
+  font-size: 1rem;
+  color: var(--text);
+  line-height: 1.7;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.toc {
+  background: var(--bg-sub);
+  border-radius: var(--radius);
+  padding: 28px 32px;
+  margin-bottom: 48px;
+}
+.toc-title {
+  font-family: var(--font-go);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent-sub);
+  margin-bottom: 14px;
+}
+.toc ol { padding-left: 1.4em; margin: 0; }
+.toc li {
+  font-family: var(--font-go);
+  font-size: 0.9rem;
+  line-height: 1.7;
+  margin-bottom: 6px;
+  color: var(--text);
+}
+.toc a { color: var(--text); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s; }
+.toc a:hover { border-bottom-color: var(--accent); }
+
+section {
+  margin-bottom: 72px;
+  padding-left: 24px;
+  border-left: 3px solid var(--accent);
+}
+
+.section-label {
+  display: inline-block;
+  font-family: var(--font-go);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--accent-sub);
+  margin-bottom: 10px;
+}
+
+h2 {
+  font-family: var(--font-go);
+  font-size: clamp(1.4rem, 4vw, 1.9rem);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  margin-bottom: 16px;
+  color: var(--text);
+}
+
+.intro-text {
+  font-size: 0.97rem;
+  color: var(--text);
+  line-height: 1.8;
+  margin-bottom: 28px;
+  font-style: italic;
+}
+
+h3 {
+  font-family: var(--font-go);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  margin-bottom: 10px;
+  margin-top: 28px;
+  color: var(--text);
+}
+
+p { font-size: 0.97rem; line-height: 1.8; margin-bottom: 14px; color: var(--text); }
+ul, ol { padding-left: 1.5em; margin-bottom: 16px; }
+li { font-size: 0.95rem; line-height: 1.8; margin-bottom: 6px; color: var(--text); }
+li::marker { color: var(--accent-sub); }
+strong, b { font-weight: 700; }
+
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 0.92em;
+}
+
+hr { border: none; border-top: 1px solid var(--rule); margin: 56px 0; }
+
+.card {
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--rule);
+  padding: 28px 32px;
+  margin: 16px 0;
+}
+.card h3 { margin-top: 0; margin-bottom: 12px; font-size: 1rem; }
+.card p { margin-bottom: 8px; }
+.card p:last-child { margin-bottom: 0; }
+
+.card-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin: 20px 0;
+}
+
+.mini-label {
+  display: inline-block;
+  font-family: var(--font-go);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent-sub);
+  margin-bottom: 8px;
+}
+
+.table-wrap { overflow-x: auto; margin: 24px 0; border-radius: var(--radius); box-shadow: var(--shadow); }
+.data-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; background: var(--bg-card); }
+.data-table thead tr { background: var(--text); color: #ffffff; }
+.data-table th {
+  font-family: var(--font-go);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 14px 18px;
+  text-align: left;
+}
+.data-table td { padding: 12px 18px; border-bottom: 1px solid var(--rule); line-height: 1.6; color: var(--text); }
+.data-table tbody tr:last-child td { border-bottom: none; }
+.data-table tbody tr:hover { background: var(--bg-sub); }
+
+.timeline { position: relative; padding-left: 28px; margin: 24px 0; }
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 6px; bottom: 6px;
+  width: 2px;
+  background: var(--rule);
+}
+.tl-item { position: relative; margin-bottom: 28px; }
+.tl-marker {
+  position: absolute;
+  left: -34px; top: 6px;
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid var(--bg);
+  box-shadow: 0 0 0 2px var(--rule);
+}
+.tl-content {
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  border: 1px solid var(--rule);
+  padding: 20px 24px;
+  box-shadow: var(--shadow);
+}
+.tl-phase {
+  display: inline-block;
+  font-family: var(--font-go);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent-sub);
+  background: var(--bg-sub);
+  border-radius: 999px;
+  padding: 2px 10px;
+  margin-bottom: 8px;
+}
+.tl-content h4 { font-family: var(--font-go); font-size: 0.95rem; font-weight: 700; margin-bottom: 8px; color: var(--text); }
+.tl-content p { font-size: 0.88rem; color: var(--text); margin-bottom: 0; line-height: 1.7; }
+
+.highlight-box {
+  background: var(--bg-sub);
+  border-radius: var(--radius);
+  border: 1px solid var(--rule);
+  border-left: 4px solid var(--accent-sub);
+  padding: 20px 24px;
+  margin: 24px 0;
+}
+.highlight-box p { font-size: 0.93rem; margin-bottom: 6px; }
+.highlight-box p:last-child { margin-bottom: 0; }
+
+.quote-block {
+  background: var(--bg-sub);
+  border-radius: var(--radius);
+  border: none;
+  padding: 28px 32px;
+  margin: 24px 0;
+  position: relative;
+}
+.quote-block::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 4px; height: 100%;
+  background: var(--accent);
+  border-radius: 2px 0 0 2px;
+}
+.quote-block p { font-size: 0.97rem; line-height: 1.85; color: var(--text); margin-bottom: 16px; font-style: italic; }
+.quote-block footer { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.quote-name {
+  font-family: var(--font-go);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text);
+  background: var(--rule);
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+.quote-org { font-family: var(--font-go); font-size: 0.78rem; color: var(--text); }
+
+.work-card {
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  border: 1px solid var(--rule);
+  box-shadow: var(--shadow);
+  padding: 24px 28px;
+  margin: 20px 0;
+}
+.work-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-go);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent-sub);
+  margin-bottom: 16px;
+}
+.work-title svg { flex-shrink: 0; }
+.work-card ul { margin: 0; padding-left: 1.4em; }
+.work-card li { font-size: 0.93rem; line-height: 1.75; margin-bottom: 8px; }
+.work-card li:last-child { margin-bottom: 0; }
+
+.key-box {
+  background: var(--text);
+  color: #ffffff;
+  border-radius: var(--radius);
+  padding: 28px 32px;
+  margin: 32px 0;
+}
+.key-box .kbox-label {
+  font-family: var(--font-go);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #aaaaaa;
+  margin-bottom: 12px;
+  display: block;
+}
+.key-box p { color: #e8e8e8; font-size: 0.95rem; line-height: 1.85; margin-bottom: 8px; }
+.key-box p:last-child { margin-bottom: 0; }
+
+@media print {
+  body { padding: 0; font-size: 10pt; }
+  main { max-width: 100%; padding: 0; }
+  .hero { padding: 40px 0; }
+  h1 { font-size: 22pt; } h2 { font-size: 14pt; } h3 { font-size: 11pt; }
+  p, li { font-size: 10pt; line-height: 1.7; }
+  section, .card, .timeline, .key-box, .work-card { page-break-inside: avoid; }
+  @page { size: A4 portrait; margin: 20mm 18mm 22mm; }
+}
+
+@media screen and (max-width: 640px) {
+  .hero { padding: 56px 20px 44px; }
+  main { padding: 0 16px; }
+  section { padding-left: 16px; }
+  h2 { font-size: 1.35rem; }
+  .card-grid { grid-template-columns: 1fr; }
+  .toc { padding: 20px 20px; }
+  .card { padding: 20px 20px; }
+  .key-box { padding: 20px 20px; }
+  .quote-block { padding: 20px 20px; }
+}
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <span class="hero-tag">PHYSICAL THERAPY</span>
+    <h1>コリの原因と筋攣縮</h1>
+    <p class="hero-desc">肩こりや動かしにくさの背景にある筋攣縮を中心に、筋短縮との違い、進行の流れ、見分け方、対処の順序を整理します。</p>
+  </header>
+
+  <main>
+    <nav class="toc">
+      <div class="toc-title">目次</div>
+      <ol>
+      <li><a href="#spasm-core">1. コリの正体は「防御反応としての筋攣縮」</a></li>
+      <li><a href="#difference">2. 筋攣縮と筋短縮は、原因も対処も違う</a></li>
+      <li><a href="#progression">3. 放置すると、攣縮は短縮や拘縮へ進みやすい</a></li>
+      <li><a href="#assessment">4. 見分けるポイントはエンドフィールと痛みの出方</a></li>
+      <li><a href="#management">5. 対処は『緩める』と『伸ばす』を順番に使い分ける</a></li>
+      </ol>
+    </nav>
+    <hr>
+
+<section id="spasm-core">
+  <div class="section-label">BASICS</div>
+  <h2>1. コリの正体は「防御反応としての筋攣縮」</h2>
+<p class="intro-text">肩まわりのコリや動かしにくさは、単なる筋肉疲労だけでなく、痛みや牽引刺激に対して神経系が筋緊張を高めた状態として理解すると整理しやすくなります。</p>
+<div class="highlight-box">
+<p>筋攣縮は、筋そのものが短く変形した状態ではなく、<strong>侵害刺激に対する不随意な防御反応</strong>です。まずは『組織が壊れた』ではなく『守るために固めている』と捉えるのが出発点です。</p>
+</div>
+<div class="card-grid">
+<div class="card">
+<span class="mini-label">INPUT</span>
+<h3>引き金</h3>
+<p>炎症、組織損傷、姿勢不良による牽引などが侵害刺激になります。</p>
+</div>
+<div class="card">
+<span class="mini-label">RESPONSE</span>
+<h3>神経系の反応</h3>
+<p>脳・脊髄が『これ以上動かすと危険』と判断し、周囲の筋緊張を高めて関節を守ろうとします。</p>
+</div>
+<div class="card">
+<span class="mini-label">RESULT</span>
+<h3>コリとして感じる状態</h3>
+<p>血流低下と発痛物質の蓄積が進むと、重だるさや張り、鋭い痛みとして自覚されやすくなります。</p>
+</div>
+</div>
+<h3>肩こりで負荷が集中しやすい部位</h3>
+<ul>
+<li>僧帽筋上部線維は、頭や肩を支える負担を受けやすく、コリの自覚が最も出やすい部位です。</li>
+<li>肩甲挙筋は、頭部前方位や肩甲骨の下方回旋が続くと慢性的に緊張しやすい深層筋です。</li>
+<li>菱形筋は、肩甲骨まわりの位置異常が続くと引き伸ばされながら働き続けるため、反応性の緊張が残りやすくなります。</li>
+</ul>
+<h3>なぜ慢性化しやすいか</h3>
+<p>筋緊張が続くと筋内圧が上がり、血流が落ち、ATP不足と発痛物質の蓄積が起こります。</p>
+<p>その結果、わずかな動きでも痛みを感じやすい感作が進み、さらに筋攣縮が強まる悪循環に入りやすくなります。</p>
+</section>
+
+<section id="difference">
+  <div class="section-label">DIFFERENCE</div>
+  <h2>2. 筋攣縮と筋短縮は、原因も対処も違う</h2>
+<p class="intro-text">筋攣縮と筋短縮は、どちらも『硬い』と表現されますが、背景が違うため同じ介入では整いません。</p>
+<div class="table-wrap">
+  <table class="data-table">
+    <thead>
+      <tr><th>項目</th><th>筋攣縮</th><th>筋短縮</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>本質</td><td>神経系が作る一時的な防御緊張</td><td>筋・結合組織の伸張性低下</td></tr>
+      <tr><td>組織変化</td><td>基本的には可逆的</td><td>線維化や線維数減少を伴いやすい</td></tr>
+      <tr><td>安静時の変化</td><td>落ち着くと緩む余地がある</td><td>安静でも短いまま残りやすい</td></tr>
+      <tr><td>介入の主軸</td><td>温熱・安心感・弱い収縮と脱力</td><td>持続的ストレッチ・滑走性改善</td></tr>
+    </tbody>
+  </table>
+</div>
+<div class="key-box">
+  <span class="kbox-label">CLINICAL POINT</span>
+<p>強く張っているからといって、すぐに『短縮している』とは限りません。攣縮に対していきなり強いストレッチを入れると、防御反応をさらに強めることがあります。</p>
+</div>
+</section>
+
+<section id="progression">
+  <div class="section-label">PROGRESSION</div>
+  <h2>3. 放置すると、攣縮は短縮や拘縮へ進みやすい</h2>
+<p class="intro-text">最初は機能的な緊張でも、長く続けば構造的な変化へ移りやすくなります。</p>
+<div class="timeline">
+<div class="tl-item">
+  <div class="tl-marker"></div>
+  <div class="tl-content">
+    <span class="tl-phase">STEP 1</span>
+    <h4>筋攣縮</h4>
+<p>痛みや炎症に対する<strong>機能的な制限</strong>で、リラクゼーションや刺激の整理で変化しやすい段階です。</p>
+  </div>
+</div>
+<div class="tl-item">
+  <div class="tl-marker"></div>
+  <div class="tl-content">
+    <span class="tl-phase">STEP 2</span>
+    <h4>筋短縮</h4>
+<p>長期間の不動や緊張の持続で、筋線維数の減少やコラーゲンの架橋形成が進み、<strong>構造的な縮み</strong>が出てきます。</p>
+  </div>
+</div>
+<div class="tl-item">
+  <div class="tl-marker"></div>
+  <div class="tl-content">
+    <span class="tl-phase">STEP 3</span>
+    <h4>拘縮</h4>
+<p>筋だけでなく関節包や靱帯など深部組織まで硬くなり、<strong>器質的な可動域制限</strong>として残りやすくなります。</p>
+  </div>
+</div>
+</div>
+<blockquote class="quote-block">
+<p>『いま強く痛いから伸ばせばよい』ではなく、どの段階にいるかを見誤らないことが治療戦略の分岐点になります。</p>
+</blockquote>
+</section>
+
+<section id="assessment">
+  <div class="section-label">ASSESSMENT</div>
+  <h2>4. 見分けるポイントはエンドフィールと痛みの出方</h2>
+<p class="intro-text">制限因子が攣縮なのか短縮なのかを見極めると、介入の順序を誤りにくくなります。</p>
+<div class="card-grid">
+<div class="card">
+<span class="mini-label">SPASM</span>
+<h3>筋攣縮を疑う所見</h3>
+<p>動かした瞬間にピクッと防御収縮が出る、強い痛みで止まる、支持や誘導を加えると少し動きやすくなる、などが手がかりになります。</p>
+</div>
+<div class="card">
+<span class="mini-label">SHORTENING</span>
+<h3>筋短縮を疑う所見</h3>
+<p>最終域で組織が突っ張る硬い抵抗があり、痛みよりも『物理的に行き止まり』の感覚が前面に出ます。</p>
+</div>
+<div class="card">
+<span class="mini-label">SHOULDER</span>
+<h3>肩関節での例</h3>
+<p>結帯動作のように内旋が求められる場面では、棘下筋の攣縮が前方偏位を助長し、前面の衝突痛を強めることがあります。</p>
+</div>
+</div>
+<h3>評価で押さえたい視点</h3>
+<ul>
+<li>不良姿勢や肩甲骨アライメントの崩れが続いていないか</li>
+<li>動かし方を変えると痛みが減るか</li>
+<li>温めた後や軽い収縮の後で可動域が変わるか</li>
+</ul>
+</section>
+
+<section id="management">
+  <div class="section-label">MANAGEMENT</div>
+  <h2>5. 対処は『緩める』と『伸ばす』を順番に使い分ける</h2>
+<p class="intro-text">コリや可動域制限への介入は、攣縮を落ち着かせる段階と、残った短縮へ物理的に対応する段階を分けると整理しやすくなります。</p>
+<div class="card-grid">
+<div class="card">
+<span class="mini-label">STEP 1</span>
+<h3>神経系を落ち着かせる</h3>
+<p>温熱、愛護的なマッサージ、骨頭の求心位を保った安心できる運動で、防御反応を解きやすくします。</p>
+</div>
+<div class="card">
+<span class="mini-label">STEP 2</span>
+<h3>Ib抑制を使う</h3>
+<p>凝っている筋に2〜3割の弱い力を2〜3秒入れて抜くと、ゴルジ腱器官を介して筋緊張が下がりやすくなります。</p>
+</div>
+<div class="card">
+<span class="mini-label">STEP 3</span>
+<h3>残った短縮へ対応する</h3>
+<p>攣縮が落ち着いた後に、持続的ストレッチや滑走性改善を入れて、組織そのものの硬さに対応します。</p>
+</div>
+</div>
+<div class="work-card">
+  <div class="work-title"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+  <rect x="2" y="2" width="12" height="12" rx="2"></rect>
+  <path d="M5 8l2 2 4-4"></path>
+</svg>再発予防の視点</div>
+<ul>
+<li>胸椎伸展を促して、丸まった背中を起こす</li>
+<li>小胸筋や前胸部の硬さを整え、肩甲骨の前方偏位を減らす</li>
+<li>頭部前方位や肩甲骨下方回旋が続く作業環境を見直す</li>
+</ul>
+</div>
+<div class="key-box">
+  <span class="kbox-label">CAUTION</span>
+<p>急性炎症が強い時期や、夜間痛・安静時痛が強い場面では、無理に強いストレッチを入れない方が安全です。『まず攣縮を静め、その後に短縮へ触る』という順序が崩れると、かえって悪循環を強めます。</p>
+</div>
+</section>
+  </main>
+</body>
+</html>
