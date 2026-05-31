@@ -593,6 +593,20 @@
       ],
       "readTime": 4,
       "file": "articles/average_salary_breakthrough.html"
+    },
+    {
+      "id": 57,
+      "title": "空白時間とホワイトスペースの作り方",
+      "genre": "ライフスタイル",
+      "date": "2026-05-31",
+      "summary": "忙しさを埋めるほど成果が出るとは限りません。意図的に何もしない時間を作り、焦りを鎮め、創造性と意思決定を回復させるための実践ガイドです。",
+      "tags": [
+        "ホワイトスペース",
+        "生産性",
+        "デジタルデトックス"
+      ],
+      "readTime": 13,
+      "file": "articles/whitespace_time_guide.html"
     }
   ]
 }
