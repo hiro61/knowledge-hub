@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="多くの目標に同時に手を出して成果が分散してしまう人が、6週間だけ本当に重要な一つに集中するための行動設計法。目標の棚卸し、成功指標、OBL候補の評価、環境設計、継続の判断基準までを一連の手順として整理します。">
+  <title>6週間で成果を出す①。行動設計法</title>
+  <style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --hero-bg-from: #edf3f8;
+  --hero-bg-to:   #ffffff;
+  --accent:       #183b66;
+  --accent-sub:   #4a6f9d;
+  --bg-sub:       #eaf1f7;
+  --bg:      #ffffff;
+  --bg-card: #ffffff;
+  --text:    #111111;
+  --text-soft: #222222;
+  --rule:    #d0d7df;
+  --max-w: 740px;
+  --font-ja: "Hiragino Mincho ProN","Yu Mincho","游明朝","Noto Serif JP",Georgia,serif;
+  --font-go: "Hiragino Kaku Gothic ProN","Yu Gothic","游ゴシック","Noto Sans JP",sans-serif;
+  --radius: 12px;
+  --shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+html { font-size: 16px; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-ja);
+  line-height: 1.75;
+  -webkit-text-size-adjust: 100%;
+  padding: 0 0 100px;
+}
+main { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
+
+.hero {
+  text-align: center;
+  padding: 80px 24px 64px;
+  background: linear-gradient(135deg, var(--hero-bg-from) 0%, var(--hero-bg-to) 100%);
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: 64px;
+}
+.hero-tag {
+  display: inline-block;
+  font-family: var(--font-go);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent-sub);
+  background: var(--bg-sub);
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  padding: 4px 14px;
+  margin-bottom: 24px;
+}
+.hero h1 {
+  font-family: var(--font-go);
+  font-size: clamp(2rem, 6vw, 3rem);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  color: var(--text);
+  max-width: 18ch;
+  text-wrap: balance;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 16px;
+}
+.hero-desc {
+  font-family: var(--font-go);
+  font-size: 1rem;
+  color: var(--text);
+  line-height: 1.7;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.toc {
+  background: var(--bg-sub);
+  border-radius: var(--radius);
+  padding: 28px 32px;
+  margin-bottom: 48px;
+}
+.toc-title {
+  font-family: var(--font-go);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent-sub);
+  margin-bottom: 14px;
+}
+.toc ol { padding-left: 1.4em; margin: 0; }
+.toc li {
+  font-family: var(--font-go);
+  font-size: 0.9rem;
+  line-height: 1.7;
+  margin-bottom: 6px;
+  color: var(--text);
+}
+.toc a { color: var(--text); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s; }
+.toc a:hover { border-bottom-color: var(--accent); }
+
+section {
+  margin-bottom: 72px;
+  padding-left: 24px;
+  border-left: 3px solid var(--accent);
+}
+
+.section-label {
+  display: inline-block;
+  font-family: var(--font-go);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--accent-sub);
+  margin-bottom: 10px;
+}
+
+h2 {
+  font-family: var(--font-go);
+  font-size: clamp(1.4rem, 4vw, 1.9rem);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  margin-bottom: 16px;
+  color: var(--text);
+}
+
+.intro-text {
+  font-size: 0.97rem;
+  color: var(--text);
+  line-height: 1.8;
+  margin-bottom: 28px;
+  font-style: italic;
+}
+
+h3 {
+  font-family: var(--font-go);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  margin-bottom: 10px;
+  margin-top: 28px;
+  color: var(--text);
+}
+
+p { font-size: 0.97rem; line-height: 1.8; margin-bottom: 14px; color: var(--text); }
+ul, ol { padding-left: 1.5em; margin-bottom: 16px; }
+li { font-size: 0.95rem; line-height: 1.8; margin-bottom: 6px; color: var(--text); }
+li::marker { color: var(--accent-sub); }
+strong, b { font-weight: 700; }
+
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 0.92em;
+}
+
+hr { border: none; border-top: 1px solid var(--rule); margin: 56px 0; }
+
+.card {
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--rule);
+  padding: 28px 32px;
+  margin: 16px 0;
+}
+.card h3 { margin-top: 0; margin-bottom: 12px; font-size: 1rem; }
+.card p { margin-bottom: 8px; }
+.card p:last-child { margin-bottom: 0; }
+
+.card-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin: 20px 0;
+}
+
+.mini-label {
+  display: inline-block;
+  font-family: var(--font-go);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent-sub);
+  margin-bottom: 8px;
+}
+
+.table-wrap { overflow-x: auto; margin: 24px 0; border-radius: var(--radius); box-shadow: var(--shadow); }
+.data-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; background: var(--bg-card); }
+.data-table thead tr { background: var(--text); color: #ffffff; }
+.data-table th {
+  font-family: var(--font-go);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 14px 18px;
+  text-align: left;
+}
+.data-table td { padding: 12px 18px; border-bottom: 1px solid var(--rule); line-height: 1.6; color: var(--text); }
+.data-table tbody tr:last-child td { border-bottom: none; }
+.data-table tbody tr:hover { background: var(--bg-sub); }
+
+.timeline { position: relative; padding-left: 28px; margin: 24px 0; }
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 6px; bottom: 6px;
+  width: 2px;
+  background: var(--rule);
+}
+.tl-item { position: relative; margin-bottom: 28px; }
+.tl-marker {
+  position: absolute;
+  left: -34px; top: 6px;
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid var(--bg);
+  box-shadow: 0 0 0 2px var(--rule);
+}
+.tl-content {
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  border: 1px solid var(--rule);
+  padding: 20px 24px;
+  box-shadow: var(--shadow);
+}
+.tl-phase {
+  display: inline-block;
+  font-family: var(--font-go);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent-sub);
+  background: var(--bg-sub);
+  border-radius: 999px;
+  padding: 2px 10px;
+  margin-bottom: 8px;
+}
+.tl-content h4 { font-family: var(--font-go); font-size: 0.95rem; font-weight: 700; margin-bottom: 8px; color: var(--text); }
+.tl-content p { font-size: 0.88rem; color: var(--text); margin-bottom: 0; line-height: 1.7; }
+
+.highlight-box {
+  background: var(--bg-sub);
+  border-radius: var(--radius);
+  border: 1px solid var(--rule);
+  border-left: 4px solid var(--accent-sub);
+  padding: 20px 24px;
+  margin: 24px 0;
+}
+.highlight-box p { font-size: 0.93rem; margin-bottom: 6px; }
+.highlight-box p:last-child { margin-bottom: 0; }
+
+.quote-block {
+  background: var(--bg-sub);
+  border-radius: var(--radius);
+  border: none;
+  padding: 28px 32px;
+  margin: 24px 0;
+  position: relative;
+}
+.quote-block::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 4px; height: 100%;
+  background: var(--accent);
+  border-radius: 2px 0 0 2px;
+}
+.quote-block p { font-size: 0.97rem; line-height: 1.85; color: var(--text); margin-bottom: 16px; font-style: italic; }
+.quote-block footer { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.quote-name {
+  font-family: var(--font-go);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text);
+  background: var(--rule);
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+.quote-org { font-family: var(--font-go); font-size: 0.78rem; color: var(--text); }
+
+.work-card {
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  border: 1px solid var(--rule);
+  box-shadow: var(--shadow);
+  padding: 24px 28px;
+  margin: 20px 0;
+}
+.work-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-go);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent-sub);
+  margin-bottom: 16px;
+}
+.work-title svg { flex-shrink: 0; }
+.work-card ul { margin: 0; padding-left: 1.4em; }
+.work-card li { font-size: 0.93rem; line-height: 1.75; margin-bottom: 8px; }
+.work-card li:last-child { margin-bottom: 0; }
+
+.key-box {
+  background: var(--text);
+  color: #ffffff;
+  border-radius: var(--radius);
+  padding: 28px 32px;
+  margin: 32px 0;
+}
+.key-box .kbox-label {
+  font-family: var(--font-go);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #aaaaaa;
+  margin-bottom: 12px;
+  display: block;
+}
+.key-box p { color: #e8e8e8; font-size: 0.95rem; line-height: 1.85; margin-bottom: 8px; }
+.key-box p:last-child { margin-bottom: 0; }
+
+@media print {
+  body { padding: 0; font-size: 10pt; }
+  main { max-width: 100%; padding: 0; }
+  .hero { padding: 40px 0; }
+  h1 { font-size: 22pt; } h2 { font-size: 14pt; } h3 { font-size: 11pt; }
+  p, li { font-size: 10pt; line-height: 1.7; }
+  section, .card, .timeline, .key-box, .work-card { page-break-inside: avoid; }
+  @page { size: A4 portrait; margin: 20mm 18mm 22mm; }
+}
+
+@media screen and (max-width: 640px) {
+  .hero { padding: 56px 20px 44px; }
+  main { padding: 0 16px; }
+  section { padding-left: 16px; }
+  h2 { font-size: 1.35rem; }
+  .card-grid { grid-template-columns: 1fr; }
+  .toc { padding: 20px 20px; }
+  .card { padding: 20px 20px; }
+  .key-box { padding: 20px 20px; }
+  .quote-block { padding: 20px 20px; }
+}
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <span class="hero-tag">ACTION DESIGN</span>
+    <h1>6週間で成果を出す①。行動設計法</h1>
+    <p class="hero-desc">多くの目標に同時に手を出して成果が分散してしまう人が、6週間だけ本当に重要な一つに集中するための行動設計法。目標の棚卸し、成功指標、OBL候補の評価、環境設計、継続の判断基準までを一連の手順として整理します。</p>
+  </header>
+
+  <main>
+    <nav class="toc">
+      <div class="toc-title">目次</div>
+      <ol>
+      <li><a href="#purpose">6週間だけ、一つの大きなレバーに集中する</a></li>
+      <li><a href="#inventory">目標を棚卸しし、除外リストを作る</a></li>
+      <li><a href="#kpi">6週間後の成功状態とKPIを決める</a></li>
+      <li><a href="#evaluate">OBL候補を洗い出し、影響度とコストで評価する</a></li>
+      <li><a href="#select">興奮度と障害対策でOBLを一つに絞る</a></li>
+      <li><a href="#important">緊急より重要を優先する</a></li>
+      <li><a href="#environment">環境設計とコミットメントで継続を支える</a></li>
+      <li><a href="#continue">6週間継続を決め、完璧より学習を優先する</a></li>
+      <li><a href="#summary">まとめ</a></li>
+      </ol>
+    </nav>
+    <hr>
+
+<section id="purpose">
+  <div class="section-label">PURPOSE</div>
+  <h2>6週間だけ、一つの大きなレバーに集中する</h2>
+<p class="intro-text">OBLとは One Big Lever の略で、小さな力で大きな成果を生む一つのレバーを意味します。</p>
+<p>この行動設計法の目的は、多くの目標に同時に手を出して成果が分散してしまう状態から抜け出し、本当に重要な一つに集中して短期間で成果を出すことです。</p>
+<p>限られた時間、お金、体力の中で最大の成果を出すには、やることを増やすより先に、やらないことを決める必要があります。6週間だけ集中対象を絞り、直列処理で進めることが基本方針です。</p>
+<div class="highlight-box">
+<p>6週間だけやめる。複数の目標を抱え続けるのではなく、仕事以外の残された時間では1日1個から2個だけに取り組む。これが焦点を定める最初の設計です。</p>
+</div>
+</section>
+
+<section id="inventory">
+  <div class="section-label">STEP 01</div>
+  <h2>目標を棚卸しし、除外リストを作る</h2>
+<p class="intro-text">最初に行うのは、目標を増やすことではなく、諦めるものを明確にすることです。</p>
+<ol>
+<li>達成したいすべての目標やタスクを紙に書き出す。仕事、プライベート、学習など分野は問わない。</li>
+<li>今のリソースでは難しいもの、優先度が低いものを除外リストに移す。</li>
+<li>除外したものに時間を奪われないようにし、本当に重要な1個から2個の目標に絞る。</li>
+</ol>
+<div class="work-card">
+  <div class="work-title"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+  <rect x="2" y="2" width="12" height="12" rx="2"></rect>
+  <path d="M5 8l2 2 4-4"></path>
+</svg>毎週の除外ワーク</div>
+<ul>
+<li>活動ログを見直し、価値観に沿っていない行動を3つ選ぶ。</li>
+<li>6週間だけやめる行動として明文化する。</li>
+<li>集中が分散する原因になっている通知、片付け、SNS、細かな用事を別枠に逃がす。</li>
+</ul>
+</div>
+</section>
+
+<section id="kpi">
+  <div class="section-label">STEP 02</div>
+  <h2>6週間後の成功状態とKPIを決める</h2>
+<p class="intro-text">集中対象を決めたら、次は達成したかどうかを判定できる形にします。</p>
+<p>6週間後に達成された状態を具体的に描きます。そこから逆算し、5週目、4週目、3週目、2週目、1週目で何が必要かを分解します。</p>
+<p>成功を測定するために、北極星KPIを1つ設定します。売上、フォロワー数、体重、学習時間、説明できる関節の数など、必ず数字で測れる指標にします。</p>
+<div class="card-grid">
+<div class="card">
+<span class="mini-label">例</span>
+<h3>副業</h3>
+<p>年間で20%収益を上昇させる。そのために6週間で売上、見込み客数、投稿数などの中から最重要KPIを1つ選ぶ。</p>
+</div>
+<div class="card">
+<span class="mini-label">例</span>
+<h3>学習</h3>
+<p>理学療法の勉強を毎日20分行い、各関節について説明できる状態を作る。理解確認は説明できるかどうかで判定する。</p>
+</div>
+</div>
+<div class="key-box">
+  <span class="kbox-label">判定基準</span>
+<p>6週間後のゴールと1週ごとの目標を紙に書き、見える場所に貼ります。数字で測れない目標は、達成判定が曖昧になり、継続の判断も曖昧になります。</p>
+</div>
+</section>
+
+<section id="evaluate">
+  <div class="section-label">STEP 03</div>
+  <h2>OBL候補を洗い出し、影響度とコストで評価する</h2>
+<p class="intro-text">行動候補を思いつきで選ばず、成果への影響度と実行コストで比較します。</p>
+<ol>
+<li>目標達成に役立ちそうな行動やタスクを30個ほど書き出す。</li>
+<li>その中から成果への影響度が高い上位20%を抽出する。</li>
+<li>各行動を、成果への影響度と実行コストの2軸で5点満点評価する。</li>
+<li>影響度が高く、コストが低い上位3つをOBL候補にする。</li>
+</ol>
+<div class="table-wrap">
+  <table class="data-table">
+    <thead>
+      <tr><th>評価軸</th><th>見るポイント</th><th>判断</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>成果への影響度</td><td>この行動が達成状態にどれだけ直結するか</td><td>高いものを優先する</td></tr>
+      <tr><td>実行コスト</td><td>時間、労力、お金、準備の負担がどれくらいか</td><td>低いものほど始めやすい</td></tr>
+      <tr><td>重要度と緊急度</td><td>重要で緊急ではないものか、重要で緊急なものか</td><td>重要で緊急ではないものは習慣化し、重要で緊急なものは短く処理する</td></tr>
+    </tbody>
+  </table>
+</div>
+</section>
+
+<section id="select">
+  <div class="section-label">STEP 04</div>
+  <h2>興奮度と障害対策でOBLを一つに絞る</h2>
+<p class="intro-text">効率だけで選ぶと継続できない場合があります。最後は内発的動機と実行可能性を確認します。</p>
+<p>OBL候補トップ3を見て、最もワクワクするものを確認します。義務感や他人のプレッシャーだけで選んだ行動は、途中で放棄しやすくなります。</p>
+<p>次にメンタルコントラスト法を使い、理想的な達成状態、得られるメリット、実現を妨げる障害、障害が起きたときの対策を書き出します。</p>
+<div class="work-card">
+  <div class="work-title"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+  <rect x="2" y="2" width="12" height="12" rx="2"></rect>
+  <path d="M5 8l2 2 4-4"></path>
+</svg>自信度7点チェック</div>
+<ul>
+<li>各障害への対策を作り、その対策を実行できる自信度を10点満点で評価する。</li>
+<li>7点未満なら計画を再設計する。</li>
+<li>朝起きる自信度が4点なら、起床前提の計画を変えるか、7点以上になる条件を作る。</li>
+</ul>
+</div>
+<blockquote class="quote-block">
+<p>今月の目標は何か。今月抱える可能性のある障害は何か。だから、その障害が起こったら何をするか。</p>
+<footer><span class="quote-name">メンタルコントラストの型</span></footer>
+</blockquote>
+</section>
+
+<section id="important">
+  <div class="section-label">SIDE STEP</div>
+  <h2>緊急より重要を優先する</h2>
+<p class="intro-text">人は締め切りが近いタスクを気にしやすく、長期的な成果につながる重要タスクを後回しにしがちです。</p>
+<p>長期的な成果を最大化するには、最も重要なタスクを一つだけ選び、そこに集中する必要があります。緊急案件をすべて捨てるわけではありませんが、緊急であることだけを理由に最重要タスクを奪わせない設計が必要です。</p>
+<div class="key-box">
+  <span class="kbox-label">週次チェック</span>
+<p>超重要だが緊急ではないことに、今週どれくらい時間を使えたかを確認します。ここに時間が入っていなければ、6週間の成果は偶然任せになります。</p>
+</div>
+</section>
+
+<section id="environment">
+  <div class="section-label">STEP 05</div>
+  <h2>環境設計とコミットメントで継続を支える</h2>
+<p class="intro-text">継続は意志の強さだけではなく、摩擦の設計で大きく変わります。</p>
+<ol>
+<li>OBL達成を妨げる誘惑を排除する。スマホ、通知、SNSなどを先に処理する。</li>
+<li>望ましい行動の摩擦を下げる。資料準備、作業時間の確保、開始手順の単純化を行う。</li>
+<li>不要な行動の摩擦を上げる。SNSアプリを削除する、作業場所から誘惑を遠ざけるなど。</li>
+<li>小さく始める。作業開始までの時間をKPIにする。</li>
+<li>OBL計画を信頼できる人に宣言し、コミットメントを強化する。</li>
+</ol>
+</section>
+
+<section id="continue">
+  <div class="section-label">STEP 06</div>
+  <h2>6週間継続を決め、完璧より学習を優先する</h2>
+<p class="intro-text">成果がすぐに出なくても、6週間は一点集中で継続します。</p>
+<p>マルチタスクは禁止し、直列処理で進めます。初回の挑戦で完璧な結果を求めず、継続そのものを学びに変える意識が重要です。</p>
+<p>SMART原則に沿って、具体的で、測定可能で、達成可能で、自分の価値観と関連し、期限がある形に調整します。特に達成可能性は、自信度7点以上を目安にします。</p>
+<div class="timeline">
+<div class="tl-item">
+  <div class="tl-marker"></div>
+  <div class="tl-content">
+    <span class="tl-phase">Week 1</span>
+    <h4>除外とKPI設定</h4>
+<p>やらないことを決め、北極星KPIを一つに絞る。</p>
+  </div>
+</div>
+<div class="tl-item">
+  <div class="tl-marker"></div>
+  <div class="tl-content">
+    <span class="tl-phase">Week 2-3</span>
+    <h4>OBL実行と障害対策</h4>
+<p>選んだ行動を続け、障害が起きたら事前に決めた対策を実行する。</p>
+  </div>
+</div>
+<div class="tl-item">
+  <div class="tl-marker"></div>
+  <div class="tl-content">
+    <span class="tl-phase">Week 4-5</span>
+    <h4>環境調整</h4>
+<p>誘惑を減らし、望ましい行動の摩擦をさらに下げる。</p>
+  </div>
+</div>
+<div class="tl-item">
+  <div class="tl-marker"></div>
+  <div class="tl-content">
+    <span class="tl-phase">Week 6</span>
+    <h4>成果判定</h4>
+<p>6週間後のゴールとKPIを見て、何が効いたかを判断する。</p>
+  </div>
+</div>
+</div>
+</section>
+
+<section id="summary">
+  <div class="section-label">SUMMARY</div>
+  <h2>まとめ</h2>
+<p class="intro-text">6週間のスプリントで重要なのは、努力量そのものではなく、努力を向けるレバーの選び方です。</p>
+<div class="card-grid">
+<div class="card">
+<span class="mini-label">FOCUS</span>
+<h3>本当に価値のある一つに集中できる</h3>
+<p>除外リストを作ることで、集中の分散を防ぎます。</p>
+</div>
+<div class="card">
+<span class="mini-label">RESOURCE</span>
+<h3>限られた時間とリソースを最大化できる</h3>
+<p>影響度とコストで行動を選ぶため、思いつきの努力を減らせます。</p>
+</div>
+<div class="card">
+<span class="mini-label">CONTINUE</span>
+<h3>継続可能な戦略と環境を作れる</h3>
+<p>自信度7点以上の計画と摩擦設計により、6週間続けやすくなります。</p>
+</div>
+</div>
+<div class="key-box">
+  <span class="kbox-label">結論</span>
+<p>OBLを見極める力が、6週間のスプリント成功の鍵です。小さな力で大きな成果を生むレバーを一つ選び、6週間だけ集中します。</p>
+</div>
+</section>
+  </main>
+</body>
+</html>

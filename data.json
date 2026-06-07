@@ -607,6 +607,22 @@
       ],
       "readTime": 13,
       "file": "articles/whitespace_time_guide.html"
+    },
+    {
+      "id": 58,
+      "title": "6週間で成果を出す①。行動設計法",
+      "genre": "ライフスタイル",
+      "date": "2026-06-07",
+      "summary": "多くの目標に同時に手を出して成果が分散してしまう人が、6週間だけ本当に重要な一つに集中するための行動設計法。目標の棚卸し、成功指標、OBL候補の評価、環境設計、継続の判断基準までを一連の手順として整理します。",
+      "tags": [
+        "目標達成",
+        "習慣化",
+        "行動設計",
+        "時間管理",
+        "OBL"
+      ],
+      "readTime": 4,
+      "file": "articles/obl_sprint_action_design_1.html"
     }
   ]
 }
