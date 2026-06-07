@@ -623,6 +623,20 @@
       ],
       "readTime": 4,
       "file": "articles/obl_sprint_action_design_1.html"
+    },
+    {
+      "id": 59,
+      "title": "6週間で成果を出す② 実践行動",
+      "genre": "ライフスタイル",
+      "date": "2026-06-07",
+      "summary": "6週間で一つの重要目標に集中し、行動を自動化し、時間・環境・報酬・レビューを設計するための実践ガイドです。",
+      "tags": [
+        "目標達成",
+        "行動設計",
+        "習慣"
+      ],
+      "readTime": 4,
+      "file": "articles/obl_sprint_practical_action.html"
     }
   ]
 }

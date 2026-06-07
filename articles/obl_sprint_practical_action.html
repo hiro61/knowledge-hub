@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="6週間で一つの重要目標に集中し、行動を自動化し、時間・環境・報酬・レビューを設計するための実践ガイドです。">
+  <title>6週間で成果を出す② 実践行動</title>
+  <style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --hero-bg-from: #edf3f8;
+  --hero-bg-to:   #ffffff;
+  --accent:       #183b66;
+  --accent-sub:   #4a6f9d;
+  --bg-sub:       #eaf1f7;
+  --bg:      #ffffff;
+  --bg-card: #ffffff;
+  --text:    #111111;
+  --text-soft: #222222;
+  --rule:    #d0d7df;
+  --max-w: 740px;
+  --font-ja: "Hiragino Mincho ProN","Yu Mincho","游明朝","Noto Serif JP",Georgia,serif;
+  --font-go: "Hiragino Kaku Gothic ProN","Yu Gothic","游ゴシック","Noto Sans JP",sans-serif;
+  --radius: 12px;
+  --shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+html { font-size: 16px; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-ja);
+  line-height: 1.75;
+  -webkit-text-size-adjust: 100%;
+  padding: 0 0 100px;
+}
+main { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
+
+.hero {
+  text-align: center;
+  padding: 80px 24px 64px;
+  background: linear-gradient(135deg, var(--hero-bg-from) 0%, var(--hero-bg-to) 100%);
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: 64px;
+}
+.hero-tag {
+  display: inline-block;
+  font-family: var(--font-go);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent-sub);
+  background: var(--bg-sub);
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  padding: 4px 14px;
+  margin-bottom: 24px;
+}
+.hero h1 {
+  font-family: var(--font-go);
+  font-size: clamp(2rem, 6vw, 3rem);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  color: var(--text);
+  max-width: 18ch;
+  text-wrap: balance;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 16px;
+}
+.hero-desc {
+  font-family: var(--font-go);
+  font-size: 1rem;
+  color: var(--text);
+  line-height: 1.7;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.toc {
+  background: var(--bg-sub);
+  border-radius: var(--radius);
+  padding: 28px 32px;
+  margin-bottom: 48px;
+}
+.toc-title {
+  font-family: var(--font-go);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent-sub);
+  margin-bottom: 14px;
+}
+.toc ol { padding-left: 1.4em; margin: 0; }
+.toc li {
+  font-family: var(--font-go);
+  font-size: 0.9rem;
+  line-height: 1.7;
+  margin-bottom: 6px;
+  color: var(--text);
+}
+.toc a { color: var(--text); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s; }
+.toc a:hover { border-bottom-color: var(--accent); }
+
+section {
+  margin-bottom: 72px;
+  padding-left: 24px;
+  border-left: 3px solid var(--accent);
+}
+
+.section-label {
+  display: inline-block;
+  font-family: var(--font-go);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--accent-sub);
+  margin-bottom: 10px;
+}
+
+h2 {
+  font-family: var(--font-go);
+  font-size: clamp(1.4rem, 4vw, 1.9rem);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  margin-bottom: 16px;
+  color: var(--text);
+}
+
+.intro-text {
+  font-size: 0.97rem;
+  color: var(--text);
+  line-height: 1.8;
+  margin-bottom: 28px;
+  font-style: italic;
+}
+
+h3 {
+  font-family: var(--font-go);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  margin-bottom: 10px;
+  margin-top: 28px;
+  color: var(--text);
+}
+
+p { font-size: 0.97rem; line-height: 1.8; margin-bottom: 14px; color: var(--text); }
+ul, ol { padding-left: 1.5em; margin-bottom: 16px; }
+li { font-size: 0.95rem; line-height: 1.8; margin-bottom: 6px; color: var(--text); }
+li::marker { color: var(--accent-sub); }
+strong, b { font-weight: 700; }
+
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 0.92em;
+}
+
+hr { border: none; border-top: 1px solid var(--rule); margin: 56px 0; }
+
+.card {
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--rule);
+  padding: 28px 32px;
+  margin: 16px 0;
+}
+.card h3 { margin-top: 0; margin-bottom: 12px; font-size: 1rem; }
+.card p { margin-bottom: 8px; }
+.card p:last-child { margin-bottom: 0; }
+
+.card-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin: 20px 0;
+}
+
+.mini-label {
+  display: inline-block;
+  font-family: var(--font-go);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent-sub);
+  margin-bottom: 8px;
+}
+
+.table-wrap { overflow-x: auto; margin: 24px 0; border-radius: var(--radius); box-shadow: var(--shadow); }
+.data-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; background: var(--bg-card); }
+.data-table thead tr { background: var(--text); color: #ffffff; }
+.data-table th {
+  font-family: var(--font-go);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 14px 18px;
+  text-align: left;
+}
+.data-table td { padding: 12px 18px; border-bottom: 1px solid var(--rule); line-height: 1.6; color: var(--text); }
+.data-table tbody tr:last-child td { border-bottom: none; }
+.data-table tbody tr:hover { background: var(--bg-sub); }
+
+.timeline { position: relative; padding-left: 28px; margin: 24px 0; }
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 6px; bottom: 6px;
+  width: 2px;
+  background: var(--rule);
+}
+.tl-item { position: relative; margin-bottom: 28px; }
+.tl-marker {
+  position: absolute;
+  left: -34px; top: 6px;
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid var(--bg);
+  box-shadow: 0 0 0 2px var(--rule);
+}
+.tl-content {
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  border: 1px solid var(--rule);
+  padding: 20px 24px;
+  box-shadow: var(--shadow);
+}
+.tl-phase {
+  display: inline-block;
+  font-family: var(--font-go);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent-sub);
+  background: var(--bg-sub);
+  border-radius: 999px;
+  padding: 2px 10px;
+  margin-bottom: 8px;
+}
+.tl-content h4 { font-family: var(--font-go); font-size: 0.95rem; font-weight: 700; margin-bottom: 8px; color: var(--text); }
+.tl-content p { font-size: 0.88rem; color: var(--text); margin-bottom: 0; line-height: 1.7; }
+
+.highlight-box {
+  background: var(--bg-sub);
+  border-radius: var(--radius);
+  border: 1px solid var(--rule);
+  border-left: 4px solid var(--accent-sub);
+  padding: 20px 24px;
+  margin: 24px 0;
+}
+.highlight-box p { font-size: 0.93rem; margin-bottom: 6px; }
+.highlight-box p:last-child { margin-bottom: 0; }
+
+.quote-block {
+  background: var(--bg-sub);
+  border-radius: var(--radius);
+  border: none;
+  padding: 28px 32px;
+  margin: 24px 0;
+  position: relative;
+}
+.quote-block::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 4px; height: 100%;
+  background: var(--accent);
+  border-radius: 2px 0 0 2px;
+}
+.quote-block p { font-size: 0.97rem; line-height: 1.85; color: var(--text); margin-bottom: 16px; font-style: italic; }
+.quote-block footer { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.quote-name {
+  font-family: var(--font-go);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text);
+  background: var(--rule);
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+.quote-org { font-family: var(--font-go); font-size: 0.78rem; color: var(--text); }
+
+.work-card {
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  border: 1px solid var(--rule);
+  box-shadow: var(--shadow);
+  padding: 24px 28px;
+  margin: 20px 0;
+}
+.work-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-go);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent-sub);
+  margin-bottom: 16px;
+}
+.work-title svg { flex-shrink: 0; }
+.work-card ul { margin: 0; padding-left: 1.4em; }
+.work-card li { font-size: 0.93rem; line-height: 1.75; margin-bottom: 8px; }
+.work-card li:last-child { margin-bottom: 0; }
+
+.key-box {
+  background: var(--text);
+  color: #ffffff;
+  border-radius: var(--radius);
+  padding: 28px 32px;
+  margin: 32px 0;
+}
+.key-box .kbox-label {
+  font-family: var(--font-go);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #aaaaaa;
+  margin-bottom: 12px;
+  display: block;
+}
+.key-box p { color: #e8e8e8; font-size: 0.95rem; line-height: 1.85; margin-bottom: 8px; }
+.key-box p:last-child { margin-bottom: 0; }
+
+@media print {
+  body { padding: 0; font-size: 10pt; }
+  main { max-width: 100%; padding: 0; }
+  .hero { padding: 40px 0; }
+  h1 { font-size: 22pt; } h2 { font-size: 14pt; } h3 { font-size: 11pt; }
+  p, li { font-size: 10pt; line-height: 1.7; }
+  section, .card, .timeline, .key-box, .work-card { page-break-inside: avoid; }
+  @page { size: A4 portrait; margin: 20mm 18mm 22mm; }
+}
+
+@media screen and (max-width: 640px) {
+  .hero { padding: 56px 20px 44px; }
+  main { padding: 0 16px; }
+  section { padding-left: 16px; }
+  h2 { font-size: 1.35rem; }
+  .card-grid { grid-template-columns: 1fr; }
+  .toc { padding: 20px 20px; }
+  .card { padding: 20px 20px; }
+  .key-box { padding: 20px 20px; }
+  .quote-block { padding: 20px 20px; }
+}
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <span class="hero-tag">ACTION DESIGN</span>
+    <h1>6週間で成果を出す② 実践行動</h1>
+    <p class="hero-desc">6週間で一つの重要目標に集中し、行動を自動化し、時間・環境・報酬・レビューを設計するための実践ガイドです。</p>
+  </header>
+
+  <main>
+    <nav class="toc">
+      <div class="toc-title">目次</div>
+      <ol>
+      <li><a href="#goal">1. 本当に重要な目標を一つに絞る</a></li>
+      <li><a href="#ifthen">2. if-thenプランニングで行動を自動化する</a></li>
+      <li><a href="#timeblock">3. 時間をブロックして優先する</a></li>
+      <li><a href="#reward">4. 報酬バンドルで現在思考バイアスを避ける</a></li>
+      <li><a href="#commitment">5. 金銭的コミットメントで動機を補強する</a></li>
+      <li><a href="#environment">6. 環境設計で行動への摩擦を減らす</a></li>
+      <li><a href="#smallwins">7. ハードルを低くして小さな勝利を重ねる</a></li>
+      <li><a href="#review">8. 定期レビューで軌道修正する</a></li>
+      <li><a href="#selfcare">9. 6週間走り切るためにセルフケアを組み込む</a></li>
+      </ol>
+    </nav>
+    <hr>
+
+<section id="goal">
+  <div class="section-label">SECTION 01</div>
+  <h2>1. 本当に重要な目標を一つに絞る</h2>
+<p class="intro-text">6週間で成果を出すには、まず取り組む対象を一つに限定します。やることを増やすほど、行動の密度は下がります。</p>
+<p>この6週間で絶対に達成したい目標を一つだけ決めます。その目標は、あなたの人生や仕事に最も大きな影響を与えるものを選びます。</p>
+<p>目標は「したい」ではなく「する」と書きます。さらに、測定できる形にします。たとえば「ブログを毎日書く」ではなく、「6週間で12本、週2本の記事を公開する」と決めます。</p>
+</section>
+
+<section id="ifthen">
+  <div class="section-label">SECTION 02</div>
+  <h2>2. if-thenプランニングで行動を自動化する</h2>
+<p class="intro-text">行動を意思の力だけに任せると、日によって実行率が揺れます。そこで「もし何が起きたら、何をするか」を先に決めます。</p>
+<p>OBL達成のために、毎日または定期的に行う最重要行動を一つ選びます。その行動を、必ず起こる具体的な出来事に結びつけます。</p>
+<p>ifの部分は、時間があったら、気が向いたら、余裕があれば、のような曖昧な条件にしません。毎日確実に起きる行動や予定に接続します。</p>
+<div class="card-grid">
+<div class="card">
+<span class="mini-label">例</span>
+<h3>朝の固定行動に接続する</h3>
+<p>毎朝7時に目覚ましが鳴ったら、すぐ机に向かって30分作業する。</p>
+</div>
+<div class="card">
+<span class="mini-label">例</span>
+<h3>曜日の予定に接続する</h3>
+<p>月曜日の勤務終了後は、そのままジムに行く。</p>
+</div>
+<div class="card">
+<span class="mini-label">注意</span>
+<h3>条件は一つに絞る</h3>
+<p>複数の条件を混ぜると判断が増え、実行率が落ちます。最初は一つだけで十分です。</p>
+</div>
+</div>
+</section>
+
+<section id="timeblock">
+  <div class="section-label">SECTION 03</div>
+  <h2>3. 時間をブロックして優先する</h2>
+<p class="intro-text">重要な行動は、空いた時間に入れるものではありません。先にカレンダーへ置き、他の予定より優先します。</p>
+<ul>
+<li>Googleカレンダーなどに、OBLへ取り組む時間を予約する</li>
+<li>家族や同僚に、その時間の重要性を伝えて協力を依頼する</li>
+<li>週ごとに、使えた時間・成功率・進捗を確認して調整する</li>
+</ul>
+<div class="highlight-box">
+<p>最初から長時間を狙う必要はありません。邪魔されない最小時間を決め、そこだけは守ります。</p>
+</div>
+</section>
+
+<section id="reward">
+  <div class="section-label">SECTION 04</div>
+  <h2>4. 報酬バンドルで現在思考バイアスを避ける</h2>
+<p class="intro-text">人は遠い成果より、目の前の快楽に流されやすいものです。やるべき行動と、やりたい報酬を結びつけます。</p>
+<p>6週間の期間中に許可する娯楽や楽しみをリストアップします。そのうえで、OBL行動中だけ使える報酬に変えます。</p>
+<p>たとえば、作業中だけ好きな音楽を聴く、特定の場所で作業するときだけ特別な飲み物を飲む、といった形です。大事なのは、OBL行動中以外ではその報酬を与えないことです。</p>
+</section>
+
+<section id="commitment">
+  <div class="section-label">SECTION 05</div>
+  <h2>5. 金銭的コミットメントで動機を補強する</h2>
+<p class="intro-text">やる気は変動します。だから、未達成にコストが生じる仕組みを作り、損失回避の力を利用します。</p>
+<div class="table-wrap">
+  <table class="data-table">
+    <thead>
+      <tr><th>方法</th><th>内容</th><th>向いている人</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>預託金形式</td><td>信頼できる人に一定額を預け、達成条件を満たしたら返してもらう</td><td>人に見られると行動しやすい人</td></tr>
+      <tr><td>寄付形式</td><td>未達成なら、自分が望まない団体や目的に寄付する</td><td>損失への抵抗感が強い人</td></tr>
+      <tr><td>契約書形式</td><td>目標・期間・ペナルティ・金額・第三者署名を残す</td><td>ルールを明文化した方が守れる人</td></tr>
+    </tbody>
+  </table>
+</div>
+<div class="highlight-box">
+<p>痛みはあるが致命的ではない金額にします。重すぎる罰は、逆に継続を壊します。</p>
+</div>
+</section>
+
+<section id="environment">
+  <div class="section-label">SECTION 06</div>
+  <h2>6. 環境設計で行動への摩擦を減らす</h2>
+<p class="intro-text">行動の開始に手間がかかるほど、先延ばしは増えます。前日のうちに、5秒で始められる状態を作ります。</p>
+<ul>
+<li>前日の夜に机・道具・資料を整える</li>
+<li>スマホを別室に置く</li>
+<li>通知を切る</li>
+<li>テレビや動画アプリなど、誘惑の入口を先に閉じる</li>
+</ul>
+<p>環境設計の目的は、気合いを増やすことではありません。始めるまでの判断と抵抗を減らすことです。</p>
+</section>
+
+<section id="smallwins">
+  <div class="section-label">SECTION 07</div>
+  <h2>7. ハードルを低くして小さな勝利を重ねる</h2>
+<p class="intro-text">最初の1〜2週間は、成果量より成功体験を優先します。低すぎると思うくらいの設定で始めます。</p>
+<div class="timeline">
+<div class="tl-item">
+  <div class="tl-marker"></div>
+  <div class="tl-content">
+
+    <h4>絶対にできる量にする</h4>
+<p>毎日5分だけOBL関連作業をする、など失敗しにくい基準にします。</p>
+  </div>
+</div>
+<div class="tl-item">
+  <div class="tl-marker"></div>
+  <div class="tl-content">
+
+    <h4>記録する</h4>
+<p>達成した日をチェックリストで可視化し、継続の証拠を残します。</p>
+  </div>
+</div>
+<div class="tl-item">
+  <div class="tl-marker"></div>
+  <div class="tl-content">
+
+    <h4>少しだけ増やす</h4>
+<p>1週間続いたら、次は毎日15分など、無理のない範囲で負荷を上げます。</p>
+  </div>
+</div>
+</div>
+</section>
+
+<section id="review">
+  <div class="section-label">SECTION 08</div>
+  <h2>8. 定期レビューで軌道修正する</h2>
+<p class="intro-text">計画は作って終わりではありません。週次レビューと中間レビューで、続く形に調整します。</p>
+<div class="work-card">
+  <div class="work-title"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+  <rect x="2" y="2" width="12" height="12" rx="2"></rect>
+  <path d="M5 8l2 2 4-4"></path>
+</svg>週次レビューで確認すること</div>
+<ul>
+<li>うまくいった点は何か</li>
+<li>実行を邪魔した要因は何か</li>
+<li>次週に変えるべき条件は何か</li>
+<li>数字で見ると、進捗はどの程度か</li>
+</ul>
+</div>
+<p>仲間やメンターに週1回5分だけ報告するのも有効です。3週目には、OBLそのものや実行計画を再評価し、必要なら大胆に修正します。</p>
+</section>
+
+<section id="selfcare">
+  <div class="section-label">SECTION 09</div>
+  <h2>9. 6週間走り切るためにセルフケアを組み込む</h2>
+<p class="intro-text">成果を急ぐほど、睡眠・運動・食事を削りがちです。しかし、集中力を維持するにはコンディション管理も計画に含めます。</p>
+<div class="card-grid">
+<div class="card">
+<span class="mini-label">睡眠</span>
+<h3>予定として守る</h3>
+<p>睡眠時間をOBLと同じ優先度でカレンダーに入れます。</p>
+</div>
+<div class="card">
+<span class="mini-label">休憩</span>
+<h3>内容と時間を決める</h3>
+<p>午後3時から30分休む、など休憩も曖昧にしません。</p>
+</div>
+<div class="card">
+<span class="mini-label">ログ</span>
+<h3>調子の条件を探る</h3>
+<p>睡眠・運動・気分を簡単に記録し、自分が動きやすい条件を分析します。</p>
+</div>
+</div>
+<blockquote class="quote-block">
+<p>6週間の勝負は、気合いの勝負ではありません。続く仕組みをどれだけ先に作れるかの勝負です。</p>
+</blockquote>
+</section>
+  </main>
+</body>
+</html>
