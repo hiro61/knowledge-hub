@@ -637,6 +637,21 @@
       ],
       "readTime": 4,
       "file": "articles/obl_sprint_practical_action.html"
+    },
+    {
+      "id": 60,
+      "title": "6週間で成果を出す③ 方向転換編",
+      "genre": "ライフスタイル",
+      "date": "2026-06-07",
+      "summary": "6週間のOBLスプリントを、感情ではなくデータで評価し、GO・PIVOT・KILLを判断するための実践ガイドです。成果基準、進捗記録、最終評価、方向転換と撤退の考え方を整理します。",
+      "tags": [
+        "目標達成",
+        "行動設計",
+        "習慣化",
+        "OBL"
+      ],
+      "readTime": 10,
+      "file": "articles/obl_sprint_pivot_strategy_3.html"
     }
   ]
 }
