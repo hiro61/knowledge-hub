@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="7種類の豆それぞれについて、フローラル、フルーティ、透明感を引き出す抽出レシピを、4:6・ハイブリッド・多投の観点から整理した実践ガイドです。">
+  <title>フローラル・フルーティを最大化する抽出レシピ集</title>
+  <style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --hero-bg-from: #f8f8f8;
+  --hero-bg-to:   #ffffff;
+  --accent:       #2d2d2d;
+  --accent-sub:   #6b6b6b;
+  --bg-sub:       #f5f5f5;
+  --bg:      #ffffff;
+  --bg-card: #ffffff;
+  --text:    #111111;
+  --text-soft: #222222;
+  --rule:    #d0d7df;
+  --max-w: 740px;
+  --font-ja: "Hiragino Mincho ProN","Yu Mincho","游明朝","Noto Serif JP",Georgia,serif;
+  --font-go: "Hiragino Kaku Gothic ProN","Yu Gothic","游ゴシック","Noto Sans JP",sans-serif;
+  --radius: 12px;
+  --shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+html { font-size: 16px; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-ja);
+  line-height: 1.75;
+  -webkit-text-size-adjust: 100%;
+  padding: 0 0 100px;
+}
+main { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
+
+.hero {
+  text-align: center;
+  padding: 80px 24px 64px;
+  background: linear-gradient(135deg, var(--hero-bg-from) 0%, var(--hero-bg-to) 100%);
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: 64px;
+}
+.hero-tag {
+  display: inline-block;
+  font-family: var(--font-go);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent-sub);
+  background: var(--bg-sub);
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  padding: 4px 14px;
+  margin-bottom: 24px;
+}
+.hero h1 {
+  font-family: var(--font-go);
+  font-size: clamp(2rem, 6vw, 3rem);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  color: var(--text);
+  max-width: 18ch;
+  text-wrap: balance;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 16px;
+}
+.hero-desc {
+  font-family: var(--font-go);
+  font-size: 1rem;
+  color: var(--text);
+  line-height: 1.7;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.toc {
+  background: var(--bg-sub);
+  border-radius: var(--radius);
+  padding: 28px 32px;
+  margin-bottom: 48px;
+}
+.toc-title {
+  font-family: var(--font-go);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent-sub);
+  margin-bottom: 14px;
+}
+.toc ol { padding-left: 1.4em; margin: 0; }
+.toc li {
+  font-family: var(--font-go);
+  font-size: 0.9rem;
+  line-height: 1.7;
+  margin-bottom: 6px;
+  color: var(--text);
+}
+.toc a { color: var(--text); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s; }
+.toc a:hover { border-bottom-color: var(--accent); }
+
+section {
+  margin-bottom: 72px;
+  padding-left: 24px;
+  border-left: 3px solid var(--accent);
+}
+
+.section-label {
+  display: inline-block;
+  font-family: var(--font-go);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--accent-sub);
+  margin-bottom: 10px;
+}
+
+h2 {
+  font-family: var(--font-go);
+  font-size: clamp(1.4rem, 4vw, 1.9rem);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  margin-bottom: 16px;
+  color: var(--text);
+}
+
+.intro-text {
+  font-size: 0.97rem;
+  color: var(--text);
+  line-height: 1.8;
+  margin-bottom: 28px;
+  font-style: italic;
+}
+
+h3 {
+  font-family: var(--font-go);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  margin-bottom: 10px;
+  margin-top: 28px;
+  color: var(--text);
+}
+
+p { font-size: 0.97rem; line-height: 1.8; margin-bottom: 14px; color: var(--text); }
+ul, ol { padding-left: 1.5em; margin-bottom: 16px; }
+li { font-size: 0.95rem; line-height: 1.8; margin-bottom: 6px; color: var(--text); }
+li::marker { color: var(--accent-sub); }
+strong, b { font-weight: 700; }
+
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 0.92em;
+}
+
+hr { border: none; border-top: 1px solid var(--rule); margin: 56px 0; }
+
+.card {
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--rule);
+  padding: 28px 32px;
+  margin: 16px 0;
+}
+.card h3 { margin-top: 0; margin-bottom: 12px; font-size: 1rem; }
+.card p { margin-bottom: 8px; }
+.card p:last-child { margin-bottom: 0; }
+
+.card-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin: 20px 0;
+}
+
+.mini-label {
+  display: inline-block;
+  font-family: var(--font-go);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent-sub);
+  margin-bottom: 8px;
+}
+
+.table-wrap { overflow-x: auto; margin: 24px 0; border-radius: var(--radius); box-shadow: var(--shadow); }
+.data-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; background: var(--bg-card); }
+.data-table thead tr { background: var(--text); color: #ffffff; }
+.data-table th {
+  font-family: var(--font-go);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 14px 18px;
+  text-align: left;
+}
+.data-table td { padding: 12px 18px; border-bottom: 1px solid var(--rule); line-height: 1.6; color: var(--text); }
+.data-table tbody tr:last-child td { border-bottom: none; }
+.data-table tbody tr:hover { background: var(--bg-sub); }
+
+.timeline { position: relative; padding-left: 28px; margin: 24px 0; }
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 6px; bottom: 6px;
+  width: 2px;
+  background: var(--rule);
+}
+.tl-item { position: relative; margin-bottom: 28px; }
+.tl-marker {
+  position: absolute;
+  left: -34px; top: 6px;
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid var(--bg);
+  box-shadow: 0 0 0 2px var(--rule);
+}
+.tl-content {
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  border: 1px solid var(--rule);
+  padding: 20px 24px;
+  box-shadow: var(--shadow);
+}
+.tl-phase {
+  display: inline-block;
+  font-family: var(--font-go);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent-sub);
+  background: var(--bg-sub);
+  border-radius: 999px;
+  padding: 2px 10px;
+  margin-bottom: 8px;
+}
+.tl-content h4 { font-family: var(--font-go); font-size: 0.95rem; font-weight: 700; margin-bottom: 8px; color: var(--text); }
+.tl-content p { font-size: 0.88rem; color: var(--text); margin-bottom: 0; line-height: 1.7; }
+
+.highlight-box {
+  background: var(--bg-sub);
+  border-radius: var(--radius);
+  border: 1px solid var(--rule);
+  border-left: 4px solid var(--accent-sub);
+  padding: 20px 24px;
+  margin: 24px 0;
+}
+.highlight-box p { font-size: 0.93rem; margin-bottom: 6px; }
+.highlight-box p:last-child { margin-bottom: 0; }
+
+.quote-block {
+  background: var(--bg-sub);
+  border-radius: var(--radius);
+  border: none;
+  padding: 28px 32px;
+  margin: 24px 0;
+  position: relative;
+}
+.quote-block::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 4px; height: 100%;
+  background: var(--accent);
+  border-radius: 2px 0 0 2px;
+}
+.quote-block p { font-size: 0.97rem; line-height: 1.85; color: var(--text); margin-bottom: 16px; font-style: italic; }
+.quote-block footer { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.quote-name {
+  font-family: var(--font-go);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text);
+  background: var(--rule);
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+.quote-org { font-family: var(--font-go); font-size: 0.78rem; color: var(--text); }
+
+.work-card {
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  border: 1px solid var(--rule);
+  box-shadow: var(--shadow);
+  padding: 24px 28px;
+  margin: 20px 0;
+}
+.work-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-go);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent-sub);
+  margin-bottom: 16px;
+}
+.work-title svg { flex-shrink: 0; }
+.work-card ul { margin: 0; padding-left: 1.4em; }
+.work-card li { font-size: 0.93rem; line-height: 1.75; margin-bottom: 8px; }
+.work-card li:last-child { margin-bottom: 0; }
+
+.key-box {
+  background: var(--text);
+  color: #ffffff;
+  border-radius: var(--radius);
+  padding: 28px 32px;
+  margin: 32px 0;
+}
+.key-box .kbox-label {
+  font-family: var(--font-go);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #aaaaaa;
+  margin-bottom: 12px;
+  display: block;
+}
+.key-box p { color: #e8e8e8; font-size: 0.95rem; line-height: 1.85; margin-bottom: 8px; }
+.key-box p:last-child { margin-bottom: 0; }
+
+@media print {
+  body { padding: 0; font-size: 10pt; }
+  main { max-width: 100%; padding: 0; }
+  .hero { padding: 40px 0; }
+  h1 { font-size: 22pt; } h2 { font-size: 14pt; } h3 { font-size: 11pt; }
+  p, li { font-size: 10pt; line-height: 1.7; }
+  section, .card, .timeline, .key-box, .work-card { page-break-inside: avoid; }
+  @page { size: A4 portrait; margin: 20mm 18mm 22mm; }
+}
+
+@media screen and (max-width: 640px) {
+  .hero { padding: 56px 20px 44px; }
+  main { padding: 0 16px; }
+  section { padding-left: 16px; }
+  h2 { font-size: 1.35rem; }
+  .card-grid { grid-template-columns: 1fr; }
+  .toc { padding: 20px 20px; }
+  .card { padding: 20px 20px; }
+  .key-box { padding: 20px 20px; }
+  .quote-block { padding: 20px 20px; }
+}
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <span class="hero-tag">ライフスタイル</span>
+    <h1>フローラル・フルーティを最大化する抽出レシピ集</h1>
+    <p class="hero-desc">7種類の豆それぞれについて、フローラル、フルーティ、透明感を引き出す抽出レシピを、4:6・ハイブリッド・多投の観点から整理した実践ガイドです。</p>
+  </header>
+
+  <main>
+    <nav class="toc">
+      <div class="toc-title">目次</div>
+      <ol>
+      <li><a href="#sec01">目的</a></li>
+      <li><a href="#sec02">前提条件</a></li>
+      <li><a href="#sec03">グラインド換算の前提</a></li>
+      <li><a href="#sec04">全体方針</a></li>
+      <li><a href="#sec05">レシピ一覧</a></li>
+      <li><a href="#sec06">1. <code>012 / Philocoffea</code></a></li>
+      <li><a href="#sec07">2. <code>422 / Philocoffea</code></a></li>
+      <li><a href="#sec08">3. <code>414 / Philocoffea</code></a></li>
+      <li><a href="#sec09">4. <code>427 / Philocoffea</code></a></li>
+      <li><a href="#sec10">5. <code>Ethiopia Sakaro / Taoka Coffee</code></a></li>
+      <li><a href="#sec11">6. <code>Halo / aurora coffee roasters</code></a></li>
+      <li><a href="#sec12">7. <code>COYOTE Pacamara / COYOTE</code></a></li>
+      <li><a href="#sec13">失敗したときの補正式</a></li>
+      <li><a href="#sec14">器具が足りない場合の代替</a></li>
+      <li><a href="#sec15">結論</a></li>
+      </ol>
+    </nav>
+    <hr>
+
+<section id="sec01">
+  <div class="section-label">SECTION 01</div>
+  <h2>目的</h2>
+<ul>
+<li>7種類の豆それぞれについて、<code>フローラル</code> <code>フルーティ</code> <code>透明感</code> を最大限に引き出す抽出方法をまとめる。</li>
+<li><code>粕谷哲 4:6メソッド</code> <code>ハイブリッドメソッド</code> <code>10投式メソッド</code> を軸にしつつ、近年の傾向である <code>低攪拌</code> <code>多投</code> <code>後半低温化</code> も取り入れる。</li>
+<li>グラインドは <code>Comandante C40</code> と <code>Timemore C3</code> の両方で指定する。</li>
+</ul>
+</section>
+
+<section id="sec02">
+  <div class="section-label">SECTION 02</div>
+  <h2>前提条件</h2>
+<ol>
+<li>器具は <code>V60 02</code> または <code>Hario Switch</code> を想定する。</li>
+<li>水は軟水前提とする。目安は <code>TDS 70-120ppm</code>。</li>
+<li>フィルターは十分にリンスし、ドリッパーとサーバーは事前に温める。</li>
+<li>狙いは <code>甘さの厚み</code> より <code>香りの抜け方</code> と <code>果実感の輪郭</code> を優先すること。</li>
+<li><code>Timemore C3</code> はゼロ点の個体差が出やすいため、<code>C3</code> の数字は <code>推奨レンジ</code> として扱う。</li>
+</ol>
+</section>
+
+<section id="sec03">
+  <div class="section-label">SECTION 03</div>
+  <h2>グラインド換算の前提</h2>
+<ul>
+<li><code>C40</code> は基準値として使いやすい一方、<code>C3</code> は同じクリック差でも味の動きがやや大きいです。</li>
+<li>したがって、<code>C3</code> は固定値より <code>幅</code> を持たせたほうが実用的です。</li>
+<li>この換算の信頼度は <code>0.68</code> 程度です。あなたの <code>C3</code> のゼロ点や豆の焙煎度で <code>±1-2クリック</code> は普通に動きます。</li>
+</ul>
+<div class="table-wrap">
+  <table class="data-table">
+    <thead>
+      <tr><th>Comandante C40</th><th>Timemore C3 目安</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>23</code></td><td><code>12-13</code></td></tr>
+      <tr><td><code>24</code></td><td><code>13</code></td></tr>
+      <tr><td><code>25</code></td><td><code>13-14</code></td></tr>
+      <tr><td><code>26</code></td><td><code>14</code></td></tr>
+      <tr><td><code>27</code></td><td><code>14-15</code></td></tr>
+      <tr><td><code>28</code></td><td><code>15-16</code></td></tr>
+      <tr><td><code>29</code></td><td><code>16-17</code></td></tr>
+      <tr><td><code>30</code></td><td><code>17-18</code></td></tr>
+    </tbody>
+  </table>
+</div>
+</section>
+
+<section id="sec04">
+  <div class="section-label">SECTION 04</div>
+  <h2>全体方針</h2>
+<div class="table-wrap">
+  <table class="data-table">
+    <thead>
+      <tr><th>方針</th><th>狙い</th><th>向く豆</th><th>弱点</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>4:6</code></td><td>酸と甘さの分離</td><td><code>422</code> <code>COYOTE</code></td><td>粗すぎると薄いです。</td></tr>
+      <tr><td><code>ハイブリッド</code></td><td>透明感と甘さの両立</td><td><code>427</code> <code>Sakaro</code></td><td>Switch が必要です。</td></tr>
+      <tr><td><code>10投式</code></td><td>微調整しながら隠れた風味を拾う</td><td><code>414</code></td><td>手間がかかります。</td></tr>
+      <tr><td><code>低攪拌多投</code></td><td>花感と紅茶感の解像度を上げる</td><td><code>Halo</code> <code>012</code></td><td>注湯精度が必要です。</td></tr>
+    </tbody>
+  </table>
+</div>
+</section>
+
+<section id="sec05">
+  <div class="section-label">SECTION 05</div>
+  <h2>レシピ一覧</h2>
+<div class="table-wrap">
+  <table class="data-table">
+    <thead>
+      <tr><th>豆</th><th>推奨メソッド</th><th>C40</th><th>C3</th><th>確信度</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>012</code></td><td><code>低攪拌5投</code></td><td><code>27</code></td><td><code>14-15</code></td><td><code>0.74</code></td></tr>
+      <tr><td><code>422</code></td><td><code>4:6メソッド</code></td><td><code>29</code></td><td><code>16-17</code></td><td><code>0.87</code></td></tr>
+      <tr><td><code>414</code></td><td><code>10投式</code></td><td><code>28</code></td><td><code>15-16</code></td><td><code>0.46</code></td></tr>
+      <tr><td><code>427</code></td><td><code>ハイブリッド</code></td><td><code>24</code></td><td><code>13</code></td><td><code>0.83</code></td></tr>
+      <tr><td><code>Ethiopia Sakaro</code></td><td><code>ハイブリッド</code></td><td><code>23</code></td><td><code>12-13</code></td><td><code>0.89</code></td></tr>
+      <tr><td><code>Halo</code></td><td><code>低攪拌多投 + 後半低温</code></td><td><code>25</code></td><td><code>13-14</code></td><td><code>0.91</code></td></tr>
+      <tr><td><code>COYOTE Pacamara</code></td><td><code>高温開始 + 後半低温2投</code></td><td><code>27</code></td><td><code>14-15</code></td><td><code>0.88</code></td></tr>
+    </tbody>
+  </table>
+</div>
+<hr>
+</section>
+
+<section id="sec06">
+  <div class="section-label">SECTION 06</div>
+  <h2>1. <code>012 / Philocoffea</code></h2>
+<h3>狙い</h3>
+<ul>
+<li>ブレンドの中のエチオピア由来の華やかさを出しつつ、コロンビアとグアテマラの骨格を壊さない。</li>
+<li>派手にしすぎず、果実感だけを一段前に出す。</li>
+</ul>
+<h3>レシピ</h3>
+<ul>
+<li>豆量: <code>18g</code></li>
+<li>総湯量: <code>300g</code></li>
+<li>湯温: <code>92°C</code></li>
+<li>グラインド:</li>
+<li><code>C40 27クリック</code></li>
+<li><code>C3 14-15クリック</code></li>
+<li>ドリッパー: <code>V60 02</code></li>
+<li>目標抽出時間: <code>2:50-3:15</code></li>
+</ul>
+<h3>注湯</h3>
+<ol>
+<li><code>0:00</code> <code>60g</code> まで注湯して bloom</li>
+<li><code>0:40</code> <code>120g</code> まで注湯</li>
+<li><code>1:10</code> <code>180g</code> まで注湯</li>
+<li><code>1:40</code> <code>240g</code> まで注湯</li>
+<li><code>2:10</code> <code>300g</code> まで注湯</li>
+</ol>
+<h3>ポイント</h3>
+<ul>
+<li>bloom の最後に <code>軽いスワールを1回だけ</code> 入れる。</li>
+<li>2投目以降は中心寄りの小さな円で注ぐ。</li>
+<li>最後まで高い位置から注がない。乱流を抑える。</li>
+</ul>
+<h3>調整</h3>
+<ul>
+<li>薄い:</li>
+<li><code>C40 26</code></li>
+<li><code>C3 14</code></li>
+<li>重い:</li>
+<li><code>C40 28</code></li>
+<li><code>C3 15-16</code></li>
+<li>華やかさ不足: <code>93°C</code></li>
+</ul>
+<hr>
+</section>
+
+<section id="sec07">
+  <div class="section-label">SECTION 07</div>
+  <h2>2. <code>422 / Philocoffea</code></h2>
+<h3>狙い</h3>
+<ul>
+<li>ナッツ感よりも <code>シトラス</code> <code>プラム</code> <code>ブラックティー</code> を前に出す。</li>
+<li>冷めてからの甘さを残しつつ、立ち上がりを軽く明るくする。</li>
+</ul>
+<h3>レシピ</h3>
+<ul>
+<li>豆量: <code>18g</code></li>
+<li>総湯量: <code>300g</code></li>
+<li>湯温: <code>92°C</code></li>
+<li>グラインド:</li>
+<li><code>C40 29クリック</code></li>
+<li><code>C3 16-17クリック</code></li>
+<li>ドリッパー: <code>V60 02</code></li>
+<li>目標抽出時間: <code>3:10-3:40</code></li>
+</ul>
+<h3>4:6メソッド構成</h3>
+<ul>
+<li>前半 <code>120g</code> で酸と甘さを調整</li>
+<li>後半 <code>180g</code> で濃度と質感を調整</li>
+</ul>
+<h3>注湯</h3>
+<ol>
+<li><code>0:00</code> <code>50g</code></li>
+<li><code>0:45</code> <code>120g</code> まで</li>
+<li><code>1:25</code> <code>180g</code> まで</li>
+<li><code>1:55</code> <code>240g</code> まで</li>
+<li><code>2:25</code> <code>300g</code> まで</li>
+</ol>
+<h3>ポイント</h3>
+<ul>
+<li>最初を <code>50g</code> に抑えて、甘さより酸の輪郭を優先する。</li>
+<li>2投目はやや速めに入れて、シトラスの立ち上がりを作る。</li>
+<li>後半3投は湯面を大きく崩さない。</li>
+</ul>
+<h3>調整</h3>
+<ul>
+<li>酸が尖る:</li>
+<li><code>C40 30</code></li>
+<li><code>C3 17-18</code></li>
+<li>または <code>91°C</code></li>
+<li>甘さが足りない: 1投目を <code>60g</code></li>
+<li>紅茶感が鈍い: 2投目を少し速めに入れる</li>
+</ul>
+<hr>
+</section>
+
+<section id="sec08">
+  <div class="section-label">SECTION 08</div>
+  <h2>3. <code>414 / Philocoffea</code></h2>
+<h3>狙い</h3>
+<ul>
+<li>情報不足の豆なので、少量多投で味を観察しながら詰める。</li>
+<li>派手な香りの最大化より、<code>穏やかな酸</code> と <code>ナッツの余韻</code> の両立を優先する。</li>
+</ul>
+<h3>レシピ</h3>
+<ul>
+<li>豆量: <code>15g</code></li>
+<li>総湯量: <code>240g</code></li>
+<li>湯温: <code>91°C</code></li>
+<li>グラインド:</li>
+<li><code>C40 28クリック</code></li>
+<li><code>C3 15-16クリック</code></li>
+<li>ドリッパー: <code>V60 02</code></li>
+<li>目標抽出時間: <code>3:30-4:00</code></li>
+</ul>
+<h3>10投式</h3>
+<ol>
+<li><code>0:00</code> <code>30g</code> bloom</li>
+<li><code>0:30</code> <code>51g</code></li>
+<li><code>0:45</code> <code>72g</code></li>
+<li><code>1:00</code> <code>93g</code></li>
+<li><code>1:15</code> <code>114g</code></li>
+<li><code>1:30</code> <code>135g</code></li>
+<li><code>1:45</code> <code>156g</code></li>
+<li><code>2:00</code> <code>177g</code></li>
+<li><code>2:15</code> <code>198g</code></li>
+<li><code>2:30</code> <code>219g</code></li>
+<li><code>2:45</code> <code>240g</code></li>
+</ol>
+<h3>ポイント</h3>
+<ul>
+<li>bloom 後に <code>ごく軽いスワール1回</code>。</li>
+<li>以降は小さな注湯でベッドを落ち着かせる。</li>
+<li>この豆は大きく振るより、少しずつ観察したほうが安全です。</li>
+</ul>
+<h3>調整</h3>
+<ul>
+<li>ぼやける:</li>
+<li><code>C40 27</code></li>
+<li><code>C3 14-15</code></li>
+<li>ナッツだけ目立つ: <code>92°C</code></li>
+<li>酸が平坦: 各投の間隔を <code>2-3秒</code> 短くする</li>
+</ul>
+<hr>
+</section>
+
+<section id="sec09">
+  <div class="section-label">SECTION 09</div>
+  <h2>4. <code>427 / Philocoffea</code></h2>
+<h3>狙い</h3>
+<ul>
+<li>丸い質感を残しつつ、<code>アップル</code> <code>軽いシトラス</code> を埋もれさせない。</li>
+<li>飲みやすさを保ちながら、後味を軽く明るくする。</li>
+</ul>
+<h3>レシピ</h3>
+<ul>
+<li>豆量: <code>15g</code></li>
+<li>総湯量: <code>240g</code></li>
+<li>湯温: <code>91°C</code></li>
+<li>グラインド:</li>
+<li><code>C40 24クリック</code></li>
+<li><code>C3 13クリック</code></li>
+<li>器具: <code>Hario Switch</code></li>
+<li>目標抽出時間: <code>2:20-2:50</code></li>
+</ul>
+<h3>ハイブリッド注湯</h3>
+<ol>
+<li>Switch を <code>開</code> にする</li>
+<li><code>0:00</code> <code>45g</code> bloom</li>
+<li><code>0:30</code> <code>120g</code> まで注湯</li>
+<li><code>1:00</code> Switch を <code>閉</code> にする</li>
+<li><code>1:00-1:10</code> <code>240g</code> まで注湯</li>
+<li><code>1:45</code> Switch を <code>開</code> にする</li>
+</ol>
+<h3>ポイント</h3>
+<ul>
+<li>閉じた後は攪拌しすぎない。必要でも表面を <code>1回だけ</code> 整える程度。</li>
+<li>前半透過、後半短時間浸漬で、果実感と丸さを両立させる。</li>
+</ul>
+<h3>調整</h3>
+<ul>
+<li>果実感が弱い:</li>
+<li><code>C40 25</code></li>
+<li><code>C3 13-14</code></li>
+<li>開放を <code>1:35</code> に早める</li>
+<li>甘さ不足: 開放を <code>1:55</code> に遅らせる</li>
+<li>重い:</li>
+<li><code>C40 24-25</code></li>
+<li><code>C3 13-14</code></li>
+</ul>
+<hr>
+</section>
+
+<section id="sec10">
+  <div class="section-label">SECTION 10</div>
+  <h2>5. <code>Ethiopia Sakaro / Taoka Coffee</code></h2>
+<h3>狙い</h3>
+<ul>
+<li><code>フローラル</code> <code>ストロベリー</code> <code>オレンジ</code> をきれいに分離する。</li>
+<li>ナチュラル由来の発酵感は出しすぎず、甘さと香りを両立する。</li>
+</ul>
+<h3>レシピ</h3>
+<ul>
+<li>豆量: <code>15g</code></li>
+<li>総湯量: <code>250g</code></li>
+<li>湯温: <code>92°C</code></li>
+<li>グラインド:</li>
+<li><code>C40 23クリック</code></li>
+<li><code>C3 12-13クリック</code></li>
+<li>器具: <code>Hario Switch</code></li>
+<li>目標抽出時間: <code>2:30-3:00</code></li>
+</ul>
+<h3>ハイブリッド注湯</h3>
+<ol>
+<li>Switch を <code>開</code> にする</li>
+<li><code>0:00</code> <code>50g</code> bloom</li>
+<li><code>0:40</code> <code>130g</code> まで注湯</li>
+<li><code>1:05</code> Switch を <code>閉</code> にする</li>
+<li><code>1:05-1:15</code> <code>250g</code> まで注湯</li>
+<li><code>1:55</code> Switch を <code>開</code> にする</li>
+</ol>
+<h3>ポイント</h3>
+<ul>
+<li>bloom の最後に <code>ごく軽いスワール1回</code> は許容。</li>
+<li>後半の短い浸漬で、ブラウンシュガー的な甘さが乗りやすい。</li>
+<li>湯面を乱しすぎると花感より発酵感が前に出やすい。</li>
+</ul>
+<h3>調整</h3>
+<ul>
+<li>発酵感が強い: <code>91°C</code></li>
+<li>香りが閉じる:</li>
+<li><code>C40 22</code></li>
+<li><code>C3 12</code></li>
+<li>オレンジ感を強めたい: 2投目の流速を少し上げる</li>
+</ul>
+<hr>
+</section>
+
+<section id="sec11">
+  <div class="section-label">SECTION 11</div>
+  <h2>6. <code>Halo / aurora coffee roasters</code></h2>
+<h3>狙い</h3>
+<ul>
+<li><code>ライチ</code> <code>メロン</code> <code>紅茶</code> <code>フローラル</code> の解像度を最優先する。</li>
+<li>甘さの厚みより、液体の透明感と長い余韻を優先する。</li>
+</ul>
+<h3>レシピ</h3>
+<ul>
+<li>豆量: <code>15g</code></li>
+<li>総湯量: <code>250g</code></li>
+<li>前半湯温: <code>94°C</code></li>
+<li>最終投湯温: <code>88°C</code></li>
+<li>グラインド:</li>
+<li><code>C40 25クリック</code></li>
+<li><code>C3 13-14クリック</code></li>
+<li>ドリッパー: <code>V60 02</code></li>
+<li>目標抽出時間: <code>2:40-3:05</code></li>
+</ul>
+<h3>注湯</h3>
+<ol>
+<li><code>0:00</code> <code>45g</code> bloom</li>
+<li><code>0:45</code> <code>125g</code> まで注湯</li>
+<li><code>1:25</code> <code>185g</code> まで注湯</li>
+<li><code>2:00</code> <code>88°C</code> の湯で <code>250g</code> まで注湯</li>
+</ol>
+<h3>ポイント</h3>
+<ul>
+<li>bloom は基本スワールなし。必要でも最小限。</li>
+<li>最後の低温注湯は静かに落とす。拡散注湯の発想です。</li>
+<li>強い攪拌を入れると、ライチ感より重さが前に出やすい。</li>
+</ul>
+<h3>調整</h3>
+<ul>
+<li>薄い:</li>
+<li><code>C40 24</code></li>
+<li><code>C3 13</code></li>
+<li>甘さ不足: 3投目を <code>190-195g</code> まで増やす</li>
+<li>紅茶感が濁る: 外周まで大きく回さない</li>
+</ul>
+<hr>
+</section>
+
+<section id="sec12">
+  <div class="section-label">SECTION 12</div>
+  <h2>7. <code>COYOTE Pacamara / COYOTE</code></h2>
+<h3>狙い</h3>
+<ul>
+<li><code>パイナップル</code> <code>キウイ</code> <code>レモネード</code> を明るく出しながら、<code>ハチミツ</code> の滑らかさを残す。</li>
+<li>トロピカル感を強く出しつつ、発酵感の暴れは抑える。</li>
+</ul>
+<h3>レシピ</h3>
+<ul>
+<li>豆量: <code>16g</code></li>
+<li>総湯量: <code>240g</code></li>
+<li>前半湯温: <code>96°C</code></li>
+<li>後半湯温: <code>82°C</code></li>
+<li>グラインド:</li>
+<li><code>C40 27クリック</code></li>
+<li><code>C3 14-15クリック</code></li>
+<li>ドリッパー: <code>V60 02</code></li>
+<li>目標抽出時間: <code>2:30-2:55</code></li>
+</ul>
+<h3>注湯</h3>
+<ol>
+<li><code>0:00</code> <code>35g</code> bloom</li>
+<li><code>0:30</code> <code>135g</code> まで注湯</li>
+<li><code>1:10</code> <code>82°C</code> の湯で <code>240g</code> まで注湯</li>
+</ol>
+<h3>ポイント</h3>
+<ul>
+<li>前半高温でトロピカルな揮発感を引き出す。</li>
+<li>後半低温で角を落として、レモネード感を残す。</li>
+<li>2投目はやや速め、3投目は静かに入れる。</li>
+</ul>
+<h3>調整</h3>
+<ul>
+<li>酸が強い:</li>
+<li><code>C40 28</code></li>
+<li><code>C3 15-16</code></li>
+<li>甘さ不足:</li>
+<li><code>C40 26</code></li>
+<li><code>C3 14</code></li>
+<li>まとまりすぎる: 後半湯温を <code>84°C</code> に上げる</li>
+</ul>
+<hr>
+</section>
+
+<section id="sec13">
+  <div class="section-label">SECTION 13</div>
+  <h2>失敗したときの補正式</h2>
+<div class="table-wrap">
+  <table class="data-table">
+    <thead>
+      <tr><th>症状</th><th>優先修正</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>酸が刺さる</td><td><code>+1クリック</code> または <code>-1°C</code></td></tr>
+      <tr><td>薄い</td><td><code>-1クリック</code></td></tr>
+      <tr><td>香りはあるが甘さがない</td><td>2投目を少し増やす</td></tr>
+      <tr><td>発酵感が強い</td><td>攪拌を減らし <code>-1°C</code></td></tr>
+      <tr><td>紅茶感が濁る</td><td>小さな円で静かに注ぐ</td></tr>
+      <tr><td>後味が重い</td><td>後半低温化、または <code>+1クリック</code></td></tr>
+    </tbody>
+  </table>
+</div>
+</section>
+
+<section id="sec14">
+  <div class="section-label">SECTION 14</div>
+  <h2>器具が足りない場合の代替</h2>
+<div class="table-wrap">
+  <table class="data-table">
+    <thead>
+      <tr><th>条件</th><th>代替</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>Switchがない</code></td><td><code>427</code> と <code>Sakaro</code> は <code>V60 4投</code> に置き換える</td></tr>
+      <tr><td><code>温度を2段階で作れない</code></td><td>全体を <code>91-92°C</code> に統一する</td></tr>
+      <tr><td><code>C3しかない</code></td><td>まずは各レシピの <code>C3レンジ中央</code> から始める</td></tr>
+    </tbody>
+  </table>
+</div>
+</section>
+
+<section id="sec15">
+  <div class="section-label">SECTION 15</div>
+  <h2>結論</h2>
+<ul>
+<li><code>最も華やかな上振れ</code> を狙うなら <code>Halo</code> です。</li>
+<li><code>王道のエチオピアナチュラルの果実感</code> を出すなら <code>Sakaro</code> です。</li>
+<li><code>トロピカル感と整い方</code> の両立なら <code>COYOTE Pacamara</code> です。</li>
+<li><code>ブラジルで軽やかさを出したい</code> なら <code>422</code> の <code>4:6</code> が最も分かりやすいです。</li>
+<li><code>427</code> は派手さより完成度ですが、ハイブリッドで果実感を一段引き上げられます。</li>
+<li><code>414</code> は不確実性が高いので、<code>10投式</code> から始めて微調整するのが安全です。</li>
+</ul>
+</section>
+  </main>
+</body>
+</html>

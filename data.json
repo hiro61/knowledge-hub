@@ -652,6 +652,21 @@
       ],
       "readTime": 10,
       "file": "articles/obl_sprint_pivot_strategy_3.html"
+    },
+    {
+      "id": 61,
+      "title": "フローラル・フルーティを最大化する抽出レシピ集",
+      "genre": "ライフスタイル",
+      "date": "2026-06-11",
+      "summary": "7種類の豆それぞれについて、フローラル、フルーティ、透明感を引き出す抽出レシピを、4:6・ハイブリッド・多投の観点から整理した実践ガイドです。",
+      "tags": [
+        "コーヒー",
+        "ハンドドリップ",
+        "抽出レシピ",
+        "スペシャルティコーヒー"
+      ],
+      "readTime": 7,
+      "file": "articles/coffee_floral_fruity_brew_recipes.html"
     }
   ]
 }
