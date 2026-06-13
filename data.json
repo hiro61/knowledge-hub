@@ -667,6 +667,20 @@
       ],
       "readTime": 7,
       "file": "articles/coffee_floral_fruity_brew_recipes.html"
+    },
+    {
+      "id": 62,
+      "title": "半月板損傷後のリハビリテーション",
+      "genre": "理学療法",
+      "date": "2026-06-13",
+      "summary": "半月板の機能、損傷後の評価、縫合術と切除術の術後進行、具体的な運動療法と注意点を、臨床で整理しやすい形でまとめます。",
+      "tags": [
+        "半月板",
+        "膝関節",
+        "リハビリテーション"
+      ],
+      "readTime": 4,
+      "file": "articles/meniscus_rehabilitation.html"
     }
   ]
 }
