@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="自分を探すのではなく、行動を通じて自己像を設計するための実践整理。役割ラベル、イフゼンプラン、習慣の証拠を組み合わせ、意志の強さに頼らず行動を続ける方法をまとめる。">
+  <title>アイデンティティと行動設計</title>
+  <style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --hero-bg-from: #e8edf3;
+  --hero-bg-to:   #ffffff;
+  --accent:       #243b5a;
+  --accent-sub:   #4f6787;
+  --bg-sub:       #edf2f7;
+  --bg:      #ffffff;
+  --bg-card: #ffffff;
+  --text:    #111111;
+  --text-soft: #222222;
+  --rule:    #d0d7df;
+  --max-w: 740px;
+  --font-ja: "Hiragino Mincho ProN","Yu Mincho","游明朝","Noto Serif JP",Georgia,serif;
+  --font-go: "Hiragino Kaku Gothic ProN","Yu Gothic","游ゴシック","Noto Sans JP",sans-serif;
+  --radius: 12px;
+  --shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+html { font-size: 16px; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-ja);
+  line-height: 1.75;
+  -webkit-text-size-adjust: 100%;
+  padding: 0 0 100px;
+}
+main { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
+
+.hero {
+  text-align: center;
+  padding: 80px 24px 64px;
+  background: linear-gradient(135deg, var(--hero-bg-from) 0%, var(--hero-bg-to) 100%);
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: 64px;
+}
+.hero-tag {
+  display: inline-block;
+  font-family: var(--font-go);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent-sub);
+  background: var(--bg-sub);
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  padding: 4px 14px;
+  margin-bottom: 24px;
+}
+.hero h1 {
+  font-family: var(--font-go);
+  font-size: clamp(2rem, 6vw, 3rem);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  color: var(--text);
+  max-width: 18ch;
+  text-wrap: balance;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 16px;
+}
+.hero-desc {
+  font-family: var(--font-go);
+  font-size: 1rem;
+  color: var(--text);
+  line-height: 1.7;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.toc {
+  background: var(--bg-sub);
+  border-radius: var(--radius);
+  padding: 28px 32px;
+  margin-bottom: 48px;
+}
+.toc-title {
+  font-family: var(--font-go);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent-sub);
+  margin-bottom: 14px;
+}
+.toc ol { padding-left: 1.4em; margin: 0; }
+.toc li {
+  font-family: var(--font-go);
+  font-size: 0.9rem;
+  line-height: 1.7;
+  margin-bottom: 6px;
+  color: var(--text);
+}
+.toc a { color: var(--text); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s; }
+.toc a:hover { border-bottom-color: var(--accent); }
+
+section {
+  margin-bottom: 72px;
+  padding-left: 24px;
+  border-left: 3px solid var(--accent);
+}
+
+.section-label {
+  display: inline-block;
+  font-family: var(--font-go);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--accent-sub);
+  margin-bottom: 10px;
+}
+
+h2 {
+  font-family: var(--font-go);
+  font-size: clamp(1.4rem, 4vw, 1.9rem);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  margin-bottom: 16px;
+  color: var(--text);
+}
+
+.intro-text {
+  font-size: 0.97rem;
+  color: var(--text);
+  line-height: 1.8;
+  margin-bottom: 28px;
+  font-style: italic;
+}
+
+h3 {
+  font-family: var(--font-go);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  margin-bottom: 10px;
+  margin-top: 28px;
+  color: var(--text);
+}
+
+p { font-size: 0.97rem; line-height: 1.8; margin-bottom: 14px; color: var(--text); }
+ul, ol { padding-left: 1.5em; margin-bottom: 16px; }
+li { font-size: 0.95rem; line-height: 1.8; margin-bottom: 6px; color: var(--text); }
+li::marker { color: var(--accent-sub); }
+strong, b { font-weight: 700; }
+
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 0.92em;
+}
+
+hr { border: none; border-top: 1px solid var(--rule); margin: 56px 0; }
+
+.card {
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--rule);
+  padding: 28px 32px;
+  margin: 16px 0;
+}
+.card h3 { margin-top: 0; margin-bottom: 12px; font-size: 1rem; }
+.card p { margin-bottom: 8px; }
+.card p:last-child { margin-bottom: 0; }
+
+.card-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin: 20px 0;
+}
+
+.mini-label {
+  display: inline-block;
+  font-family: var(--font-go);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent-sub);
+  margin-bottom: 8px;
+}
+
+.table-wrap { overflow-x: auto; margin: 24px 0; border-radius: var(--radius); box-shadow: var(--shadow); }
+.data-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; background: var(--bg-card); }
+.data-table thead tr { background: var(--text); color: #ffffff; }
+.data-table th {
+  font-family: var(--font-go);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 14px 18px;
+  text-align: left;
+}
+.data-table td { padding: 12px 18px; border-bottom: 1px solid var(--rule); line-height: 1.6; color: var(--text); }
+.data-table tbody tr:last-child td { border-bottom: none; }
+.data-table tbody tr:hover { background: var(--bg-sub); }
+
+.timeline { position: relative; padding-left: 28px; margin: 24px 0; }
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 6px; bottom: 6px;
+  width: 2px;
+  background: var(--rule);
+}
+.tl-item { position: relative; margin-bottom: 28px; }
+.tl-marker {
+  position: absolute;
+  left: -34px; top: 6px;
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid var(--bg);
+  box-shadow: 0 0 0 2px var(--rule);
+}
+.tl-content {
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  border: 1px solid var(--rule);
+  padding: 20px 24px;
+  box-shadow: var(--shadow);
+}
+.tl-phase {
+  display: inline-block;
+  font-family: var(--font-go);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent-sub);
+  background: var(--bg-sub);
+  border-radius: 999px;
+  padding: 2px 10px;
+  margin-bottom: 8px;
+}
+.tl-content h4 { font-family: var(--font-go); font-size: 0.95rem; font-weight: 700; margin-bottom: 8px; color: var(--text); }
+.tl-content p { font-size: 0.88rem; color: var(--text); margin-bottom: 0; line-height: 1.7; }
+
+.highlight-box {
+  background: var(--bg-sub);
+  border-radius: var(--radius);
+  border: 1px solid var(--rule);
+  border-left: 4px solid var(--accent-sub);
+  padding: 20px 24px;
+  margin: 24px 0;
+}
+.highlight-box p { font-size: 0.93rem; margin-bottom: 6px; }
+.highlight-box p:last-child { margin-bottom: 0; }
+
+.quote-block {
+  background: var(--bg-sub);
+  border-radius: var(--radius);
+  border: none;
+  padding: 28px 32px;
+  margin: 24px 0;
+  position: relative;
+}
+.quote-block::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 4px; height: 100%;
+  background: var(--accent);
+  border-radius: 2px 0 0 2px;
+}
+.quote-block p { font-size: 0.97rem; line-height: 1.85; color: var(--text); margin-bottom: 16px; font-style: italic; }
+.quote-block footer { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.quote-name {
+  font-family: var(--font-go);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text);
+  background: var(--rule);
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+.quote-org { font-family: var(--font-go); font-size: 0.78rem; color: var(--text); }
+
+.work-card {
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  border: 1px solid var(--rule);
+  box-shadow: var(--shadow);
+  padding: 24px 28px;
+  margin: 20px 0;
+}
+.work-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-go);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent-sub);
+  margin-bottom: 16px;
+}
+.work-title svg { flex-shrink: 0; }
+.work-card ul { margin: 0; padding-left: 1.4em; }
+.work-card li { font-size: 0.93rem; line-height: 1.75; margin-bottom: 8px; }
+.work-card li:last-child { margin-bottom: 0; }
+
+.key-box {
+  background: var(--text);
+  color: #ffffff;
+  border-radius: var(--radius);
+  padding: 28px 32px;
+  margin: 32px 0;
+}
+.key-box .kbox-label {
+  font-family: var(--font-go);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #aaaaaa;
+  margin-bottom: 12px;
+  display: block;
+}
+.key-box p { color: #e8e8e8; font-size: 0.95rem; line-height: 1.85; margin-bottom: 8px; }
+.key-box p:last-child { margin-bottom: 0; }
+
+@media print {
+  body { padding: 0; font-size: 10pt; }
+  main { max-width: 100%; padding: 0; }
+  .hero { padding: 40px 0; }
+  h1 { font-size: 22pt; } h2 { font-size: 14pt; } h3 { font-size: 11pt; }
+  p, li { font-size: 10pt; line-height: 1.7; }
+  section, .card, .timeline, .key-box, .work-card { page-break-inside: avoid; }
+  @page { size: A4 portrait; margin: 20mm 18mm 22mm; }
+}
+
+@media screen and (max-width: 640px) {
+  .hero { padding: 56px 20px 44px; }
+  main { padding: 0 16px; }
+  section { padding-left: 16px; }
+  h2 { font-size: 1.35rem; }
+  .card-grid { grid-template-columns: 1fr; }
+  .toc { padding: 20px 20px; }
+  .card { padding: 20px 20px; }
+  .key-box { padding: 20px 20px; }
+  .quote-block { padding: 20px 20px; }
+}
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <span class="hero-tag">PSYCHOLOGY</span>
+    <h1>アイデンティティと行動設計</h1>
+    <p class="hero-desc">自分を探すのではなく、行動を通じて自己像を設計するための実践整理。役割ラベル、イフゼンプラン、習慣の証拠を組み合わせ、意志の強さに頼らず行動を続ける方法をまとめる。</p>
+  </header>
+
+  <main>
+    <nav class="toc">
+      <div class="toc-title">目次</div>
+      <ol>
+      <li><a href="#core">自分を探すより、自分を作る</a></li>
+      <li><a href="#labels">役割ラベルで行動を起動する</a></li>
+      <li><a href="#if-then">イフゼンプランで意志の弱点を補う</a></li>
+      <li><a href="#habit-loop">習慣の証拠が自己像を強くする</a></li>
+      <li><a href="#cautions">自己否定にならない設計にする</a></li>
+      <li><a href="#templates">実践テンプレート</a></li>
+      </ol>
+    </nav>
+    <hr>
+
+<section id="core">
+  <div class="section-label">SECTION 01</div>
+  <h2>自分を探すより、自分を作る</h2>
+<p class="intro-text">アイデンティティ設計の出発点は、自分の本質を掘り出すことではなく、望む行動が自然に起動する自己像を作ることにある。</p>
+<div class="key-box">
+  <span class="kbox-label">結論</span>
+<p>目標が続く人は、意志が強い人ではない。その行動を自分らしいと意味づけられる人である。</p>
+<p>自己像は固定された性格ではなく、状況に応じて作動する解釈の仕組みである。だから、行動のラベルを変えれば、行動の意味も変えられる。</p>
+</div>
+<h3>アイデンティティは解釈のOS</h3>
+<p>同じ困難でも、「向いていない証拠」と見るか、「大事だから難しい」と見るかで、次の行動は変わる。アイデンティティは出来事そのものではなく、出来事の解釈を決めるソフトウェアとして働く。</p>
+<p>そのため、自分をコントロールするには、今どの自己像が作動しているかを観察し、必要な自己像を選んで育てる必要がある。</p>
+<div class="highlight-box">
+<p>「私はこういう人間だ」と決めるだけでは不十分である。決めた自己像を代弁する小さな行動を繰り返すことで、自分らしさは後から形成される。</p>
+</div>
+</section>
+
+<section id="labels">
+  <div class="section-label">SECTION 02</div>
+  <h2>役割ラベルで行動を起動する</h2>
+<p class="intro-text">抽象的な理想像ではなく、具体的な行動を含む役割ラベルに変換すると、行動開始のきっかけが明確になる。</p>
+<div class="card-grid">
+<div class="card">
+<span class="mini-label">BAD</span>
+<h3>抽象的なラベル</h3>
+<p>頭がいい人、ストイックな人、意志が強い人。行動の開始条件が曖昧で、失敗時に自己否定へつながりやすい。</p>
+</div>
+<div class="card">
+<span class="mini-label">GOOD</span>
+<h3>行動を含むラベル</h3>
+<p>朝に5分だけ机に向かう人、スマホを見る前にスクワットをする人、面倒だと思ったら5秒だけ手をつける人。</p>
+</div>
+</div>
+<h3>設計のポイント</h3>
+<ul>
+<li>ラベルは性格ではなく、再現できる行動で作る。</li>
+<li>難しい行動は「向いていない」ではなく「重要だから難しい」と翻訳する。</li>
+<li>役割アイデンティティは行動開始を助けるが、継続には別の仕組みが必要になる。</li>
+<li>仲間アイデンティティを重ねると、行動の維持がしやすくなる。</li>
+</ul>
+<div class="work-card">
+  <div class="work-title"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+  <rect x="2" y="2" width="12" height="12" rx="2"></rect>
+  <path d="M5 8l2 2 4-4"></path>
+</svg>WORK 01</div>
+<ul>
+<li>最近、難しいと感じて途中で止まったことを1つ書く。</li>
+<li>それを「向いていないサイン」ではなく「自分にとって大事だから難しい」と言い換える。</li>
+<li>続けたい行動を「私は、具体的な行動をする人だ」という形に翻訳する。</li>
+</ul>
+</div>
+</section>
+
+<section id="if-then">
+  <div class="section-label">SECTION 03</div>
+  <h2>イフゼンプランで意志の弱点を補う</h2>
+<p class="intro-text">アイデンティティを決めても、実行に移せない日はある。そこで必要になるのが、合図と最小行動をあらかじめ結びつけるイフゼンプランである。</p>
+<h3>決めたことと動けたことの間には溝がある</h3>
+<p>自己像を決めることは行動開始を助ける。しかし、それだけで行動が自動化されるわけではない。実行できなかった日の代替行動、障害が起きたときの挽回行動まで決めておく必要がある。</p>
+<p>イフゼンプランは「もし状況や合図が起きたら、最小行動をする」という形で作る。意思ではなく、合図で行動を起動するための設計である。</p>
+<div class="table-wrap">
+  <table class="data-table">
+    <thead>
+      <tr><th>場面</th><th>設計例</th><th>狙い</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>朝スマホに手を伸ばした</td><td>私は朝から体を動かす人だと声に出し、ジャンピングスクワットを1回する</td><td>朝の安定した環境に代表行動を置く</td></tr>
+      <tr><td>面倒だと感じた</td><td>これは大事だから難しいと声に出し、5秒だけ手をつける</td><td>困難を重要性のサインへ翻訳する</td></tr>
+      <tr><td>予定通りできなかった</td><td>私は取り戻す人だと考え、最小の代替行動だけ行う</td><td>失敗を自己否定に変えず、再開率を上げる</td></tr>
+    </tbody>
+  </table>
+</div>
+<div class="work-card">
+  <div class="work-title"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+  <rect x="2" y="2" width="12" height="12" rx="2"></rect>
+  <path d="M5 8l2 2 4-4"></path>
+</svg>WORK 02</div>
+<ul>
+<li>続けたい行動を1つ選ぶ。</li>
+<li>いつ、どこで、どの最小行動をするかを決める。</li>
+<li>できなかった日の代替行動を1つ決める。</li>
+<li>障害が起きたときの挽回行動を1つ決める。</li>
+</ul>
+</div>
+</section>
+
+<section id="habit-loop">
+  <div class="section-label">SECTION 04</div>
+  <h2>習慣の証拠が自己像を強くする</h2>
+<p class="intro-text">アイデンティティは習慣を支え、習慣はアイデンティティを強化する。信じるべきなのは抽象的な自信ではなく、積み上げた行動の証拠である。</p>
+<div class="timeline">
+<div class="tl-item">
+  <div class="tl-marker"></div>
+  <div class="tl-content">
+    <span class="tl-phase">短期</span>
+    <h4>2週間で作動する自己像を仮設定する</h4>
+<p>行動を1つに絞り、役割ラベル、未来の自己、できなかった日の解釈を書き出す。まずは試作品として扱う。</p>
+  </div>
+</div>
+<div class="tl-item">
+  <div class="tl-marker"></div>
+  <div class="tl-content">
+    <span class="tl-phase">中期</span>
+    <h4>6〜10週間で行動とプランを調整する</h4>
+<p>継続しながら、イフゼンプランと代替行動を現実に合わせて修正する。必要なら仲間ラベルも取り入れる。</p>
+  </div>
+</div>
+<div class="tl-item">
+  <div class="tl-marker"></div>
+  <div class="tl-content">
+    <span class="tl-phase">長期</span>
+    <h4>3ヶ月以上で自己像を再設計する</h4>
+<p>季節、体調、仕事の変化に合わせてラベルを更新する。硬すぎる自己定義に固執しない。</p>
+  </div>
+</div>
+</div>
+<div class="highlight-box">
+<p>習慣の定着にはおおむね2ヶ月程度を見込み、完全な定着にはさらに長い期間がかかる場合がある。完璧さより、行動した回数を記録する方が自己像を強化しやすい。</p>
+</div>
+<h3>自分を信じるより、行動の証拠を信じる</h3>
+<p>ストイックな人間だからストイックな行動ができるのではない。ストイックな行動を続けた結果、脳が自分をそういう人間だと認識する。</p>
+<p>外交的になりたいなら、毎日1回知らない人に挨拶をする。未来の自己像は、年収や肩書きよりも、半年後の朝に何をしているかのような具体的な場面で作る。</p>
+</section>
+
+<section id="cautions">
+  <div class="section-label">SECTION 05</div>
+  <h2>自己否定にならない設計にする</h2>
+<p class="intro-text">アイデンティティ設計は、自分を追い込むための道具ではない。硬すぎるラベルや否定的なラベルは、挫折時に再開を難しくする。</p>
+<div class="card-grid">
+<div class="card">
+<span class="mini-label">避ける</span>
+<h3>硬すぎるラベル</h3>
+<p>絶対に5時に起きる、1日でも休んだらだめな人間、できなかったら終わり。こうしたラベルは、現実の変化に弱い。</p>
+</div>
+<div class="card">
+<span class="mini-label">採用する</span>
+<h3>戻れるラベル</h3>
+<p>私は取り戻す人だ、今日は最小行動だけ行う、できなかった日は再開の練習にする。挽回を含めて自己像に組み込む。</p>
+</div>
+</div>
+<h3>注意点</h3>
+<ul>
+<li>ストレスレベルが高い時期は、行動量を小さくする。</li>
+<li>クロノタイプに合わない時間帯へ無理に固定しない。</li>
+<li>否定的なラベルやスティグマにつながる自己定義は避ける。</li>
+<li>体調、仕事、季節の変化に合わせてラベルを更新する。</li>
+<li>失敗した日も、代替行動や挽回行動でアイデンティティを守る。</li>
+</ul>
+</section>
+
+<section id="templates">
+  <div class="section-label">SECTION 06</div>
+  <h2>実践テンプレート</h2>
+<p class="intro-text">最後に、自己像を行動へ落とし込むための型を置いておく。使うべきなのは、かっこいい言葉ではなく、明日の朝に動ける言葉である。</p>
+<div class="table-wrap">
+  <table class="data-table">
+    <thead>
+      <tr><th>型</th><th>テンプレート</th><th>例</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>行動ラベル型</td><td>私は、具体的な行動をする人だ。</td><td>私は、朝スマホを見る前にジャンピングスクワットをする人だ。</td></tr>
+      <tr><td>難しい日の解釈</td><td>これは大事だから難しい。だから、手をつけるだけやってみる。</td><td>資料作成が重いのは重要だから。まず1行だけ書く。</td></tr>
+      <tr><td>失敗した日の挽回</td><td>私は取り戻す人だ。今日は最小の代替行動だけ行う。</td><td>今日は5分だけ歩く。明日から通常プランに戻す。</td></tr>
+      <tr><td>イフゼンプラン</td><td>もし状況や合図が起きたら、最小行動をする。</td><td>もし朝スマホに手を伸ばしたら、スクワットを1回する。</td></tr>
+    </tbody>
+  </table>
+</div>
+<div class="key-box">
+  <span class="kbox-label">実行の核</span>
+<p>アイデンティティは、宣言ではなく証拠で強くなる。</p>
+<p>証拠は、完璧な行動ではなく、戻ってくる行動の積み重ねで作られる。</p>
+</div>
+</section>
+  </main>
+</body>
+</html>

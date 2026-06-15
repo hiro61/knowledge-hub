@@ -681,6 +681,20 @@
       ],
       "readTime": 4,
       "file": "articles/meniscus_rehabilitation.html"
+    },
+    {
+      "id": 63,
+      "title": "アイデンティティと行動設計",
+      "genre": "ライフスタイル",
+      "date": "2026-06-15",
+      "summary": "自分を探すのではなく、行動を通じて自己像を設計するための実践整理。役割ラベル、イフゼンプラン、習慣の証拠を組み合わせ、意志の強さに頼らず行動を続ける方法をまとめる。",
+      "tags": [
+        "心理学",
+        "習慣",
+        "行動設計"
+      ],
+      "readTime": 4,
+      "file": "articles/identity_design_action_design.html"
     }
   ]
 }
