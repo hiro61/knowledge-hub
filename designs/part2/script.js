@@ -11,6 +11,7 @@ const GENRE_COLORS = {
   "理学療法":       { bg: "rgba(143, 188, 201, 0.16)", border: "rgba(143, 188, 201, 0.36)", text: "#d7e8ee", dot: "#8fbcc9", glow: "rgba(143, 188, 201, 0.16)" },
   "副業・ビジネス": { bg: "rgba(234, 215, 162, 0.16)", border: "rgba(234, 215, 162, 0.36)", text: "#ecdfb6", dot: "#ead7a2", glow: "rgba(234, 215, 162, 0.16)" },
   "ライフスタイル": { bg: "rgba(233, 178, 154, 0.16)", border: "rgba(233, 178, 154, 0.36)", text: "#ecc7b3", dot: "#e9b29a", glow: "rgba(233, 178, 154, 0.16)" },
+  "coffee":         { bg: "rgba(184, 144, 106, 0.16)", border: "rgba(184, 144, 106, 0.36)", text: "#dfc4a9", dot: "#b8906a", glow: "rgba(184, 144, 106, 0.16)" },
   "人間関係":       { bg: "rgba(217, 167, 182, 0.16)", border: "rgba(217, 167, 182, 0.36)", text: "#ebc4cf", dot: "#d9a7b6", glow: "rgba(217, 167, 182, 0.16)" },
 };
 
@@ -20,10 +21,11 @@ const GENRE_ICONS = {
   "理学療法": `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v16M4 12h16"/><rect x="6" y="6" width="12" height="12" rx="2"/></svg>`,
   "副業・ビジネス": `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8h18v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8Z"/><path d="M8 8V6a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>`,
   "ライフスタイル": `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 20c6 0 12-5 12-14-6 0-12 5-12 14Z"/><path d="M8.5 15.5c2-1.7 4-3 7-4.5"/></svg>`,
+  "coffee": `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h11v6a5 5 0 0 1-5 5h-1a5 5 0 0 1-5-5V8Z"/><path d="M16 10h1.5a2.5 2.5 0 0 1 0 5H16"/><path d="M8 5c0-1 1-1 1-2M12 5c0-1 1-1 1-2"/></svg>`,
   "人間関係": `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="8" r="3"/><circle cx="16" cy="10" r="3"/><path d="M3.5 19c.9-2.3 3-3.5 5.5-3.5S13.6 16.7 14.5 19"/><path d="M10.5 19c.7-1.9 2.4-3 4.5-3 2 0 3.7 1.1 4.5 3"/></svg>`,
 };
 
-const GENRE_ORDER = ["ライフスタイル", "健康", "理学療法", "副業・ビジネス", "人間関係", "AI・技術"];
+const GENRE_ORDER = ["ライフスタイル", "coffee", "健康", "理学療法", "副業・ビジネス", "人間関係", "AI・技術"];
 const PINNED_GENRES = ["理学療法"];
 
 let allArticles = [];
