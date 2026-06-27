@@ -695,6 +695,36 @@
       ],
       "readTime": 4,
       "file": "articles/identity_design_action_design.html"
+    },
+    {
+      "id": 64,
+      "title": "情熱と転職の落とし穴",
+      "genre": "ライフスタイル",
+      "date": "2026-06-27",
+      "summary": "情熱を燃え尽きへ変えず、小さな成果と回復の仕組みを積み重ねながら、今の仕事を自分に合う天職へ育てるための実践ガイド。",
+      "tags": [
+        "情熱",
+        "転職",
+        "天職",
+        "燃え尽き",
+        "キャリア"
+      ],
+      "readTime": 6,
+      "file": "articles/passion-career-pitfalls.html"
+    },
+    {
+      "id": 65,
+      "title": "仕事の工夫と10%",
+      "genre": "ライフスタイル",
+      "date": "2026-06-27",
+      "summary": "目の前の仕事を10%ずつ作り替え、成果、手応え、信頼を育てながら、残るか辞めるかを構造的に判断するための実践ガイド。",
+      "tags": [
+        "仕事術",
+        "ジョブクラフティング",
+        "キャリア"
+      ],
+      "readTime": 4,
+      "file": "articles/work_ingenuity_10_percent.html"
     }
   ]
 }

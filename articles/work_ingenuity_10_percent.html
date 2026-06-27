@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="天職を外に探し続けるのではなく、目の前の仕事を10%ずつ作り替える。その小さな実験から成果、手応え、信頼を育て、残るか辞めるかまで構造的に判断するための実践ガイドです。">
+  <title>仕事の工夫と10%</title>
+  <style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --hero-bg-from: #edf3f8;
+  --hero-bg-to:   #ffffff;
+  --accent:       #183b66;
+  --accent-sub:   #4a6f9d;
+  --bg-sub:       #eaf1f7;
+  --bg:      #ffffff;
+  --bg-card: #ffffff;
+  --text:    #111111;
+  --text-soft: #222222;
+  --rule:    #d0d7df;
+  --max-w: 740px;
+  --font-ja: "Hiragino Mincho ProN","Yu Mincho","游明朝","Noto Serif JP",Georgia,serif;
+  --font-go: "Hiragino Kaku Gothic ProN","Yu Gothic","游ゴシック","Noto Sans JP",sans-serif;
+  --radius: 12px;
+  --shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+html { font-size: 16px; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-ja);
+  line-height: 1.75;
+  -webkit-text-size-adjust: 100%;
+  padding: 0 0 100px;
+}
+main { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
+
+.hero {
+  text-align: center;
+  padding: 80px 24px 64px;
+  background: linear-gradient(135deg, var(--hero-bg-from) 0%, var(--hero-bg-to) 100%);
+  border-bottom: 1px solid var(--rule);
+  margin-bottom: 64px;
+}
+.hero-tag {
+  display: inline-block;
+  font-family: var(--font-go);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent-sub);
+  background: var(--bg-sub);
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  padding: 4px 14px;
+  margin-bottom: 24px;
+}
+.hero h1 {
+  font-family: var(--font-go);
+  font-size: clamp(2rem, 6vw, 3rem);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  color: var(--text);
+  max-width: 18ch;
+  text-wrap: balance;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 16px;
+}
+.hero-desc {
+  font-family: var(--font-go);
+  font-size: 1rem;
+  color: var(--text);
+  line-height: 1.7;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.toc {
+  background: var(--bg-sub);
+  border-radius: var(--radius);
+  padding: 28px 32px;
+  margin-bottom: 48px;
+}
+.toc-title {
+  font-family: var(--font-go);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent-sub);
+  margin-bottom: 14px;
+}
+.toc ol { padding-left: 1.4em; margin: 0; }
+.toc li {
+  font-family: var(--font-go);
+  font-size: 0.9rem;
+  line-height: 1.7;
+  margin-bottom: 6px;
+  color: var(--text);
+}
+.toc a { color: var(--text); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s; }
+.toc a:hover { border-bottom-color: var(--accent); }
+
+section {
+  margin-bottom: 72px;
+  padding-left: 24px;
+  border-left: 3px solid var(--accent);
+}
+
+.section-label {
+  display: inline-block;
+  font-family: var(--font-go);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--accent-sub);
+  margin-bottom: 10px;
+}
+
+h2 {
+  font-family: var(--font-go);
+  font-size: clamp(1.4rem, 4vw, 1.9rem);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+  margin-bottom: 16px;
+  color: var(--text);
+}
+
+.intro-text {
+  font-size: 0.97rem;
+  color: var(--text);
+  line-height: 1.8;
+  margin-bottom: 28px;
+  font-style: italic;
+}
+
+h3 {
+  font-family: var(--font-go);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  margin-bottom: 10px;
+  margin-top: 28px;
+  color: var(--text);
+}
+
+p { font-size: 0.97rem; line-height: 1.8; margin-bottom: 14px; color: var(--text); }
+ul, ol { padding-left: 1.5em; margin-bottom: 16px; }
+li { font-size: 0.95rem; line-height: 1.8; margin-bottom: 6px; color: var(--text); }
+li::marker { color: var(--accent-sub); }
+strong, b { font-weight: 700; }
+
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 0.92em;
+}
+
+hr { border: none; border-top: 1px solid var(--rule); margin: 56px 0; }
+
+.card {
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border: 1px solid var(--rule);
+  padding: 28px 32px;
+  margin: 16px 0;
+}
+.card h3 { margin-top: 0; margin-bottom: 12px; font-size: 1rem; }
+.card p { margin-bottom: 8px; }
+.card p:last-child { margin-bottom: 0; }
+
+.card-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin: 20px 0;
+}
+
+.mini-label {
+  display: inline-block;
+  font-family: var(--font-go);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent-sub);
+  margin-bottom: 8px;
+}
+
+.table-wrap { overflow-x: auto; margin: 24px 0; border-radius: var(--radius); box-shadow: var(--shadow); }
+.data-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; background: var(--bg-card); }
+.data-table thead tr { background: var(--text); color: #ffffff; }
+.data-table th {
+  font-family: var(--font-go);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 14px 18px;
+  text-align: left;
+}
+.data-table td { padding: 12px 18px; border-bottom: 1px solid var(--rule); line-height: 1.6; color: var(--text); }
+.data-table tbody tr:last-child td { border-bottom: none; }
+.data-table tbody tr:hover { background: var(--bg-sub); }
+
+.timeline { position: relative; padding-left: 28px; margin: 24px 0; }
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 6px; bottom: 6px;
+  width: 2px;
+  background: var(--rule);
+}
+.tl-item { position: relative; margin-bottom: 28px; }
+.tl-marker {
+  position: absolute;
+  left: -34px; top: 6px;
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid var(--bg);
+  box-shadow: 0 0 0 2px var(--rule);
+}
+.tl-content {
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  border: 1px solid var(--rule);
+  padding: 20px 24px;
+  box-shadow: var(--shadow);
+}
+.tl-phase {
+  display: inline-block;
+  font-family: var(--font-go);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent-sub);
+  background: var(--bg-sub);
+  border-radius: 999px;
+  padding: 2px 10px;
+  margin-bottom: 8px;
+}
+.tl-content h4 { font-family: var(--font-go); font-size: 0.95rem; font-weight: 700; margin-bottom: 8px; color: var(--text); }
+.tl-content p { font-size: 0.88rem; color: var(--text); margin-bottom: 0; line-height: 1.7; }
+
+.highlight-box {
+  background: var(--bg-sub);
+  border-radius: var(--radius);
+  border: 1px solid var(--rule);
+  border-left: 4px solid var(--accent-sub);
+  padding: 20px 24px;
+  margin: 24px 0;
+}
+.highlight-box p { font-size: 0.93rem; margin-bottom: 6px; }
+.highlight-box p:last-child { margin-bottom: 0; }
+
+.quote-block {
+  background: var(--bg-sub);
+  border-radius: var(--radius);
+  border: none;
+  padding: 28px 32px;
+  margin: 24px 0;
+  position: relative;
+}
+.quote-block::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 4px; height: 100%;
+  background: var(--accent);
+  border-radius: 2px 0 0 2px;
+}
+.quote-block p { font-size: 0.97rem; line-height: 1.85; color: var(--text); margin-bottom: 16px; font-style: italic; }
+.quote-block footer { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.quote-name {
+  font-family: var(--font-go);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text);
+  background: var(--rule);
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+.quote-org { font-family: var(--font-go); font-size: 0.78rem; color: var(--text); }
+
+.work-card {
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  border: 1px solid var(--rule);
+  box-shadow: var(--shadow);
+  padding: 24px 28px;
+  margin: 20px 0;
+}
+.work-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-go);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent-sub);
+  margin-bottom: 16px;
+}
+.work-title svg { flex-shrink: 0; }
+.work-card ul { margin: 0; padding-left: 1.4em; }
+.work-card li { font-size: 0.93rem; line-height: 1.75; margin-bottom: 8px; }
+.work-card li:last-child { margin-bottom: 0; }
+
+.key-box {
+  background: var(--text);
+  color: #ffffff;
+  border-radius: var(--radius);
+  padding: 28px 32px;
+  margin: 32px 0;
+}
+.key-box .kbox-label {
+  font-family: var(--font-go);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: #aaaaaa;
+  margin-bottom: 12px;
+  display: block;
+}
+.key-box p { color: #e8e8e8; font-size: 0.95rem; line-height: 1.85; margin-bottom: 8px; }
+.key-box p:last-child { margin-bottom: 0; }
+
+@media print {
+  body { padding: 0; font-size: 10pt; }
+  main { max-width: 100%; padding: 0; }
+  .hero { padding: 40px 0; }
+  h1 { font-size: 22pt; } h2 { font-size: 14pt; } h3 { font-size: 11pt; }
+  p, li { font-size: 10pt; line-height: 1.7; }
+  section, .card, .timeline, .key-box, .work-card { page-break-inside: avoid; }
+  @page { size: A4 portrait; margin: 20mm 18mm 22mm; }
+}
+
+@media screen and (max-width: 640px) {
+  .hero { padding: 56px 20px 44px; }
+  main { padding: 0 16px; }
+  section { padding-left: 16px; }
+  h2 { font-size: 1.35rem; }
+  .card-grid { grid-template-columns: 1fr; }
+  .toc { padding: 20px 20px; }
+  .card { padding: 20px 20px; }
+  .key-box { padding: 20px 20px; }
+  .quote-block { padding: 20px 20px; }
+}
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <span class="hero-tag">WORK DESIGN</span>
+    <h1>仕事の工夫と10%</h1>
+    <p class="hero-desc">天職を外に探し続けるのではなく、目の前の仕事を10%ずつ作り替える。その小さな実験から成果、手応え、信頼を育て、残るか辞めるかまで構造的に判断するための実践ガイドです。</p>
+  </header>
+
+  <main>
+    <nav class="toc">
+      <div class="toc-title">目次</div>
+      <ol>
+      <li><a href="#sec1">天職は探すより育てる</a></li>
+      <li><a href="#sec2">仕事を10%作り替える</a></li>
+      <li><a href="#sec3">タスク・人間関係・意味を変える</a></li>
+      <li><a href="#sec4">成果ログが使命感を育てる</a></li>
+      <li><a href="#sec5">自分らしさは信頼から生まれる</a></li>
+      <li><a href="#sec6">辞める判断は感情より構造</a></li>
+      <li><a href="#sec7">現在地に合わせて小さく試す</a></li>
+      </ol>
+    </nav>
+    <hr>
+
+<section id="sec1">
+  <div class="section-label">SECTION 01</div>
+  <h2>天職は探すより育てる</h2>
+<p class="intro-text">好きなことが見つかっても、日々の仕事が何も変わらなければ状況は動きません。大切なのは、理想の仕事との偶然の出会いを待つことではなく、今ある仕事に自分なりの工夫を実装することです。</p>
+<p>ここでいう「信じる」とは、気持ちだけで期待することではありません。自分が価値を感じるものを、小さな行動に変えて形にすることです。成果が積み重なると仕事への信頼が生まれ、使命感や天職感は後から育っていきます。</p>
+<div class="card-grid">
+<div class="card">
+<span class="mini-label">WAIT</span>
+<h3>理想を探し続ける</h3>
+<p>環境が変われば自分も変われると考え、今の仕事では工夫を止めてしまう。転職のたびに経験が分断される危険があります。</p>
+</div>
+<div class="card">
+<span class="mini-label">BUILD</span>
+<h3>目の前から育てる</h3>
+<p>小さな改善を試し、成果と失敗を材料に役割を更新する。仕事と自分の相性を自ら高めていく考え方です。</p>
+</div>
+</div>
+<div class="key-box">
+  <span class="kbox-label">基本原則</span>
+<p>使命感があるから行動できるのではなく、行動して手応えを得るから使命感が育ちます。</p>
+</div>
+</section>
+
+<section id="sec2">
+  <div class="section-label">SECTION 02</div>
+  <h2>仕事を10%作り替える</h2>
+<p class="intro-text">大きな改革は、失敗したときの損失も周囲との摩擦も大きくなります。そこで使えるのが、担当業務の一部だけを変える「10%のジョブクラフティング」です。</p>
+<div class="highlight-box">
+<p>仕事量を10%増やすのではありません。仕事の進め方、関わる相手、捉え方のどれかを10%変え、同じ負荷でも成果や納得感が高まる形を探します。</p>
+</div>
+<div class="timeline">
+<div class="tl-item">
+  <div class="tl-marker"></div>
+  <div class="tl-content">
+    <span class="tl-phase">STEP 1</span>
+    <h4>違和感を一つ選ぶ</h4>
+<p>時間がかかる、価値が見えない、得意を使えないなど、改善したい一点を特定します。</p>
+  </div>
+</div>
+<div class="tl-item">
+  <div class="tl-marker"></div>
+  <div class="tl-content">
+    <span class="tl-phase">STEP 2</span>
+    <h4>小さく作り替える</h4>
+<p>2週間から1か月で試せる範囲に絞り、周囲と必要な合意を取って実行します。</p>
+  </div>
+</div>
+<div class="tl-item">
+  <div class="tl-marker"></div>
+  <div class="tl-content">
+    <span class="tl-phase">STEP 3</span>
+    <h4>成果と負荷を記録する</h4>
+<p>速さ、品質、反応、疲労感を記録し、続けるか戻すかを判断します。</p>
+  </div>
+</div>
+<div class="tl-item">
+  <div class="tl-marker"></div>
+  <div class="tl-content">
+    <span class="tl-phase">STEP 4</span>
+    <h4>次の10%を決める</h4>
+<p>効果があれば広げ、なければ別の仮説を試します。失敗も将来の判断材料になります。</p>
+  </div>
+</div>
+</div>
+</section>
+
+<section id="sec3">
+  <div class="section-label">SECTION 03</div>
+  <h2>タスク・人間関係・意味を変える</h2>
+<p class="intro-text">仕事との相性は、業務内容だけで決まりません。何をするか、誰とするか、何のためにするかという三つの接点を調整すると、同じ職場でも働き方は変えられます。</p>
+<div class="table-wrap">
+  <table class="data-table">
+    <thead>
+      <tr><th>領域</th><th>作り替えの焦点</th><th>小さな実験例</th><th>注意点</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>タスク</td><td>方法・順序・担当範囲</td><td>議事録にAIと図解を使い、要点が伝わる形にする</td><td>業務を増やさず、既存作業を置き換える</td></tr>
+      <tr><td>人間関係</td><td>相談相手・協働の組み方</td><td>得意が補完し合う同僚との案件を少し増やす</td><td>苦手な相手を一方的に排除しない</td></tr>
+      <tr><td>意味付け</td><td>仕事が生む価値の捉え方</td><td>単純作業を観察力や説明力の訓練として捉える</td><td>現実の問題を美化して我慢しない</td></tr>
+    </tbody>
+  </table>
+</div>
+<h3>効果を過信しない</h3>
+<p>ジョブクラフティングの効果は、裁量、業務負荷、周囲の支援、本人の出発点によって変わります。特に、すでに多くの工夫を重ねている人では追加効果が小さい可能性があります。万能な処方箋ではなく、検証可能な仮説として扱うのが妥当です。</p>
+</section>
+
+<section id="sec4">
+  <div class="section-label">SECTION 04</div>
+  <h2>成果ログが使命感を育てる</h2>
+<p class="intro-text">小さな改善は、記録しなければ日常に埋もれます。成果ログは、自分が誰にどんな価値を出せたのかを見える形にし、得意な領域へ時間を寄せるための観察装置です。</p>
+<p>記録するのは大きな実績だけではありません。「説明が伝わった」「作業時間が短くなった」「しっくりきた」といった微小な手応えも対象です。繰り返し現れるパターンから、自分の強みと価値提供の輪郭が見えてきます。</p>
+<div class="work-card">
+  <div class="work-title"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+  <rect x="2" y="2" width="12" height="12" rx="2"></rect>
+  <path d="M5 8l2 2 4-4"></path>
+</svg>週1回の成果ログ</div>
+<ul>
+<li>今週、うまくいったことは何か</li>
+<li>誰に、どのような価値を渡せたか</li>
+<li>そのとき使った得意な行動やスキルは何か</li>
+<li>成果に対して負荷は適切だったか</li>
+<li>来週、同じ要素を10%増やすなら何を変えるか</li>
+</ul>
+</div>
+<div class="key-box">
+  <span class="kbox-label">境界線</span>
+<p>使命感が強くなるほど、自己犠牲を正当化しやすくなります。回復時間と中止条件を先に決め、成果と消耗を同時に記録してください。</p>
+</div>
+</section>
+
+<section id="sec5">
+  <div class="section-label">SECTION 05</div>
+  <h2>自分らしさは信頼から生まれる</h2>
+<p class="intro-text">自分らしさは、心の中だけで完成するものではありません。自分の価値観と行動が一致し、その一貫性を周囲が信頼できるとき、仕事上の役割として定着します。</p>
+<div class="card-grid">
+<div class="card">
+<span class="mini-label">SELF</span>
+<h3>自分との言行一致</h3>
+<p>口にした小さな約束を守り、自分が大切だと述べた価値を日々の判断に反映します。</p>
+</div>
+<div class="card">
+<span class="mini-label">TEAM</span>
+<h3>周囲との相互支援</h3>
+<p>自分の得意を相手の支援に使い、相手の強みも借りることで、らしさを独善ではなく貢献に変えます。</p>
+</div>
+<div class="card">
+<span class="mini-label">ORG</span>
+<h3>組織の言行一致</h3>
+<p>掲げる理念と実際の評価、配置、意思決定が一致しているかを観察し、信頼できる構造かを見極めます。</p>
+</div>
+</div>
+<div class="work-card">
+  <div class="work-title"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+  <rect x="2" y="2" width="12" height="12" rx="2"></rect>
+  <path d="M5 8l2 2 4-4"></path>
+</svg>信頼の点検</div>
+<ul>
+<li>会社や上司が掲げる価値観と、実際の行動が一致した例を書く</li>
+<li>言葉と運用が食い違った例を書く</li>
+<li>自分自身が守れていない小さな約束を一つ選ぶ</li>
+<li>来週、言行一致を示す具体的な行動を一つ決める</li>
+</ul>
+</div>
+</section>
+
+<section id="sec6">
+  <div class="section-label">SECTION 06</div>
+  <h2>辞める判断は感情より構造</h2>
+<p class="intro-text">仕事が嫌だという感情は重要な警告ですが、それだけで大きな決断をすると判断が揺れます。残るか辞めるかは、改善可能な問題と、改善を阻む構造を分けて考えます。</p>
+<div class="table-wrap">
+  <table class="data-table">
+    <thead>
+      <tr><th>判断軸</th><th>改善余地がある状態</th><th>構造的な問題の兆候</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>自律性</td><td>方法や順序を部分的に選べる</td><td>小さな実験さえ継続的に禁止される</td></tr>
+      <tr><td>有能感</td><td>学習機会や具体的なフィードバックがある</td><td>成長機会がなく、成果も正当に扱われない</td></tr>
+      <tr><td>関係性</td><td>相談先や協力者を作れる</td><td>孤立、威圧、支援の欠如が慢性化している</td></tr>
+      <tr><td>フィット</td><td>担当や役割を調整できる</td><td>価値観や技能の不一致を変える余地がない</td></tr>
+    </tbody>
+  </table>
+</div>
+<div class="timeline">
+<div class="tl-item">
+  <div class="tl-marker"></div>
+  <div class="tl-content">
+    <span class="tl-phase">OBSERVE</span>
+    <h4>感情と事実を分ける</h4>
+<p>疲労や不満を否定せず、何が起きたか、どの状態が慢性化しているかを書き分けます。</p>
+  </div>
+</div>
+<div class="tl-item">
+  <div class="tl-marker"></div>
+  <div class="tl-content">
+    <span class="tl-phase">EXPERIMENT</span>
+    <h4>改善実験を行う</h4>
+<p>安全が確保できる場合に限り、2週間から1か月の小さな改善を試します。</p>
+  </div>
+</div>
+<div class="tl-item">
+  <div class="tl-marker"></div>
+  <div class="tl-content">
+    <span class="tl-phase">DECIDE</span>
+    <h4>構造で判断する</h4>
+<p>改善が一貫して拒まれ、学習、裁量、支援を得られないなら、環境を変える合理性が高まります。</p>
+  </div>
+</div>
+</div>
+<div class="highlight-box">
+<p>心身の安全が脅かされている場合は、改善実験を優先する必要はありません。休む、専門窓口へ相談する、距離を取るといった安全確保が先です。</p>
+</div>
+</section>
+
+<section id="sec7">
+  <div class="section-label">SECTION 07</div>
+  <h2>現在地に合わせて小さく試す</h2>
+<p class="intro-text">同じ方法でも、未着手の人、多忙な人、すでに工夫している人では効果が異なります。他人の成功例をそのまま真似せず、自分の現在地に合う変化を選びます。</p>
+<div class="card-grid">
+<div class="card">
+<span class="mini-label">START</span>
+<h3>まだ試していない</h3>
+<p>メール確認の時間を変えるなど、仕事のやり方を一つだけ変えます。最初は効果より、試して観察する経験を作ることが目的です。</p>
+</div>
+<div class="card">
+<span class="mini-label">LESS</span>
+<h3>忙しすぎる</h3>
+<p>新しい施策を足さず、会議、選択肢、確認回数などを減らす「引き算のクラフティング」を試します。</p>
+</div>
+<div class="card">
+<span class="mini-label">WIDEN</span>
+<h3>すでに実践している</h3>
+<p>負荷を上げず、人間関係や意味付け、生活全体へ横に広げます。マンネリと過剰最適化を避けます。</p>
+</div>
+</div>
+<div class="work-card">
+  <div class="work-title"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+  <rect x="2" y="2" width="12" height="12" rx="2"></rect>
+  <path d="M5 8l2 2 4-4"></path>
+</svg>次の2週間で行う10%実験</div>
+<ul>
+<li>変えたい対象を一つだけ決める</li>
+<li>増やすのか、減らすのか、置き換えるのかを選ぶ</li>
+<li>成果の指標と、負荷の指標を一つずつ決める</li>
+<li>周囲の合意が必要なら、実験の範囲と期間を共有する</li>
+<li>継続、修正、中止を判断する日を予定に入れる</li>
+</ul>
+</div>
+<div class="key-box">
+  <span class="kbox-label">結論</span>
+<p>正解を一度で当てる必要はありません。小さく作り替え、成果と負荷を観察し、自分に合う世界線を選び直し続けることが、仕事を育てる実践です。</p>
+</div>
+</section>
+  </main>
+</body>
+</html>
