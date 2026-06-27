@@ -725,6 +725,21 @@
       ],
       "readTime": 4,
       "file": "articles/work_ingenuity_10_percent.html"
+    },
+    {
+      "id": 66,
+      "title": "勉強法3.0_オンライン学習の最大化",
+      "genre": "ライフスタイル",
+      "date": "2026-06-27",
+      "summary": "動画学習を想起・実験・記録・再想起のサイクルへ変え、知識を行動と習慣に定着させる実践ガイド。",
+      "tags": [
+        "オンライン学習",
+        "勉強法",
+        "習慣化",
+        "AI活用"
+      ],
+      "readTime": 5,
+      "file": "articles/study_method_3_online_learning.html"
     }
   ]
 }
